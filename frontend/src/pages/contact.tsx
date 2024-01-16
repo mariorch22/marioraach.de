@@ -8,7 +8,7 @@ const Contact = () => {
     return (
         <>
             <AnimatedPage>
-                <div className='min-h-screen min-w-full bg-blue-200 px-40 pt-20 grid grid-cols-[3fr_1fr]'>
+                <div className='min-h-screen min-w-full bg-black px-40 pt-20 grid grid-cols-[3fr_1fr]'>
                     <div>
                         <ContactFormSection />
                     </div>

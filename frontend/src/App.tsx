@@ -3,10 +3,9 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
 import Navbar from './components/navbar';
 import { AnimatePresence } from 'framer-motion';
-import AnimatedPage from './animations/pageTransition';
-
 import Home from './pages/home';
 import Work from './pages/work';
+import Blog from './pages/blog';
 import Contact from './pages/contact';
 import About from './pages/about';
 
@@ -26,6 +25,7 @@ function App() {
           <Routes >
             <Route path="/" element={<Home/>} />
             <Route path="/work" element={<Work />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

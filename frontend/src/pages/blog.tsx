@@ -1,14 +1,13 @@
 import React from 'react';
 import AnimatedPage from '../animations/pageTransition';
-import { motion } from "framer-motion";
 
-const About = () => {
+const Blog = () => {
 
     return (
         <>
              <AnimatedPage>
-                <div className='bg-red-900 min-h-screen'>
-                    Homeboyf
+                <div className='bg-red-900 min-h-screen pt-20'>
+                    Bloggy
                 </div>
             </AnimatedPage>
 
@@ -16,4 +15,4 @@ const About = () => {
     )
 }
 
-export default React.memo(About)
+export default React.memo(Blog)

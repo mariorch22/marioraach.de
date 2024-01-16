@@ -1,0 +1,47 @@
+import { Input } from "../../shadn/components/ui/input"
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../../shadn/components/ui/form"
+import { Textarea } from "../../shadn/components/ui/textarea"
+import React from "react"
+
+interface CustomFormFieldProps {
+  control: any;
+  name: string;
+  label: string;
+  placeholder: string;
+  inputType?: string;
+  isTextarea?: boolean;
+  [key: string]: any;
+}
+
+const CustomFormField: React.FC<CustomFormFieldProps> = ({ control, name, label, placeholder, inputType = "text", isTextarea = false, ...rest }) => (
+    <FormField
+      control={control}
+      name={name}
+      render={({ field }) => (
+        <FormItem className="py-6">
+          <FormLabel className="text-white text-2xl">{label}</FormLabel>
+          <FormControl>
+            {isTextarea ? (
+                  <Textarea 
+                  className="min-h-40 bg-transparent text-red-500 border-b rounded-none border-gray-300 focus:border-blue-500 focus:outline-none focus:ring-0 transition duration-300"
+                  placeholder={placeholder}
+                  {...field}
+                  {...rest}
+                  />
+              ) : (
+                  <Input 
+                  className="bg-transparent text-white border-b rounded-none border-gray-300 focus:border-blue-500 focus:outline-none focus:ring-0 transition duration-300"
+                  type={inputType} 
+                  placeholder={placeholder} 
+                  {...field} 
+                  {...rest} 
+                  />
+              )}
+          </FormControl>
+          <FormMessage />
+        </FormItem>
+      )}
+    />
+  );
+  
+export default React.memo(CustomFormField)
