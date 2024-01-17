@@ -19,18 +19,18 @@ const CustomFormField: React.FC<CustomFormFieldProps> = ({ control, name, label,
       name={name}
       render={({ field }) => (
         <FormItem className="py-6">
-          <FormLabel className="text-white text-2xl">{label}</FormLabel>
+          <FormLabel className="text-gray-300 text-3xl">{label}</FormLabel>
           <FormControl>
             {isTextarea ? (
                   <Textarea 
-                  className="min-h-40 bg-transparent text-red-500 border-b rounded-none border-gray-300 focus:border-blue-500 focus:outline-none focus:ring-0 transition duration-300"
+                  className="min-h-40 text-2xl bg-transparent text-gray-200 border-b rounded-none border-transparent focus:border-white focus:outline-none focus:ring-0 transition duration-300"
                   placeholder={placeholder}
                   {...field}
                   {...rest}
                   />
               ) : (
                   <Input 
-                  className="bg-transparent text-white border-b rounded-none border-gray-300 focus:border-blue-500 focus:outline-none focus:ring-0 transition duration-300"
+                  className="bg-transparent text-2xl text-gray-200 border-b rounded-none border-transparent focus:border-white focus:outline-none focus:ring-0 transition duration-300 py-8"
                   type={inputType} 
                   placeholder={placeholder} 
                   {...field} 

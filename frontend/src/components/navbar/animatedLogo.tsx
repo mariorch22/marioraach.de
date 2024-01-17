@@ -43,7 +43,7 @@ const AnimatedLogo = () => {
               <motion.img
                   src="/logo_r.png"
                   alt="Folgendes Bild"
-                  className="invert"
+                  className="invert z-40"
                   style={{ position: 'absolute', width: imageSize.width, height: imageSize.height }}
                   animate={{ x: mousePosition.x, y: mousePosition.y }}
               />

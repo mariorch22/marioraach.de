@@ -27,7 +27,7 @@ const ContactForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 md:space-y-8 pb-4">
         {formFields.map((field) => (
           <CustomFormField
             key={field.name}
@@ -39,7 +39,7 @@ const ContactForm = () => {
             isTextarea={field.isTextarea}
           />
         ))}
-        <Button type="submit">Abschicken</Button>
+        <Button className="w-full bg-white text-black md:w-auto" type="submit">Abschicken</Button>
       </form>
     </Form>
   )

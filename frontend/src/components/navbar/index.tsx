@@ -81,7 +81,7 @@ const Navbar = () => {
           <div className="block lg:hidden">
             {hamburger ? (
               <PopUp>
-                <motion.div className='bg-red-300 rounded-full p-3'>
+                <motion.div className='rounded-full p-3'>
                   <MdClose onClick={handleToggleHamburger} className="cursor-pointer h-10 w-10" color="white" />
                 </motion.div>
               </PopUp>
@@ -102,7 +102,7 @@ const Navbar = () => {
             animate={{ opacity: 1, x: 0, borderTopLeftRadius: "0%", borderBottomLeftRadius: "0%" }}
             exit={{ opacity: 0, x: "-100vw", borderTopLeftRadius: "100%", borderBottomLeftRadius: "100%" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="w-full min-h-full z-30 flex flex-col left-0 fixed bg-blue-900 justify-between"
+            className="w-full min-h-full z-30 flex flex-col left-0 fixed bg-black justify-between"
             style={{ opacity: closedButNotOnLoad ? 0 : 0 }}
           >
             <Sidebar toggle={hamburger} setToggle={handleToggleHamburger} />
@@ -114,7 +114,7 @@ const Navbar = () => {
             initial={{ opacity: 1, x: 0, borderTopLeftRadius: "0%", borderBottomLeftRadius: "0%" }} 
             animate={{ opacity: 0, x: "100vw", borderTopLeftRadius: "100%", borderBottomLeftRadius: "100%" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
-            className="w-full min-h-full z-30 flex flex-col left-0 fixed bg-blue-900 justify-between"
+            className="w-full min-h-full z-30 flex flex-col left-0 fixed bg-black justify-between"
             style={{ opacity: closedButNotOnLoad ? 0 : 0 }}
           >
           </motion.div>

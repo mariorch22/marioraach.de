@@ -1,20 +1,29 @@
-import * as z from "zod"
+import * as z from "zod";
 
 export const FormSchemaContactForm = z.object({
-    username: z.string().min(2, {
-      message: "Username must be at least 2 characters.",
-    }),
-    email: z.string().email({
-      message: "Invalid email address.",
-    }),
-    company: z.string().min(2, {
-      message: "Company name must be at least 2 characters.",
-    }),
-    requirements: z.string().min(2, {
-      message: "Requirements must be at least 2 characters.",
-    }),
-    message: z.string().min(2, {
-      message: "Message must be at least 2 characters.",
-    }),
-  });
-  
+    username: z.string()
+        .min(2, {
+            message: "Bitte geben Sie einen Namen mit mindestens 2 Buchstaben ein.",
+        })
+        .max(20, {
+            message: "Der Name darf maximal 20 Zeichen lang sein.",
+        }),
+    email: z.string()
+        .email({
+            message: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+        })
+        .max(20, {
+            message: "Die E-Mail-Adresse darf maximal 20 Zeichen lang sein.",
+        }),
+    company: z.string()
+        .optional(),
+    requirements: z.string()
+        .optional(),
+    message: z.string()
+        .min(2, {
+            message: "Bitte geben Sie eine Nachricht mit mindestens 2 Buchstaben ein.",
+        })
+        .max(400, {
+            message: "Die Nachricht darf maximal 400 Zeichen lang sein.",
+        }),
+});

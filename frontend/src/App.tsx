@@ -20,7 +20,6 @@ function App() {
   return (
     <Router>
       <Navbar />
-
         <AnimatePresence mode="wait">
           <Routes >
             <Route path="/" element={<Home/>} />
