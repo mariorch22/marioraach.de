@@ -1,6 +1,8 @@
 import React from 'react';
 import AnimatedPage from '../animations/pageTransition';
-import { motion } from "framer-motion";
+import About_Section1 from "../components/about/section1"
+import About_Section2 from "../components/about/section2"
+import About_Section3 from "../components/about/section3"
 import CountUp from '../animations/countUp';
 
 const About = () => {
@@ -8,9 +10,9 @@ const About = () => {
     return (
         <>
              <AnimatedPage>
-                <div className='bg-red-900 min-h-screen'>
-                    <span className='text-white text-8xl font-bold'><CountUp start={0} end={22} duration={3} /></span>
-                </div>
+                <About_Section1 />
+                <About_Section2 />
+                <About_Section3 />
             </AnimatedPage>
 
         </>

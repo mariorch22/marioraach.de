@@ -67,6 +67,7 @@ const Navbar = () => {
         >
 
         <AnimatedLogo />
+        
           <div className="flex-row hidden lg:flex">
             {navbarData.map((data, index) => (
               <span className='flex justify-center items-center flex-col pt-4' key={index}>
