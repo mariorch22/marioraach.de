@@ -6,6 +6,7 @@ import { MdKeyboardDoubleArrowDown } from "react-icons/md";
 import { smoothScrollTo } from '../animations/smoothScrollTo';
 import SlideUpWhenVisible from '../animations/slideUpWhenVisible';
 import Typewriter from '../animations/typewriter';
+import AnimatedSvgButton from '../components/contact/animatedSvgButton';
 
 const Contact = () => {
     const scrollToRef = useRef<HTMLDivElement>(null); // Erstellen der Referenz
@@ -24,7 +25,8 @@ const Contact = () => {
                         <Typewriter speed={100}>Getting a quality website is not an expenses but rather an investment.</Typewriter>
                     </p>
                     <span className='absolute w-full bottom-5 flex justify-center'>
-                        <MdKeyboardDoubleArrowDown onClick={scrollToNextViewport} className="cursor-pointer" />
+                        
+                        <span onClick={scrollToNextViewport} className="cursor-pointer"><AnimatedSvgButton /></span>
                     </span>
                 </div>
 
@@ -33,6 +35,7 @@ const Contact = () => {
                     <div>
                         <ContactFormSection />
                     </div>
+
                     <div className='hidden md:block'>
                         <div className='w-full flex flex-col justify-center items-center mt-20'>
                             <img src="/bild_im_hemd1.png" alt="Bild im Hemd" className='rounded-full w-[30rem] mr-20' />
