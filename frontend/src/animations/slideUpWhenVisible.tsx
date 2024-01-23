@@ -7,13 +7,14 @@ interface PopUpProps {
   duration?: number; // Optional, default value can be set
   delay?: number; // Optional, default value can be set
   ease?: string;
+  y?: number;
 }
 
-function SlideUpWhenVisible({children, duration = 0.6, delay = 0.4, ease="easeInOut",}: PopUpProps) {
+function SlideUpWhenVisible({children, duration = 0.6, delay = 0.4, ease="easeInOut", y=100}: PopUpProps) {
 
   const variants = useMemo(() => ({
     visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: 100 }
+    hidden: { opacity: 0, y: y }
   }), []);
   
     return (

@@ -7,6 +7,7 @@ import React from "react"
 import { FormSchemaContactForm } from "./formSchemaContactForm"
 import { formFields } from "../../../data/contactForm"
 import CustomFormField from "../../shared/customFormField"
+import { motion } from "framer-motion"
 
 const ContactForm = () => {
   const form = useForm<z.infer<typeof FormSchemaContactForm>>({
@@ -39,7 +40,10 @@ const ContactForm = () => {
             isTextarea={field.isTextarea}
           />
         ))}
-        <Button className="w-full bg-white text-black md:w-auto" type="submit">Abschicken</Button>
+        <div className="flex justify-end">
+          <motion.span whileTap={{ scale: 0.95 }}><Button className="w-full bg-white hover:bg-gray-300 text-black md:w-auto right-0 mx-6" type="submit">Abschicken</Button></motion.span>
+        </div>
+        
       </form>
     </Form>
   )
