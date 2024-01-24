@@ -7,6 +7,7 @@ import { smoothScrollTo } from '../animations/smoothScrollTo';
 import SlideUpWhenVisible from '../animations/slideUpWhenVisible';
 import Typewriter from '../animations/typewriter';
 import AnimatedSvgButton from '../components/contact/animatedSvgButton';
+import Navbar from '../components/navbar';
 
 const Contact = () => {
     const scrollToRef = useRef<HTMLDivElement>(null); // Erstellen der Referenz
@@ -20,6 +21,8 @@ const Contact = () => {
     return (
         <>
             <AnimatedPage>
+                <Navbar />
+                
                 <div className='text-gray-700 md:px-0 text-6xl md:text-9xl pb-20 flex items-center h-screen bg-black min-h-[50rem]'>
                     <p className='px-2 md:px-40 min-h-[30rem]'>
                         <Typewriter speed={100}>Getting a quality website is not an expenses but rather an investment.</Typewriter>

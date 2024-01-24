@@ -7,7 +7,7 @@ const Section3 = () => {
     return (
         <>
             <div className='min-h-screen bg-black' >
-
+                Lass zusammenarbeiten
             </div>
         </>
     )

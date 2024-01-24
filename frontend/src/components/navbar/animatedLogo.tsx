@@ -9,7 +9,7 @@ const AnimatedLogo = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const imageSize = { width: 50, height: 50 }; // Setzen Sie hier die Größe Ihres Bildes
-  const originPosition = { x: 39, y: 7 }; // Setzen Sie hier die Ursprungsposition des Bildes
+  const originPosition = { x: 15, y: 15 }; // Setzen Sie hier die Ursprungsposition des Bildes
 
   useEffect(() => {
     if (containerRef.current) {
@@ -37,7 +37,7 @@ const AnimatedLogo = () => {
   };
 
     return(
-      <div ref={containerRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="w-32 h-16" style={{ position: 'relative' }}>
+      <div ref={containerRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="w-20 h-20" style={{ position: 'relative' }}>
           <PopUp>
             <Link to={"/"}>
               <motion.img

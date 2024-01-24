@@ -23,7 +23,7 @@ const CustomFormField: React.FC<CustomFormFieldProps> = ({ control, name, label,
           <FormControl>
             {isTextarea ? (
                   <Textarea 
-                  className="min-h-40 text-2xl bg-transparent text-gray-200 border-b rounded-none border-transparent focus:border-white focus:outline-none focus:ring-0 transition duration-300"
+                  className="min-h-40 max-h-96 text-2xl bg-transparent text-gray-200 border-b rounded-none border-transparent focus:border-white focus:outline-none focus:ring-0 transition duration-300"
                   placeholder={placeholder}
                   {...field}
                   {...rest}

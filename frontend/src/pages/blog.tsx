@@ -2,12 +2,16 @@ import React from 'react';
 import AnimatedPage from '../animations/pageTransition';
 import SlideUpWhenVisible from '../animations/slideUpWhenVisible';
 import Typewriter from '../animations/typewriter';
+import Navbar from '../components/navbar';
 
 const Blog = () => {
 
     return (
         <>
              <AnimatedPage>
+                
+                <Navbar />
+
                 <div className='bg-black min-h-screen pt-20 px-4 md:px-0'>
                     <div className='w-full flex justify-center items-center flex-col gap-2 pt-20'>
                         <div>

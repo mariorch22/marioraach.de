@@ -1,13 +1,13 @@
 import React, { Suspense, lazy } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes  } from 'react-router-dom';
-import Navbar from './components/navbar';
 import { AnimatePresence } from 'framer-motion';
 import Home from './pages/home';
 import Work from './pages/work';
 import Blog from './pages/blog';
 import Contact from './pages/contact';
 import About from './pages/about';
+import { useQuery, useMutation, useQueryClient, QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 {/*
 const Home = lazy(() => import('./pages/home'));
@@ -16,10 +16,12 @@ const About = lazy(() => import('./pages/about'));
 const Contact = lazy(() => import('./pages/contact'));
 */}
 
+const queryClient = new QueryClient()
+
 function App() {
   return (
-    <Router>
-      <Navbar />
+    <QueryClientProvider client={queryClient}>
+      <Router>
         <AnimatePresence mode="wait">
           <Routes >
             <Route path="/" element={<Home/>} />
@@ -29,9 +31,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </AnimatePresence>
-
-    </Router>
-
+      </Router>
+    </QueryClientProvider>
   );
 }
 
