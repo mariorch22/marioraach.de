@@ -6,8 +6,8 @@ const About_Section1 = () => {
 
     return (
         <>
-            <div className='min-w-screen grid grid-cols-1 md:grid-cols-2 bg-gray-200' >
-                <p className='md:min-h-screen px-10 md:px-40 text-gray-500 text-3xl md:text-7xl bg-black rounded-br-3xl rounded-bl-3xl md:rounded-bl-none grid grid-rows-[3fr_3fr_3fr] md:mr-2 md:mb-2 order-last md:order-first h-64'>
+            <div className='min-w-screen grid md:grid-cols-2 bg-gray-200' >
+                <p className='md:min-h-screen px-10 md:px-40 text-gray-500 text-3xl md:text-7xl bg-black rounded-br-3xl rounded-bl-3xl md:rounded-bl-none grid grid-rows-[3fr_3fr_3fr] md:mr-2 md:mb-2 order-last md:order-first h-72 pt-4'>
                     <span className='hidden md:block'></span>
                     <Typewriter speed={80}>"Your brand is what people say about you when you're not in the room."</Typewriter>
                     <p className='text-xl w-full text-end'><SlideUpWhenVisible delay={6.6} y={20}>Jeff Bezos</SlideUpWhenVisible></p>

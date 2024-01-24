@@ -6,7 +6,7 @@ const About_Section2 = () => {
 
     return (
         <>
-            <div className='min-h-screen min-w-screen grid md:grid-cols-2 bg-gray-200' >
+            <div className='min-h-svh min-w-screen grid md:grid-cols-2 bg-gray-200' >
                 <Arbeitserfahrung />
                 <Bildung />
             </div>

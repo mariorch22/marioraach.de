@@ -1,13 +1,11 @@
 import React, { Suspense, lazy } from 'react';
-import LazyImage from '../about/lazyImage';
-import { motion } from 'framer-motion';
 import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 
 const Section1 = () => {
 
     return (
         <>
-            <div className='min-h-screen min-w-screen' >
+            <div className='min-h-svh min-w-screen' >
                 <img src="high-min_small.jpg" alt='Me as a person' className='h-screen w-screen object-left md:object-center object-cover absolute z-20  '  /> 
 
                 <div className='w-full h-full items-end absolute z-20 right-20 grid grid-cols-[2fr_2fr_3fr] py-32'>
