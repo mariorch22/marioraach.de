@@ -1,7 +1,6 @@
 
 export interface VolunteerExperience {
     id: string;
-    imageUrl: string;
     title: string;
     duration: string;
     responsibilities: string[];
@@ -10,7 +9,6 @@ export interface VolunteerExperience {
 export const about_ehrenamtData: VolunteerExperience[] = [
     {
         id: "1", // Unique identifier
-        imageUrl: "/about/fussball.jpg",
         title: "Jugendtrainer beim TV Melchingen",
         duration: "2021-heute",
         responsibilities: [
@@ -20,7 +18,6 @@ export const about_ehrenamtData: VolunteerExperience[] = [
     },
     {
         id: "2", // Unique identifier
-        imageUrl: "/about/pfadis.jpg",
         title: "Leiter einer jugendlichen Pfadfindergruppe bei der DPSG Salmendingen",
         duration: "2017-2018",
         responsibilities: [

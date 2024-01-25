@@ -11,7 +11,7 @@ export interface ErfahrungsabschnittProps {
 
 export const bildungDaten = [
     {
-        bild: { src: "/about/bsz.jpg", width: 96, height: 96, alt: "BSZ Logo" },
+        bild: { src: "/about/bildung/bsz.jpg", width: 96, height: 96, alt: "BSZ Logo" },
         titel: "Berufliches Schulzentrum Hechingen",
         kinder: [
             <li className='py-1 flex' key={1}><span className='px-2'>▷</span><p><p className='text-gray-300'>Studienschwerpunkte:</p> Betriebswirtschaftslehre, Steuerung und Kontrolle, Volkswirtschaftslehre</p></li>,
@@ -21,7 +21,7 @@ export const bildungDaten = [
         ]
     },
     {
-        bild: { src: "/about/gymgam.jpg", width: 96, height: 96, alt: "Gymnasium Gammertingen Logo" },
+        bild: { src: "/about/bildung/gymgam.jpg", width: 96, height: 96, alt: "Gymnasium Gammertingen Logo" },
         titel: "Gymnasium Gammertingen",
         kinder: [
             <li className='py-1 flex' key={1}><span className='px-2'>▷</span><p><p className='text-gray-300'>Abiturabschluss</p> im Jahr 2020 mit der Note 3,1</p></li>,
