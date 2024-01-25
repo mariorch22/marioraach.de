@@ -37,13 +37,13 @@ const AnimatedLogo = () => {
   };
 
     return(
-      <div ref={containerRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="w-20 h-20" style={{ position: 'relative' }}>
+      <div ref={containerRef} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="w-20 h-20 relative mix-blend-difference">
           <PopUp>
             <Link to={"/"}>
               <motion.img
                   src="/logo_r.png"
                   alt="Folgendes Bild"
-                  className="invert z-40"
+                  className="invert z-40 mix-blend-difference"
                   style={{ position: 'absolute', width: imageSize.width, height: imageSize.height }}
                   animate={{ x: mousePosition.x, y: mousePosition.y }}
               />
