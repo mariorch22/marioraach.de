@@ -5,10 +5,7 @@ const ContactFormSection = () => {
 
     return (
         <>
-            <div className='md:pl-40 md:pr-10 md:pt-10'>
-                <ContactForm />
-            </div>
-
+            <ContactForm />
         </>
     )
 }

@@ -1,32 +1,38 @@
 import Technik from './technik';
-import React, { Suspense, lazy } from 'react';
-import LazyImage from './lazyImage';
-import { ThreeDots } from 'react-loader-spinner';
-import SlideInFromSide from '../../animations/slideInFromSide';
+import React from 'react';
+import LogoSliderReactIcons from '../shared/logoSliderReactIcons';
+import { FaHtml5, FaCss3, FaDocker, FaReact, FaAws  } from "react-icons/fa";
+import { IoLogoJavascript } from "react-icons/io5";
+import { BiLogoTypescript } from "react-icons/bi";
+import { DiMongodb, DiMysql, DiPostgresql, DiNodejs } from "react-icons/di";
+import { SiSqlite } from "react-icons/si";
+
+const size = 50
+const color = "white"
+
+const icons = [
+    <FaHtml5 size={size} color={color} />,
+    <FaCss3 size={size} color={color} />,
+    <IoLogoJavascript size={size} color={color} />,
+    <DiNodejs size={size} color={color} />,
+    <BiLogoTypescript size={size} color={color} />,
+    <FaReact size={size} color={color} />,
+    <FaDocker size={size} color={color} />,
+    <FaAws size={size} color={color} />,
+    <DiMongodb size={size} color={color} />,
+    <DiMysql size={size} color={color} />,
+    <DiPostgresql size={size} color={color}  />,
+    <SiSqlite size={size} color={color} />
+];
 
 const About_Section5 = () => {
 
+
     return (
         <>
-            <div className='min-h-svh min-w-screen grid md:grid-cols-2' >
-                <span className='order-last md:order-first'>
-                    <Technik />                    
-                </span>
-
-                <div className='mt-2 ml-2 grid grid-rows-[3fr_8fr] items-center order-first md:order-none'>
-                    <h1 className='text-5xl md:text-8xl flex justify-center items-center h-32 text-center text-gray-200'>Technische Skills</h1>
-                    <SlideInFromSide from='right'>
-                        <Suspense fallback={<div className='min-h-full flex justify-center items-center'><ThreeDots /></div>}>
-                            <LazyImage 
-                                src='/about/wallpapers/technisch_1.jpg'
-                                width={1920} 
-                                height={1080} 
-                                alt='Wallpaper'
-                                className='object-cover min-h-full rounded-tl-3xl rounded-bl-3xl md:rounded-bl-none' 
-                            />
-                        </Suspense>
-                    </SlideInFromSide>
-                </div>
+            <div className='min-w-screen md:px-40 flex flex-col gap-20 pb-10' >
+                <Technik />      
+                <LogoSliderReactIcons icons={icons} />              
             </div>
         </>
     )

@@ -6,7 +6,7 @@ const Section4 = () => {
 
     return (
         <>
-            <div className='min-h-screen bg-white' >
+            <div className='min-h-screen bg-backgroundGray text-white' >
                 Lass zusammenarbeiten
             </div>
         </>

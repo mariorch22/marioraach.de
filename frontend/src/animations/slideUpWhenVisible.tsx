@@ -10,7 +10,7 @@ interface PopUpProps {
   y?: number;
 }
 
-function SlideUpWhenVisible({children, duration = 0.6, delay = 0.4, ease="easeInOut", y=100}: PopUpProps) {
+function SlideUpWhenVisible({children, duration = 0.6, delay = 0.4, ease="easeInOut", y=20}: PopUpProps) {
 
   const variants = useMemo(() => ({
     visible: { opacity: 1, y: 0 },

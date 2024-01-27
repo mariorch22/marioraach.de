@@ -28,7 +28,7 @@ const ContactForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 md:space-y-8 pb-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 md:space-y-8 pb-4 w-full md:w-1/2">
         {formFields.map((field) => (
           <CustomFormField
             key={field.name}
@@ -41,7 +41,7 @@ const ContactForm = () => {
           />
         ))}
         <div className="flex justify-end">
-          <motion.span whileTap={{ scale: 0.95 }}><Button className="w-auto bg-white hover:bg-gray-300 text-black md:w-auto right-0 mx-6" type="submit">Abschicken</Button></motion.span>
+          <motion.span whileTap={{ scale: 0.95 }}><Button className="w-auto bg-white hover:bg-gray-300 text-backgroundGray md:w-auto right-0 mx-6" type="submit">Abschicken</Button></motion.span>
         </div>
         
       </form>

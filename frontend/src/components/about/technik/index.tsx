@@ -1,6 +1,5 @@
 import { about_technicalData } from "../../../data/about/about_technical";
-import React, { Suspense, lazy } from 'react';
-import LazyImage from '../lazyImage';
+import React from 'react';
 import SlideUpWhenVisible from "../../../animations/slideUpWhenVisible";
 
 interface SkillCardProps {
@@ -9,29 +8,31 @@ interface SkillCardProps {
     skillLevel: string;
     imageSrc: string;
 }
+  
+const SkillCard = React.memo<SkillCardProps>(({ title, details, skillLevel, imageSrc }) => {
+    return (
+        <span className='w-full h-auto flex justify-center'>
+            <div className='md:mb-16 md:min-h-32 text-center'>
+                <SlideUpWhenVisible delay={0} duration={0.4}>
+                    <h1 className='text-white text-2xl'>{title}</h1>
+                </SlideUpWhenVisible>
+                <SlideUpWhenVisible delay={0.1} duration={0.4}>
+                    <ul className='pt-2'>{details}</ul>
+                    <span>Skilllevel: {skillLevel}</span>
+                </SlideUpWhenVisible>
+            </div>
+        </span>
+    );
+});
 
-const SkillCard: React.FC<SkillCardProps> = ({ title, details, skillLevel, imageSrc }) => (
-    <div className='flex flex-col min-h-1/2 items-center md:items-start justify-center'>
-        
-        <SlideUpWhenVisible delay={0.1} y={20}>
-            <span>
-                <h1 className="text-lg text-white text-center md:text-5xl px-6 pt-4 font-bold w-full">{title}</h1>
-                <div className="px-6">
-                    <small className="text-center md:text-start font-bold w-full block md:py-1">{details}</small>
-                </div>
-                <div className="flex justify-center md:justify-start w-full md:px-6 md:py-2">
-                    <p className="pr-2 md:text-2xl">Skillevel:</p>
-                    <p className="md:text-2xl">{skillLevel}</p>
-                </div>
-            </span>
-        </SlideUpWhenVisible>
-    </div>
-);
 
 const Technik = () => {
     return(
-        <div className='md:h-screen px-2 py-6 md:py-20 md:px-10 text-gray-500 grid gap-8 md:gap-0 md:grid-rows-3 bg-black md:rounded-none rounded-3xl md:rounded-r-3xl md:mt-2 md:mr-2 md:mb-2'>
-            {about_technicalData.map(skill => <SkillCard key={skill.title} {...skill} />)}
+        <div className='px-2 md:py-6 text-gray-500 flex flex-col justify-between w-full'>
+            <h1 className="w-full text-center text-3xl pb-8 md:pb-16 text-white font-bold">Technische Fähigkeiten</h1>
+            <div className="flex flex-col gap-16 md:gap-0 md:flex-row">
+                {about_technicalData.map(skill => <SkillCard key={skill.title} {...skill} />)}
+            </div>
         </div>
     )
 }

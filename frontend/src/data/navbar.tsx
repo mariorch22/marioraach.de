@@ -18,9 +18,9 @@ export const navbarData: NavbarDataItem[] = [
 ]
 
 export const navbarDataSidebar: NavbarDataItemSidebar[] = [
-    { link: "/", titel: "Home", delay: 0.3 },
-    { link: "/work", titel: "Arbeit", delay: 0.4 },
-    { link: "/blog", titel: "Blog", delay: 0.5 },
-    { link: "/about", titel: "Über mich", delay: 0.6 },
-    { link: "/contact", titel: "Kontakt", delay: 0.7 },
+    { link: "/", titel: "Home", delay: 0.5 },
+    { link: "/work", titel: "Arbeit", delay: 0.6 },
+    { link: "/blog", titel: "Blog", delay: 0.7 },
+    { link: "/about", titel: "Über mich", delay: 0.8 },
+    { link: "/contact", titel: "Kontakt", delay: 0.9 },
   ];

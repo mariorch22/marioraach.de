@@ -6,7 +6,7 @@ const Section3 = () => {
 
     return (
         <>
-            <div className='min-h-screen bg-black' >
+            <div className='min-h-screen bg-backgroundGray' >
                 <div className='text-white'>
                     Hier gehts zu meinem Blog
                 </div>

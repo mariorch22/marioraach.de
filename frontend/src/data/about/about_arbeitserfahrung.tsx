@@ -7,7 +7,7 @@ export interface ErfahrungsabschnittProps {
         alt: string;
     };
     titel: string;
-    kinder: React.ReactNode;
+    kinder: React.ReactNode[];
 }
 
 

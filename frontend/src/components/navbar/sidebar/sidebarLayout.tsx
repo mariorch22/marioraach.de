@@ -3,6 +3,7 @@ import React, {useCallback} from 'react';
 import { motion } from "framer-motion";
 import { FaLinkedinIn, FaXTwitter } from "react-icons/fa6";
 import { navbarDataSidebar } from "../../../data/navbar";
+import { FaGithub } from "react-icons/fa";
 
 interface SidebarProps {
     toggle: boolean;
@@ -34,6 +35,9 @@ const Sidebar_Layout: React.FC<SidebarProps> = ({ toggle, setToggle }) => {
                     ))}
                 </div>    
                 <div className="flex w-full justify-around px-20 py-6">
+                    <a href="https://github.com/mario1870" rel="noopener noreferrer" >
+                        <FaGithub color="white" size={40} />
+                    </a>
                     <a href="https://www.youtube.com/@tvmelchingen3274" rel="noopener noreferrer" >
                         <FaLinkedinIn color="white" size={40} />
                     </a>

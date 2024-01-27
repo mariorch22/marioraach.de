@@ -8,6 +8,10 @@ import Blog from './pages/blog';
 import Contact from './pages/contact';
 import About from './pages/about';
 import { useQuery, useMutation, useQueryClient, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Footer from './components/footer';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+
 
 {/*
 const Home = lazy(() => import('./pages/home'));
@@ -32,6 +36,7 @@ function App() {
           </Routes>
         </AnimatePresence>
       </Router>
+      <Footer />
     </QueryClientProvider>
   );
 }
