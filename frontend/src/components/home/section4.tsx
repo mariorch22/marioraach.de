@@ -7,7 +7,7 @@ const Section4 = () => {
     return (
         <>
             <div className='min-h-screen bg-backgroundGray text-white' >
-                Lass zusammenarbeiten
+                <h1 className='text-8xl md:px-40'>Lass uns gemeinsam etwas erreichen</h1>
             </div>
         </>
     )

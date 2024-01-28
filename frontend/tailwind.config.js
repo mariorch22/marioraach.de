@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
   darkMode: ["class"],
   content: [
@@ -67,6 +69,9 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+      },
+      fontFamily: {
+        glitch : ['"Rubik Glitch Pop"', ...defaultTheme.fontFamily.sans]
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",

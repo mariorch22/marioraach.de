@@ -20,7 +20,7 @@ const Erfahrungsabschnitt: React.FC<ErfahrungsabschnittProps> = React.memo(({ bi
                         {titel}
                     </SlideUpWhenVisible>
                 </h1>
-                <ul className='pl-2 md:pl-6 pt-2'>
+                <ul className='pl-0 md:pl-6 pt-2'>
                     {kinder && kinder.map((kind, index) => (
                         <SlideUpWhenVisible delay={0.3} duration={0.4} key={index}>
                             {kind}

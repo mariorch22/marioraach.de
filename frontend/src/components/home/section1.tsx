@@ -1,5 +1,4 @@
 import React, { Suspense, lazy } from 'react';
-
 const SlideUpWhenVisible = lazy(() => import('../../animations/slideUpWhenVisible'));
 
 const Section1 = () => {
@@ -16,16 +15,16 @@ const Section1 = () => {
             </div>
                 
 
-                <div className='w-full h-full flex items-end absolute z-30 md:right-20 py-24'>
-                    <div className='bottom-20 mx-auto'>
+                <div className='w-full h-full flex items-end justify-center md:justify-end absolute z-30 bottom-0 md:bottom-0 md:right-20 py-24'>
+                    <div className='bottom-20 '>
                         <Suspense fallback={<div>Loading...</div>}>
                             <SlideUpWhenVisible duration={0.6} delay={0.2}>
-                                <p className='text-white text-8xl md:text-[12rem] font-bold z-20 md:leading-8 '>MARIO</p>
+                                <p className='text-white text-end text-8xl md:text-[12rem] font-bold z-20 md:leading-8 font-glitch'>MARIO</p>
                             </SlideUpWhenVisible>
                         </Suspense>
                         <Suspense fallback={<div>Loading...</div>}>
                             <SlideUpWhenVisible duration={0.7} delay={0.4}>
-                                <p className='text-white text-8xl md:text-[12rem] font-bold z-20 l-8'>RAACH</p>
+                                <p className='text-white text-end text-8xl md:text-[12rem] font-bold z-20 l-8 font-glitch'>RAACH</p>
                             </SlideUpWhenVisible>
                         </Suspense>
                     </div>             
