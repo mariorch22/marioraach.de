@@ -13,10 +13,10 @@ const SkillCard = React.memo<SkillCardProps>(({ title, details, skillLevel, imag
     return (
         <span className='w-full h-auto flex justify-center'>
             <div className='md:mb-16 md:min-h-32 text-center'>
-                <SlideUpWhenVisible delay={0} duration={0.4}>
+                <SlideUpWhenVisible delay={0.2} duration={0.4}>
                     <h1 className='text-white text-2xl'>{title}</h1>
                 </SlideUpWhenVisible>
-                <SlideUpWhenVisible delay={0.1} duration={0.4}>
+                <SlideUpWhenVisible delay={0.3} duration={0.4}>
                     <ul className='pt-2'>{details}</ul>
                     <span>Skilllevel: {skillLevel}</span>
                 </SlideUpWhenVisible>

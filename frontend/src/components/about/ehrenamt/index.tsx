@@ -9,10 +9,10 @@ interface VolunteerCardProps {
 const VolunteerCard: React.FC<VolunteerCardProps> = ({ experience }) => (
     <span className='w-full h-auto flex flex-col md:grid md:items-center md:justify-center'>
         <div className='mb-4 md:mb-16 min-h-32 flex flex-col justify-center items-center'>
-            <SlideUpWhenVisible delay={0} duration={0.4}>
+            <SlideUpWhenVisible delay={0.2} duration={0.4}>
                 <h1 className='text-white text-2xl text-center md:text-start w-full py-2'>{experience.title}</h1>
             </SlideUpWhenVisible>
-            <SlideUpWhenVisible delay={0.1} duration={0.4}>
+            <SlideUpWhenVisible delay={0.3} duration={0.4}>
                 <ul className='md:pl-6 pt-2 text-start'>{experience.responsibilities}</ul>
             </SlideUpWhenVisible>
         </div>

@@ -16,13 +16,13 @@ const Erfahrungsabschnitt: React.FC<ErfahrungsabschnittProps> = React.memo(({ bi
         
             <div className='mb-16 min-h-32'>
                 <h1 className='text-white'>
-                    <SlideUpWhenVisible delay={0} duration={0.4}>
+                    <SlideUpWhenVisible delay={0.2} duration={0.4}>
                         {titel}
                     </SlideUpWhenVisible>
                 </h1>
                 <ul className='pl-2 md:pl-6 pt-2'>
                     {kinder && kinder.map((kind, index) => (
-                        <SlideUpWhenVisible delay={0.1} duration={0.4} key={index}>
+                        <SlideUpWhenVisible delay={0.3} duration={0.4} key={index}>
                             {kind}
                         </SlideUpWhenVisible>
                     ))}

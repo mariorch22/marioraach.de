@@ -7,14 +7,16 @@ const Section1 = () => {
     return (
         <div className='min-h-svh min-w-screen bg-backgroundGray' >
             <div className="h-screen w-screen z-20">
-            <img 
-                src="high-min_small.jpg" 
-                srcSet="high-min_small.jpg 767w, high-min_large.jpg 768w" 
-                sizes="(max-width: 767px) 767px, 768px"
-                alt="Me as a person" 
-                className="h-screen w-screen object-cover absolute z-20"
-            />
-
+                <img 
+                    src="high-min_small.jpg" 
+                    alt="Me as a person" 
+                    className="hidden md:block h-screen w-screen object-left md:object-center object-cover absolute z-20" 
+                />
+                <img 
+                    src="high-min_small__small.jpg" 
+                    alt="Me as a person" 
+                    className="block md:hidden h-screen w-screen object-left md:object-center object-cover absolute z-20" 
+                />
             </div>
                 
 

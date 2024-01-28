@@ -18,14 +18,14 @@ const Footer = () => {
             <div className='text-white text-lg flex justify-between flex-row px-4 md:px-20'>
 
                 <div className='py-6'>
-                    <a href='mailto:marioraach01@gmail.com'><p className='hidden md:block'>marioraach01@gmail.com</p><span className='md:hidden opacity-35'><CiMail size={40} /></span></a>
+                    <a href='mailto:marioraach01@gmail.com'><p className='hidden md:block'>marioraach01@gmail.com</p><span className='md:hidden opacity-35'><CiMail size={30} /></span></a>
                 </div>
 
                 <nav className='py-6 flex'>
                   {links.map((link, index) => (
                     <a key={index} className='px-4' href={link.href} rel="noopener noreferrer" aria-label={link.ariaLabel}>
                         <p className='hidden md:block'>{link.label}</p>
-                        <span className='md:hidden opacity-35'><link.icon size={40} /></span>
+                        <span className='md:hidden opacity-35'><link.icon size={30} /></span>
                     </a>
                   ))}
                 </nav>
