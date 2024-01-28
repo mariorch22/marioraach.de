@@ -8,14 +8,10 @@ const Section1 = () => {
         <div className='min-h-svh min-w-screen bg-backgroundGray' >
             <div className="h-screen w-screen z-20">
                 <img 
-                    src="high-min_small.jpg" 
+                    src="bg-small.webp" 
                     alt="Me as a person" 
-                    className="hidden md:block h-screen w-screen object-left md:object-center object-cover absolute z-20" 
-                />
-                <img 
-                    src="high-min_small__small.jpg" 
-                    alt="Me as a person" 
-                    className="block md:hidden h-screen w-screen object-left md:object-center object-cover absolute z-20" 
+                    className="h-screen w-screen object-left md:object-center object-cover absolute z-20" 
+                    srcSet="bg-small.webp 767w, bg-big.webp 768w"
                 />
             </div>
                 
