@@ -1,11 +1,11 @@
 import React, {Suspense, lazy} from 'react';
-const Technik = lazy(() => import("./technik"));
-const LogoSliderReactIcons = lazy(() => import("../shared/logoSliderReactIcons"));
 import { FaHtml5, FaCss3, FaDocker, FaReact, FaAws  } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io5";
 import { BiLogoTypescript } from "react-icons/bi";
 import { DiMongodb, DiMysql, DiPostgresql, DiNodejs } from "react-icons/di";
 import { SiSqlite } from "react-icons/si";
+const Technik = lazy(() => import("./technik"));
+const LogoSliderReactIcons = lazy(() => import("../shared/logoSliderReactIcons"));
 
 const size = 50
 const color = "white"

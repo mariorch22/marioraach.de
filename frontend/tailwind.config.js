@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme');
+import { DefaultTheme } from 'tailwindcss/types/generated/default-theme';
 
 module.exports = {
   darkMode: ["class"],
@@ -71,7 +72,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        glitch : ['"Rubik Glitch Pop"', ...defaultTheme.fontFamily.sans]
+        glitch : ['"Rubik Glitch Pop"', ...defaultTheme.fontFamily.sans],
+        kalam : ['"Kalam"', ...defaultTheme.fontFamily.sans]
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",

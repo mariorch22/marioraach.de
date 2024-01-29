@@ -2,11 +2,11 @@ export const about_technicalData = [
     {
         "title": "Microsoft Office Programme",
         "details": "Word, Excel, PowerPoint, Outlook",
-        "skillLevel": "⚫⚫⚫⚫⚫⚫⚫⚫⚫◯",
+        "skillLevel": "⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫",
         "imageSrc": "/about/technisch/ms_office.png"
     },
     {
-        "title": "Webentwicklung mit MERN-Stack",
+        "title": "Webentwicklung",
         "details": "JavaScript, TypeScript, ReactJS, ExpressJS, MongoDB, Docker, AWS",
         "skillLevel": "⚫⚫⚫⚫⚫⚫⚫⚫◯◯",
         "imageSrc": "/about/technisch/mern.png"
