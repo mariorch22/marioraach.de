@@ -19,7 +19,6 @@ const Sidebar_Layout: React.FC<SidebarProps> = ({ toggle, setToggle }) => {
     
     return(
         <>
-        
             <div className="w-full min-h-full flex flex-col left-0 pt-28 justify-between">
                 <div className="flex flex-col justify-between gap-4">
                     {navbarDataSidebar.map((link, index) => (
@@ -28,13 +27,14 @@ const Sidebar_Layout: React.FC<SidebarProps> = ({ toggle, setToggle }) => {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: link.delay }}
                         >
-                            <Link to={link.link} onClick={handleSidebarToggle} className={"w-full px-10 my-1.5 text-white text-6xl font-sans font-medium"}>
+                            <Link to={link.link} onClick={handleSidebarToggle} className={"w-full pl-10 my-1.5 text-white text-6xl font-sans font-medium"}>
                                 <span>{link.titel}</span>
                             </Link>
                         </motion.div>
                     ))}
                 </div>    
-                <div className="flex w-full justify-around px-20 py-6">
+
+                <div className="flex w-full justify-around md:px-20 py-6">
                     <a href="https://github.com/mario1870" rel="noopener noreferrer" >
                         <FaGithub color="white" size={40} />
                     </a>

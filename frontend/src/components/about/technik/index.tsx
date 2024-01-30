@@ -30,7 +30,7 @@ const Technik = () => {
     return(
         <div className='px-2 md:py-6 text-gray-500 flex flex-col justify-between w-full'>
             <h1 className="w-full text-center text-3xl pb-8 md:pb-16 text-white font-bold">Technische Fähigkeiten</h1>
-            <div className="flex flex-col gap-16 md:gap-0 md:flex-row">
+            <div className="flex flex-col gap-16 md:gap-0 xl:flex-row">
                 {about_technicalData.map(skill => <SkillCard key={skill.title} {...skill} />)}
             </div>
         </div>

@@ -1,27 +1,37 @@
 import React, { Suspense, lazy } from 'react';
-const SlideUpWhenVisible = lazy(() => import('../../animations/slideUpWhenVisible'));
+import slideUpWhenVisible from '../../animations/slideUpWhenVisible';
+import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 
 const Section1 = () => {
 
     return (
-        <div className='min-h-svh min-w-screen bg-backgroundGray' >
-            <div className="h-screen w-screen z-20">
+        <div className='h-svh px-2 pt-10 grid grid-rows-[1fr_1fr] grid-cols-1 md:grid-cols-[1fr_1fr] md:grid-rows-1 items-center justify-center' >
+
+            <div className='w-full md:w-auto h-full flex items-end justify-center pt-20'>
                 <img 
-                    src="bg-small.webp" 
-                    alt="Me as a person" 
-                    className="h-screen w-screen object-left md:object-center object-cover absolute z-20" 
-                    srcSet="bg-small.webp 767w, bg-big.webp 768w"
+                    className='px-4 drop-shadow-customDropShadow w-auto h-full xl:h-auto xl:w-full xl:max-w-[33rem] md:pt-20 xl:pt-0'
+                    src="/c1.png"
+                    srcSet='c1.png 767w, c.png 800w'
                 />
             </div>
-                
 
-                <div className='w-full h-full flex items-end justify-center md:justify-end absolute z-30 bottom-0 md:bottom-0 md:right-20 py-24'>
-                    <div className='bottom-20 text-white font-kalam '>
-                        <h3 className='text-7xl'>Hey,</h3>
-                        <h1 className='text-[12rem]'>ich bin Mario.</h1>
-                        <p className='text-4xl'>ein  Softwareentwickler aus Melchingen, von der schwäbischen Alb.</p>
-                    </div>             
-                </div>
+            <div className='w-full pb-6 md:w-auto h-full md:max-h-screen text-gray-200 font-kalam flex flex-col justify-center xl:pt-80'>
+                <SlideUpWhenVisible delay={0.1}>
+                    <h3 className='text-3xl xl:text-[5rem] text-center pr-10 pt-10 pb-3 xl:pb-20'>
+                        Hey, ich bin
+                    </h3>
+                </SlideUpWhenVisible>
+                <SlideUpWhenVisible delay={0.2}>
+                    <h1 className='text-9xl xl:text-[15rem] leading-8 text-center xl:text-start pr-14 xl:pr-24 text-green-200 pt-10'>
+                        Mario
+                    </h1>
+                </SlideUpWhenVisible>
+                <SlideUpWhenVisible delay={0.3}>
+                    <h1 className='text-9xl xl:text-[15rem] leading-12 text-center xl:text-start pl-14 xl:pl-24 text-red-200'>
+                        raach
+                    </h1>
+                </SlideUpWhenVisible>
+            </div>
 
         </div>
     )

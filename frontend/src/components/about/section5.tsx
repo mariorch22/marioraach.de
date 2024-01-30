@@ -4,6 +4,7 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { BiLogoTypescript } from "react-icons/bi";
 import { DiMongodb, DiMysql, DiPostgresql, DiNodejs } from "react-icons/di";
 import { SiSqlite } from "react-icons/si";
+import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 const Technik = lazy(() => import("./technik"));
 const LogoSliderReactIcons = lazy(() => import("../shared/logoSliderReactIcons"));
 
@@ -30,10 +31,14 @@ const About_Section5 = () => {
     return (
         <>
             <div className='min-w-screen md:px-40 flex flex-col gap-20 pb-10' >
-                <Technik />      
                 <Suspense fallback={<div>Lädt...</div>}>
-                    <LogoSliderReactIcons icons={icons} />
-                </Suspense>              
+                    <Technik /> 
+                </Suspense>     
+                <SlideUpWhenVisible>
+                    <Suspense fallback={<div>Lädt...</div>}>
+                        <LogoSliderReactIcons icons={icons} />
+                    </Suspense>
+                </SlideUpWhenVisible>              
             </div>
         </>
     )
