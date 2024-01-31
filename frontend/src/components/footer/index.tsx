@@ -21,9 +21,9 @@ const Footer = () => {
                     <a href='mailto:marioraach01@gmail.com'><p className='hidden md:block'>marioraach01@gmail.com</p><span className='md:hidden opacity-35'><CiMail size={30} /></span></a>
                 </div>
 
-                <nav className='py-6 flex'>
+                <nav className='py-6 flex gap-4'>
                   {links.map((link, index) => (
-                    <a key={index} className='px-4' href={link.href} rel="noopener noreferrer" aria-label={link.ariaLabel}>
+                    <a key={index} href={link.href} rel="noopener noreferrer" aria-label={link.ariaLabel}>
                         <p className='hidden md:block'>{link.label}</p>
                         <span className='md:hidden opacity-35'><link.icon size={30} /></span>
                     </a>

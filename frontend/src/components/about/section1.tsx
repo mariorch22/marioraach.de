@@ -13,18 +13,20 @@ const About_Section1 = () => {
                     <div className='text-xl w-full text-end'><SlideUpWhenVisible delay={6.6} y={20}>Jeff Bezos</SlideUpWhenVisible></div>
                 </div>
                 <div className='p-10 order-first md:order-none sm:hidden flex justify-center xl:items-center xl:flex'>
-                    <img 
-                        src='/bild_im_hemd_1_.webp'
-                        loading='lazy'
-                        alt='Wallpaper'
-                        width={630}
-                        height={630}
-                        className='w-full max-w-80 xl:max-w-[36rem] max-h-80 xl:max-h-[36rem] rounded-full shadow-lg shadow-white mt-20 md:mt-0 grayscale'
-                    />
+                    <span className='w-full max-w-80 xl:max-w-[36rem] max-h-80 xl:max-h-[36rem] rounded-full shadow-lg shadow-white mt-20 md:mt-0 grayscale bg-hemd_small bg-center bg-cover'>
+                        <img 
+                            src='/hemd/hemd.webp'
+                            loading='lazy'
+                            alt='Wallpaper'
+                            width={630}
+                            height={630}
+                            className='w-full rounded-full shadow-lg'
+                        />
+                    </span>
                 </div>
             </div>
         </>
     )
 }
 
-export default React.memo(About_Section1);
+export default About_Section1;

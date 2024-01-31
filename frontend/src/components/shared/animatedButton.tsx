@@ -1,11 +1,12 @@
 import { motion, useAnimation } from "framer-motion";
+import { Link } from "react-router-dom";
 
 interface ButtonProps {
     text: string;
     link: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ text }) => {
+const Button: React.FC<ButtonProps> = ({ text, link }) => {
 
     const controls = useAnimation();
 
@@ -15,7 +16,7 @@ const Button: React.FC<ButtonProps> = ({ text }) => {
             y: 0,
             opacity: 1,
             borderRadius: "100%",
-            transition: { duration: 1 }
+            transition: { duration: 0.4 }
         });
     };
 
@@ -25,7 +26,7 @@ const Button: React.FC<ButtonProps> = ({ text }) => {
             y: -100,
             opacity: 0,
             borderRadius: "80%",
-            transition: { duration: 1 }
+            transition: { duration: 0.4 }
         }).then(() => {
             // Zurücksetzen auf die Ausgangsposition
             controls.set({ y: 100, opacity: 0 });
@@ -49,10 +50,12 @@ const Button: React.FC<ButtonProps> = ({ text }) => {
                 initial={{ y: 100, opacity: 0 }}
                 animate={controls}
             />
-
-            <div className="relative texl-2xl w-full h-full flex justify-center items-center">
-                {text}
-            </div>
+            
+            <Link to={link}>
+                <div className="relative texl-2xl w-full h-full flex justify-center items-center">
+                    {text}
+                </div>
+            </Link>
         </motion.button>
     );
 };

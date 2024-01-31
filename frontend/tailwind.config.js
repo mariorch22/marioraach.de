@@ -73,7 +73,8 @@ module.exports = {
       },
       fontFamily: {
         glitch : ['"Rubik Glitch Pop"', ...defaultTheme.fontFamily.sans],
-        kalam : ['"Kalam"', ...defaultTheme.fontFamily.sans]
+        kalam : ['"Kalam"', ...defaultTheme.fontFamily.sans],
+        roboto : ['"Roboto"', ...defaultTheme.fontFamily.sans]
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -81,10 +82,14 @@ module.exports = {
       },
       dropShadow: {
         'customDropShadow': '0 35px 35px rgba(255, 255, 255, 0.3)',
+        'customDropShadow2': '0 3px 3px rgba(255, 255, 255, 0.1)',
         '4xl': [
             '0 35px 35px rgba(0, 0, 0, 0.25)',
             '0 45px 65px rgba(0, 0, 0, 0.15)'
         ]
+      },
+      backgroundImage: {
+        'hemd_small': "url('/hemd/hemd_small.webp')",
       }
     },
   },
