@@ -12,14 +12,14 @@ const Home = () => {
         <>
             
             <Navbar />
-            <div className='overflow-hidden grid grid-cols-1 gap-6 bg-backgroundGray font-kalam text-white'>    
+            <main className='overflow-hidden grid grid-cols-1 gap-6 bg-backgroundGray font-kalam text-white'>    
                 <Section1 />
                 <Section2 />
                 <div className="h-1 w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-500 via-backgroundGray to-backgroundGray"></div>
                 <Section3 />
                 <div className="h-1 w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-500 via-backgroundGray to-backgroundGray"></div>
                 <Section4 />
-            </div>
+            </main>
         </>
     )
 }

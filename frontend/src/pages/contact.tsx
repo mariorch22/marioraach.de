@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import AnimatedPage from '../animations/pageTransition';
 import ContactFormSection from '../components/contact/contactFormSection';
 import { smoothScrollTo } from '../animations/smoothScrollTo';
-import SlideUpWhenVisible from '../animations/slideUpWhenVisible';
 import Typewriter from '../animations/typewriter';
 import AnimatedSvgButton from '../components/contact/animatedSvgButton';
 import Navbar from '../components/navbar';

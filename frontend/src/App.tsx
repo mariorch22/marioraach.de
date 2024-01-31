@@ -5,6 +5,7 @@ import { AnimatePresence } from 'framer-motion';
 import Home from './pages/home';
 import Blog from './pages/blog';
 import Footer from './components/footer';
+import ScrollToTop from './animations/scrollToTop';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
@@ -13,11 +14,13 @@ const About = lazy(() => import('./pages/about'));
 const Contact = lazy(() => import('./pages/contact'));
 
 function App() {
+
   return (
     <>
       <Router>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className='w-screen h-screen bg-backgroundGray'></div>}>
           <AnimatePresence mode="wait">
+            <ScrollToTop />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/work" element={<Work />} />

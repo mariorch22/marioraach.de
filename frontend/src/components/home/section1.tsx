@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 
 const Section1 = () => {
@@ -7,11 +7,14 @@ const Section1 = () => {
         <div className='h-svh px-2 pt-10 grid grid-rows-[1fr_1fr] grid-cols-1 md:grid-cols-[1fr_1fr] md:grid-rows-1 items-center justify-center' >
 
             <div className='w-full md:w-auto h-full flex items-end justify-center pt-12 xl:pt-20'>
-                <span className='rounded-full h-96 md:h-auto w-96 md:w-full flex justify-center px-6 overflow-hidden'>
+                <span className='rounded-full h-80 md:h-auto w-80 md:w-full flex justify-center px-6 overflow-hidden'>
                     <img 
                         className='pt-8 xl:px-4 drop-shadow-customDropShadow w-auto h-full md:h-[40rem] xl:h-auto xl:w-full xl:max-w-[33rem] md:pt-20 xl:pt-0'
-                        src="/hoddie/h.png"
-                        srcSet='/hoddie/hh.png 767w, /hoddie/hoddie.png 800w'
+                        src="/hoddie/hdddie.png"
+                        srcSet='/hoddie/hh.png 767w, /hoddie/hoddie.png 1400w'
+                        width={400}
+                        height={800}
+                        alt='Bild von mir stehend'
                     />
                 </span>
             </div>

@@ -44,6 +44,8 @@ const AnimatedLogo = () => {
                   src="/logo_r.png"
                   alt="Folgendes Bild"
                   className="invert z-40 mix-blend-difference"
+                  width={50}
+                  height={50}
                   style={{ position: 'absolute', width: imageSize.width, height: imageSize.height }}
                   animate={{ x: mousePosition.x, y: mousePosition.y }}
               />

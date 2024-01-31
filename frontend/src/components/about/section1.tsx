@@ -17,7 +17,7 @@ const About_Section1 = () => {
                         <img 
                             src='/hemd/hemd.webp'
                             loading='lazy'
-                            alt='Wallpaper'
+                            alt='Bild von Mario'
                             width={630}
                             height={630}
                             className='w-full rounded-full shadow-lg'

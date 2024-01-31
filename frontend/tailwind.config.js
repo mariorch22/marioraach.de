@@ -90,6 +90,7 @@ module.exports = {
       },
       backgroundImage: {
         'hemd_small': "url('/hemd/hemd_small.webp')",
+        'hoddie_small': "url('/hoddie/hoddie_small_very.png')",
       }
     },
   },
