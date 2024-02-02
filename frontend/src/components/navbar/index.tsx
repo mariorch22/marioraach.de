@@ -6,6 +6,11 @@ import Sidebar from './sidebar/index';
 import LanguageSelector from '../language-selector';
 import { useTranslation } from 'react-i18next';
 
+interface NavbarDataItem {
+  link: string;
+  titel: string;
+}
+
 const animatedNavbarUnderline = {
   hidden: {
     pathLength: 0,
@@ -59,7 +64,6 @@ const Navbar = () => {
           <span className='mix-blend-difference z-50'>
             <AnimatedLogo />
           </span>  
-          <LanguageSelector />
 
           <span className='block md:hidden'>
             <Sidebar />

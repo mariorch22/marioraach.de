@@ -1,17 +1,17 @@
 import { motion, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
+import React, { ReactNode } from "react";
+
 
 interface ButtonProps {
-    text: string;
+    content: ReactNode;
     link: string;
 }
 
-const Button: React.FC<ButtonProps> = ({ text, link }) => {
-
+const Button: React.FC<ButtonProps> = ({ content, link }) => {
     const controls = useAnimation();
 
     const handleMouseEnter = () => {
-        // Animation für das Einfliegen von unten
         controls.start({
             y: 0,
             opacity: 1,
@@ -21,19 +21,15 @@ const Button: React.FC<ButtonProps> = ({ text, link }) => {
     };
 
     const handleMouseLeave = () => {
-        // Animation für das Ausfliegen nach oben
         controls.start({
             y: -100,
             opacity: 0,
             borderRadius: "80%",
             transition: { duration: 0.4 }
         }).then(() => {
-            // Zurücksetzen auf die Ausgangsposition
             controls.set({ y: 100, opacity: 0 });
         });
     };
-
-
 
     return (
         <motion.button 
@@ -44,20 +40,17 @@ const Button: React.FC<ButtonProps> = ({ text, link }) => {
                 clipPath: 'circle(50% at 50% 50%)'
             }}
         >
-
             <motion.div 
-                className="absolute inset-0 bg-blue-600"
+                className="absolute inset-0 bg-blue-600 z-20"
                 initial={{ y: 100, opacity: 0 }}
                 animate={controls}
             />
-            
-            <Link to={link} className="w-full h-full">
-                <div className="relative texl-2xl w-full h-full flex justify-center items-center">
-                    <p className="text-2xl">{text}</p>
-                </div>
+
+            <Link to={link} className="w-full h-full flex justify-center items-center z-40">
+                {content}
             </Link>
         </motion.button>
     );
 };
 
-export default Button;
+export default React.memo(Button);

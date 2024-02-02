@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 import { useTranslation } from 'react-i18next';
+import { IoLanguageOutline } from "react-icons/io5";
 
 interface HomeLandingpageText {
     landingpageText: string;
@@ -10,6 +12,13 @@ const Section1 = () => {
 
     const { t } = useTranslation();
     const homeLandingpageText: HomeLandingpageText = t("homeLandingpageText") as  unknown as HomeLandingpageText;
+
+
+    const [isClicked, setIsClicked] = useState(false);
+    
+    const handleClick = () => {
+        setIsClicked(!isClicked);
+    };
 
     return (
         <div className='h-svh px-2 pt-10 grid grid-rows-[1fr_1fr] grid-cols-1 md:grid-cols-[1fr_1fr] md:grid-rows-1 items-center justify-center' >

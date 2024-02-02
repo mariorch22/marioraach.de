@@ -1,8 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PopUp from '../../../animations/popUp';
-import { MdClose } from "react-icons/md";
-import { RxHamburgerMenu } from "react-icons/rx";
 import Sidebar_Layout from "./sidebarLayout";
 
 const Sidebar = () => {
@@ -15,11 +13,13 @@ const Sidebar = () => {
     return (
         <>
             <PopUp>
-                <motion.div className='rounded-full p-3 z-50 relative top-0 right-0'>
-                    {hamburger ? 
-                        <MdClose onClick={handleToggleHamburger} className="cursor-pointer h-10 w-10" color="white" /> :
-                        <RxHamburgerMenu onClick={handleToggleHamburger} className="cursor-pointer h-10 w-10" color="white" />
-                    }
+                <motion.div className='rounded-full z-50 relative top-0 right-0'>
+                    <div onClick={handleToggleHamburger} className="flex h-20 w-20 cursor-pointer items-center justify-center rounded-3xl">
+                        <div className="space-y-2">
+                            <span className={`block h-1 w-10 origin-center rounded-full bg-slate-500 transition-transform ease-in-out ${hamburger ? 'w-11 transform delay-500 rotate-45 translate-y-1.5' : ''}`}></span>
+                            <span className={`block h-1 w-8 origin-center rounded-full bg-blue-500 transition-transform ease-in-out ${hamburger ? 'w-11 transform delay-500 -rotate-45 -translate-y-1.5' : ''}`}></span>
+                        </div>
+                    </div>
                 </motion.div>
             </PopUp>
             

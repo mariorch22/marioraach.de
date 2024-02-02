@@ -4,6 +4,7 @@ import SlideInFromSide from '../../animations/slideInFromSide';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import useFormatText from '../../hooks/useFormatText';
+import { CiTextAlignCenter } from "react-icons/ci";
 
 interface HomeBlogText {
     welcomeText: string;
@@ -28,7 +29,7 @@ const Section3 = () => {
                 <span className='w-full flex justify-end pr-4'>
                     <SlideInFromSide>
                         <motion.span  whileHover={{ scale: 1.1 }}>
-                            <Button text="Blog" link="/blog" />
+                            <Button content={<CiTextAlignCenter className='w-full h-full p-8' />} link="/blog" />
                         </motion.span>
                     </SlideInFromSide>
                 </span>

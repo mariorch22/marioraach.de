@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import SlideInFromSide from '../../animations/slideInFromSide';
 import { useTranslation } from 'react-i18next';
 import useFormatText from '../../hooks/useFormatText';
-
+import { IoPersonOutline } from "react-icons/io5";
 
 interface HomeAboutText {
     aboutText: string;
@@ -28,7 +28,7 @@ export function Section2() {
                 <span className='w-full flex justify-end pr-4'>
                     <SlideInFromSide>
                         <motion.span whileHover={{ scale: 1.1 }}>
-                            <Button text="About" link="/about" />
+                            <Button content={<IoPersonOutline className='w-full h-full p-8' />} link="/about" />
                         </motion.span>
                     </SlideInFromSide>
                 </span>

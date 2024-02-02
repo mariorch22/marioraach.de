@@ -91,8 +91,23 @@ module.exports = {
       backgroundImage: {
         'hemd_small': "url('/hemd/hemd_small.webp')",
         'hoddie_small': "url('/hoddie/hoddie_small_very.png')",
-      }
+      },
+      transitionDelay: {
+        '500': '500ms',
+      },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate")
+  ],
+  plugins: [
+    function({ addUtilities, theme }) {
+      const newUtilities = {
+        '.delay-2000': {
+          transitionDelay: theme('transitionDelay.2000'),
+        },
+      };
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    },
+  ],
 }
