@@ -1,0 +1,24 @@
+{
+    "pageTitle": "Ehrenamt",
+    "data": [
+        {
+            "id": "1",
+            "title": "Jugendtrainer beim TV Melchingen",
+            "duration": "2021-heute",
+            "responsibilities": [
+                "Verantwortlich für die Entwicklung sportlicher Fähigkeiten und Teamgeist bei Jugendlichen",
+                "Leitung von zwei wöchentlichen Trainingseinheiten und Betreuung von Spielen"
+            ]
+        },
+        {
+            "id": "2",
+            "title": "Leiter der Jungpfadfindergruppe bei der DPSG Salmendingen",
+            "duration": "2017-2018",
+            "responsibilities": [
+                "Leitung wöchentlicher Treffen und Outdoor-Aktivitäten für Jungpfadfinder.",
+                "Entwicklung Bildungsprogramme zu Überlebensfähigkeiten und ziviler Verantwortung.",
+                "Sicherung der Sicherheit und Logistik für Camps und Gemeinschaftsprojekte."
+            ]
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+[
+    {
+      "name": "username",
+      "label": "What is your name?",
+      "placeholder": "John Doe*",
+      "isTextarea": false
+    },
+    {
+      "name": "email",
+      "label": "What is your email address?",
+      "placeholder": "john@doe.com*",
+      "isTextarea": false
+    },
+    {
+      "name": "company",
+      "label": "Which organization do you belong to?",
+      "placeholder": "Doe Inc.",
+      "isTextarea": false
+    },
+    {
+      "name": "requirements",
+      "label": "What are you looking for?",
+      "placeholder": "Web Development, Web Design ...",
+      "isTextarea": false
+    },
+    {
+      "name": "message",
+      "label": "Feel free to leave a message",
+      "placeholder": "Hello, I have the following concern ...*",
+      "isTextarea": true,
+      "inputType": "text"
+    }
+  ]
+  

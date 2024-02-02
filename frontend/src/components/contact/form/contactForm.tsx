@@ -5,11 +5,23 @@ import { Button } from "../../../shadn/components/ui/button"
 import { Form } from "../../../shadn/components/ui/form"
 import React from "react"
 import { FormSchemaContactForm } from "./formSchemaContactForm"
-import { formFields } from "../../../data/contactForm"
 import CustomFormField from "../../shared/customFormField"
 import { motion } from "framer-motion"
+import { useTranslation } from 'react-i18next';
+
+interface FormField {
+  name: string;
+  label: string;
+  placeholder: string;
+  isTextarea: boolean;
+  inputType?: string;
+}
 
 const ContactForm = () => {
+
+  const {t} = useTranslation();
+  const contactFormDaten: FormField[] = t("contactForm", { returnObjects: true }) as FormField[];
+
   const form = useForm<z.infer<typeof FormSchemaContactForm>>({
     resolver: zodResolver(FormSchemaContactForm),
     defaultValues: {
@@ -29,7 +41,7 @@ const ContactForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 md:space-y-8 pb-4 w-full md:w-1/2">
-        {formFields.map((field) => (
+        {contactFormDaten.map((field) => (
           <CustomFormField
             key={field.name}
             control={form.control}

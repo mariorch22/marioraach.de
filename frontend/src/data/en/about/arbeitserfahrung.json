@@ -1,0 +1,44 @@
+{
+    "pageTitle": "Work Experience",
+    "data": [
+        {
+            "bild": {
+                "src": "/about/workexperience/trigema.jpg",
+                "width": 96,
+                "height": 96,
+                "alt": "TRIGEMA Logo"
+            },
+            "titel": "Apprenticeship as an Industrial Clerk at TRIGEMA W. Grupp KG",
+            "kinder": [
+                "Practical training at TRIGEMA, with a focus on business knowledge, particularly in marketing and e-commerce.",
+                "Solid understanding of business operations.",
+                "Proficiency in Microsoft Dynamics AX, Adobe Creative Cloud, and Microsoft Office suite.",
+                "Enhanced soft skills such as teamwork and communication."
+            ]
+        },
+        {
+            "bild": {
+                "src": "/about/workexperience/epsilon.jpg",
+                "width": 96,
+                "height": 96,
+                "alt": "Epsilon Logo"
+            },
+            "titel": "Internships at Epsilon International SA",
+            "kinder": [
+                "3-week internship as part of the Erasmus+ program in Athens."
+            ]
+        },
+        {
+            "bild": {
+                "src": "/about/workexperience/daimler.jpg",
+                "width": 96,
+                "height": 96,
+                "alt": "Daimler Logo"
+            },
+            "titel": "Various Temporary Positions at Daimler AG",
+            "kinder": [
+                "Adaptation of plans due to Covid-19: Originally planned overseas trip postponed."
+            ]
+        }
+    ]
+}

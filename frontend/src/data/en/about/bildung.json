@@ -1,0 +1,39 @@
+{
+    "pageTitle": "Education",
+    "data": [
+        {
+            "schoolName": "Vocational School Center Hechingen",
+            "kinder": [
+                {
+                    "titel": "Areas of Study",
+                    "inhalt": "Business Administration, Control and Management, Economics"
+                },
+                {
+                    "titel": "Other Core Subjects",
+                    "inhalt": "English, German, Computer Science, Religious Studies"
+                },
+                {
+                    "titel": "Specialization in Specific Business Areas",
+                    "inhalt": "Material, Production, Personnel and Sales Management, Investment and Financing, External and Internal Accounting"
+                },
+                {
+                    "titel": "In-Depth Knowledge",
+                    "inhalt": "in economic activities and legal frameworks"
+                }
+            ]
+        },
+        {
+            "schoolName": "Gymnasium Gammertingen",
+            "kinder": [
+                {
+                    "titel": "High School Diploma",
+                    "inhalt": "in the year 2020 with a grade of 3.1"
+                },
+                {
+                    "titel": "Advanced Courses",
+                    "inhalt": "Mathematics, German, English, Chemistry, Physical Education"
+                }
+            ]
+        }
+    ]
+}

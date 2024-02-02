@@ -1,9 +1,27 @@
 import React from 'react';
-import { arbeitserfahrungDaten, ErfahrungsabschnittProps } from '../../../data/about/about_arbeitserfahrung';
 import SlideUpWhenVisible from '../../../animations/slideUpWhenVisible';
 import { FaRegCircle } from "react-icons/fa";
+import { useTranslation } from 'react-i18next';
 
-const Erfahrungsabschnitt: React.FC<ErfahrungsabschnittProps> = React.memo(({ bild, titel, kinder }) => (
+interface WorkExperienceData {
+    pageTitle: string;
+    data: WorkExperienceInfo[];
+}
+
+interface WorkExperienceInfo {
+    bild: {
+        src: string;
+        width: number;
+        height: number;
+        alt: string;
+    };
+    titel: string;
+    kinder: string[];
+}
+
+
+
+const Erfahrungsabschnitt: React.FC<WorkExperienceInfo> = React.memo(({ bild, titel, kinder }) => (
     <span className='w-full h-auto grid grid-cols-[1fr_8fr] md:grid-cols-[1fr_12fr] md:items-start'>
             
             <div className='w-6 flex flex-col items-center h-full'>
@@ -23,7 +41,7 @@ const Erfahrungsabschnitt: React.FC<ErfahrungsabschnittProps> = React.memo(({ bi
                 <ul className='pl-0 md:pl-6 pt-2'>
                     {kinder && kinder.map((kind, index) => (
                         <SlideUpWhenVisible delay={0.3} duration={0.4} key={index}>
-                            {kind}
+                            <li className='py-1 flex' key={1}><span className='px-2'>▷</span>{kind}</li>
                         </SlideUpWhenVisible>
                     ))}
                 </ul>
@@ -33,12 +51,20 @@ const Erfahrungsabschnitt: React.FC<ErfahrungsabschnittProps> = React.memo(({ bi
 ));
 
 const Arbeitserfahrung: React.FC = () => {
+    const {t} = useTranslation();
+    const arbeitserfahrungDaten: WorkExperienceData = t("arbeitserfahrungData", { returnObjects: true }) as WorkExperienceData;
+
     return (
         <div className='px-2 py-6 text-gray-500 flex flex-col md:rounded-none rounded-3xl md:rounded-r-3xl md:mt-2 md:mr-2 md:mb-2'>
-                <h1 className='text-3xl pb-8 text-white font-bold text-center md:text-start'>Abreitserfahrung</h1>
-                {arbeitserfahrungDaten.map((abschnitt, index) => (
-                    <Erfahrungsabschnitt key={index} {...abschnitt} />
-                ))}
+            <SlideUpWhenVisible delay={0.1} duration={0.4}>
+                <h1 className='text-3xl pb-8 text-white font-bold text-center md:text-start'>
+                    {arbeitserfahrungDaten.pageTitle}
+                </h1>
+            </SlideUpWhenVisible>
+
+            {arbeitserfahrungDaten.data.map((abschnitt, index) => (
+                <Erfahrungsabschnitt key={index} {...abschnitt} />
+            ))}
         </div>
     )
 }

@@ -41,7 +41,7 @@ const AnimatedLogo = () => {
           <PopUp>
             <Link to={"/"}>
               <motion.img
-                  src="/logo_r.png"
+                  src="/images/logo_r.png"
                   alt="Folgendes Bild"
                   className="invert z-40 mix-blend-difference"
                   width={50}

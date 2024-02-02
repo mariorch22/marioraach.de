@@ -11,14 +11,14 @@ import "slick-carousel/slick/slick-theme.css";
 
 const Work = lazy(() => import('./pages/work'));
 const About = lazy(() => import('./pages/about'));
-const Contact = lazy(() => import('./pages/contact'));
+const Contact = lazy(() => import('./pages/contact'));4
 
 function App() {
 
   return (
     <>
       <Router>
-        <Suspense fallback={<div className='w-screen h-screen bg-backgroundGray'></div>}>
+        <Suspense fallback={<div className='w-screen h-screen bg-backgroundGray overflow-hidden'></div>}>
           <AnimatePresence mode="wait">
             <ScrollToTop />
             <Routes>

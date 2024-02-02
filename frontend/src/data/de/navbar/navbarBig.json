@@ -1,0 +1,7 @@
+[
+    {"link": "/", "titel": "Home"},
+    {"link": "/blog", "titel": "Blog"},
+    {"link": "/about", "titel": "Über mich"},
+    {"link": "/contact", "titel": "Kontakt"}
+  ]
+  

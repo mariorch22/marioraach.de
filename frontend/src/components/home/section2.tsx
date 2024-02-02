@@ -2,8 +2,19 @@ import React from 'react';
 import Button from '../shared/animatedButton';
 import { motion } from 'framer-motion';
 import SlideInFromSide from '../../animations/slideInFromSide';
- 
+import { useTranslation } from 'react-i18next';
+import useFormatText from '../../hooks/useFormatText';
+
+
+interface HomeAboutText {
+    aboutText: string;
+}
+
 export function Section2() {
+    const { t } = useTranslation();
+    const homeAboutText: HomeAboutText = t("homeAboutText") as  unknown as HomeAboutText;
+
+    const formattedAboutText = useFormatText(homeAboutText.aboutText);
 
     return (
         <>
@@ -11,11 +22,7 @@ export function Section2() {
                 <h1 className='text-4xl xl:text-5xl pl-8'>About</h1>
                 <div className='px-4 py-4'>
                     <p className='text-lg xl:text-xl text-white font-roboto'>
-                        ich bin gelernter Industriekaufmann mit einer Passion für Webentwicklung und Technologie. <br/><br/>
-                        Neben meiner beruflichen Laufbahn, habe ich meine Fähigkeiten erweitert, um kreative Webprojekte als Entwickler zu realisieren. 
-                        <br/><br/>
-                        Mein Interesse an Technologie wird ergänzt durch eine Begeisterung für Entrepreneurship und Sport, was mir hilft, 
-                        einen ausgeglichenen und dynamischen Lebensstil zu pflegen. 
+                        {formattedAboutText}
                     </p>
                 </div>
                 <span className='w-full flex justify-end pr-4'>
@@ -27,7 +34,7 @@ export function Section2() {
                 </span>
             </div>
         </>
-    )
+    );
 }
 
 export default React.memo(Section2);

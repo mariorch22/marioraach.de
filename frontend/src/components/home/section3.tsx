@@ -2,9 +2,19 @@ import React from 'react';
 import Button from '../shared/animatedButton';
 import SlideInFromSide from '../../animations/slideInFromSide';
 import { motion } from 'framer-motion';
-import { IoIosArrowDropright } from "react-icons/io";
+import { useTranslation } from 'react-i18next';
+import useFormatText from '../../hooks/useFormatText';
+
+interface HomeBlogText {
+    welcomeText: string;
+}
 
 const Section3 = () => {
+
+    const { t } = useTranslation();
+    const homeBlogText: HomeBlogText = t("homeBlogText") as  unknown as HomeBlogText;
+
+    const formattedAboutText = useFormatText(homeBlogText.welcomeText);
 
     return (
         <>
@@ -12,9 +22,7 @@ const Section3 = () => {
                 <h1 className='text-4xl xl:text-5xl pl-8'>Blog</h1>
                 <div className='px-4 py-4'>
                     <p className='text-lg md:text-xl text-white font-roboto'>
-                        Willkommen in der Welt von KI, Webentwicklung und Entrepreneurship!<br/><br/>
-                        In meinem Blog finden Sie faszinierende Einblicke und innovative Ideen zu diesen dynamischen Bereichen. <br/><br/>
-                        Ob es um neueste Trends in der Künstlichen Intelligenz, praktische Tipps zur Webentwicklung oder inspirierende Geschichten aus der Welt der Startups geht – hier gibt es Wissenswertes für jeden Technologie- und Geschäftsbegeisterten. Tauchen Sie ein in meine Artikel und lassen Sie sich inspirieren!
+                        {formattedAboutText}
                     </p>
                 </div>
                 <span className='w-full flex justify-end pr-4'>

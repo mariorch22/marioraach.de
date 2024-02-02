@@ -51,9 +51,9 @@ const Button: React.FC<ButtonProps> = ({ text, link }) => {
                 animate={controls}
             />
             
-            <Link to={link}>
+            <Link to={link} className="w-full h-full">
                 <div className="relative texl-2xl w-full h-full flex justify-center items-center">
-                    {text}
+                    <p className="text-2xl">{text}</p>
                 </div>
             </Link>
         </motion.button>

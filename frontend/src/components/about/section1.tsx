@@ -15,7 +15,7 @@ const About_Section1 = () => {
                 <div className='p-10 order-first md:order-none sm:hidden flex justify-center xl:items-center xl:flex'>
                     <span className='w-full max-w-80 xl:max-w-[36rem] max-h-80 xl:max-h-[36rem] rounded-full shadow-lg shadow-white mt-20 md:mt-0 grayscale bg-hemd_small bg-center bg-cover'>
                         <img 
-                            src='/hemd/hemd.webp'
+                            src='/images/hemd/hemd.webp'
                             loading='lazy'
                             alt='Bild von Mario'
                             width={630}
