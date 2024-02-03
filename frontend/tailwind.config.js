@@ -22,6 +22,9 @@ module.exports = {
     extend: {
       colors: {
         backgroundGray: 'rgb(17, 17, 17)',
+        c_orange: "rgb(252, 163, 17)",
+        c_lightgray: "rgb(229, 229, 229)",
+        c_darkblue: "rgb(20, 33, 61)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

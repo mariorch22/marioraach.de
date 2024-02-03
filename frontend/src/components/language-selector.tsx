@@ -4,12 +4,11 @@ import { IoLanguageOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
 
 const LanguageSelector = () => {
-    
     const [isClicked, setIsClicked] = useState(false);
 
     const {i18n} = useTranslation()
 
-    const changeLanguage = (lng:any) => {
+    const changeLanguage = (lng:string) => {
         i18n.changeLanguage(lng)
     }
 
@@ -18,28 +17,39 @@ const LanguageSelector = () => {
     };
 
     return (
-        <div className='fixed h-auto flex flex-col-reverse gap-4 z-50 right-0 top-24 pr-0'>
-            <motion.span
-                className="w-12 h-12 md:w-20 md:h-20 bg-backgroundGray rounded-full p-2 inline-block bg-cover z-20"
-                style={{ backgroundImage: "url('/images/englisch.webp')" }}
-                animate={{ y: isClicked ? 0 : -100 , opacity: isClicked ? 1 : 0 }}
-                transition={{ ease: 'easeInOut', stiffness: 300 }}
-                onClick={() => changeLanguage("en")}
-            />
-            <motion.span
-                className="w-12 h-12 md:w-20 md:h-20 bg-backgroundGray rounded-full p-2 pr-4 inline-block bg-cover z-20"
-                style={{ backgroundImage: "url('/images/deutsch.webp')" }}
-                animate={{ y: isClicked ? 0 : -50 , opacity: isClicked ? 1 : 0 }}                    
-                transition={{ ease: 'easeInOut', stiffness: 300 }}
-                onClick={() => changeLanguage("de")}
-            />
+        <motion.div 
+            className='absolute h-auto w-auto flex flex-row-reverse z-30 right-0 bottom-4 md:bottom-12 pr-0 border border-white border-r-0 rounded-l-full bg-backgroundGray overflow-x-hidden'
+            animate={{ x: isClicked ? 0 : 128 , opacity: isClicked ? 1 : 0.3 }}                    
+            transition={{ ease: 'easeInOut' }}
+        >
+            <span className="w-32 flex justify-around items-center">
+                <span
+                    className={`w-10 h-10 bg-backgroundGray rounded-full p-2 pr-4 inline-block bg-cover z-20 cursor-pointer ${i18n.language === 'de' ? 'border-2 border-green-500' : ''}`}                    
+                    style={{ backgroundImage: "url('/images/deutsch.webp')" }}
+                    onClick={() => {
+                        changeLanguage("de");
+                        setIsClicked(false)
+                      }}   
+                />
+                
+                <span
+                    className={`w-10 h-10 bg-backgroundGray rounded-full p-2 pr-4 inline-block bg-cover z-20 cursor-pointer ${i18n.language === 'en' ? 'border-2 border-green-500' : ''}`}                    
+                    style={{ backgroundImage: "url('/images/englisch.webp')" }}
+                    onClick={() => {
+                        changeLanguage("en");
+                        setIsClicked(false)
+                      }}                      
+                />
+            </span>
+
             <IoLanguageOutline
-                className='w-12 h-12 md:w-20 md:h-20 bg-backgroundGray border border-white text-white rounded-l-full p-2 pr-4 cursor-pointer z-40'
+                className='w-12 h-12 bg-backgroundGray text-white bg-transparent p-2 cursor-pointer z-40'
                 onClick={handleClick}
             />
-        </div>
+        </motion.div>
 
     )
 }
 
 export default LanguageSelector
+

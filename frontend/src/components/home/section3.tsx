@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import useFormatText from '../../hooks/useFormatText';
 import { CiTextAlignCenter } from "react-icons/ci";
+import { IoMdArrowDropright } from "react-icons/io";
 
 interface HomeBlogText {
     welcomeText: string;
@@ -29,7 +30,7 @@ const Section3 = () => {
                 <span className='w-full flex justify-end pr-4'>
                     <SlideInFromSide>
                         <motion.span  whileHover={{ scale: 1.1 }}>
-                            <Button content={<CiTextAlignCenter className='w-full h-full p-8' />} link="/blog" />
+                            <Button content={<IoMdArrowDropright className='w-full h-full' />} link="/blog" />
                         </motion.span>
                     </SlideInFromSide>
                 </span>

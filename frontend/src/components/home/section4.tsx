@@ -4,7 +4,7 @@ import SlideInFromSide from '../../animations/slideInFromSide';
 import Button from '../shared/animatedButton';
 import { useTranslation } from 'react-i18next';
 import useFormatText from '../../hooks/useFormatText';
-import { GrContact } from "react-icons/gr";
+import { IoMdArrowDropright } from "react-icons/io";
 
 interface HomeKontaktText {
     title: string;
@@ -30,7 +30,7 @@ const Section4 = () => {
                 <span className='w-full flex justify-end pr-4'>
                     <SlideInFromSide>
                         <motion.span  whileHover={{ scale: 1.1 }}>
-                            <Button content={<GrContact className='w-full h-full p-8' />} link="/contact" />
+                            <Button content={<IoMdArrowDropright className='w-full h-full' />} link="/contact" />
                         </motion.span>
                     </SlideInFromSide>
                 </span>

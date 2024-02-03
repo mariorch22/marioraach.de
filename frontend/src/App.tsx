@@ -8,7 +8,6 @@ import Footer from './components/footer';
 import ScrollToTop from './animations/scrollToTop';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import LanguageSelector from './components/language-selector';
 
 const Work = lazy(() => import('./pages/work'));
 const About = lazy(() => import('./pages/about'));
@@ -29,7 +28,6 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
-            <LanguageSelector />
           </AnimatePresence>
         </Suspense>
       </Router>
