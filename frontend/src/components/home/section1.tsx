@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 import { useTranslation } from 'react-i18next';
-import LanguageSelector from '../language-selector';
 
+const LanguageSelector = React.lazy(() => import('./language-selector'));
 interface HomeLandingpageText {
     landingpageText: string;
 }
@@ -47,7 +47,13 @@ const Section1 = () => {
                 </SlideUpWhenVisible>
             </div>
 
-            <LanguageSelector />
+           
+                <React.Suspense fallback={<div></div>}>
+                    <div className='overflow-hidden'>
+                        <LanguageSelector />
+                    </div>
+                </React.Suspense>
+           
 
         </div>
     )

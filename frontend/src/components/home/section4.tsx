@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import SlideInFromSide from '../../animations/slideInFromSide';
 import Button from '../shared/animatedButton';
@@ -10,7 +10,6 @@ interface HomeKontaktText {
     title: string;
     contactText: string;
 }
-
 
 const Section4 = () => {
 
