@@ -33,7 +33,7 @@ const Button: React.FC<ButtonProps> = ({ content, link }) => {
 
     return (
         <motion.button 
-            className="relative w-16 md:w-24 h-16 md:h-24 bg-c_darkblue flex justify-center items-center"
+            className="relative w-16 md:w-24 h-16 md:h-24 flex justify-center items-center"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             style={{
@@ -46,7 +46,7 @@ const Button: React.FC<ButtonProps> = ({ content, link }) => {
                 animate={controls}
             />
 
-            <Link to={link} className="w-full h-full flex justify-center items-center z-40 p-2 md:p-8 b">
+            <Link to={link} className="w-full h-full flex justify-center items-center z-40 p-2 md:p-4 b">
                 {content}
             </Link>
         </motion.button>

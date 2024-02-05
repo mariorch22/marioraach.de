@@ -24,13 +24,11 @@ const Contact = () => {
                     <p className='px-2 md:px-40 min-h-[30rem]'>
                         <Typewriter speed={100}>Getting a quality website is not an expenses but rather an investment.</Typewriter>
                     </p>
-                    <span className='absolute w-full bottom-5 flex justify-center'>
-                        
+                    <span className='absolute w-full h-screen top-0 flex justify-center items-end pb-4'>
                         <span onClick={scrollToNextViewport} className="cursor-pointer"><AnimatedSvgButton /></span>
                     </span>
                 </div>
 
-                {/* Referenz-Element */}
                 <div ref={scrollToRef} className='min-h-screen min-w-full bg-backgroundGray px-6 md:px-0 pt-20 flex justify-center'>
                     <ContactFormSection />
                 </div>
