@@ -19,7 +19,7 @@ const Blog = () => {
         <>
              <AnimatedPage>
                 <Navbar />
-                <div className='bg-backgroundGray min-h-svh pt-20 px-4 md:px-0'>
+                <div className='bg-backgroundGray min-h-svh pt-20 px-4 md:px-0 font-roboto'>
                     <div className='w-full flex justify-center items-center flex-col gap-2 pt-20'>
                         <div>
                             <SlideUpWhenVisible y={20}>

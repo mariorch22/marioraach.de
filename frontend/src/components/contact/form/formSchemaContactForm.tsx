@@ -12,8 +12,8 @@ export const FormSchemaContactForm = z.object({
         .email({
             message: "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
         })
-        .max(20, {
-            message: "Die E-Mail-Adresse darf maximal 20 Zeichen lang sein.",
+        .max(40, {
+            message: "Die E-Mail-Adresse darf maximal 40 Zeichen lang sein.",
         }),
     company: z.string()
         .optional(),

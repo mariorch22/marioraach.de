@@ -3,11 +3,13 @@ import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { Button } from "../../../shadn/components/ui/button"
 import { Form } from "../../../shadn/components/ui/form"
-import React from "react"
+import React, { useState } from "react"
 import { FormSchemaContactForm } from "./formSchemaContactForm"
 import CustomFormField from "../../shared/customFormField"
 import { motion } from "framer-motion"
 import { useTranslation } from 'react-i18next';
+import { IoMdSend } from "react-icons/io";
+import { RiCheckDoubleFill } from "react-icons/ri";
 
 interface FormField {
   name: string;
@@ -18,6 +20,8 @@ interface FormField {
 }
 
 const ContactForm = () => {
+  const [loadingState, setLoadingState] = useState<boolean>(false);
+  const [successfullySend, setSuccessfullySend] = useState<boolean>(false);
 
   const {t} = useTranslation();
   const contactFormDaten: FormField[] = t("contactForm", { returnObjects: true }) as FormField[];
@@ -33,17 +37,47 @@ const ContactForm = () => {
     },
   })
  
-  // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof FormSchemaContactForm>) {
-    console.log(values)
+    setLoadingState(true)
+    const formData = new FormData();
+    for (const [key, value] of Object.entries(values)) {
+      formData.append(key, value);
+    }
+  
+    fetch("https://formspree.io/xgegaloy", {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json',
+      },
+    })
+    .then(response => {
+      if (response.ok) {
+        // Handle success response
+        setSuccessfullySend(true)
+        setLoadingState(false)
+      } else {
+        // Handle error response
+        response.json().then(data => {
+          console.error("Form submission error:", data.errors);
+        });
+        setLoadingState(false)
+      }
+    })
+    .catch(error => {
+      // Handle network errors
+      console.error("Network error:", error);
+      setLoadingState(false)
+    });
   }
+  
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 md:space-y-8 pb-4 w-full md:w-1/2">
-        {contactFormDaten.map((field) => (
+        {contactFormDaten.map((field, id) => (
           <CustomFormField
-            key={field.name}
+            key={id}
             control={form.control}
             name={field.name}
             label={field.label}
@@ -53,7 +87,7 @@ const ContactForm = () => {
           />
         ))}
         <div className="flex justify-end">
-          <motion.span whileTap={{ scale: 0.95 }}><Button className="w-auto bg-white hover:bg-gray-300 text-backgroundGray md:w-auto right-0 mx-6" type="submit">Abschicken</Button></motion.span>
+          <motion.span whileTap={{ scale: 0.95 }}><Button className={`hover:bg-gray-900 text-backgroundGray md:w-auto right-0 px-10 ${successfullySend ? 'bg-green-700' : 'bg-transparent'}`} type="submit" disabled={successfullySend}>{successfullySend ? <RiCheckDoubleFill size={30} color="white" /> : <IoMdSend size={30} color="white" />}</Button></motion.span>
         </div>
         
       </form>

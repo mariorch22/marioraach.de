@@ -20,7 +20,7 @@ const Contact = () => {
             <AnimatedPage>
                 <Navbar />
                 
-                <div className='text-gray-700 md:px-0 text-6xl md:text-7xl xl:text-9xl pb-20 flex items-center h-screen bg-backgroundGray min-h-[50rem]'>
+                <div className='text-gray-700 md:px-0 text-6xl md:text-7xl xl:text-9xl pb-20 flex items-center h-screen bg-backgroundGray min-h-[50rem] font-roboto'>
                     <p className='px-2 md:px-40 min-h-[30rem]'>
                         <Typewriter speed={100}>Getting a quality website is not an expenses but rather an investment.</Typewriter>
                     </p>
@@ -29,7 +29,7 @@ const Contact = () => {
                     </span>
                 </div>
 
-                <div ref={scrollToRef} className='min-h-screen min-w-full bg-backgroundGray px-6 md:px-0 pt-20 flex justify-center'>
+                <div ref={scrollToRef} className='min-h-screen min-w-full bg-backgroundGray px-6 md:px-0 pt-20 flex justify-center font-roboto'>
                     <ContactFormSection />
                 </div>
             </AnimatedPage>
