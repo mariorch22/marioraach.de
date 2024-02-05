@@ -12,18 +12,18 @@ const size = 50
 const color = "white"
 
 const icons = [
-    <FaHtml5 size={size} color={color} />,
-    <FaCss3 size={size} color={color} />,
-    <IoLogoJavascript size={size} color={color} />,
-    <DiNodejs size={size} color={color} />,
-    <BiLogoTypescript size={size} color={color} />,
-    <FaReact size={size} color={color} />,
-    <FaDocker size={size} color={color} />,
-    <FaAws size={size} color={color} />,
-    <DiMongodb size={size} color={color} />,
-    <DiMysql size={size} color={color} />,
-    <DiPostgresql size={size} color={color}  />,
-    <SiSqlite size={size} color={color} />
+    <FaHtml5 size={size} color={color} aria-hidden="true" />,
+    <FaCss3 size={size} color={color} aria-hidden="true" />,
+    <IoLogoJavascript size={size} color={color} aria-hidden="true" />,
+    <DiNodejs size={size} color={color} aria-hidden="true" />,
+    <BiLogoTypescript size={size} color={color} aria-hidden="true" />,
+    <FaReact size={size} color={color} aria-hidden="true" />,
+    <FaDocker size={size} color={color} aria-hidden="true" />,
+    <FaAws size={size} color={color} aria-hidden="true" />,
+    <DiMongodb size={size} color={color} aria-hidden="true" />,
+    <DiMysql size={size} color={color} aria-hidden="true" />,
+    <DiPostgresql size={size} color={color} aria-hidden="true"  />,
+    <SiSqlite size={size} color={color} aria-hidden="true" />
 ];
 
 const About_Section5 = () => {

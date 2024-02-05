@@ -23,18 +23,18 @@ const CustomFormField: React.FC<CustomFormFieldProps> = ({ control, name, label,
           <FormControl>
             {isTextarea ? (
                   <Textarea 
-                  className="min-h-24 max-h-96 text-lg md:text-2xl bg-transparent text-gray-200 border-b rounded-none border-transparent focus:border-white focus:outline-none focus:ring-0 transition duration-300"
-                  placeholder={placeholder}
-                  {...field}
-                  {...rest}
+                    className="min-h-24 max-h-96 text-lg md:text-2xl bg-transparent text-gray-200 border-b rounded-none border-transparent focus:border-white focus:outline-none focus:ring-0 transition duration-300"
+                    placeholder={placeholder}
+                    {...field}
+                    {...rest}
                   />
               ) : (
                   <Input 
-                  className="bg-transparent text-lg md:text-2xl text-gray-200 border-b rounded-none border-transparent focus:border-white focus:outline-none focus:ring-0 transition duration-300 py-8"
-                  type={inputType} 
-                  placeholder={placeholder} 
-                  {...field} 
-                  {...rest} 
+                    className="bg-transparent text-lg md:text-2xl text-gray-200 border-b rounded-none border-transparent focus:border-white focus:outline-none focus:ring-0 transition duration-300 py-8"
+                    type={inputType} 
+                    placeholder={placeholder} 
+                    {...field} 
+                    {...rest} 
                   />
               )}
           </FormControl>

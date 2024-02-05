@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useCallback } from 'react';
 import AnimatedPage from '../animations/pageTransition';
 import ContactFormSection from '../components/contact/contactFormSection';
 import { smoothScrollTo } from '../animations/smoothScrollTo';
@@ -9,11 +9,12 @@ import Navbar from '../components/navbar';
 const Contact = () => {
     const scrollToRef = useRef<HTMLDivElement>(null); // Erstellen der Referenz
 
-    const scrollToNextViewport = (): void => {
+    const scrollToNextViewport = useCallback((): void => {
         if (scrollToRef.current) {
             smoothScrollTo(scrollToRef.current);
         }
-    };
+    }, []); // Abhängigkeiten-Array ist leer, da sich die Referenz nicht ändern wird
+    
 
     return (
         <>
@@ -24,8 +25,11 @@ const Contact = () => {
                     <p className='px-2 md:px-40 min-h-[30rem]'>
                         <Typewriter speed={100}>Getting a quality website is not an expenses but rather an investment.</Typewriter>
                     </p>
-                    <span className='absolute w-full h-screen top-0 flex justify-center items-end pb-4'>
-                        <span onClick={scrollToNextViewport} className="cursor-pointer"><AnimatedSvgButton /></span>
+                    
+                    <span className='absolute w-full h-screen top-0 flex justify-center items-end pb-4 z-50'>
+                        <button  onClick={scrollToNextViewport} className="cursor-pointer">
+                            <AnimatedSvgButton />
+                        </button >
                     </span>
                 </div>
 

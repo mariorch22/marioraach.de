@@ -20,7 +20,6 @@ interface FormField {
 }
 
 const ContactForm = () => {
-  const [loadingState, setLoadingState] = useState<boolean>(false);
   const [successfullySend, setSuccessfullySend] = useState<boolean>(false);
 
   const {t} = useTranslation();
@@ -38,7 +37,6 @@ const ContactForm = () => {
   })
  
   function onSubmit(values: z.infer<typeof FormSchemaContactForm>) {
-    setLoadingState(true)
     const formData = new FormData();
     for (const [key, value] of Object.entries(values)) {
       formData.append(key, value);
@@ -53,25 +51,18 @@ const ContactForm = () => {
     })
     .then(response => {
       if (response.ok) {
-        // Handle success response
         setSuccessfullySend(true)
-        setLoadingState(false)
       } else {
-        // Handle error response
         response.json().then(data => {
           console.error("Form submission error:", data.errors);
         });
-        setLoadingState(false)
       }
     })
     .catch(error => {
-      // Handle network errors
       console.error("Network error:", error);
-      setLoadingState(false)
     });
   }
   
-
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 md:space-y-8 pb-4 w-full md:w-1/2">

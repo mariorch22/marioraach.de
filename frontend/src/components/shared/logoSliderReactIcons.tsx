@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import Slider, { Settings } from 'react-slick';
 
 interface LogoSliderProps {
@@ -6,38 +6,36 @@ interface LogoSliderProps {
 }
 
 const LogoSliderReactIcons: React.FC<LogoSliderProps> = ({ icons }) => {
-  const settings: Settings = {
+  const settings: Settings = useMemo(() => ({
     slidesToShow: 8,
     slidesToScroll: 1,
     infinite: true,
     autoplay: true,
-    speed: 10000,
-    autoplaySpeed: 0,
+    speed: 500,
+    autoplaySpeed: 2000,
     cssEase: 'linear',
     arrows: false,
     rtl: true,
-    pauseOnHover: false,
+    pauseOnHover: true,
     responsive: [
       {
-        breakpoint: 768, // md-Breakpoint
+        breakpoint: 768,
         settings: {
-          slidesToShow: 4, // Anzahl der Slides auf kleineren Bildschirmen
-          speed: 5000,
+          slidesToShow: 4,
+          speed: 500,
         },
       },
     ],
-  };
+  }), []);
 
   return (
-    <div>
-      <Slider {...settings}>
-        {icons.map((icon, idx) => (
-          <span key={idx}>
-            {icon}
-          </span>
-        ))}
-      </Slider>
-    </div>
+    <Slider {...settings}>
+      {icons.map((icon, idx) => (
+        <span key={idx}>
+          {icon}
+        </span>
+      ))}
+    </Slider>
   );
 };
 

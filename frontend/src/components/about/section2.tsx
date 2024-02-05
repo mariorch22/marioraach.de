@@ -1,5 +1,5 @@
 import React, {Suspense, lazy} from 'react';
-const Bildung = lazy(() => import("./bildung"));
+const Bildung = lazy(() => import("./bildung/index"));
 const Arbeitserfahrung = lazy(() => import("./arbeitserfahrung"));
 
 const About_Section3 = () => {

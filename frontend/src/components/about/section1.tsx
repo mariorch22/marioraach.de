@@ -1,4 +1,3 @@
-import React from 'react';
 import Typewriter from '../../animations/typewriter';
 import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 
@@ -17,7 +16,7 @@ const About_Section1 = () => {
                         <img 
                             src='/images/hemd/hemd.webp'
                             loading='lazy'
-                            alt='Bild von Mario'
+                            alt='Bild von Mario im Hemd'
                             width={630}
                             height={630}
                             className='w-full rounded-full shadow-lg'
