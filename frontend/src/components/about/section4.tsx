@@ -5,11 +5,11 @@ const About_Section4 = () => {
 
     return (
         <>
-            <div className='h-auto min-w-screen grid md:grid-cols-1 md:px-4 lg:px-8 xl:px-20 2xl:px-40 md:py-6' >
+            <section className='h-auto min-w-screen grid md:grid-cols-1 md:px-4 lg:px-8 xl:px-20 2xl:px-40 md:py-6' >
                 <Suspense fallback={<div>Lädt...</div>}>
                     <Ehrenamt />
                 </Suspense>
-            </div>
+            </section>
         </>
     )
 }

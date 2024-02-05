@@ -92,8 +92,8 @@ module.exports = {
         ]
       },
       backgroundImage: {
-        'hemd_small': "url('/hemd/hemd_small.webp')",
-        'hoddie_small': "url('/hoddie/hoddie_small_very.png')",
+        'hemd_small': "url('/images/hemd/hemd_small.webp')",
+        'hoddie_small': "url('/images/hoddie/hoddie_small_very.png')",
       },
       transitionDelay: {
         '500': '500ms',

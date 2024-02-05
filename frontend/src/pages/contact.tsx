@@ -26,7 +26,7 @@ const Contact = () => {
                         <Typewriter speed={100}>Getting a quality website is not an expenses but rather an investment.</Typewriter>
                     </p>
                     
-                    <span className='absolute w-full h-screen top-0 flex justify-center items-end pb-4 z-50'>
+                    <span className='absolute w-full h-screen top-0 flex justify-center items-end pb-4'>
                         <button  onClick={scrollToNextViewport} className="cursor-pointer">
                             <AnimatedSvgButton />
                         </button >

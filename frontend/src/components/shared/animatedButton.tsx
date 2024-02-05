@@ -41,14 +41,14 @@ const Button: React.FC<ButtonProps> = ({ content, link }) => {
             }}
             aria-label="Button to navigate to the other page"
         >
+            <motion.div 
+                className="absolute inset-0 bg-blue-600 z-20"
+                initial={{ y: 100, opacity: 0 }}
+                animate={controls}
+            />
+
             <Link to={link} className="w-full h-full flex justify-center items-center z-40 p-2 md:p-4 b">
-                <motion.div 
-                    className="absolute inset-0 bg-blue-600 z-20"
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={controls}
-                >
-                    {content}
-                </motion.div>
+                {content}
             </Link>
         </motion.button>
     );

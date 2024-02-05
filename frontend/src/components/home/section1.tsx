@@ -17,14 +17,16 @@ const Section1 = () => {
 
             <div className='w-full md:w-auto h-full flex items-end justify-center pt-12 xl:pt-20'>
                 <span className='rounded-full h-80 md:h-auto w-80 md:w-full flex justify-center px-6 overflow-hidden'>
-                    <img 
-                        className='pt-8 xl:px-4 drop-shadow-customDropShadow w-auto h-full md:h-[40rem] xl:h-auto xl:w-full xl:max-w-[33rem] md:pt-20 xl:pt-0'
-                        src="/images/hoddie/hdddie.png"
-                        srcSet='/images/hoddie/hh.png 767w, /images/hoddie/hoddie.png 1400w'
-                        width={400}
-                        height={800}
-                        alt='Bild von mir stehend'
-                    />
+                    <SlideUpWhenVisible delay={0.1}>
+                        <img 
+                            className='pt-8 xl:px-4 drop-shadow-customDropShadow w-auto h-full md:h-[40rem] xl:h-auto xl:w-full xl:max-w-[33rem] md:pt-20 xl:pt-0'
+                            src="/images/hoddie/hdddie.png"
+                            srcSet='/images/hoddie/hh.png 767w, /images/hoddie/hoddie.png 1400w'
+                            width={400}
+                            height={800}
+                            alt='Bild von mir stehend'
+                        />
+                    </SlideUpWhenVisible>
                 </span>
             </div>
 

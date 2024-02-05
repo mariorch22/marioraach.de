@@ -9,7 +9,7 @@ const About_Section5 = React.lazy(() => import("../components/about/section5"));
 
 const About = () => {
     return (
-        <Suspense fallback={<div>Lädt...</div>}>
+        <Suspense fallback={<div className='min-h-screen min-w-screen bg-backgroundGray'></div>}>
             <AnimatedPage>
                 <Navbar />
                 <div className='flex flex-col gap-8 bg-backgroundGray overflow-hidden'>

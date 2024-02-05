@@ -19,9 +19,9 @@ const Blog = () => {
         <>
              <AnimatedPage>
                 <Navbar />
-                <div className='bg-backgroundGray min-h-svh pt-20 px-4 md:px-0 font-roboto'>
+                <main className='bg-backgroundGray min-h-svh pt-20 px-4 md:px-0 font-roboto'>
                     <div className='w-full flex justify-center items-center flex-col gap-2 pt-20'>
-                        <div>
+                        <section>
                             <SlideUpWhenVisible y={20}>
                                 <div className='text-white text-5xl md:text-8xl'>
                                     {blogDaten.title}
@@ -32,14 +32,14 @@ const Blog = () => {
                                     {blogDaten.description}
                                 </div>
                             </SlideUpWhenVisible>                             
-                        </div>
-                        <div className='text-white text-4xl md:text-8xl pt-20 md:pt-80'>
+                        </section>
+                        <section className='text-white text-4xl md:text-8xl pt-20 md:pt-80'>
                             <Typewriter delay={1500}>
                                 {blogDaten.comingSoon}
                             </Typewriter>
-                        </div>
+                        </section>
                     </div>
-                </div>
+                </main>
             </AnimatedPage>
         </>
     )

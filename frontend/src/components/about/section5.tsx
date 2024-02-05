@@ -30,7 +30,7 @@ const About_Section5 = () => {
 
     return (
         <>
-            <div className='min-w-screen md:px-40 flex flex-col gap-20 pb-10' >
+            <section className='min-w-screen md:px-40 flex flex-col gap-20 pb-10' >
                 <Suspense fallback={<div>Lädt...</div>}>
                     <Technik /> 
                 </Suspense>     
@@ -39,7 +39,7 @@ const About_Section5 = () => {
                         <LogoSliderReactIcons icons={icons} />
                     </Suspense>
                 </SlideUpWhenVisible>              
-            </div>
+            </section>
         </>
     )
 }

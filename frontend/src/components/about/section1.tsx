@@ -5,7 +5,7 @@ const About_Section1 = () => {
 
     return (
         <>
-            <div className='min-w-screen min-h-svh grid xl:grid-cols-2 ' >
+            <section className='min-w-screen min-h-svh grid xl:grid-cols-2 ' >
                 <div className='sm:min-h-screen px-10 2xl:px-40 text-gray-500 text-3xl sm:text-7xl bg-backgroundGray rounded-br-3xl rounded-bl-3xl md:rounded-bl-none grid grid-rows-[3fr_3fr_3fr] md:mr-2 md:mb-2 order-last md:order-first h-72 pt-4'>
                     <span className='hidden sm:block font-roboto'></span>
                     <Typewriter speed={80}>"Your brand is what people say about you when you're not in the room."</Typewriter>
@@ -23,7 +23,7 @@ const About_Section1 = () => {
                         />
                     </span>
                 </div>
-            </div>
+            </section>
         </>
     )
 }
