@@ -72,7 +72,7 @@ const Navbar = () => {
             {navbarDaten.map((data, index) => (
               <span className='flex justify-center items-center flex-col pt-4' key={index}>
 
-                <Link to={data.link} onMouseEnter={() => {setHovered(data.titel)}} onMouseLeave={() => {setHovered("false")}} className="font-roboto w-full h-10 md:px-1 xl:px-6 my-1.5 font-semibold text-center flex items-center" style={{fontSize: 35}}>
+                <Link to={data.link} onMouseEnter={() => {setHovered(data.titel)}} onMouseLeave={() => {setHovered("false")}} className="font-roboto w-full h-10 md:px-2 xl:px-6 my-1.5 font-semibold text-center flex items-center" style={{fontSize: 35}}>
                   {data.titel}
                 </Link>   
                 

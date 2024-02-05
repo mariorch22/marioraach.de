@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useTranslation } from 'react-i18next';
 
-const SidebarLinks = lazy(() => import("./sidebarLinks"));
-
 interface NavbarDataItemSidebar {
   link: string;
   titel: string;
@@ -41,10 +39,6 @@ const Sidebar_Layout: React.FC<SidebarProps> = ({ toggle, setToggle }) => {
             </motion.div>
             ))}
       </div>
-
-      <Suspense fallback={<div>Lädt...</div>}>
-        <SidebarLinks />
-      </Suspense>
     </div>
   );
 }
