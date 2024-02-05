@@ -3,7 +3,6 @@ import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
 import AnimatedLogo from './animatedLogo';
 import Sidebar from './sidebar/index';
-import LanguageSelector from '../language-selector';
 import { useTranslation } from 'react-i18next';
 
 interface NavbarDataItem {
@@ -65,7 +64,7 @@ const Navbar = () => {
             <AnimatedLogo />
           </span>  
 
-          <span className='block md:hidden'>
+          <span className='block lg:hidden'>
             <Sidebar />
           </span>
           

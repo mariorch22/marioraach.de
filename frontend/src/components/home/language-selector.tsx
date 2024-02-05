@@ -23,7 +23,7 @@ const LanguageSelector = () => {
 
     return (
         <motion.div 
-            className="absolute h-auto w-auto flex flex-row-reverse z-30 right-0 bottom-4 md:bottom-12 pr-0 border border-white border-r-0 rounded-l-full bg-backgroundGray overflow-x-hidden"
+            className="h-auto w-auto flex flex-row-reverse z-30 right-0 mb-4 pr-0 border border-white border-r-0 rounded-l-full bg-backgroundGray overflow-x-hidden float-end"
             animate={{ x: isClicked ? 0 : 128, opacity: isClicked ? 1 : 0.3 }}                    
             transition={{ ease: 'easeInOut' }}
         >

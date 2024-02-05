@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
 import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 import { useTranslation } from 'react-i18next';
 
@@ -14,7 +13,7 @@ const Section1 = () => {
     const homeLandingpageText: HomeLandingpageText = t("homeLandingpageText") as  unknown as HomeLandingpageText;
 
     return (
-        <div className='h-svh px-2 pt-10 grid grid-rows-[1fr_1fr] grid-cols-1 md:grid-cols-[1fr_1fr] md:grid-rows-1 items-center justify-center' >
+        <div className='h-svh px-2 pt-10 grid grid-rows-[1fr_1fr] grid-cols-1 md:grid-cols-[4fr_4fr_1fr] md:grid-rows-1 items-center justify-center' >
 
             <div className='w-full md:w-auto h-full flex items-end justify-center pt-12 xl:pt-20'>
                 <span className='rounded-full h-80 md:h-auto w-80 md:w-full flex justify-center px-6 overflow-hidden'>
@@ -47,13 +46,11 @@ const Section1 = () => {
                 </SlideUpWhenVisible>
             </div>
 
-           
+            <div className='w-auto overflow-hidden h-svh flex absolute right-0 top-0 items-end'>
                 <React.Suspense fallback={<div></div>}>
-                    <div className='overflow-hidden'>
-                        <LanguageSelector />
-                    </div>
+                    <LanguageSelector />
                 </React.Suspense>
-           
+           </div>
 
         </div>
     )
