@@ -5,6 +5,7 @@ import { smoothScrollTo } from '../animations/smoothScrollTo';
 import Typewriter from '../animations/typewriter';
 import AnimatedSvgButton from '../components/contact/animatedSvgButton';
 import Navbar from '../components/navbar';
+import { Helmet } from 'react-helmet';
 
 const Contact = () => {
     const scrollToRef = useRef<HTMLDivElement>(null); // Erstellen der Referenz
@@ -18,6 +19,12 @@ const Contact = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Kontaktieren Sie Mario Raach - Lassen Sie uns in Verbindung treten</title>
+                <meta name="description" content="Möchten Sie ein Projekt besprechen, Fragen stellen oder einfach in Kontakt treten? Füllen Sie das Kontaktformular aus und Mario Raach wird sich so bald wie möglich bei Ihnen melden." />
+                <meta name="keywords" content="Kontakt Mario Raach, Projektanfrage, Webentwicklung Anfrage, Technologieberatung, Geschäftsanfrage, Mario Raach Kontaktinformation" />
+            </Helmet>
+
             <AnimatedPage>
                 <Navbar />
                 

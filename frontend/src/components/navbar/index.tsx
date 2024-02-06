@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { motion } from "framer-motion"
 import { Link } from "react-router-dom";
 import AnimatedLogo from './animatedLogo';
-import Sidebar from './sidebar/index';
 import { useTranslation } from 'react-i18next';
+
+const Sidebar = lazy(() => import('./sidebar/index'));
+
 
 interface NavbarDataItem {
   link: string;
@@ -64,9 +66,11 @@ const Navbar = () => {
             <AnimatedLogo />
           </span>  
 
-          <span className='block lg:hidden'>
-            <Sidebar />
-          </span>
+          <Suspense fallback={<div></div>}>
+            <span className='block lg:hidden'>
+              <Sidebar />
+            </span>
+          </Suspense>
           
           <div className="flex-row hidden lg:flex z-50 mix-blend-normal text-white">
             {navbarDaten.map((data, index) => (
