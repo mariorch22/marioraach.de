@@ -59,6 +59,10 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      boxShadow: {
+        'xl': '0 3px 3px -2px rgba(0, 0, 0, 0.3)',
+        '3xl': '4px 8px 12px -4px rgba(0, 0, 0, 0.1)',
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -94,6 +98,7 @@ module.exports = {
       backgroundImage: {
         'hemd_small': "url('/images/hemd/hemd_small.webp')",
         'hoddie_small': "url('/images/hoddie/hoddie_small_very.png')",
+        'blog_ai': "url('/images/blog/ai_gray.jpg')",
       },
       transitionDelay: {
         '500': '500ms',
