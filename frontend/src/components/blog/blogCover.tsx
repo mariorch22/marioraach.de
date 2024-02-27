@@ -1,5 +1,5 @@
-import { Button } from "../../shadn/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../shadn/components/ui/card"
+import { Button } from "../../ui_components/shadn/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../ui_components/shadn/components/ui/card"
 import { GoArrowUpRight } from "react-icons/go";
 import SlideUpWhenVisible from "../../animations/slideUpWhenVisible";
 

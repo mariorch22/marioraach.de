@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useAnimate, useAnimationControls } from "framer-motion"
+import { motion } from "framer-motion"
 import PopUp from "../../animations/popUp";
 
 const AnimatedLogo = () => {

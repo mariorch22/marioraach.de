@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import React, { useMemo } from 'react';
 
-
 interface PopUpProps {
   children: React.ReactNode;
   duration?: number; // Optional, default value can be set
