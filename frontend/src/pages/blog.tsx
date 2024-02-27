@@ -1,7 +1,7 @@
 import React from 'react';
 import AnimatedPage from '../animations/pageTransition';
 import SlideUpWhenVisible from '../animations/slideUpWhenVisible';
-import Typewriter from '../animations/typewriter';
+import { HoverEffect } from "../ui_components/aceternity/card-hover-effect";
 import Navbar from '../components/navbar';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
@@ -34,7 +34,6 @@ const Blog = () => {
         return <p>Error: {error.message}</p>
     }
 
-
     const blogDaten: TextContent = t("blogText", { returnObjects: true }) as TextContent;
 
 
@@ -64,18 +63,9 @@ const Blog = () => {
                             </SlideUpWhenVisible>                             
                         </section>
                         
-                        <section className='grid grid-cols-2 gap-12 px-60 w-full'>
-                            {data.data.map((blogDaten: any, index:number) => (
-
-                                <BlogCover 
-                                    key={index}
-                                    title={blogDaten.attributes.title} 
-                                    img={`${MY_URL_STRAPI}${blogDaten.attributes.img.data.attributes.url}`} 
-                                    kategorie={blogDaten.attributes.Kategorie}
-                                    publishingDate={blogDaten.attributes.publishingDate} 
-                                />
-                            ))}
-                        </section>
+                        <div className="md:px-20 mx-auto px-8">
+                            <HoverEffect items={data.data} />
+                        </div>
 
                     </div>
                 </main>

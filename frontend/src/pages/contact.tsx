@@ -6,6 +6,7 @@ import Typewriter from '../animations/typewriter';
 import AnimatedSvgButton from '../components/contact/animatedSvgButton';
 import Navbar from '../components/navbar';
 import { Helmet } from 'react-helmet';
+import { TextGenerateEffect } from '../ui_components/aceternity/text-generate-effect';
 
 const Contact = () => {
     const scrollToRef = useRef<HTMLDivElement>(null); // Erstellen der Referenz
@@ -29,8 +30,8 @@ const Contact = () => {
                 <Navbar />
                 
                 <div className='text-gray-700 md:px-0 text-6xl md:text-7xl xl:text-9xl pb-20 flex items-center h-screen bg-backgroundGray min-h-[50rem] font-roboto'>
-                    <p className='px-2 md:px-40 min-h-[30rem]'>
-                        <Typewriter speed={100}>Getting a quality website is not an expenses but rather an investment.</Typewriter>
+                    <p className='px-2 md:px-40 min-h-[30rem] py-60'>
+                        <TextGenerateEffect className='mx-4 md:mx-0 text-5xl md:text-9xl' words='Getting a quality website is not an expenses but rather an investment.' />
                     </p>
                     
                     <span className='absolute w-full h-screen top-0 flex justify-center items-end pb-4'>

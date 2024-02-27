@@ -1,6 +1,7 @@
 import React from 'react';
 import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 import { useTranslation } from 'react-i18next';
+import { TextGenerateEffect } from '../../ui_components/aceternity/text-generate-effect';
 
 const LanguageSelector = React.lazy(() => import('./language-selector'));
 interface HomeLandingpageText {

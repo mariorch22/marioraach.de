@@ -4,7 +4,6 @@ import App from './App.jsx'
 import './index.css'
 import "./i18n.js"
 
-
 const rootElement = document.getElementById('root');
 
 if (rootElement) {
