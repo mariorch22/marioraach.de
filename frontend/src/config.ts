@@ -1,3 +1,3 @@
 
 
-export const MY_URL_STRAPI = "http://localhost:1337"
+export const MY_URL_STRAPI = "https://server.tv-melchingen.de/mysite"

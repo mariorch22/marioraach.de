@@ -1,7 +1,6 @@
 import React from 'react';
 import AnimatedPage from '../animations/pageTransition';
 import SlideUpWhenVisible from '../animations/slideUpWhenVisible';
-import { HoverEffect } from "../ui_components/aceternity/card-hover-effect";
 import Navbar from '../components/navbar';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
@@ -9,17 +8,35 @@ import { useQuery } from '@tanstack/react-query'
 import { MY_URL_STRAPI } from "../config";
 import BlogCover from "../components/blog/blogCover"
 
-
 interface TextContent {
     title: string;
     description: string;
     comingSoon: string;
 }
 
-const fetchDataDE = async () => {
-    const response = await fetch(`http://localhost:1337/api/blogs?populate=*`);
-    return response.json()
-};  
+// Schnittstelle für den Artikel
+interface Article {
+    attributes: {
+        title: string;
+        publishingDate: Date;
+        Kategorie: string;
+    };
+    // Weitere Eigenschaften des Artikels hier hinzufügen
+}
+
+interface StrapiData {
+    data: {
+        [positionKey: string]: Article;
+    };
+}
+
+const fetchDataDE = async (): Promise<StrapiData> => {
+    const response = await fetch(`${MY_URL_STRAPI}/api/blogs?populate=*`);
+    if (!response.ok) {
+        throw new Error('Failed to fetch data');
+    }
+    return response.json() as Promise<StrapiData>;
+};
 
 const Blog = () => {
     const {t} = useTranslation();
@@ -35,7 +52,6 @@ const Blog = () => {
     }
 
     const blogDaten: TextContent = t("blogText", { returnObjects: true }) as TextContent;
-
 
     return (
         <>
@@ -63,8 +79,12 @@ const Blog = () => {
                             </SlideUpWhenVisible>                             
                         </section>
                         
-                        <div className="md:px-20 mx-auto px-8">
-                            <HoverEffect items={data.data} />
+                        <div className="w-full px-40 grid grid-cols-2 gap-20">
+                            {data && Object.entries(data.data).map(([positionKey, article]) => (
+                                <div key={positionKey} className="my-4">
+                                    <BlogCover title={article.attributes.title} img="" publishingDate={article.attributes.publishingDate.toString()} kategorie={article.attributes.Kategorie} />
+                                </div>
+                            ))}
                         </div>
 
                     </div>

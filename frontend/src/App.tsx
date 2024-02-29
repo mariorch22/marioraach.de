@@ -13,6 +13,8 @@ import "slick-carousel/slick/slick-theme.css";
 const Work = lazy(() => import('./pages/work'));
 const About = lazy(() => import('./pages/about'));
 const Contact = lazy(() => import('./pages/contact'));
+const Admin = lazy(()=> import ('./pages/admin'));
+const Blogarticle = lazy(()=> import ("./pages/blogarticle"))
 
 const queryClient = new QueryClient()
 
@@ -29,8 +31,10 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/work" element={<Work />} />
                 <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:blogId" element={<Blogarticle />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/admin" element={<Admin />} />
               </Routes>
             </AnimatePresence>
           </Suspense>
