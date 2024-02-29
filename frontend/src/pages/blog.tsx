@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet';
 import { useQuery } from '@tanstack/react-query'
 import { MY_URL_STRAPI } from "../config";
 import BlogCover from "../components/blog/blogCover"
+import moment from 'moment';
 
 interface TextContent {
     title: string;
@@ -20,8 +21,9 @@ interface Article {
         title: string;
         publishingDate: Date;
         Kategorie: string;
+        blogtext: string;
     };
-    // Weitere Eigenschaften des Artikels hier hinzufügen
+    id: number;
 }
 
 interface StrapiData {
@@ -44,11 +46,11 @@ const Blog = () => {
     const { isLoading, isError, data, error } = useQuery({ queryKey: ['dataww'], queryFn: fetchDataDE })
 
     if (isLoading) {
-        return <p>Loading...</p>;
+        return <p className="w-screen h-screen bg-backgroundGray text-white pt-28 px-40 font-roboto">Loading...</p>;
     }
     
     if(isError){
-        return <p>Error: {error.message}</p>
+        return <p className="w-screen h-screen bg-backgroundGray text-white pt-28 px-40 font-roboto">Error: {error.message}</p>
     }
 
     const blogDaten: TextContent = t("blogText", { returnObjects: true }) as TextContent;
@@ -79,12 +81,21 @@ const Blog = () => {
                             </SlideUpWhenVisible>                             
                         </section>
                         
-                        <div className="w-full px-40 grid grid-cols-2 gap-20">
-                            {data && Object.entries(data.data).map(([positionKey, article]) => (
-                                <div key={positionKey} className="my-4">
-                                    <BlogCover title={article.attributes.title} img="" publishingDate={article.attributes.publishingDate.toString()} kategorie={article.attributes.Kategorie} />
-                                </div>
-                            ))}
+                        <div className="w-full md:px-40 grid grid-cols-1 md:grid-cols-2 md:gap-20">
+                        {data && Object.entries(data.data).map(([positionKey, article]) => (
+                            <div key={positionKey} className="my-4">
+                                {article && article.attributes && (
+                                    <BlogCover 
+                                        title={article.attributes.title} 
+                                        img="" 
+                                        publishingDate={moment(article.attributes.publishingDate.toString()).format('DD.MM.YYYY')} 
+                                        kategorie={article.attributes.Kategorie} 
+                                        id={article.id} 
+                                    />
+                                )}
+                            </div>
+                        ))}
+
                         </div>
 
                     </div>

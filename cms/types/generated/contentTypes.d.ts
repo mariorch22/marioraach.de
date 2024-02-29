@@ -385,6 +385,8 @@ export interface ApiBlogBlog extends Schema.CollectionType {
         'Allg. Informatik'
       ]
     >;
+    blogtext: Attribute.Text & Attribute.Required;
+    wallpaper: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

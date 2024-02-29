@@ -37,6 +37,17 @@
         "IT-Security",
         "Allg. Informatik"
       ]
+    },
+    "blogtext": {
+      "type": "text",
+      "required": true
+    },
+    "wallpaper": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
