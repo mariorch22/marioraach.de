@@ -70,34 +70,33 @@ const Blog = () => {
                         
                         <section>
                             <SlideUpWhenVisible y={20}>
-                                <div className='text-white text-5xl md:text-8xl'>
+                                <div className='text-white md:px-10 text-5xl md:text-6xl xl:text-8xl'>
                                     {blogDaten.title}
                                 </div>
                             </SlideUpWhenVisible>
                             <SlideUpWhenVisible y={20} delay={0.7}>
-                                <div className='text-white text-md md:text-2xl py-2 md:py-2'>
+                                <div className='text-white text-md md:text-2xl md:px-10 py-2 md:py-2'>
                                     {blogDaten.description}
                                 </div>
                             </SlideUpWhenVisible>                             
                         </section>
                         
                         <div className="w-full md:px-40 grid grid-cols-1 md:grid-cols-2 md:gap-20">
-                        {data && Object.entries(data.data).map(([positionKey, article]) => (
-                            <div key={positionKey} className="my-4">
-                                {article && article.attributes && (
-                                    <BlogCover 
-                                        title={article.attributes.title} 
-                                        img="" 
-                                        publishingDate={moment(article.attributes.publishingDate.toString()).format('DD.MM.YYYY')} 
-                                        kategorie={article.attributes.Kategorie} 
-                                        id={article.id} 
-                                    />
-                                )}
-                            </div>
-                        ))}
+                            {data && Object.entries(data.data).map(([positionKey, article]) => (
+                                <div key={positionKey} className="my-4">
+                                    {article && article.attributes && (
+                                        <BlogCover 
+                                            title={article.attributes.title} 
+                                            img="" 
+                                            publishingDate={moment(article.attributes.publishingDate.toString()).format('DD.MM.YYYY')} 
+                                            kategorie={article.attributes.Kategorie} 
+                                            id={article.id} 
+                                        />
+                                    )}
+                                </div>
+                            ))}
 
                         </div>
-
                     </div>
                 </main>
             </AnimatedPage>

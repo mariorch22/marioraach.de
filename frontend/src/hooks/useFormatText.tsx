@@ -1,4 +1,3 @@
-import React from 'react';
 
 const useFormatText = (text: string) => {
     return text.split('\n').map((line, index) => (

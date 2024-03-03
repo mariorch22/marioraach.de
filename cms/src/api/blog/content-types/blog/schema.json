@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
     "img": {
       "type": "media",
       "multiple": false,
@@ -38,16 +35,13 @@
         "Allg. Informatik"
       ]
     },
-    "blogtext": {
-      "type": "text",
-      "required": true
+    "title": {
+      "type": "string"
     },
-    "wallpaper": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+    "a": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blog.blog"
     }
   }
 }
