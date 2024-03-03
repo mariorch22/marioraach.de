@@ -7,7 +7,7 @@ import arbeitserfahrungDatenDE from './data/de/about/arbeitserfahrung.json';
 import arbeitserfahrungDatenEN from './data/en/about/arbeitserfahrung.json';
 import navbarDataDE from './data/de/navbar/navbarBig.json';
 import navbarDataEN from './data/en/navbar/navbarBig.json';
-import navbarDataSidebarDE from './data/en/navbar/navbarSmall.json';
+import navbarDataSidebarDE from './data/de/navbar/navbarSmall.json';
 import navbarDataSidebarEN from './data/en/navbar/navbarSmall.json';
 import ehrenamtDataDE from './data/de/about/ehrenamt.json';
 import ehrenamtDataEN from './data/en/about/ehrenamt.json';
