@@ -82,19 +82,26 @@ const Blog = () => {
                         </section>
                         
                         <div className="w-full md:px-40 grid grid-cols-1 md:grid-cols-2 md:gap-20">
-                            {data && Object.entries(data.data).map(([positionKey, article]) => (
-                                <div key={positionKey} className="my-4">
-                                    {article && article.attributes && (
-                                        <BlogCover 
-                                            title={article.attributes.title} 
-                                            img="" 
-                                            publishingDate={moment(article.attributes.publishingDate.toString()).format('DD.MM.YYYY')} 
-                                            kategorie={article.attributes.Kategorie} 
-                                            id={article.id} 
-                                        />
-                                    )}
-                                </div>
-                            ))}
+                            {data && Object.entries(data.data)
+                                .sort(([, articleA], [, articleB]) => {
+                                    const timestampA = new Date(articleA.attributes.publishingDate).getTime();
+                                    const timestampB = new Date(articleB.attributes.publishingDate).getTime();
+                                    return timestampB - timestampA; // Now performing arithmetic on numbers
+                                })
+                                .map(([positionKey, article]) => (
+                                    <div key={positionKey} className="my-4">
+                                        {article && article.attributes && (
+                                            <BlogCover 
+                                                title={article.attributes.title} 
+                                                img="" 
+                                                publishingDate={moment(article.attributes.publishingDate.toString()).format('DD.MM.YYYY')} 
+                                                kategorie={article.attributes.Kategorie} 
+                                                id={article.id} 
+                                            />
+                                        )}
+                                    </div>
+                                )
+                            )}
 
                         </div>
                     </div>
