@@ -43,9 +43,9 @@ const Blogarticle = () => {
 
             <section className="bg-gray-200 text-black border border-gray-500 rounded-3xl relative">
                 <span className="absolute left-4 top-4">
-                    <a href="/blog">
+                    <Link to="/blog">
                         <IoArrowBack size={30} className="text-gray-500" />
-                    </a>
+                    </Link>
                 </span>
                 <h1 className="text-3xl px-4 xl:text-7xl font-bold w-full text-center pt-16 xl:pt-12 xl:px-24 pb-4">
                     {data.data.attributes.title}

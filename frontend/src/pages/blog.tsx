@@ -15,7 +15,6 @@ interface TextContent {
     comingSoon: string;
 }
 
-// Schnittstelle für den Artikel
 interface Article {
     attributes: {
         title: string;
@@ -82,11 +81,15 @@ const Blog = () => {
                         </section>
                         
                         <div className="w-full md:px-40 grid grid-cols-1 md:grid-cols-2 md:gap-20">
-                            {data && Object.entries(data.data)
+                            {data && data.data && Object.entries(data.data)
                                 .sort(([, articleA], [, articleB]) => {
+                                    if (!articleA.attributes) {
+                                    return 0;
+                                    }
+
                                     const timestampA = new Date(articleA.attributes.publishingDate).getTime();
                                     const timestampB = new Date(articleB.attributes.publishingDate).getTime();
-                                    return timestampB - timestampA; // Now performing arithmetic on numbers
+                                    return timestampB - timestampA;
                                 })
                                 .map(([positionKey, article]) => (
                                     <div key={positionKey} className="my-4">
