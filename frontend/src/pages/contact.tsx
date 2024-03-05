@@ -34,7 +34,7 @@ const Contact = () => {
                         <TextGenerateEffect className='mx-4 md:mx-0 text-5xl md:text-9xl' words='Getting a quality website is not an expenses but rather an investment.' />
                     </p>
                     
-                    <span className='absolute w-full h-screen top-0 flex justify-center items-end pb-4'>
+                    <span className='absolute w-full h-screen top-0 flex justify-center items-end pb-16 md:pb-4'>
                         <button  onClick={scrollToNextViewport} className="cursor-pointer">
                             <AnimatedSvgButton />
                         </button >
