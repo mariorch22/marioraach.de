@@ -80,7 +80,7 @@ const Blog = () => {
                             </SlideUpWhenVisible>                             
                         </section>
                         
-                        <div className="w-full md:px-40 grid grid-cols-1 md:grid-cols-2 md:gap-20">
+                        <div className="w-full md:px-40 grid grid-cols-1 md:grid-cols-2">
                             {data && data.data && Object.entries(data.data)
                                 .sort(([, articleA], [, articleB]) => {
                                     if (!articleA.attributes) {
@@ -92,7 +92,7 @@ const Blog = () => {
                                     return timestampB - timestampA;
                                 })
                                 .map(([positionKey, article]) => (
-                                    <div key={positionKey} className="my-4">
+                                    <div key={positionKey} className="my-2 md:my-8 md:mx-12">
                                         {article && article.attributes && (
                                             <BlogCover 
                                                 title={article.attributes.title} 
