@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import Navbar from "../navbar"
+import Navbar from "../../navbar"
 
 const BlogErrorPage = () => {
     return(

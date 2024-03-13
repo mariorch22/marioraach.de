@@ -5,17 +5,15 @@ import Navbar from "../components/navbar";
 import moment from "moment";
 import useFormatText from "../hooks/useFormatText";
 import { IoArrowBack } from "react-icons/io5";
-import BlogErrorPage from "../components/blog/overviewPage/blogErrorPage";
+import BlogErrorPage from "../components/blog/blogpostPage/blogErrorPage";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import React from "react";
 
 
 const Blogarticle = () => {
 
-    //get blogId out of the URL-params
     const { blogId } = useParams();
 
-    //function for fetching the Blog-Data for the blog with the blogID
     const fetchDataDE = async () => {
         const response = await fetch(`${MY_URL_STRAPI}/api/blogs/${blogId}?populate=deep`);
         if (!response.ok) {
@@ -24,11 +22,12 @@ const Blogarticle = () => {
         return response.json();
     };
 
-    //Datafetching and errorhandling with React-Query
     const { isLoading, isError, data } = useQuery({ queryKey: ['dataww'], queryFn: fetchDataDE })
+
     if (isLoading) {
         return <p className="w-screen h-screen bg-backgroundGray text-white pt-28 px-40 font-roboto">Loading...</p>;
     }
+    
     if(isError){
         return <BlogErrorPage />
     }
