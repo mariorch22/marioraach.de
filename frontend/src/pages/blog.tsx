@@ -4,10 +4,7 @@ import SlideUpWhenVisible from '../animations/slideUpWhenVisible';
 import Navbar from '../components/navbar';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
-import { useQuery } from '@tanstack/react-query'
-import { MY_URL_STRAPI } from "../config";
-import BlogCover from "../components/blog/blogCover"
-import moment from 'moment';
+import FetchBlogData from '../components/blog/overviewPage/fetchBlogData/fetchBlogData';
 
 interface TextContent {
     title: string;
@@ -15,42 +12,8 @@ interface TextContent {
     comingSoon: string;
 }
 
-interface Article {
-    attributes: {
-        title: string;
-        publishingDate: Date;
-        Kategorie: string;
-        blogtext: string;
-    };
-    id: number;
-}
-
-interface StrapiData {
-    data: {
-        [positionKey: string]: Article;
-    };
-}
-
-const fetchDataDE = async (): Promise<StrapiData> => {
-    const response = await fetch(`${MY_URL_STRAPI}/api/blogs?populate=*`);
-    if (!response.ok) {
-        throw new Error('Failed to fetch data');
-    }
-    return response.json() as Promise<StrapiData>;
-};
-
 const Blog = () => {
     const {t} = useTranslation();
-
-    const { isLoading, isError, data, error } = useQuery({ queryKey: ['dataww'], queryFn: fetchDataDE })
-
-    if (isLoading) {
-        return <p className="w-screen h-screen bg-backgroundGray text-white pt-28 px-40 font-roboto">Loading...</p>;
-    }
-    
-    if(isError){
-        return <p className="w-screen h-screen bg-backgroundGray text-white pt-28 px-40 font-roboto">Error: {error.message}</p>
-    }
 
     const blogDaten: TextContent = t("blogText", { returnObjects: true }) as TextContent;
 
@@ -65,8 +28,7 @@ const Blog = () => {
              <AnimatedPage>
                 <Navbar />
                 <main className='bg-backgroundGray min-h-svh pt-20 px-4 md:px-0 font-roboto'>
-                    <div className='w-full flex justify-center items-center flex-col gap-20 pt-20'>
-                        
+                    <div className='w-full flex justify-center items-center flex-col gap-20 pt-20'>             
                         <section>
                             <SlideUpWhenVisible y={20}>
                                 <div className='text-white md:px-10 text-5xl md:text-6xl xl:text-8xl'>
@@ -79,34 +41,7 @@ const Blog = () => {
                                 </div>
                             </SlideUpWhenVisible>                             
                         </section>
-                        
-                        <div className="w-full md:px-40 grid grid-cols-1 md:grid-cols-2">
-                            {data && data.data && Object.entries(data.data)
-                                .sort(([, articleA], [, articleB]) => {
-                                    if (!articleA.attributes) {
-                                    return 0;
-                                    }
-
-                                    const timestampA = new Date(articleA.attributes.publishingDate).getTime();
-                                    const timestampB = new Date(articleB.attributes.publishingDate).getTime();
-                                    return timestampB - timestampA;
-                                })
-                                .map(([positionKey, article]) => (
-                                    <div key={positionKey} className="my-2 md:my-8 md:mx-12">
-                                        {article && article.attributes && (
-                                            <BlogCover 
-                                                title={article.attributes.title} 
-                                                img="" 
-                                                publishingDate={moment(article.attributes.publishingDate.toString()).format('DD.MM.YYYY')} 
-                                                kategorie={article.attributes.Kategorie} 
-                                                id={article.id} 
-                                            />
-                                        )}
-                                    </div>
-                                )
-                            )}
-
-                        </div>
+                        <FetchBlogData />
                     </div>
                 </main>
             </AnimatedPage>
