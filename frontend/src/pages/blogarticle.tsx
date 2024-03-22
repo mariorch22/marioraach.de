@@ -73,7 +73,7 @@ const Blogarticle = () => {
                                 )}
                                 {index.bild.data && (
                                     <span className="w-full flex justify-center items-center">
-                                        <img className="py-8 w-auto text-center" src={`${MY_URL_STRAPI}${index.bild.data.attributes.url}`} alt="Bild" />
+                                        <img className="py-2 w-auto text-center" src={`${MY_URL_STRAPI}${index.bild.data.attributes.url}`} alt="Bild" />
                                     </span>
                                 )}
                             </React.Fragment>

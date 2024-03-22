@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AnimatedPage from '../animations/pageTransition';
 import SlideUpWhenVisible from '../animations/slideUpWhenVisible';
 import Navbar from '../components/navbar';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import FetchBlogData from '../components/blog/overviewPage/fetchBlogData/fetchBlogData';
+import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from "../ui_components/shadn/components/ui/select"
 
 interface TextContent {
     title: string;
@@ -17,6 +18,8 @@ const Blog = () => {
 
     const blogDaten: TextContent = t("blogText", { returnObjects: true }) as TextContent;
 
+    const [category, setCategory] = useState()
+
     return (
         <>
             <Helmet>
@@ -27,8 +30,24 @@ const Blog = () => {
 
              <AnimatedPage>
                 <Navbar />
+
+
+
                 <main className='bg-backgroundGray min-h-svh pt-20 px-4 md:px-0 font-roboto'>
-                    <div className='w-full flex justify-center items-center flex-col gap-20 pt-20'>             
+                    <div className='w-full flex justify-center items-center flex-col gap-20 pt-20'>    
+                    <Select>
+                        <SelectTrigger className="w-[180px]">
+                            <SelectValue placeholder="Select a fruit" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            <SelectGroup>
+                                <SelectLabel>Category</SelectLabel>
+                                <SelectItem value="apple">Apple</SelectItem>
+                                <SelectItem value="banana">Banana</SelectItem>
+                            </SelectGroup>
+                        </SelectContent>
+                    </Select>         
+
                         <section>
                             <SlideUpWhenVisible y={20}>
                                 <div className='text-white md:px-10 text-5xl md:text-6xl xl:text-8xl'>
