@@ -3,7 +3,7 @@ import { MY_URL_STRAPI } from '../../../../config';
 import BlogCover from '../blogCover';
 import BlogHeadersSkeleton from '../loading/blogHeadersSkeleton';
 import moment from 'moment';
-
+import { MdArrowForwardIos } from "react-icons/md";
 interface Article {
     attributes: {
         title: string;
@@ -39,33 +39,37 @@ const FetchBlogData = () => {
     }
 
     return(
-        <div className="w-full md:px-40 grid grid-cols-1 md:grid-cols-2">
+        <>
 
-            {data && data.data && Object.entries(data.data)
-                .sort(([, articleA], [, articleB]) => {
-                    if (!articleA.attributes) {
-                        return 0;
-                    }
-                    const timestampA = new Date(articleA.attributes.publishingDate).getTime();
-                    const timestampB = new Date(articleB.attributes.publishingDate).getTime();
-                    return timestampB - timestampA;
-                })
-                .map(([positionKey, article]) => (
-                    <div key={positionKey} className="my-2 md:my-8 md:mx-12">
-                        {article && article.attributes && (
-                            <BlogCover 
-                                title={article.attributes.title} 
-                                img="" 
-                                publishingDate={moment(article.attributes.publishingDate.toString()).format('DD.MM.YYYY')} 
-                                kategorie={article.attributes.Kategorie} 
-                                id={article.id} 
-                            />
-                        )}
-                    </div>
-                )
-            )}
 
-        </div>
+
+            <div className="w-full md:px-40 grid grid-cols-1 md:grid-cols-2">
+                {data && data.data && Object.entries(data.data)
+                    .sort(([, articleA], [, articleB]) => {
+                        if (!articleA.attributes) {
+                            return 0;
+                        }
+                        const timestampA = new Date(articleA.attributes.publishingDate).getTime();
+                        const timestampB = new Date(articleB.attributes.publishingDate).getTime();
+                        return timestampB - timestampA;
+                    })
+                    .map(([positionKey, article]) => (
+                        <div key={positionKey} className="my-2 md:my-8 md:mx-12">
+                            {article && article.attributes && (
+                                <BlogCover 
+                                    title={article.attributes.title} 
+                                    img="" 
+                                    publishingDate={moment(article.attributes.publishingDate.toString()).format('DD.MM.YYYY')} 
+                                    kategorie={article.attributes.Kategorie} 
+                                    id={article.id} 
+                                />
+                            )}
+                        </div>
+                    )
+                )}
+
+            </div>
+        </>
     )
 }
 
