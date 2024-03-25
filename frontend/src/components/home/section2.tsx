@@ -24,13 +24,13 @@ export function Section2() {
                         {formattedAboutText}
                     </p>
                 </div>
-                <span className='w-full flex justify-end pr-4'>
+                <div className='w-full flex justify-end pr-4'>
                     <SlideInFromSide>
                         <motion.span whileHover={{ scale: 1.1 }}>
                             <Button content={<IoMdArrowDropright className='w-full h-full' />} link="/about" />
                         </motion.span>
                     </SlideInFromSide>
-                </span>
+                </div>
             </div>
         </>
     );

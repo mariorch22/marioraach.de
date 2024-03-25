@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AnimatedPage from '../animations/pageTransition';
 import SlideUpWhenVisible from '../animations/slideUpWhenVisible';
 import Navbar from '../components/navbar';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import FetchBlogData from '../components/blog/overviewPage/fetchBlogData/fetchBlogData';
+
 
 interface TextContent {
     title: string;
@@ -17,8 +18,6 @@ const Blog = () => {
 
     const blogDaten: TextContent = t("blogText", { returnObjects: true }) as TextContent;
 
-    const [category, setCategory] = useState()
-
     return (
         <>
             <Helmet>
@@ -29,9 +28,6 @@ const Blog = () => {
 
              <AnimatedPage>
                 <Navbar />
-
-
-
                 <main className='bg-backgroundGray min-h-svh pt-20 px-4 md:px-0 font-roboto overflow-hidden w-screen'>
                     <div className='w-full flex justify-center items-center flex-col gap-20 pt-20'> 
 

@@ -9,8 +9,6 @@ import ScrollToTop from './animations/scrollToTop';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import ReactGA from 'react-ga';
-import { useLocation } from 'react-router-dom';
 
 
 const Work = lazy(() => import('./pages/work'));
@@ -19,17 +17,10 @@ const Contact = lazy(() => import('./pages/contact'));
 const Admin = lazy(()=> import ('./pages/admin'));
 const Blogarticle = lazy(()=> import ("./pages/blogarticle"))
 
-ReactGA.initialize('G-FF5MY3V993');
 
 const queryClient = new QueryClient()
 
 function App() {
-
-  const location = useLocation();
-  useEffect(() => {
-    ReactGA.pageview(location.pathname + location.search);
-  }, [location]);
-  
   return (
     <>
       <QueryClientProvider client={queryClient}>
