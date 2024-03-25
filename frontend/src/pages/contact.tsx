@@ -2,7 +2,6 @@ import React, { useRef, useCallback } from 'react';
 import AnimatedPage from '../animations/pageTransition';
 import ContactFormSection from '../components/contact/contactFormSection';
 import { smoothScrollTo } from '../animations/smoothScrollTo';
-import Typewriter from '../animations/typewriter';
 import AnimatedSvgButton from '../components/contact/animatedSvgButton';
 import Navbar from '../components/navbar';
 import { Helmet } from 'react-helmet';

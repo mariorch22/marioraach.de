@@ -1,7 +1,6 @@
 import React from 'react';
 import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 import { useTranslation } from 'react-i18next';
-import { TextGenerateEffect } from '../../ui_components/aceternity/text-generate-effect';
 
 const LanguageSelector = React.lazy(() => import('./language-selector'));
 interface HomeLandingpageText {
@@ -49,7 +48,7 @@ const Section1 = () => {
                 </SlideUpWhenVisible>
             </div>
 
-            <div className='w-auto overflow-hidden h-svh flex absolute right-0 top-0 items-end'>
+            <div className='w-auto overflow-hidden h-svh flex absolute right-0 items-end'>
                 <React.Suspense fallback={<div></div>}>
                     <LanguageSelector />
                 </React.Suspense>

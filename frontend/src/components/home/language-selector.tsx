@@ -2,12 +2,51 @@ import React, { useState, useCallback } from "react";
 import { useTranslation } from 'react-i18next';
 import { IoLanguageOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
-import SlideInFromSide from "../../animations/slideInFromSide";
 
-const languageOptions = [
-  { lang: 'de', imageUrl: '/images/deutsch.webp' },
-  { lang: 'en', imageUrl: '/images/englisch.webp' },
-];
+const variantsDE = {
+    hidden: {
+      scale: 0,
+      opacity: 0,
+      y: 0,
+      x: 0,
+      transition: {
+        ease: "easeInOut",
+        delay: 0.3,
+      },
+    },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      y: -70,
+      x: -20,
+      transition: {
+        ease: "easeInOut",
+        delay: 0.2,
+      },
+    },
+  };
+const variantsEN = {
+    hidden: {
+      scale: 0,
+      opacity: 0,
+      y: 0,
+      x: 0,
+      transition: {
+        ease: "easeInOut",
+        delay: 0.4,
+      },
+    },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      y: -20,
+      x: -70,
+      transition: {
+        ease: "easeInOut",
+        delay: 0.1,
+      },
+    },
+  };
 
 const LanguageSelector = () => {
     const [isClicked, setIsClicked] = useState(false);
@@ -23,28 +62,35 @@ const LanguageSelector = () => {
     }, []);
 
     return (
-        <SlideInFromSide from="right">
-            <motion.div 
-                className="h-auto w-auto flex flex-row-reverse z-30 right-0 mb-4 pr-0 border border-white border-r-0 rounded-l-full bg-backgroundGray overflow-x-hidden float-end"
-                animate={{ x: isClicked ? 0 : 128, opacity: isClicked ? 1 : 0.3 }}                    
-                transition={{ ease: 'easeInOut' }}
-            >
-                <span className="w-32 flex justify-around items-center">
-                    {languageOptions.map(({ lang, imageUrl }) => (
-                        <span
-                            key={lang}
-                            className={`w-10 h-10 bg-backgroundGray rounded-full p-2 pr-4 inline-block bg-cover z-20 cursor-pointer ${i18n.language === lang ? 'border-2 border-green-500' : ''}`}
-                            style={{ backgroundImage: `url('${imageUrl}')` }}
-                            onClick={() => changeLanguage(lang)}
-                        />
-                    ))}
-                </span>
-                <IoLanguageOutline
-                    className="w-12 h-12 bg-backgroundGray text-white bg-transparent p-2 cursor-pointer z-40"
-                    onClick={handleClick}
-                />
-            </motion.div>
-        </SlideInFromSide>
+        <div className="mb-12 mr-8 flex w-40 h-40 relative">
+            <IoLanguageOutline
+                className="w-12 h-12 cursor-pointer absolute right-0 bottom-0 z-50"
+                onClick={handleClick}
+            />
+
+
+                <div className="absolute w-40 h-40">
+                    <motion.span
+                        className={`absolute bottom-0 right-0 w-12 h-12 bg-backgroundGray rounded-full p-2 pr-4 inline-block bg-cover z-20 cursor-pointer ${i18n.language === 'de' ? 'border-2 border-green-500' : ''}`}
+                        style={{ backgroundImage: `url(/images/deutsch.webp)` }}
+                        onClick={() => changeLanguage('de')}
+                        variants={variantsDE}
+                        initial="hidden"
+                        animate={isClicked ? "visible" : "hidden"}
+                    />
+
+                    <motion.span
+                        className={`absolute bottom-0 right-0 w-12 h-12 bg-backgroundGray rounded-full p-2 pr-4 inline-block bg-cover z-20 cursor-pointer ${i18n.language === 'en' ? 'border-2 border-green-500' : ''}`}
+                        style={{ backgroundImage: `url(/images/englisch.webp)` }}
+                        onClick={() => changeLanguage('en')}
+                        variants={variantsEN}
+                        initial="hidden"
+                        animate={isClicked ? "visible" : "hidden"}
+                    />
+                </div>
+
+        </div>
+
     );
 }
 

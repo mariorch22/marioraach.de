@@ -6,6 +6,7 @@ import "./i18n.js"
 
 const rootElement = document.getElementById('root');
 
+
 if (rootElement) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import React, { Suspense, lazy, useEffect } from 'react';
 import Navbar from '../components/navbar';
 import { Helmet } from 'react-helmet';
 
@@ -11,10 +11,9 @@ const Divider = () => (
     <div className="h-1 w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-500 via-backgroundGray to-backgroundGray"></div>
 );
 
-
-
 const Home = () => {
 
+      
     return (
         <>
             <Helmet>
