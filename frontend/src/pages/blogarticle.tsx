@@ -17,7 +17,7 @@ const Blogarticle = () => {
     const { blogId } = useParams();
 
     const [updateComments, setUpdateComments] = useState(false)
-    
+
     const fetchDataDE = async () => {
         const response = await fetch(`${MY_URL_STRAPI}/api/blogs/${blogId}?populate=deep`);
         if (!response.ok) {
@@ -91,14 +91,11 @@ const Blogarticle = () => {
 
                         <div className="pt-12">
                             <h1 className="text-3xl font-bold">
-                                Kommentare
+                                Comments
                             </h1>
-
 
                             <CommentSection commentState={updateComments} />
                             <CommentForm handleState={handleUpdateComments} />
-
-                            {updateComments ? "okok " : "aaa"}
 
                         </div>
                     </div>

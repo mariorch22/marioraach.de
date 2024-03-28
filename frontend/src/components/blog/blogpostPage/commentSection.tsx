@@ -55,21 +55,21 @@ const CommentSection: React.FC<CommentSectionProps> = ({ commentState }) => {
         <div className="pt-4">
             {data && sortedData.map((item: any, index: number) => (
                 <PopUp>
-                <div key={index} className='m-4'>
-                    <Card className='shadow-2xl'>
-                        <CardHeader>
-                            <CardTitle className='flex justify-between w-full font-semibold'>
-                                <p className='text-md'>{item.username}</p>
-                                <p className='text-sm'>{new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(new Date(item.date))}</p>
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            {item.comment}
-                            {commentState ? "!": "s22"}
-                        </CardContent>
-                    </Card>
-
-                </div></PopUp>
+                    <div key={index} className='m-4'>
+                        <Card className='shadow-2xl'>
+                            <CardHeader>
+                                <CardTitle className='flex justify-between w-full font-semibold'>
+                                    <p className='text-md'>{item.username}</p>
+                                    <p className='text-sm'>{new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric' }).format(new Date(item.date))}</p>
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                {item.comment}
+                                {commentState ? "!": "s22"}
+                            </CardContent>
+                        </Card>
+                    </div>
+                </PopUp>
             ))}
         </div>
     )

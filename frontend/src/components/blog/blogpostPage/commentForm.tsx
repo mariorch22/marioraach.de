@@ -17,6 +17,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ handleState }) => {
     const { blogId } = useParams();
 
     const [successfullySend, setSuccessfullySend] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
       // 1. Define your form.
     const form = useForm<z.infer<typeof CommentFormSchema>>({
@@ -29,14 +30,13 @@ const CommentForm: React.FC<CommentFormProps> = ({ handleState }) => {
     
     // 2. Define a submit handler.
     function onSubmit(values: z.infer<typeof CommentFormSchema>) {
+        setIsLoading(true)
         const jsonData = JSON.stringify({
             username: values.username,
             comment: values.comment,
             blogId: blogId?.toString(),
             date: new Date(),
         });
-
-        console.log(jsonData)
 
         fetch("https://j4hxxa1fo2.execute-api.eu-central-1.amazonaws.com/postMySiteComments", {
             method: "POST",
@@ -50,6 +50,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ handleState }) => {
             if (response.ok) {
                 console.log("Daten erfolgreich gesendet");
                 setSuccessfullySend(true)
+                setIsLoading(false)
                 handleState();
             } else {
                 response.json().then(data => {
@@ -63,7 +64,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ handleState }) => {
     }
 
     return(
-        <div className="m-4">
+        <div className="md:m-4">
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 py-8">
                     <FormField
@@ -71,7 +72,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ handleState }) => {
                         name="username"
                         render={({ field }) => (
                             <FormItem>
-                                <FormLabel className="text-xl pl-4">Name</FormLabel>
+                                <FormLabel className="text-xl pl-0 md:pl-4">Name</FormLabel>
                                     <FormControl>
                                         <Input placeholder="My name is..." {...field} />
                                     </FormControl>
@@ -92,9 +93,16 @@ const CommentForm: React.FC<CommentFormProps> = ({ handleState }) => {
                             </FormItem>
                         )}
                     />
-                    {successfullySend ? 
-                        <Button className="float-right bg-green-500 text-black font-bold" disabled type="submit">Danke</Button>: 
-                        <Button className="float-right" type="submit">Submit</Button>
+                    {isLoading ? 
+                        <div>
+                            <Button className="float-right bg-blue-600 text-black font-bold" disabled type="submit">Loading</Button>: 
+                        </div>:
+                        <div>
+                            {successfullySend ? 
+                                <Button className="float-right bg-green-500 text-black font-bold" disabled type="submit">Danke</Button>: 
+                                <Button className="float-right" type="submit">Submit</Button>
+                            }
+                        </div>
                     }
                 </form>
             </Form>
