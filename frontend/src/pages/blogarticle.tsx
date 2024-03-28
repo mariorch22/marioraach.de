@@ -7,13 +7,17 @@ import useFormatText from "../hooks/useFormatText";
 import { IoArrowBack } from "react-icons/io5";
 import BlogErrorPage from "../components/blog/blogpostPage/blogErrorPage";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import React from "react";
-
+import React, { useState } from "react";
+import Divider  from "../components/general/divider";
+import CommentForm from "../components/blog/blogpostPage/commentForm";
+import CommentSection from "../components/blog/blogpostPage/commentSection";
 
 const Blogarticle = () => {
 
     const { blogId } = useParams();
 
+    const [updateComments, setUpdateComments] = useState(false)
+    
     const fetchDataDE = async () => {
         const response = await fetch(`${MY_URL_STRAPI}/api/blogs/${blogId}?populate=deep`);
         if (!response.ok) {
@@ -30,6 +34,10 @@ const Blogarticle = () => {
     
     if(isError){
         return <BlogErrorPage />
+    }
+
+    const handleUpdateComments = () => {
+        setUpdateComments(!updateComments)
     }
     
     return(
@@ -78,8 +86,25 @@ const Blogarticle = () => {
                                 )}
                             </React.Fragment>
                         ))}
+
+                        <Divider />
+
+                        <div className="pt-12">
+                            <h1 className="text-3xl font-bold">
+                                Kommentare
+                            </h1>
+
+
+                            <CommentSection commentState={updateComments} />
+                            <CommentForm handleState={handleUpdateComments} />
+
+                            {updateComments ? "okok " : "aaa"}
+
+                        </div>
                     </div>
+                    
                 </section>
+
             </div>
         </HelmetProvider>
     )
