@@ -1,13 +1,13 @@
-import { useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query';
 import { MY_URL_STRAPI } from '../../../../config';
 import BlogCover from '../blogCover';
 import BlogHeadersSkeleton from '../loading/blogHeadersSkeleton';
 import moment from 'moment';
-import { MdArrowForwardIos } from "react-icons/md";
+
 interface Article {
     attributes: {
         title: string;
-        publishingDate: Date;
+        publishingDate: string; // Änderung von Date auf string
         Kategorie: string;
         blogtext: string;
     };
@@ -29,48 +29,44 @@ const fetchDataDE = async (): Promise<StrapiData> => {
 };
 
 const FetchBlogData = () => {
-
-    const { isLoading, isError, data, error } = useQuery({ queryKey: ['dataww'], queryFn: fetchDataDE })
+    const { isLoading, isError, data, error } = useQuery<StrapiData, Error>({ queryKey: ['dataww'], queryFn: fetchDataDE }); // Typisierung hinzugefügt
     if (isLoading) {
         return <BlogHeadersSkeleton />;
     }
-    if(isError){
-        return <p className="w-screen h-screen bg-backgroundGray text-white pt-28 px-40 font-roboto">Error: {error.message}</p>
+    if (isError) {
+        return <p className="w-screen h-screen bg-backgroundGray text-white pt-28 px-40 font-roboto">Error: {error?.message}</p>; // Fehlerbehandlung verbessert
     }
 
-    return(
+    return (
         <>
-
-
-
             <div className="w-full md:px-40 grid grid-cols-1 md:grid-cols-2">
-                {data && data.data && Object.entries(data.data)
-                    .sort(([, articleA], [, articleB]) => {
-                        if (!articleA.attributes) {
-                            return 0;
-                        }
-                        const timestampA = new Date(articleA.attributes.publishingDate).getTime();
-                        const timestampB = new Date(articleB.attributes.publishingDate).getTime();
-                        return timestampB - timestampA;
-                    })
-                    .map(([positionKey, article]) => (
-                        <div key={positionKey} className="my-2 md:my-8 md:mx-12">
-                            {article && article.attributes && (
-                                <BlogCover 
-                                    title={article.attributes.title} 
-                                    img="" 
-                                    publishingDate={moment(article.attributes.publishingDate.toString()).format('DD.MM.YYYY')} 
-                                    kategorie={article.attributes.Kategorie} 
-                                    id={article.id} 
-                                />
-                            )}
-                        </div>
-                    )
-                )}
-
+                {data &&
+                    data.data &&
+                    Object.entries<Article>(data.data) // Hier wird ein Type Assertion verwendet, um TypeScript mitzuteilen, dass die Werte Article-Objekte sind
+                        .sort(([, articleA], [, articleB]) => {
+                            if (!articleA.attributes) {
+                                return 0;
+                            }
+                            const timestampA = new Date(articleA.attributes.publishingDate).getTime();
+                            const timestampB = new Date(articleB.attributes.publishingDate).getTime();
+                            return timestampB - timestampA;
+                        })
+                        .map(([positionKey, article]) => (
+                            <div key={positionKey} className="my-2 md:my-8 md:mx-12">
+                                {article && article.attributes && (
+                                    <BlogCover
+                                        title={article.attributes.title}
+                                        img=""
+                                        publishingDate={moment(article.attributes.publishingDate).format('DD.MM.YYYY')}
+                                        kategorie={article.attributes.Kategorie}
+                                        id={article.id}
+                                    />
+                                )}
+                            </div>
+                        ))}
             </div>
         </>
-    )
-}
+    );
+};
 
-export default FetchBlogData
+export default FetchBlogData;
