@@ -2,6 +2,7 @@ import { Button } from "../../../ui_components/shadn/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../../ui_components/shadn/components/ui/card"
 import { GoArrowUpRight } from "react-icons/go";
 import React from "react";
+import { Link } from "react-router-dom";
 
   interface BlogCoverProps {
     title: string;
@@ -22,12 +23,12 @@ const BlogCover: React.FC<BlogCoverProps> = ({title, kategorie, publishingDate, 
             </CardHeader>
 
             <CardContent>
-                <a href={`/blog/${id}`}>
+                <Link to={`/blog/${id}`}>
                     <Button className="absolute right-4 bottom-4 bg-blue-800 hover:bg-blue-600">
                         <p className="pr-2 font-roboto">Zum Artikel</p>
                         <GoArrowUpRight />
                     </Button>
-                </a>
+                </Link>
             </CardContent>
         </Card>
 

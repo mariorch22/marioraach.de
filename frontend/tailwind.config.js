@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme');
-import { DefaultTheme } from 'tailwindcss/types/generated/default-theme';
 
 module.exports = {
   darkMode: ["class"],
@@ -22,6 +21,7 @@ module.exports = {
     extend: {
       colors: {
         backgroundGray: 'rgb(17, 17, 17)',
+        pageAnimationGray: 'rgb(13, 13, 13)',
         c_orange: "rgb(252, 163, 17)",
         c_lightgray: "rgb(229, 229, 229)",
         c_darkblue: "rgb(20, 33, 61)",

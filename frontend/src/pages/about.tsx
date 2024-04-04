@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
-import AnimatedPage from '../animations/pageTransition';
 import Navbar from '../components/navbar';
 import { Helmet } from 'react-helmet';
+import pageTransition from '../animations/pageTransiton';
 
 const About_Section1 = React.lazy(() => import("../components/about/section1"));
 const About_Section2 = React.lazy(() => import("../components/about/section2"));
@@ -18,21 +18,19 @@ const About = () => {
             </Helmet>
 
             <Suspense fallback={<div className='min-h-screen min-w-screen bg-backgroundGray'></div>}>
-                <AnimatedPage>
-                    <Navbar />
-                    <div className='flex flex-col gap-8 bg-backgroundGray overflow-hidden'>
-                        <About_Section1 />
-                        <div className="divider"></div>
-                        <About_Section2 />
-                        <div className="divider"></div>
-                        <About_Section4 />
-                        <div className="divider"></div>
-                        <About_Section5 />
-                    </div>
-                </AnimatedPage>
+                <Navbar />
+                <div className='flex flex-col gap-8 bg-backgroundGray overflow-hidden'>
+                    <About_Section1 />
+                    <div className="divider"></div>
+                    <About_Section2 />
+                    <div className="divider"></div>
+                    <About_Section4 />
+                    <div className="divider"></div>
+                    <About_Section5 />
+                </div>
             </Suspense>
         </>
     );
 }
 
-export default React.memo(About);
+export default pageTransition(React.memo(About));

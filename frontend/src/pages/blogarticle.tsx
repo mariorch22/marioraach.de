@@ -11,22 +11,20 @@ import React, { useState } from "react";
 import Divider  from "../components/general/divider";
 import CommentForm from "../components/blog/blogpostPage/commentForm";
 import CommentSection from "../components/blog/blogpostPage/commentSection";
+import pageTransition from "../animations/pageTransiton";
 
+const fetchDataDE = async (blogId: string) => {
+    const response = await fetch(`${MY_URL_STRAPI}/api/blogs/${blogId}?populate=deep`);
+    if (!response.ok) {
+        throw new Error('Failed to fetch data');
+    }
+    return response.json();
+};
 const Blogarticle = () => {
 
     const { blogId } = useParams();
-
     const [updateComments, setUpdateComments] = useState(false)
-
-    const fetchDataDE = async () => {
-        const response = await fetch(`${MY_URL_STRAPI}/api/blogs/${blogId}?populate=deep`);
-        if (!response.ok) {
-            throw new Error('Failed to fetch data');
-        }
-        return response.json();
-    };
-
-    const { isLoading, isError, data } = useQuery({ queryKey: ['dataww'], queryFn: fetchDataDE })
+    const { isLoading, isError, data } = useQuery({ queryKey: ['dataww', blogId], queryFn: () => fetchDataDE(blogId as string) })
 
     if (isLoading) {
         return <p className="w-screen h-screen bg-backgroundGray text-white pt-28 px-40 font-roboto">Loading...</p>;
@@ -107,4 +105,4 @@ const Blogarticle = () => {
     )
 }
 
-export default Blogarticle
+export default pageTransition(Blogarticle)

@@ -1,11 +1,11 @@
 import React, { useRef, useCallback } from 'react';
-import AnimatedPage from '../animations/pageTransition';
 import ContactFormSection from '../components/contact/contactFormSection';
 import { smoothScrollTo } from '../animations/smoothScrollTo';
 import AnimatedSvgButton from '../components/contact/animatedSvgButton';
 import Navbar from '../components/navbar';
 import { Helmet } from 'react-helmet';
 import { TextGenerateEffect } from '../ui_components/aceternity/text-generate-effect';
+import pageTransition from '../animations/pageTransiton';
 
 const Contact = () => {
     const scrollToRef = useRef<HTMLDivElement>(null); // Erstellen der Referenz
@@ -24,7 +24,6 @@ const Contact = () => {
                 <meta name="keywords" content="Kontakt Mario Raach, Projektanfrage, Webentwicklung Anfrage, Technologieberatung, Geschäftsanfrage, Mario Raach Kontaktinformation" />
             </Helmet>
 
-            <AnimatedPage>
                 <Navbar />
                 
                 <div className='text-gray-700 md:px-0 text-6xl md:text-7xl xl:text-9xl pb-20 flex items-center h-screen bg-backgroundGray min-h-[50rem] font-roboto'>
@@ -42,9 +41,8 @@ const Contact = () => {
                 <div ref={scrollToRef} className='min-h-screen min-w-full bg-backgroundGray px-6 md:px-0 pt-20 flex justify-center font-roboto'>
                     <ContactFormSection />
                 </div>
-            </AnimatedPage>
         </>
     );
 };
 
-export default React.memo(Contact);
+export default pageTransition(React.memo(Contact));

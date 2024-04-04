@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, useEffect } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {  Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Home from './pages/home';
 import Blog from './pages/blog';
@@ -9,6 +9,7 @@ import ScrollToTop from './animations/scrollToTop';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import NotFound from './pages/NotFound';
 
 
 const Work = lazy(() => import('./pages/work'));
@@ -21,26 +22,29 @@ const Blogarticle = lazy(()=> import ("./pages/blogarticle"))
 const queryClient = new QueryClient()
 
 function App() {
+
+  const location = useLocation();
+
   return (
     <>
       <QueryClientProvider client={queryClient}>
-        <Router>
-          <Suspense fallback={<div className='w-screen h-screen bg-backgroundGray overflow-hidden'></div>}>
+          <Suspense fallback={<div className='w-screen h-screen flex justify-center items-center text-4xl text-white bg-pageAnimationGray overflow-hidden'></div>}>
             <AnimatePresence mode="wait">
               <ScrollToTop />
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/work" element={<Work />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:blogId" element={<Blogarticle />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/admin" element={<Admin />} />
+              <Routes location={location} key={location.pathname}>
+                <Route path="/" element={<Footer/>}>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/work" element={<Work />} />
+                  <Route path="/blog" element={<Blog />} />
+                  <Route path="/blog/:blogId" element={<Blogarticle />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/admin" element={<Admin />} />
+                </Route>
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </AnimatePresence>
           </Suspense>
-        </Router>
-        <Footer />
       </QueryClientProvider>
     </>
   );
