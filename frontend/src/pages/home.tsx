@@ -2,6 +2,7 @@ import React, { Suspense, lazy, useEffect, useState } from 'react';
 import Navbar from '../components/navbar';
 import { Helmet } from 'react-helmet';
 import pageTransition from '../animations/pageTransiton';
+import { motion } from 'framer-motion';
 
 const Section1 = lazy(() => import('../components/home/section1'));
 const Section2 = lazy(() => import('../components/home/section2'));
@@ -37,4 +38,4 @@ const Home = () => {
     );
 }
 
-export default Home
+export default pageTransition(Home)

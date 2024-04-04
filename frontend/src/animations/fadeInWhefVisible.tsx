@@ -11,7 +11,7 @@ function FadeInWhenVisible({children}: PopUpProps) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        transition={{ duration: 0.8, delay:0.4 }}
+        transition={{ duration: 2.8, delay:0 }}
         variants={{
           visible: { opacity: 1, scale: 1 },
           hidden: { opacity: 0, scale: 1 }

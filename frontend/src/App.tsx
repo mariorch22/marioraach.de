@@ -9,14 +9,13 @@ import ScrollToTop from './animations/scrollToTop';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import NotFound from './pages/NotFound';
-
 
 const Work = lazy(() => import('./pages/work'));
 const About = lazy(() => import('./pages/about'));
 const Contact = lazy(() => import('./pages/contact'));
 const Admin = lazy(()=> import ('./pages/admin'));
 const Blogarticle = lazy(()=> import ("./pages/blogarticle"))
+const NotFound = lazy(()=> import ("./pages/NotFound"))
 
 
 const queryClient = new QueryClient()
@@ -28,7 +27,7 @@ function App() {
   return (
     <>
       <QueryClientProvider client={queryClient}>
-          <Suspense fallback={<div className='w-screen h-screen flex justify-center items-center text-4xl text-white bg-pageAnimationGray overflow-hidden'></div>}>
+          <Suspense fallback={<div className='w-screen h-[200vh] flex justify-center items-center text-4xl text-white bg-pageAnimationGray overflow-hidden'></div>}>
             <AnimatePresence mode="wait">
               <ScrollToTop />
               <Routes location={location} key={location.pathname}>
