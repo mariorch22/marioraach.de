@@ -5,7 +5,7 @@ const useFormatText = (text: string) => {
     return formattedText.split('\n').map((line, index) => (
       <span key={index}>
         {/* Dangerously set innerHTML for demonstration purposes only (consider security implications) */}
-        <div className="py-1" dangerouslySetInnerHTML={{ __html: line }} />
+        <p className="py-1" dangerouslySetInnerHTML={{ __html: line }} />
       </span>
     ));
   };

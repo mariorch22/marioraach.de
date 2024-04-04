@@ -22,9 +22,9 @@ const Section3 = () => {
             <div className='md:px-40 xl:px-80 py-6 xl:py-20' >
                 <h1 className='text-4xl xl:text-5xl pl-8'>Blog</h1>
                 <div className='px-4 py-4'>
-                    <p className='text-lg md:text-xl text-white font-roboto'>
+                    <div className='text-lg md:text-xl text-white font-roboto'>
                         {formattedAboutText}
-                    </p>
+                    </div>
                 </div>
                 <span className='w-full flex justify-end pr-4'>
                     <SlideInFromSide>
