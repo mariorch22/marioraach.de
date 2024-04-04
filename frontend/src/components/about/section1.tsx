@@ -1,4 +1,3 @@
-import Typewriter from '../../animations/typewriter';
 import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 import { TextGenerateEffect } from '../../ui_components/aceternity/text-generate-effect';
 

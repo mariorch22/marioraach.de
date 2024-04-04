@@ -93,17 +93,20 @@ const CommentForm: React.FC<CommentFormProps> = ({ handleState }) => {
                             </FormItem>
                         )}
                     />
-                    {isLoading ? 
+                    {isLoading ? (
                         <div>
-                            <Button className="float-right bg-blue-600 text-black font-bold" disabled type="submit">Loading</Button>: 
-                        </div>:
-                        <div>
-                            {successfullySend ? 
-                                <Button className="float-right bg-green-500 text-black font-bold" disabled type="submit">Danke</Button>: 
-                                <Button className="float-right" type="submit">Submit</Button>
-                            }
+                            <Button className="float-right bg-blue-600 text-black font-bold" disabled type="submit">
+                                Loading
+                            </Button>
                         </div>
-                    }
+                        ) : (
+                        <div>
+                            <Button className="float-right" type="submit" disabled={successfullySend}>
+                                {successfullySend ? "Danke" : "Submit"}
+                            </Button>
+                        </div>
+                    )}
+
                 </form>
             </Form>
         </div>

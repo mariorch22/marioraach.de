@@ -4,8 +4,8 @@ import { IoLogoJavascript } from "react-icons/io5";
 import { BiLogoTypescript } from "react-icons/bi";
 import { DiMongodb, DiMysql, DiPostgresql, DiNodejs } from "react-icons/di";
 import { SiSqlite } from "react-icons/si";
-import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 import { InfiniteMovingCards } from '../../ui_components/aceternity/infinite-moving-cars';
+import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
 const Technik = lazy(() => import("./technik"));
 
 const size = 50

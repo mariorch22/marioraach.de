@@ -44,10 +44,8 @@ const CommentSection: React.FC<CommentSectionProps> = ({ commentState }) => {
     const filteredData = data.filter((item: any) => item.blogId === blogId);
 
     const sortedData = filteredData.slice().sort((a: any, b: any) => {
-        // Konvertieren Sie 'date' in ein Date-Objekt
         const dateA = new Date(a.date);
         const dateB = new Date(b.date);
-        // Vergleichen Sie die Daten
         return dateB.getTime() - dateA.getTime();
       });
       

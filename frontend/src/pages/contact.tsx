@@ -14,8 +14,7 @@ const Contact = () => {
         if (scrollToRef.current) {
             smoothScrollTo(scrollToRef.current);
         }
-    }, []); // Abhängigkeiten-Array ist leer, da sich die Referenz nicht ändern wird
-    
+    }, []);
 
     return (
         <>
