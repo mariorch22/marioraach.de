@@ -48,7 +48,7 @@ const Section1 = () => {
                 </SlideUpWhenVisible>
             </div>
 
-            <div className='w-auto overflow-hidden h-svh flex absolute right-0 items-end'>
+            <div className='w-auto overflow-hidden h-svh flex absolute right-0 items-end z-30'>
                 <React.Suspense fallback={<div></div>}>
                     <LanguageSelector />
                 </React.Suspense>
