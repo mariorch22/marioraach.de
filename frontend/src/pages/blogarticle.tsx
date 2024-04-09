@@ -80,17 +80,18 @@ const Blogarticle = () => {
                                 {index.text && (
                                     <p className="pb-8 leading-7 md:leading-9">{useFormatText(index.text)}</p>
                                 )}
+                                {index.Code && (
+                                    <CopyBlock
+                                        text={index.Code}
+                                        language={"javascript"}
+                                        showLineNumbers={true}
+                                        theme={dracula}
+                                        codeBlock
+                                        icon={<FaCopy />}
+                                        onCopy={() => copy(index.Code)}
+                                    />
+                                )}
 
-                                <CopyBlock
-                                    text={"code"}
-                                    language={"javascript"}
-                                    showLineNumbers={true}
-                                    theme={dracula}
-                                    codeBlock
-                                    icon={<div><FaCopy /></div>}
-                                    onCopy={() => copy("code")}
-                                />
-                                
                                 {index.bild.data && (
                                     <span className="w-full flex justify-center items-center">
                                         <img className="py-2 w-auto text-center" src={`${MY_URL_STRAPI}${index.bild.data.attributes.url}`} alt="Bild" />
