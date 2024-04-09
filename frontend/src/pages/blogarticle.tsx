@@ -56,14 +56,14 @@ const Blogarticle = () => {
                     <h1 className="text-3xl px-4 xl:text-7xl font-bold w-full text-center pt-16 xl:pt-12 xl:px-24 pb-4">
                         {data.data.attributes.title}
                     </h1>
-                    <h2 className="flex justify-start pl-8 pb-8">
-                        <span className="grid grid-cols-[1fr_2fr] max-w-[20rem] font-semibold text-gray-500">
-                            <p className="text-md">Kategorie :</p>
-                            <p className="text-xl">{data.data.attributes.Kategorie}</p>
-                            <p className="text-md">Datum:</p>
-                            <p className="text-xl">{moment(data.data.attributes.publishingDate).format( 'DD.MM.YYYY')}</p>
+                    <div className="flex justify-start pl-8 pb-8">
+                        <span className="grid grid-cols-[2fr_3fr] max-w-[40rem] font-semibold text-gray-500">
+                            <p className="text-md flex items-center">Kategorie :</p>
+                            <p className="text-xl flex items-center">{data.data.attributes.Kategorie}</p>
+                            <p className="text-md flex items-center">Datum:</p>
+                            <p className="text-xl flex items-center">{moment(data.data.attributes.publishingDate).format( 'DD.MM.YYYY')}</p>
                         </span>
-                    </h2>
+                    </div>
 
                     <div className="px-4 xl:px-20 text-xl bg-white text-black py-8 xl:py-20 rounded-b-3xl">
                         {data && data.data && data.data.attributes.a.map((index: any, i: number) => (

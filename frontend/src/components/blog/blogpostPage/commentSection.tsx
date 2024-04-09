@@ -19,7 +19,6 @@ interface CommentSectionProps {
 const CommentSection: React.FC<CommentSectionProps> = ({ commentState }) => {
     const { blogId } = useParams();
 
-    
     const { isLoading, isError, data, error, refetch } = useQuery({ queryKey: ['datawwuu'], queryFn: fetchDataDE })
 
     const fetchData = useCallback(async () => {
