@@ -29,10 +29,13 @@
     "Kategorie": {
       "type": "enumeration",
       "enum": [
-        "Softwareentwicklung",
-        "Künstliche Intelligenz",
+        "Softwareengeneering",
+        "Artificial Intelligence",
         "IT-Security",
-        "Allg. Informatik"
+        "General Computer Science",
+        "Economy",
+        "Leetcode",
+        "What I learned from ..."
       ]
     },
     "title": {
