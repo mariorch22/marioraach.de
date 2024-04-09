@@ -11,6 +11,7 @@ export interface BlogBlog extends Schema.Component {
     h2: Attribute.String;
     text: Attribute.Text;
     bild: Attribute.Media;
+    Code: Attribute.Text;
   };
 }
 

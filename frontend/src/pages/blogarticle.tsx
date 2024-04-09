@@ -12,6 +12,9 @@ import Divider  from "../components/general/divider";
 import CommentForm from "../components/blog/blogpostPage/commentForm";
 import CommentSection from "../components/blog/blogpostPage/commentSection";
 import pageTransition from "../animations/pageTransiton";
+import { CopyBlock, dracula  } from 'react-code-blocks';
+import { FaCopy } from 'react-icons/fa';
+import copy from 'copy-to-clipboard';
 
 const fetchDataDE = async (blogId: string) => {
     const response = await fetch(`${MY_URL_STRAPI}/api/blogs/${blogId}?populate=deep`);
@@ -77,6 +80,17 @@ const Blogarticle = () => {
                                 {index.text && (
                                     <p className="pb-8 leading-7 md:leading-9">{useFormatText(index.text)}</p>
                                 )}
+
+                                <CopyBlock
+                                    text={"code"}
+                                    language={"javascript"}
+                                    showLineNumbers={true}
+                                    theme={dracula}
+                                    codeBlock
+                                    icon={<div><FaCopy /></div>}
+                                    onCopy={() => copy("code")}
+                                />
+                                
                                 {index.bild.data && (
                                     <span className="w-full flex justify-center items-center">
                                         <img className="py-2 w-auto text-center" src={`${MY_URL_STRAPI}${index.bild.data.attributes.url}`} alt="Bild" />
