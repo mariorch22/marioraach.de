@@ -1,17 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/navbar';
-
+import DrawingCanvas from '../components/work/canvas';
 const Work = () => {
 
     return (
         <>
                 <Navbar />
-                <motion.div className='bg-blue-900 min-h-screen min-w-screen'>
+                <motion.div className='bg-blue-900 min-h-screen min-w-screen flex justify-center items-center'>
                     <div>
-                        <img />
-                        <h1>TV Melchingen</h1>
-                        <h2>Design & Development & Deployment 2023</h2>
+                        <h1 className='text-5xl text-center my-4'>Canvas</h1>
+                        <DrawingCanvas backgroundColor="#000000" scale={10} />
+
                     </div>
                 </motion.div>
         </>
