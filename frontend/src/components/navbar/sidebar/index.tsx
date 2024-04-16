@@ -2,19 +2,16 @@ import React, { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PopUp from '../../../animations/popUp';
 import Sidebar_Layout from "./sidebarLayout";
+import useToggle from '../../../hooks/useToggle';
 
 const Sidebar = () => {
-    const [hamburger, setHamburger] = useState(false);
-
-    const handleToggleHamburger = useCallback(() => {
-        setHamburger(prevHamburger => !prevHamburger);
-    }, []);
+    const [hamburger, setHamburger] = useToggle(false);
 
     return (
         <>
             <PopUp>
                 <motion.div className='rounded-full z-50 relative top-0 right-0'>
-                <div onClick={handleToggleHamburger} className="flex h-20 w-20 cursor-pointer items-center justify-center rounded-3xl p-2">
+                <div onClick={setHamburger} className="flex h-20 w-20 cursor-pointer items-center justify-center rounded-3xl p-2">
                     <div className="space-y-2">
                         <span className={`block h-1 w-10 origin-center rounded-full bg-slate-500 transition-transform ease-in-out ${hamburger ? 'translate-y-1.5 rotate-45' : ''}`}></span>
                         <span className={`block h-1 origin-center rounded-full bg-white transition-transform ease-in-out ${hamburger ? 'w-10 -translate-y-1.5 -rotate-45' : 'w-8'}`}></span>
@@ -32,7 +29,7 @@ const Sidebar = () => {
                         transition={{ duration: 0.7, ease: "easeInOut" }}
                         className="absolute h-screen w-full flex flex-col left-0 top-0 bg-backgroundGray justify-between pb-12 z-30"
                     >
-                        <Sidebar_Layout toggle={hamburger} setToggle={handleToggleHamburger} />
+                        <Sidebar_Layout toggle={hamburger} setToggle={setHamburger} />
                     </motion.div>
                 )}
             </AnimatePresence>

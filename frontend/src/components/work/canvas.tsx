@@ -70,7 +70,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ backgroundColor, scale })
     image.src = canvas.toDataURL(); // Wandelt den Inhalt des Canvas in eine Daten-URL um
 
     // Sende das Bild an deine API
-    fetch('http://127.0.0.1:5000/send', {
+    fetch('http://127.0.0.1:5000/predict', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
