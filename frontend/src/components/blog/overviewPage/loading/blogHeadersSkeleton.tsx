@@ -43,4 +43,4 @@ const BlogHeadersSkeleton = () => {
   );
 };
 
-export default React.memo(BlogHeadersSkeleton);
+export default BlogHeadersSkeleton;
