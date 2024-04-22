@@ -1,15 +1,25 @@
+// import dependencies
+import React, { useState } from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
-import { Button } from "../../../ui_components/shadn/components/ui/button"
-import { Form } from "../../../ui_components/shadn/components/ui/form"
-import React, { useState } from "react"
-import { FormSchemaContactForm } from "./formSchemaContactForm"
-import CustomFormField from "../../shared/customFormField"
-import { motion } from "framer-motion"
 import { useTranslation } from 'react-i18next';
 import { IoMdSend } from "react-icons/io";
 import { RiCheckDoubleFill } from "react-icons/ri";
+import { ThreeDots } from "react-loader-spinner"
+import { motion, useMotionValue, useTransform } from "framer-motion"
+import { CircularProgress } from "../animatedCheckIcon"
+
+
+// import components
+import { FormSchemaContactForm } from "./formSchemaContactForm"
+import CustomFormField from "../../shared/customFormField"
+
+// import ShadnCN-Components
+import { Button } from "../../../ui_components/shadn/components/ui/button"
+import { Form } from "../../../ui_components/shadn/components/ui/form"
+import useSendContactForm from "../../../hooks/useSendContactForm"
+import PopUp from "../../../animations/popUp"
 
 interface FormField {
   name: string;
@@ -20,10 +30,9 @@ interface FormField {
 }
 
 const ContactForm = () => {
-  const [successfullySend, setSuccessfullySend] = useState<boolean>(false);
-
   const {t} = useTranslation();
   const contactFormDaten: FormField[] = t("contactForm", { returnObjects: true }) as FormField[];
+  const {mutate, isSuccess, isPending, isIdle} = useSendContactForm()
 
   const form = useForm<z.infer<typeof FormSchemaContactForm>>({
     resolver: zodResolver(FormSchemaContactForm),
@@ -36,33 +45,23 @@ const ContactForm = () => {
     },
   })
  
-  function onSubmit(values: z.infer<typeof FormSchemaContactForm>) {
+  async function onSubmit(values: z.infer<typeof FormSchemaContactForm>) {
     const formData = new FormData();
     for (const [key, value] of Object.entries(values)) {
       formData.append(key, value);
     }
-  
-    fetch("https://formspree.io/xgegaloy", {
-      method: "POST",
-      body: formData,
-      headers: {
-        'Accept': 'application/json',
-      },
-    })
-    .then(response => {
-      if (response.ok) {
-        setSuccessfullySend(true)
-      } else {
-        response.json().then(data => {
-          console.error("Form submission error:", data.errors);
-        });
-      }
-    })
-    .catch(error => {
-      console.error("Network error:", error);
-    });
+
+    try {
+      // Starte die Mutation zum Senden des Kontaktformulars
+      mutate(formData as any);
+    } catch (error) {
+      console.error("Fehler beim Senden des Formulars:", error);
+      // Hier könntest du eine Fehlermeldung anzeigen oder weitere Fehlerbehandlung durchführen
+    }
   }
   
+
+  let progress = useMotionValue(90)
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 md:space-y-8 pb-4 w-full md:w-1/2">
@@ -78,7 +77,36 @@ const ContactForm = () => {
           />
         ))}
         <div className="flex justify-end">
-          <motion.span whileTap={{ scale: 0.95 }}><Button className={`hover:bg-gray-900 text-backgroundGray md:w-auto right-0 px-10 ${successfullySend ? 'bg-green-700' : 'bg-transparent'}`} type="submit" disabled={successfullySend}>{successfullySend ? <RiCheckDoubleFill size={30} color="white" /> : <IoMdSend size={30} color="white" />}</Button></motion.span>
+          <motion.span whileTap={{ scale: 0.95 }}>
+            {isSuccess && 
+              <motion.div
+                initial={{ backgroundColor: "#111827" }}
+                animate={{ backgroundColor: "#22C55E" }}
+                transition={{ duration: 0.2 }}
+                className="rounded-full"
+              >
+                <Button className={`rounded-full h-20 w-auto max-w-20 px-1 text-backgroundGray right-0 bg-customGreenButton`} type="submit" disabled={true}>
+                  <motion.div
+                    initial={{ x: 0 }}
+                    animate={{ x: 100 }}
+                    style={{ x: progress }}
+                    transition={{ duration: 1 }}
+                  />
+                  <CircularProgress progress={progress} />
+                </Button>
+              </motion.div>
+            }
+            {isPending && 
+              <Button className={`rounded-full h-20 w-20 text-backgroundGray right-0 bg-gray-900`} type="submit" disabled={true}>
+                <ThreeDots width={40} height={40} color="white" /> 
+              </Button>
+            }
+            {isIdle && 
+              <Button className={`rounded-full h-20 w-20 text-backgroundGray right-0 bg-gray-900`} type="submit" disabled={false}>
+                <IoMdSend size={35} className="ml-1" color="white" />
+              </Button>
+            }
+          </motion.span>
         </div>
         
       </form>

@@ -21,6 +21,7 @@ module.exports = {
     extend: {
       colors: {
         backgroundGray: 'rgb(17, 17, 17)',
+        customGreenButton: '#134611',
         pageAnimationGray: 'rgb(13, 13, 13)',
         c_orange: "rgb(252, 163, 17)",
         c_lightgray: "rgb(229, 229, 229)",
