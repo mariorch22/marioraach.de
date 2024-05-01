@@ -24,7 +24,7 @@ const SkillCard = React.memo<Skill>(({ title, details, skillLevel, imageSrc }) =
                 </SlideUpWhenVisible>
                 <SlideUpWhenVisible delay={0.3} duration={0.4}>
                     <ul className='pt-2'>{details}</ul>
-                    <span>Skilllevel: {skillLevel}</span>
+
                 </SlideUpWhenVisible>
             </div>
         </article>

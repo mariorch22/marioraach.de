@@ -4,19 +4,16 @@
         {
             "title": "Microsoft Office Programme",
             "details": "Word, Excel, PowerPoint, Outlook",
-            "skillLevel": "⚫⚫⚫⚫⚫⚫⚫⚫⚫⚫",
             "imageSrc": "/about/technisch/ms_office.png"
         },
         {
             "title": "Webentwicklung",
-            "details": "JavaScript, TypeScript, ReactJS, ExpressJS, MongoDB, Docker, AWS",
-            "skillLevel": "⚫⚫⚫⚫⚫⚫⚫⚫◯◯",
+            "details": "JavaScript, TypeScript, ReactJS, ExpressJS, Docker, AWS",
             "imageSrc": "/about/technisch/mern.png"
         },
         {
             "title": "Datenverarbeitung",
-            "details": "Excel, Python, MySQL, PostgreSQL, SQLite, MongoDB",
-            "skillLevel": "⚫⚫⚫⚫⚫◯◯◯◯◯",
+            "details": "Python, MySQL, PostgreSQL, SQLite, MongoDB",
             "imageSrc": "/about/technisch/datascience.png"
         }
     ]
