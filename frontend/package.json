@@ -33,7 +33,6 @@
     "moment": "^2.30.1",
     "postcss": "^8.4.33",
     "react": "^18.2.0",
-    "react-canvas-draw": "^1.2.1",
     "react-code-blocks": "^0.1.6",
     "react-copy-to-clipboard": "^5.1.0",
     "react-curved-text": "^3.0.0",

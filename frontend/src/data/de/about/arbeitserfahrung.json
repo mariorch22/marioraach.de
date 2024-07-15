@@ -2,39 +2,27 @@
     "pageTitle": "Arbeitserfahrung",
     "data": [
         {
-            "bild": {
-                "src": "/about/arbeitserfahrung/trigema.jpg",
-                "width": 96,
-                "height": 96,
-                "alt": "TRIGEMA Logo"
-            },
-            "titel": "Ausbildung zum Industriekaufmann bei TRIGEMA W. Grupp KG",
+            "titel": "Praktikum bei Oxid eSales AG",
             "kinder": [
-                "Praxisnahe Ausbildung bei TRIGEMA, Schwerpunkt auf kaufmännischen Kenntnissen mit Fokus auf Marketing und E-Commerce.",
-                "Fundierte Kenntnisse im kaufmännischen Bereich.",
-                "Sicherer Umgang mit Microsoft Dynamics AX, Adobe Creative Cloud und den Microsoft Office Programmen.",
-                "Stärkung der Soft Skills wie Teamarbeit und Kommunikation."
+                "Überbrückungspraktikum bis zum dualen Studium.",
+                "Modulentwicklung mit dem Oxid eShop-Framework in PHP"
             ]
         },
         {
-            "bild": {
-                "src": "/about/arbeitserfahrung/epsilon.jpg",
-                "width": 96,
-                "height": 96,
-                "alt": "Epsilon Logo"
-            },
-            "titel": "Praktika bei Epsilon International SA",
+            "titel": "Ausbildung zum Industriekaufmann bei TRIGEMA W. Grupp KG",
+            "kinder": [
+                "Praxisnahe Ausbildung bei TRIGEMA, Schwerpunkt auf kaufmännischen Kenntnissen.",
+                "Fundierte Kenntnisse im kaufmännischen Bereich.",
+                "Sicherer Umgang mit Microsoft Dynamics AX, Adobe Creative Cloud und den Microsoft Office Programmen."
+            ]
+        },
+        {
+            "titel": "Praktikum bei Epsilon International SA",
             "kinder": [
                 "3-wöchiges Praktikum im Rahmen des Erasmus+ Programms in Athen."
             ]
         },
         {
-            "bild": {
-                "src": "/about/arbeitserfahrung/daimler.jpg",
-                "width": 96,
-                "height": 96,
-                "alt": "Daimler Logo"
-            },
             "titel": "Diverse temporäre Anstellungen bei Daimler AG",
             "kinder": [
                 "Planungsanpassung aufgrund von Covid-19: Ursprünglich vorgesehene Auslandsreise verschoben."

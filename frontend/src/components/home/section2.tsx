@@ -5,6 +5,7 @@ import SlideInFromSide from '../../animations/slideInFromSide';
 import { useTranslation } from 'react-i18next';
 import useFormatText from '../../hooks/useFormatText';
 import { IoMdArrowDropright } from "react-icons/io";
+
 interface HomeAboutText {
     aboutText: string;
 }
