@@ -65,9 +65,26 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ backgroundColor, scale })
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    // Erstelle ein Bild aus dem Canvas-Inhalt
-    const image = new Image();
-    image.src = canvas.toDataURL(); // Wandelt den Inhalt des Canvas in eine Daten-URL um
+    const ctx = canvas.getContext('2d');
+    if (!ctx) {
+      console.error('Could not get 2D context from canvas');
+      return;
+    }
+    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const pixels = Array.from(imageData.data);
+
+    // Konvertiere zu Graustufen und reduziere auf 28x28
+    const grayScaleData = new Array(28 * 28);
+    for (let i = 0; i < pixels.length; i += 4) {
+      const idx = Math.floor(i / 4);
+      const row = Math.floor(idx / 28);
+      const col = idx % 28;
+      // Berechne Graustufenwert (verwende nur den Rotwert, da wir in Schwarz-Weiß zeichnen)
+      grayScaleData[row * 28 + col] = pixels[i];
+    }
+
+    console.log(grayScaleData); // Dies sollte jetzt 784 Werte ausgeben
+
 
     // Sende das Bild an deine API
     fetch('http://127.0.0.1:5000/predict', {
@@ -75,7 +92,11 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ backgroundColor, scale })
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ image: image.src })
+      body: JSON.stringify({ 
+        image: grayScaleData,
+        width: 28,
+        height: 28
+      })
     })
     .then(response => {
       if (!response.ok) {
