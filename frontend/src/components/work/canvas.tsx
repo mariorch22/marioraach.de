@@ -10,6 +10,7 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ backgroundColor, scale })
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const ctxRef = useRef<CanvasRenderingContext2D | null>(null);
   const [isDrawing, setIsDrawing] = useState<boolean>(false);
+  const [prediction, setPrediction] = useState<number>()
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -87,13 +88,13 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ backgroundColor, scale })
 
 
     // Sende das Bild an deine API
-    fetch('http://127.0.0.1:5000/predict', {
+    fetch('https://emez5x9kcj.execute-api.eu-central-1.amazonaws.com/default/hello-world', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ 
-        image: grayScaleData,
+        input_array: grayScaleData,
         width: 28,
         height: 28
       })
@@ -102,8 +103,14 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ backgroundColor, scale })
       if (!response.ok) {
         throw new Error('Fehler beim Senden des Bildes.');
       }
-      // Handle success response
-      console.log('Bild erfolgreich gesendet.');
+      return response.json(); // Extrahiere JSON-Daten aus der Antwort
+    })
+    .then(data => {
+      if (data.prediction) {
+        setPrediction(data.prediction);
+      } else {
+        console.error('Keine Vorhersage in der Antwort gefunden.');
+      }
     })
     .catch(error => {
       // Handle error
@@ -113,17 +120,23 @@ const DrawingCanvas: React.FC<DrawingCanvasProps> = ({ backgroundColor, scale })
 
 
   return (
-    <div>
-      <canvas
-        ref={canvasRef}
-        style={{ width: 28 * scale, height: 28 * scale  }}
-        onMouseDown={startDrawing}
-        onMouseUp={endDrawing}
-        onMouseMove={draw}
-      />
-      <div className='flex justify-between mt-4'>
-        <Button onClick={resetCanvas}>Zurücksetzen</Button>
-        <Button onClick={sendDrawing}>Senden</Button>
+    <div className='flex h-auto'>
+      <div className='h-{20rem]'>
+        <canvas
+          ref={canvasRef}
+          style={{ width: 28 * scale, height: 28 * scale  }}
+          onMouseDown={startDrawing}
+          onMouseUp={endDrawing}
+          onMouseMove={draw}
+        />
+        <div className='flex justify-between mt-4'>
+          <Button onClick={resetCanvas}>Zurücksetzen</Button>
+          <Button onClick={sendDrawing}>Senden</Button>
+        </div>
+      </div>
+
+      <div className='bg-red-400 w-60 m-6'>
+        {prediction}
       </div>
     </div>
   );
