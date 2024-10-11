@@ -2,6 +2,12 @@
     "pageTitle": "Arbeitserfahrung",
     "data": [
         {
+            "titel": "Duales Studium bei Oxid eSales AG",
+            "kinder": [
+                "Modulentwicklung mit dem Oxid eShop-Framework in PHP"
+            ]
+        },
+        {
             "titel": "Praktikum bei Oxid eSales AG",
             "kinder": [
                 "Überbrückungspraktikum bis zum dualen Studium.",

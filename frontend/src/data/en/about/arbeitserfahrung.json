@@ -2,8 +2,14 @@
     "pageTitle": "Work Experience",
     "data": [
         {
-            "title": "Internship at Oxid eSales AG",
-            "children": [
+            "titel": "Dual study at Oxid eSales AG",
+            "kinder": [
+              "Module development with the Oxid eShop framework in PHP."
+            ]
+        }, 
+        {
+            "titel": "Internship at Oxid eSales AG",
+            "kinder": [
               "Transitional internship before starting the dual study program.",
               "Module development with the Oxid eShop framework in PHP."
             ]
@@ -20,12 +26,6 @@
             "titel": "Internships at Epsilon International SA",
             "kinder": [
                 "3-week internship as part of the Erasmus+ program in Athens."
-            ]
-        },
-        {
-            "titel": "Various Temporary Positions at Daimler AG",
-            "kinder": [
-                "Adaptation of plans due to Covid-19: Originally planned overseas trip postponed."
             ]
         }
     ]

@@ -2,6 +2,19 @@
     "pageTitle": "Bildung",
     "data": [
       {
+        "schoolName": "DHBW Lörrach",
+        "kinder": [
+            {
+                "titel": "Studienbereich",
+                "inhalt": "Data Science und Künstliche Intelligenz"
+            },
+            {
+                "titel": "Kernkurse",
+                "inhalt": "Maschinelles Lernen, Deep Learning, Statistische Analyse, Big-Data-Technologien, Computer Vision, Verarbeitung natürlicher Sprache"
+            }
+        ]
+    },
+      {
         "schoolName": "Berufliches Schulzentrum Hechingen",
         "kinder": [
           {

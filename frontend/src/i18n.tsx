@@ -64,19 +64,18 @@ const resources = {
 
 
 i18n
-  .use(LanguageDetector) // Nutzt den LanguageDetector
-  .use(initReactI18next) // Übergibt i18n an react-i18next
+  .use(LanguageDetector)
+  .use(initReactI18next)
   .init({
-    resources, // Fügt die Ressourcen direkt hinzu
-    fallbackLng: "en", // Setzt Englisch als Fallback-Sprache
+    resources,
+    fallbackLng: "en",
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
       caches: ['localStorage', 'cookie'],
-      // Entfernt 'checkWhitelist', da es nicht als gültige Option erkannt wird
     },
     returnObjects: true,
     interpolation: {
-      escapeValue: false // React sichert bereits vor XSS
+      escapeValue: false
     }
   });
 

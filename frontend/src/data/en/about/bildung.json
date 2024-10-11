@@ -2,6 +2,19 @@
     "pageTitle": "Education",
     "data": [
         {
+            "schoolName": "DHBW Lörrach",
+            "kinder": [
+                {
+                    "titel": "Area of Study",
+                    "inhalt": "Data Science and Artificial Intelligence"
+                },
+                {
+                    "titel": "Key Courses",
+                    "inhalt": "Machine Learning, Deep Learning, Statistical Analysis, Big Data Technologies, Computer Vision, Natural Language Processing"
+                }
+            ]
+        },
+        {
             "schoolName": "Vocational School Center Hechingen",
             "kinder": [
                 {
