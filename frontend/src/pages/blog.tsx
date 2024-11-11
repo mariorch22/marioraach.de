@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import SlideUpWhenVisible from '../animations/slideUpWhenVisible';
 import Navbar from '../components/navbar';
 import { useTranslation } from 'react-i18next';
@@ -20,7 +19,7 @@ const Blog = () => {
     return (
         <>
             <Helmet>
-                <title>Marios Blog über Softwareentwicklung und KI</title>
+                <title>Blog</title>
                 <meta name="description" content="Willkommen auf Marios Blog. Tauchen Sie ein in die Welt der Softwareentwicklung und künstlichen Intelligenz, wo ich meine persönlichen Erfahrungen, Einblicke und die neuesten Trends teile." />
                 <meta name="keywords" content="Mario Raach, Blog, Softwareentwicklung, Künstliche Intelligenz, Programmierung, Tech Trends, AI, Machine Learning, Persönliche Erfahrungen, Technologieblog" />
             </Helmet>

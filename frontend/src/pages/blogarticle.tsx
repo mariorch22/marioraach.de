@@ -13,7 +13,6 @@ import CommentForm from "../components/blog/blogpostPage/commentForm";
 import CommentSection from "../components/blog/blogpostPage/commentSection";
 import pageTransition from "../animations/pageTransiton";
 import { CopyBlock, dracula  } from 'react-code-blocks';
-import { FaCopy } from 'react-icons/fa';
 import copy from 'copy-to-clipboard';
 
 const fetchDataDE = async (blogId: string) => {
@@ -45,7 +44,7 @@ const Blogarticle = () => {
         <HelmetProvider>
             <Helmet>
                 <title>{data.data.attributes.title}</title>
-                <meta name="description" content={`Blogeintrag von Mario Raach zum Thema ${data.data.attributes.title}`} />
+                <meta name="description" content={`Blog - ${data.data.attributes.title}`} />
                 <meta name="keywords" content={`${data.data.attributes.title}`} />
             </Helmet>
             <Navbar />
@@ -87,7 +86,6 @@ const Blogarticle = () => {
                                         showLineNumbers={true}
                                         theme={dracula}
                                         codeBlock
-                                        icon={<FaCopy />}
                                         onCopy={() => copy(index.Code)}
                                     />
                                 )}

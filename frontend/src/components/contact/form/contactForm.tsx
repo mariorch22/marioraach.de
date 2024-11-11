@@ -1,5 +1,5 @@
 // import dependencies
-import React, { useState } from "react"
+import React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
@@ -10,7 +10,6 @@ import { ThreeDots } from "react-loader-spinner"
 import { motion, useMotionValue, useTransform } from "framer-motion"
 import { CircularProgress } from "../animatedCheckIcon"
 
-
 // import components
 import { FormSchemaContactForm } from "./formSchemaContactForm"
 import CustomFormField from "../../shared/customFormField"
@@ -19,7 +18,6 @@ import CustomFormField from "../../shared/customFormField"
 import { Button } from "../../../ui_components/shadn/components/ui/button"
 import { Form } from "../../../ui_components/shadn/components/ui/form"
 import useSendContactForm from "../../../hooks/useSendContactForm"
-import PopUp from "../../../animations/popUp"
 
 interface FormField {
   name: string;

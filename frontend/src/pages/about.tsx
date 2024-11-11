@@ -6,13 +6,12 @@ import pageTransition from '../animations/pageTransiton';
 const About_Section1 = React.lazy(() => import("../components/about/section1"));
 const About_Section2 = React.lazy(() => import("../components/about/section2"));
 const About_Section4 = React.lazy(() => import("../components/about/section4"));
-const About_Section5 = React.lazy(() => import("../components/about/section5"));
 
 const About = () => {
     return (
         <>
             <Helmet>
-                <title>Profil von Mario Raach - Industriekaufmann und Webentwickler</title>
+                <title>Über mich</title>
                 <meta name="description" content="Mario Raach bringt eine vielseitige Erfahrung aus der Ausbildung zum Industriekaufmann bei TRIGEMA, Praktika bei Epsilon International und technischen Kenntnissen in Webentwicklung und Datenverarbeitung mit. Entdecken Sie seine berufliche Laufbahn, ehrenamtliche Tätigkeiten und fachliche Kompetenzen." />
                 <meta name="keywords" content="Industriekaufmann, Webentwickler, TRIGEMA Ausbildung, Epsilon International Praktikum, Microsoft Dynamics AX, Adobe Creative Cloud, Microsoft Office, JavaScript, TypeScript, ReactJS, Python, MySQL, MongoDB, Ehrenamt, Jugendtrainer, Jungpfadfindergruppenleiter" />
             </Helmet>
@@ -25,8 +24,6 @@ const About = () => {
                     <About_Section2 />
                     <div className="divider"></div>
                     <About_Section4 />
-                    <div className="divider"></div>
-                    <About_Section5 />
                 </div>
             </Suspense>
         </>

@@ -1,8 +1,7 @@
-import React, { Suspense, lazy, useEffect, useState } from 'react';
+import { Suspense, lazy } from 'react';
 import Navbar from '../components/navbar';
 import { Helmet } from 'react-helmet';
 import pageTransition from '../animations/pageTransiton';
-import { motion } from 'framer-motion';
 
 const Section1 = lazy(() => import('../components/home/section1'));
 const Section2 = lazy(() => import('../components/home/section2'));
@@ -18,8 +17,8 @@ const Home = () => {
     return (
         <>
             <Helmet>
-                <title>Mario Raach - Industriekaufmann & Webentwickler</title>
-                <meta name="description" content="Mario Raach, ein leidenschaftlicher Industriekaufmann mit erweiterten Fähigkeiten in Webentwicklung und Technologie. Entdecken Sie kreative Webprojekte, Einblicke in KI, Webentwicklung und Entrepreneurship auf meiner offiziellen Webseite." />
+                <title>Mario Raach</title>
+                <meta name="description" content="Just a guy having fun :D" />
                 <meta name="keywords" content="Mario Raach, Industriekaufmann, Webentwickler, Technologie, Entrepreneurship, Sport, Künstliche Intelligenz, Webentwicklung, Startups, Projektideen" />
             </Helmet>
             
@@ -38,4 +37,4 @@ const Home = () => {
     );
 }
 
-export default pageTransition(Home)
+export default Home

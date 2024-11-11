@@ -11,8 +11,6 @@ import navbarDataSidebarDE from './data/de/navbar/navbarSmall.json';
 import navbarDataSidebarEN from './data/en/navbar/navbarSmall.json';
 import ehrenamtDataDE from './data/de/about/ehrenamt.json';
 import ehrenamtDataEN from './data/en/about/ehrenamt.json';
-import technischDataDE from './data/de/about/technisch.json';
-import technischDataEN from './data/en/about/technisch.json';
 import contactFormDE from './data/de/contact/contactForm.json';
 import contactFormEN from './data/en/contact/contactForm.json';
 import homeAboutTextDE from './data/de/home/about.json';
@@ -25,17 +23,22 @@ import HomeLandingpageTextDE from './data/de/home/landingpage.json';
 import HomeLandingpageTextEN from './data/en/home/landingpage.json';
 import BlogTextDE from './data/de/blog/blog.json'
 import BlogTextEN from './data/en/blog/blog.json'
+import AboutHeadlineDE from './data/de/about/header.json'
+import AboutHeadlineEN from './data/en/about/header.json'
+import ContactHeadlineDE from './data/de/contact/header.json'
+import ContactHeadlineEN from './data/en/contact/header.json'
 
 
 const resources = {
   de: {
     translation: {
       "bildungData": bildungDatenDE,
+      "aboutHeadline": AboutHeadlineDE,
+      "contactHeadline": ContactHeadlineDE,
       "arbeitserfahrungData": arbeitserfahrungDatenDE,
       "navbarData": navbarDataDE,
       "navbarDataSidebar": navbarDataSidebarDE,
       "ehrenamtData": ehrenamtDataDE,
-      "technischData": technischDataDE,
       "contactForm": contactFormDE,
       "homeAboutText": homeAboutTextDE,
       "homeBlogText": homeBlogTextDE,
@@ -47,11 +50,12 @@ const resources = {
   en: {
     translation: {
       "bildungData": bildungDatenEN,
+      "aboutHeadline": AboutHeadlineEN,
+      "contactHeadline": ContactHeadlineEN,
       "arbeitserfahrungData": arbeitserfahrungDatenEN,
       "navbarData": navbarDataEN,
       "navbarDataSidebar": navbarDataSidebarEN,
       "ehrenamtData": ehrenamtDataEN,
-      "technischData": technischDataEN,
       "contactForm": contactFormEN,
       "homeAboutText": homeAboutTextEN,
       "homeBlogText": homeBlogTextEN,
