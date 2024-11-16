@@ -16,6 +16,8 @@ const Contact = lazy(() => import('./pages/contact/page'));
 const Admin = lazy(()=> import ('./pages/admin'));
 const Blogarticle = lazy(()=> import ("./pages/blogarticle/page"))
 const NotFound = lazy(()=> import ("./pages/NotFound"))
+const Imprint = lazy(()=> import ("./pages/imprint/page"))
+const DataProtection = lazy(()=> import ("./pages/dataProtection/page"))
 
 const queryClient = new QueryClient()
 
@@ -37,6 +39,8 @@ function App() {
                   <Route path="/blog/:blogId" element={<Blogarticle />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/imprint" element={<Imprint />} />
+                  <Route path="/dataprotection" element={<DataProtection />} />
                   <Route path="/admin" element={<Admin />} />
                 </Route>
                 <Route path="*" element={<NotFound />} />
