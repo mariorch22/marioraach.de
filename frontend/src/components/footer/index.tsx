@@ -9,7 +9,6 @@ import { Outlet } from 'react-router';
 const links = [
   { href: 'https://github.com/mario1870', label: 'GITHUB', ariaLabel: 'GitHub von Mario Raach', icon: FaGithub },
   { href: 'https://www.linkedin.com/in/mario-r-b88950238', label: 'LINKEDIN', ariaLabel: 'LinkedIn von Mario Raach', icon:FaLinkedinIn },
-  { href: 'https://x.com/marioraach?t=DXuNbz7i_ImaYxkTpu6f3A&s=09', label: 'TWITTER', ariaLabel: 'Twitter von Mario Raach', icon:FaXTwitter }
 ];
 
 const Footer = () => {

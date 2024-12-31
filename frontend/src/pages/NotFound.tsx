@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import pageTransition from "../animations/pageTransiton";
 
 const NotFound = () => {
     return(
@@ -17,4 +16,4 @@ const NotFound = () => {
     )
 }
 
-export default pageTransition(NotFound)
+export default NotFound

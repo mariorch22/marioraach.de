@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import Navbar from '../../components/navbar';
 import { Helmet } from 'react-helmet';
-import pageTransition from '../../animations/pageTransiton';
 
 const About_Section1 = React.lazy(() => import("./components/section1"));
 const About_Section2 = React.lazy(() => import("./components/section2"));
@@ -30,4 +29,4 @@ const About = () => {
     );
 }
 
-export default pageTransition(React.memo(About));
+export default React.memo(About)

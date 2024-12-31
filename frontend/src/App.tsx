@@ -29,8 +29,8 @@ function App() {
     <>
       <QueryClientProvider client={queryClient}>
           <Suspense fallback={<div className='w-screen h-[200vh] flex justify-center items-center text-4xl text-white bg-pageAnimationGray overflow-hidden'></div>}>
+            <ScrollToTop />
             <AnimatePresence mode="wait">
-              <ScrollToTop />
               <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<Footer/>}>
                   <Route path="/" element={<Home />} />

@@ -63,7 +63,8 @@ const FetchBlogData = () => {
                                     />
                                 )}
                             </div>
-                        ))}
+                        ))
+                    }
             </div>
         </>
     );

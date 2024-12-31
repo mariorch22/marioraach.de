@@ -3,7 +3,6 @@ import Navbar from '../../components/navbar';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
 import FetchBlogData from './components/fetchBlogData/fetchBlogData';
-import pageTransition from '../../animations/pageTransiton';
 
 interface TextContent {
     title: string;
@@ -47,4 +46,4 @@ const Blog = () => {
         </>
     )
 }
-export default pageTransition(Blog)
+export default Blog

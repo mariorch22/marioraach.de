@@ -5,7 +5,6 @@ import AnimatedSvgButton from './components/animatedSvgButton';
 import Navbar from '../../components/navbar';
 import { Helmet } from 'react-helmet';
 import { TextGenerateEffect } from '../../ui_components/aceternity/text-generate-effect';
-import pageTransition from '../../animations/pageTransiton';
 import { useTranslation } from 'react-i18next';
 
 interface TextContent {
@@ -53,4 +52,4 @@ const Contact = () => {
     );
 };
 
-export default pageTransition(React.memo(Contact));
+export default React.memo(Contact);
