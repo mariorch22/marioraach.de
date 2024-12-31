@@ -11,7 +11,6 @@ import React, { useState } from "react";
 import Divider  from "../../components/general/divider";
 import CommentForm from "./components/commentForm";
 import CommentSection from "./components/commentSection";
-import pageTransition from "../../animations/pageTransiton";
 import { CopyBlock, dracula  } from 'react-code-blocks';
 import copy from 'copy-to-clipboard';
 
@@ -118,4 +117,4 @@ const Blogarticle = () => {
     )
 }
 
-export default pageTransition(Blogarticle)
+export default Blogarticle
