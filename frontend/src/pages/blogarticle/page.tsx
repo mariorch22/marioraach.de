@@ -66,7 +66,7 @@ const Blogarticle = () => {
                         </span>
                     </div>
 
-                    <div className="px-4 xl:px-20 text-xl bg-white text-black py-8 xl:py-20 rounded-b-3xl">
+                    <div className="px-4 xl:px-20 text-xl bg-white text-black py-8 xl:py-20 rounded-b-3xl font-merriweather leading-relaxed font-semibold">
                         {data && data.data && data.data.attributes.a.map((index: any, i: number) => (
                             <React.Fragment key={i}>
                                 {index.h1 && (
@@ -76,7 +76,7 @@ const Blogarticle = () => {
                                     <p className="font-semibold text-2xl py-4">{useFormatText(index.h2)}</p>
                                 )}
                                 {index.text && (
-                                    <p className="pb-8 leading-7 md:leading-9">{useFormatText(index.text)}</p>
+                                    <p className="pb-4 leading-7 md:leading-8 tracking-wide font-medium">{useFormatText(index.text)}</p>
                                 )}
                                 {index.Code && (
                                     <CopyBlock

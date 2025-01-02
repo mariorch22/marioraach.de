@@ -87,7 +87,8 @@ module.exports = {
       fontFamily: {
         glitch : ['"Rubik Glitch Pop"', ...defaultTheme.fontFamily.sans],
         kalam : ['"Kalam"', ...defaultTheme.fontFamily.sans],
-        roboto : ['"Roboto"', ...defaultTheme.fontFamily.sans]
+        roboto : ['"Roboto"', ...defaultTheme.fontFamily.sans],
+        merriweather: ['Merriweather', 'serif'],
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
