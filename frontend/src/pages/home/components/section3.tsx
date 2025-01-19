@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from '../../../components/shared/animatedButton';
-import SlideInFromSide from '../../../animations/slideInFromSide';
+import Button from '@/components/shared/animatedButton';
+import SlideInFromSide from '@/animations/slideInFromSide';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import useFormatText from '../../../hooks/useFormatText';
+import useFormatText from '@/hooks/useFormatText';
 import { IoMdArrowDropright } from "react-icons/io";
 
 interface HomeBlogText {

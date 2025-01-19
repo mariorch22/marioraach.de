@@ -1,6 +1,6 @@
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "../../../ui_components/shadn/components/ui/form"
-import { Input } from "../../../ui_components/shadn/components/ui/input"
-import { Button } from "../../../ui_components/shadn/components/ui/button"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/ui_components/shadn/components/ui/form"
+import { Input } from "@/ui_components/shadn/components/ui/input"
+import { Button } from "@/ui_components/shadn/components/ui/button"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -74,7 +74,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ handleState }) => {
                             <FormItem>
                                 <FormLabel className="text-xl pl-0 md:pl-4">Name</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="My name is..." {...field} />
+                                        <Input className="bg-backgroundGray" placeholder="My name is..." {...field} />
                                     </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -87,7 +87,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ handleState }) => {
                             <FormItem>
                                 <FormLabel className="text-xl pl-4">Comment</FormLabel>
                                     <FormControl>
-                                        <Input className="" placeholder="I want so say that..." {...field} />
+                                        <Input className="bg-backgroundGray" placeholder="I want so say that..." {...field} />
                                     </FormControl>
                                 <FormMessage />
                             </FormItem>

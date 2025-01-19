@@ -4,14 +4,13 @@ import { MY_URL_STRAPI } from "../../config";
 import Navbar from "../../components/navbar";
 import moment from "moment";
 import useFormatText from "../../hooks/useFormatText";
-import { IoArrowBack } from "react-icons/io5";
 import BlogErrorPage from "./components/blogErrorPage";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import React, { useState } from "react";
 import Divider  from "../../components/general/divider";
 import CommentForm from "./components/commentForm";
 import CommentSection from "./components/commentSection";
-import { CopyBlock, dracula  } from 'react-code-blocks';
+import { CopyBlock, solarizedDark, a11yDark, googlecode  } from 'react-code-blocks';
 import copy from 'copy-to-clipboard';
 
 const fetchDataDE = async (blogId: string) => {
@@ -47,45 +46,43 @@ const Blogarticle = () => {
                 <meta name="keywords" content={`${data.data.attributes.title}`} />
             </Helmet>
             <Navbar />
-            <div className="w-full min-h-screen bg-backgroundGray text-white pt-28 px-2 xl:px-40 font-roboto">
-                <section className="bg-gray-200 text-black border border-gray-500 rounded-3xl relative">
-                    <span className="absolute left-4 top-4">
-                        <Link to="/blog">
-                            <IoArrowBack size={30} className="text-gray-500" />
-                        </Link>
-                    </span>
-                    <h1 className="text-3xl px-4 xl:text-7xl font-bold w-full text-center pt-16 xl:pt-12 xl:px-24 pb-4">
+            <div className="w-full min-h-screen bg-backgroundGray text-gray-300 pt-20 lg:pt-32 px-4 xl:px-40 font-inter">
+                <section className="relative">
+                    <h1 className="text-3xl md:text-4xl font-bold w-full text-center pt-16 xl:pt-12 pb-4 font-inter">
                         {data.data.attributes.title}
                     </h1>
-                    <div className="flex justify-start pl-8 pb-8">
-                        <span className="grid grid-cols-[2fr_3fr] max-w-[40rem] font-semibold text-gray-500">
-                            <p className="text-md flex items-center">Kategorie :</p>
-                            <p className="text-xl flex items-center">{data.data.attributes.Kategorie}</p>
-                            <p className="text-md flex items-center">Datum:</p>
-                            <p className="text-xl flex items-center">{moment(data.data.attributes.publishingDate).format( 'DD.MM.YYYY')}</p>
-                        </span>
+                    <div className="flex justify-center pl-8 pb-8">
+                        <p className="text-sm lg:text-md flex items-center text-gray-500 font-inter">{moment(data.data.attributes.publishingDate).format( 'DD.MM.YYYY')}</p>
                     </div>
 
-                    <div className="px-4 xl:px-20 text-xl bg-white text-black py-8 xl:py-20 rounded-b-3xl font-merriweather leading-relaxed font-semibold">
+                    <div className="xl:px-20 text-xl xl:py-20 rounded-b-3xl font-merriweather leading-relaxed font-semibold">
                         {data && data.data && data.data.attributes.a.map((index: any, i: number) => (
                             <React.Fragment key={i}>
                                 {index.h1 && (
-                                    <p className="text-4xl font-bold pt-8 pb-4">{useFormatText(index.h1)}</p>
+                                    <p className="text-2xl font-bold pt-8 pb-4">{useFormatText(index.h1)}</p>
                                 )}
                                 {index.h2 && (
-                                    <p className="font-semibold text-2xl py-4">{useFormatText(index.h2)}</p>
+                                    <p className="font-semibold text-xl py-4">{useFormatText(index.h2)}</p>
                                 )}
                                 {index.text && (
-                                    <p className="pb-4 leading-7 md:leading-8 tracking-wide font-medium">{useFormatText(index.text)}</p>
+                                    <p className="pb-4 tracking-wide font-normal text-base leading-7 font-inter">{useFormatText(index.text)}</p>
                                 )}
                                 {index.Code && (
                                     <CopyBlock
                                         text={index.Code}
-                                        language={"javascript"}
-                                        showLineNumbers={true}
-                                        theme={dracula}
+                                        language={"python"}
+                                        showLineNumbers={false}
                                         codeBlock
                                         onCopy={() => copy(index.Code)}
+                                        theme={a11yDark}
+                                        customStyle={{
+                                            height: '300px',
+                                            overflowY: 'scroll',
+                                            margin: '0px 0.75rem',
+                                            padding: '1rem',
+                                            borderRadius: '20px',
+                                            fontSize: '0.75rem',
+                                          }}
                                     />
                                 )}
 

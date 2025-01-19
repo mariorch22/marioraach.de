@@ -1,5 +1,5 @@
-import FadeInWhenVisible from '../../../animations/fadeInWhefVisible';
-import { TextGenerateEffect } from '../../../ui_components/aceternity/text-generate-effect';
+import FadeInWhenVisible from '@/animations/fadeInWhefVisible';
+import { TextGenerateEffect } from '@/ui_components/aceternity/text-generate-effect';
 import { useTranslation } from 'react-i18next';
 
 interface TextContent {
@@ -10,8 +10,6 @@ const About_Section1 = () => {
 
     const {t} = useTranslation();
     const arbeitserfahrungDaten: TextContent = t("aboutHeadline", { returnObjects: true }) as TextContent;
-
-    console.log(arbeitserfahrungDaten.pageTitle)
     return (
         <>
             <section className='min-w-screen min-h-svh grid xl:grid-cols-2 ' >

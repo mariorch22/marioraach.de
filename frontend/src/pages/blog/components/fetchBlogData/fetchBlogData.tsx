@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { MY_URL_STRAPI } from '../../../../config';
-import BlogCover from '../blogCover';
-import BlogHeadersSkeleton from '../loading/blogHeadersSkeleton';
+import { MY_URL_STRAPI } from '@/config';
+import BlogCover from '@/pages/blog/components/blogCover';
+import BlogHeadersSkeleton from '@/pages/blog/components/loading/blogHeadersSkeleton';
 import moment from 'moment';
 
 interface Article {
@@ -56,7 +56,6 @@ const FetchBlogData = () => {
                                 {article && article.attributes && (
                                     <BlogCover
                                         title={article.attributes.title}
-                                        img=""
                                         publishingDate={moment(article.attributes.publishingDate).format('DD.MM.YYYY')}
                                         kategorie={article.attributes.Kategorie}
                                         id={article.id}

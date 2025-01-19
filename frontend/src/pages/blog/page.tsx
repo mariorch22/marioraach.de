@@ -1,8 +1,8 @@
-import SlideUpWhenVisible from '../../animations/slideUpWhenVisible';
-import Navbar from '../../components/navbar';
+import SlideUpWhenVisible from '@/animations/slideUpWhenVisible';
+import Navbar from '@/components/navbar';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet';
-import FetchBlogData from './components/fetchBlogData/fetchBlogData';
+import FetchBlogData from '@/pages/blog/components/fetchBlogData/fetchBlogData';
 
 interface TextContent {
     title: string;
@@ -31,13 +31,7 @@ const Blog = () => {
                             <div className='text-white md:px-10 text-5xl md:text-6xl xl:text-8xl'>
                                 {blogDaten.title}
                             </div>
-                        </SlideUpWhenVisible>
-
-                        <SlideUpWhenVisible y={20} delay={0.7}>
-                            <div className='text-white text-md md:text-2xl md:px-10 py-2 md:py-2'>
-                                {blogDaten.description}
-                            </div>
-                        </SlideUpWhenVisible>                             
+                        </SlideUpWhenVisible>                          
                      </section>
 
                     <FetchBlogData />

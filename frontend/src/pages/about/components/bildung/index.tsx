@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaRegCircle } from "react-icons/fa";
-import SlideUpWhenVisible from '../../../../animations/slideUpWhenVisible';
+import SlideUpWhenVisible from '@/animations/slideUpWhenVisible';
 import { useTranslation } from 'react-i18next';
 
 interface EducationData {

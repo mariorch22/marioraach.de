@@ -1,5 +1,5 @@
 import React from 'react';
-import SlideUpWhenVisible from '../../../../animations/slideUpWhenVisible';
+import SlideUpWhenVisible from '@/animations/slideUpWhenVisible';
 import { FaRegCircle } from "react-icons/fa";
 import { useTranslation } from 'react-i18next';
 

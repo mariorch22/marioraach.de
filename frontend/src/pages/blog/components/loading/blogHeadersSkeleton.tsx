@@ -1,5 +1,5 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../../../ui_components/shadn/components/ui/card";
-import { Skeleton } from "../../../../ui_components/shadn/components/ui/skeleton";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/ui_components/shadn/components/ui/card";
+import { Skeleton } from "@/ui_components/shadn/components/ui/skeleton";
 import React, { useMemo } from "react";
 
 // Definieren Sie die Skelett-Komponenten außerhalb der Funktion, um wiederholte Neuberechnungen zu vermeiden

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import { FaGithub } from "react-icons/fa";
 import { CiMail } from "react-icons/ci";
-import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Outlet } from 'react-router';
 

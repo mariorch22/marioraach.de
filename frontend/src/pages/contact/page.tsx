@@ -1,10 +1,10 @@
 import React, { useRef, useCallback } from 'react';
 import ContactFormSection from './components/contactFormSection';
-import { smoothScrollTo } from '../../animations/smoothScrollTo';
+import { smoothScrollTo } from '@/animations/smoothScrollTo';
 import AnimatedSvgButton from './components/animatedSvgButton';
-import Navbar from '../../components/navbar';
+import Navbar from '@/components/navbar';
 import { Helmet } from 'react-helmet';
-import { TextGenerateEffect } from '../../ui_components/aceternity/text-generate-effect';
+import { TextGenerateEffect } from '@/ui_components/aceternity/text-generate-effect';
 import { useTranslation } from 'react-i18next';
 
 interface TextContent {
@@ -26,7 +26,7 @@ const Contact = () => {
     return (
         <>
             <Helmet>
-                <title>Kontakt</title>
+                <title>{contactHeadlineData.pageTitle}</title>
                 <meta name="description" content="Möchten Sie ein Projekt besprechen, Fragen stellen oder einfach in Kontakt treten? Füllen Sie das Kontaktformular aus und Mario Raach wird sich so bald wie möglich bei Ihnen melden." />
                 <meta name="keywords" content="Kontakt Mario Raach, Projektanfrage, Webentwicklung Anfrage, Technologieberatung, Geschäftsanfrage, Mario Raach Kontaktinformation" />
             </Helmet>

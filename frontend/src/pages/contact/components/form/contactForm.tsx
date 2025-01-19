@@ -5,19 +5,18 @@ import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { useTranslation } from 'react-i18next';
 import { IoMdSend } from "react-icons/io";
-import { RiCheckDoubleFill } from "react-icons/ri";
 import { ThreeDots } from "react-loader-spinner"
-import { motion, useMotionValue, useTransform } from "framer-motion"
+import { motion, useMotionValue } from "framer-motion"
 import { CircularProgress } from "../animatedCheckIcon"
 
 // import components
 import { FormSchemaContactForm } from "./formSchemaContactForm"
-import CustomFormField from "../../../../components/shared/customFormField"
+import CustomFormField from "@/components/shared/customFormField"
 
 // import ShadnCN-Components
-import { Button } from "../../../../ui_components/shadn/components/ui/button"
-import { Form } from "../../../../ui_components/shadn/components/ui/form"
-import useSendContactForm from "../../../../hooks/useSendContactForm"
+import { Button } from "@/ui_components/shadn/components/ui/button"
+import { Form } from "@/ui_components/shadn/components/ui/form"
+import useSendContactForm from "@/hooks/useSendContactForm"
 
 interface FormField {
   name: string;

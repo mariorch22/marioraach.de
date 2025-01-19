@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef } from "react";
 import { useTranslation } from 'react-i18next';
 import { IoLanguageOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
-import useToggle from "../../../hooks/useToggle";
+import useToggle from "@/hooks/useToggle";
 
 const variantsDE = {
     hidden: {

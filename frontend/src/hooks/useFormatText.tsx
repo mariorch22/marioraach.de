@@ -23,7 +23,7 @@ const useFormatText = (text: string) => {
   
   // Handle inline quotes with /q tags
   const quoteRegex = /\/q(.*?)\/q/g;
-  const textWithQuotes = textWithNewlines.replace(quoteRegex, '<span class="italic text-black">„$1"</span>');
+  const textWithQuotes = textWithNewlines.replace(quoteRegex, '<span class="italic">„$1"</span>');
   
   // Handle links - format [text](url) to <a> tags with blue color
   const linkRegex = /\[(.+?)\]\((.+?)\)/g;

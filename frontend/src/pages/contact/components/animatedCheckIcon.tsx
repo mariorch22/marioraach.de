@@ -1,5 +1,5 @@
 
-import { motion, useMotionValue, useTransform } from "framer-motion"
+import { motion, useTransform } from "framer-motion"
 
 export function CircularProgress({ progress }:any) {
   const circleLength = useTransform(progress, [0, 100], [0, 1])

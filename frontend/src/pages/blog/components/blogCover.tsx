@@ -1,38 +1,56 @@
-import { Button } from "../../../ui_components/shadn/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../../../ui_components/shadn/components/ui/card"
-import { GoArrowUpRight } from "react-icons/go";
 import React from "react";
 import { Link } from "react-router-dom";
+import { 
+  Card, 
+  CardDescription, 
+  CardHeader, 
+  CardTitle 
+} from "@/ui_components/shadn/components/ui/card";
 
-  interface BlogCoverProps {
-    title: string;
-    img: string;
-    kategorie: string;
-    publishingDate: string;
-    id: number;
+// Types
+interface BlogCoverProps {
+  id: number;
+  title: string;
+  kategorie: string;
+  publishingDate: string;
+  className?: string;
 }
 
-const BlogCover: React.FC<BlogCoverProps> = ({title, kategorie, publishingDate, id}) => {
-    return(
+// Constants
+const STYLES = {
+  card: "bg-backgroundGray border border-gray-400 rounded-xl shadow-3xl shadow-white/10 hover:shadow-3xl hover:shadow-white/30 min-w-[17rem] md:min-w-[25rem] min-h-[12rem] max-h-[25rem] relative w-full transition-shadow duration-300",
+  header: "absolute top-0 rounded-tl-xl rounded-br-xl",
+  title: "text-gray-200",
+} as const;
 
-        <Card className="bg-backgroundGray border border-gray-400 rounded-xl shadow-3xl shadow-white/10 hover:shadow-3xl hover:shadow-white/30 min-w-[17rem] md:min-w-[25rem] min-h-[12rem] max-h-[25rem] relative w-full"> 
-                      
-            <CardHeader className="absolute top-0 rounded-tl-xl rounded-br-xl">
-                <CardTitle className="text-gray-200">{title}</CardTitle>
-                <CardDescription>{kategorie}, {publishingDate}</CardDescription>
-            </CardHeader>
+const BlogCover: React.FC<BlogCoverProps> = ({
+  id,
+  title,
+  kategorie,
+  publishingDate,
+  className
+}) => {
+  const formattedMeta = `${kategorie}, ${publishingDate}`;
+  const blogUrl = `/blog/${id}`;
 
-            <CardContent>
-                <Link to={`/blog/${id}`}>
-                    <Button className="absolute right-4 bottom-4 bg-blue-800 hover:bg-blue-600">
-                        <p className="pr-2 font-roboto">Zum Artikel</p>
-                        <GoArrowUpRight />
-                    </Button>
-                </Link>
-            </CardContent>
-        </Card>
-
-    )
-}
+  return (
+    <Link 
+      to={blogUrl}
+      className="block"
+      aria-label={`Read blog post: ${title}`}
+    >
+      <Card className={STYLES.card}>
+        <CardHeader className={STYLES.header}>
+          <CardTitle className={STYLES.title}>
+            {title}
+          </CardTitle>
+          <CardDescription>
+            {formattedMeta}
+          </CardDescription>
+        </CardHeader>
+      </Card>
+    </Link>
+  );
+};
 
 export default React.memo(BlogCover);

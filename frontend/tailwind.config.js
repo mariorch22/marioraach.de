@@ -88,6 +88,7 @@ module.exports = {
         glitch : ['"Rubik Glitch Pop"', ...defaultTheme.fontFamily.sans],
         kalam : ['"Kalam"', ...defaultTheme.fontFamily.sans],
         roboto : ['"Roboto"', ...defaultTheme.fontFamily.sans],
+        inter: ['Inter', ...defaultTheme.fontFamily.sans],
         merriweather: ['Merriweather', 'serif'],
       },
       animation: {

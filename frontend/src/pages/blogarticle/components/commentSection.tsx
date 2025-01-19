@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query'
-import { Card, CardContent, CardHeader, CardTitle } from "../../../ui_components/shadn/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/ui_components/shadn/components/ui/card"
 import { useParams, Link } from "react-router-dom";
 import { useEffect, useCallback } from 'react';
-import PopUp from '../../../animations/popUp';
+import PopUp from '@/animations/popUp';
 
 const fetchDataDE = async () => {
     const response = await fetch(`https://j4hxxa1fo2.execute-api.eu-central-1.amazonaws.com/getMySiteComments`);

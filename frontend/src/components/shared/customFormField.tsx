@@ -1,6 +1,6 @@
-import { Input } from "../../ui_components/shadn/components/ui/input"
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../../ui_components/shadn/components/ui/form"
-import { Textarea } from "../../ui_components/shadn/components/ui/textarea"
+import { Input } from "@/ui_components/shadn/components/ui/input"
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/ui_components/shadn/components/ui/form"
+import { Textarea } from "@/ui_components/shadn/components/ui/textarea"
 import React from "react"
 
 interface CustomFormFieldProps {

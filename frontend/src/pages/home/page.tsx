@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import Navbar from '../../components/navbar';
+import Navbar from '@/components/navbar';
 import { Helmet } from 'react-helmet';
 
 const Section1 = lazy(() => import('./components/section1'));

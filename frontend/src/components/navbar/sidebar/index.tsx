@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import PopUp from '../../../animations/popUp';
-import Sidebar_Layout from "./sidebarLayout";
-import useToggle from '../../../hooks/useToggle';
+import PopUp from '@/animations/popUp';
+import Sidebar_Layout from "@/components/navbar/sidebar/sidebarLayout";
+import useToggle from '@/hooks/useToggle';
 
 const Sidebar = () => {
     const [hamburger, setHamburger] = useToggle(false);
