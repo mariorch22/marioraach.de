@@ -10,6 +10,7 @@ import Divider  from "@/components/general/divider";
 import CommentForm from "./components/commentForm";
 import CommentSection from "./components/commentSection";
 import { CopyBlock, a11yDark  } from 'react-code-blocks';
+import useCopyToClipboard from "@/animations/useCopyToClipboard";
 
 const fetchDataDE = async (blogId: string) => {
     const response = await fetch(`${MY_URL_STRAPI}/api/blogs/${blogId}?populate=deep`);
@@ -19,7 +20,7 @@ const fetchDataDE = async (blogId: string) => {
     return response.json();
 };
 const Blogarticle = () => {
-
+    const copyToClipboard = useCopyToClipboard();
     const { blogId } = useParams();
     const [updateComments, setUpdateComments] = useState(false)
     const { isLoading, isError, data } = useQuery({ queryKey: ['dataww', blogId], queryFn: () => fetchDataDE(blogId as string) })
@@ -36,11 +37,8 @@ const Blogarticle = () => {
         setUpdateComments(!updateComments)
     }
 
-    const copyToClipboard = async (text: string) => {
-        try {
-          await navigator.clipboard.writeText(text);
-        } catch (err) {
-        }
+    const handleCopy  = async (text: string) => {
+        await copyToClipboard(text)
       };
     
     return(
@@ -74,7 +72,7 @@ const Blogarticle = () => {
                                         language={"python"}
                                         showLineNumbers={false}
                                         codeBlock
-                                        onCopy={() => copyToClipboard(index.Code)}
+                                        onCopy={() => handleCopy (index.Code)}
                                         theme={a11yDark}
                                         customStyle={{
                                             height: '300px',

@@ -4,8 +4,8 @@ import { smoothScrollTo } from '@/animations/smoothScrollTo';
 import AnimatedSvgButton from './components/animatedSvgButton';
 import Navbar from '@/components/navbar';
 import { Helmet } from 'react-helmet';
-import { TextGenerateEffect } from '@/ui_components/aceternity/text-generate-effect';
 import { useTranslation } from 'react-i18next';
+import SlideUpWhenVisible from '@/animations/slideUpWhenVisible';
 
 interface TextContent {
     pageTitle: string
@@ -35,7 +35,11 @@ const Contact = () => {
                 
                 <div className='text-gray-700 md:px-0 text-6xl md:text-7xl xl:text-9xl pb-20 flex items-center h-screen min-h-[50rem] font-roboto'>
                     <p className='px-2 w-full text-center min-h-[30rem] py-60'>
-                        <TextGenerateEffect className='mx-4 md:mx-0 md:text-[12rem] font-extrabold' words={contactHeadlineData.pageTitle} />
+                        <SlideUpWhenVisible>
+                            <p className='mx-4 md:mx-0 md:text-[12rem] font-extrabold'>
+                                Kontakt
+                            </p>
+                        </SlideUpWhenVisible>
                     </p>
                     
                     <span className='absolute w-full h-screen top-0 flex justify-center items-end pb-16 md:pb-4'>

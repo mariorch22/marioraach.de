@@ -1,5 +1,5 @@
 import FadeInWhenVisible from '@/animations/fadeInWhefVisible';
-import { TextGenerateEffect } from '@/ui_components/aceternity/text-generate-effect';
+import SlideUpWhenVisible from '@/animations/slideUpWhenVisible';
 import { useTranslation } from 'react-i18next';
 
 interface TextContent {
@@ -14,7 +14,11 @@ const About_Section1 = () => {
         <>
             <section className='min-w-screen min-h-svh grid xl:grid-cols-2 ' >
                 <div className='2xl:px-20 2xl:pl-40 rounded-br-3xl flex flex-col justify-start sm:justify-center items-center'>
-                    <TextGenerateEffect words={arbeitserfahrungDaten.pageTitle} className='text-gray-500 text-6xl sm:text-[6rem] lg:text-[8rem] font-roboto opacity-100 font-[4rem]' />
+                    <SlideUpWhenVisible>
+                        <p className='text-gray-500 text-6xl sm:text-[6rem] lg:text-[10rem] font-roboto opacity-100 font-[4rem]'>
+                            {arbeitserfahrungDaten.pageTitle}
+                        </p>
+                    </SlideUpWhenVisible>
                 </div>
                 <div className='order-first md:order-none sm:hidden flex justify-center items-center xl:items-center xl:flex opacity-60'>
                     <span className='w-full h-auto max-w-80 xl:max-w-[28rem] max-h-80 xl:max-h-[36rem] rounded-full shadow-lg shadow-white mt-20 md:mt-0'>

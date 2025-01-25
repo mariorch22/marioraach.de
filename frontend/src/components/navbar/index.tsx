@@ -94,7 +94,7 @@ const Navbar: FC = () => {
       {/* Desktop Navigation */}
       <div className="hidden flex-row items-center font-inter text-3xl text-white mix-blend-normal lg:flex">
         <PopUp>
-          <LanguageSelector className="pr-4" />
+          <LanguageSelector className="pr-4 opacity-70" />
         </PopUp>
         {navbarItems.map((item, index) => (
           <NavLink
