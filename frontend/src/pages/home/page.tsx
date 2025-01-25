@@ -22,8 +22,8 @@ const Home = () => {
             </Helmet>
             
             <Navbar />
-            <Suspense fallback={<div className='h-screen w-screen bg-backgroundGray'></div>}>
-                <main className='overflow-hidden grid grid-cols-1 gap-6 bg-backgroundGray font-kalam text-white'>    
+            <Suspense fallback={<div className='h-screen w-screen'></div>}>
+                <main className='overflow-hidden grid grid-cols-1 gap-6 bg-backgroundGray font-kalam'>    
                     <Section1 />
                     <Section2 />
                     <Divider />

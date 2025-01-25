@@ -27,7 +27,7 @@ const Blogarticle = () => {
     const { isLoading, isError, data } = useQuery({ queryKey: ['dataww', blogId], queryFn: () => fetchDataDE(blogId as string) })
 
     if (isLoading) {
-        return <p className="w-screen h-screen bg-backgroundGray text-white pt-28 px-40 font-roboto">Loading...</p>;
+        return <p className="w-screen h-screen pt-28 px-40 font-roboto">Loading...</p>;
     }
     
     if(isError){
@@ -46,7 +46,7 @@ const Blogarticle = () => {
                 <meta name="keywords" content={`${data.data.attributes.title}`} />
             </Helmet>
             <Navbar />
-            <div className="w-full min-h-screen bg-backgroundGray text-gray-300 pt-20 lg:pt-32 px-4 xl:px-40 font-inter">
+            <div className="w-full min-h-screen pt-20 lg:pt-32 px-4 xl:px-40 font-inter">
                 <section className="relative">
                     <h1 className="text-3xl md:text-4xl font-bold w-full text-center pt-16 xl:pt-12 pb-4 font-inter">
                         {data.data.attributes.title}

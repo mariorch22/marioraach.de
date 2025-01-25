@@ -9,6 +9,7 @@ import ScrollToTop from './animations/scrollToTop';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import { ThemeProvider } from "@/ui_components/shadn/theme-provider"
 
 const Work = lazy(() => import('./pages/work/page'));
 const About = lazy(() => import('./pages/about/page'));
@@ -27,7 +28,8 @@ function App() {
 
   return (
     <>
-      <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="dark" storageKey="ui-theme">    
+        <QueryClientProvider client={queryClient}>
           <Suspense fallback={<div className='w-screen h-[200vh] flex justify-center items-center text-4xl text-white bg-pageAnimationGray overflow-hidden'></div>}>
             <ScrollToTop />
             <AnimatePresence mode="wait">
@@ -47,7 +49,8 @@ function App() {
               </Routes>
             </AnimatePresence>
           </Suspense>
-      </QueryClientProvider>
+        </QueryClientProvider>
+      </ThemeProvider>
     </>
   );
 }

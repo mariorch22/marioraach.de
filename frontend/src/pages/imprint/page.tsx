@@ -29,9 +29,9 @@ const Section: React.FC<SectionProps> = ({ title, content, className }) => (
 );
 
 const STYLES = {
-  container: "flex items-center lg:p-16 bg-backgroundGray",
+  container: "flex items-center lg:p-16",
   content: "container flex flex-col items-center pt-20",
-  text: "text-white",
+  text: "",
   title: "text-3xl py-12",
   subtitle: "pb-4 text-sm",
   sections: "flex flex-col gap-4 pt-12",

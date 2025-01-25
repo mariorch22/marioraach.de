@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Helmet } from 'react-helmet';
 
 const STYLES = {
- container: "flex items-center h-screen p-16 bg-gray-50 dark:bg-gray-700",
+ container: "flex items-center h-screen p-16 bg-gray-50",
  content: "container flex flex-col items-center",
  textWrapper: "flex flex-col gap-6 max-w-md text-center",
  errorCode: "font-extrabold text-9xl text-gray-600 dark:text-gray-100",

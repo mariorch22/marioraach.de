@@ -24,7 +24,7 @@ const Blog = () => {
             </Helmet>
 
             <Navbar />
-            <main className='bg-backgroundGray min-h-svh pt-20 px-4 md:px-0 font-roboto overflow-hidden w-screen'>
+            <main className='min-h-svh pt-20 px-4 md:px-0 font-roboto overflow-hidden w-screen'>
                 <div className='w-full flex justify-center items-center flex-col gap-20 pt-20'> 
                     <section>
                         <SlideUpWhenVisible y={20}>

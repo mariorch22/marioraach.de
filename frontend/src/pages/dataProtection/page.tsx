@@ -4,7 +4,7 @@ const Imprint = () => {
     return(
         <>
             <Navbar />
-            <main className="flex items-center lg:p-16 bg-backgroundGray text-white">
+            <main className="flex items-center lg:p-16">
                 <div className="pt-20">
                     <h1 className="text-2xl">Datenschutz&shy;erkl&auml;rung</h1>
                     <h2 className="text-xl font-semibold pt-6">1. Datenschutz auf einen Blick</h2>

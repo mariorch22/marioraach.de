@@ -8,8 +8,8 @@ const Work = () => {
     return (
         <>
             <Navbar />
-            <div className='bg-backgroundGray flex justify-center flex-col pt-40 w-full'>
-                <h3 className="text-center text-3xl text-white">
+            <div className='flex justify-center flex-col pt-40 w-full'>
+                <h3 className="text-center text-3xl">
                     Übersetzer-Projekt
                 </h3>
                 <German2Swabian />

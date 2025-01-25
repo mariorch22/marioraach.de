@@ -15,9 +15,9 @@ const About = () => {
                 <meta name="keywords" content="Industriekaufmann, Webentwickler, TRIGEMA Ausbildung, Epsilon International Praktikum, Microsoft Dynamics AX, Adobe Creative Cloud, Microsoft Office, JavaScript, TypeScript, ReactJS, Python, MySQL, MongoDB, Ehrenamt, Jugendtrainer, Jungpfadfindergruppenleiter" />
             </Helmet>
 
-            <Suspense fallback={<div className='min-h-screen min-w-screen bg-backgroundGray'></div>}>
+            <Suspense fallback={<div className='min-h-screen min-w-screen'></div>}>
                 <Navbar />
-                <div className='flex flex-col gap-8 bg-backgroundGray overflow-hidden'>
+                <div className='flex flex-col gap-8 overflow-hidden'>
                     <About_Section1 />
                     <div className="divider"></div>
                     <About_Section2 />

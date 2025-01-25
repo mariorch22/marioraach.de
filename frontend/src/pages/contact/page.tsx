@@ -33,7 +33,7 @@ const Contact = () => {
 
                 <Navbar />
                 
-                <div className='text-gray-700 md:px-0 text-6xl md:text-7xl xl:text-9xl pb-20 flex items-center h-screen bg-backgroundGray min-h-[50rem] font-roboto'>
+                <div className='text-gray-700 md:px-0 text-6xl md:text-7xl xl:text-9xl pb-20 flex items-center h-screen min-h-[50rem] font-roboto'>
                     <p className='px-2 w-full text-center min-h-[30rem] py-60'>
                         <TextGenerateEffect className='mx-4 md:mx-0 md:text-[12rem] font-extrabold' words={contactHeadlineData.pageTitle} />
                     </p>
