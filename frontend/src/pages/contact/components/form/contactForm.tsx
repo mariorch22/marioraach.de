@@ -99,7 +99,7 @@ const ContactForm = () => {
               </Button>
             }
             {isIdle && 
-              <Button className={`rounded-full h-20 w-20 text-backgroundGray right-0 bg-gray-900`} type="submit" disabled={false}>
+              <Button className={`rounded-full h-20 w-20 right-0 bg-transparent`} type="submit" disabled={false}>
                 <IoMdSend size={35} className="ml-1" color="white" />
               </Button>
             }

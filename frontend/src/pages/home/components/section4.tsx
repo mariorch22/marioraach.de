@@ -22,7 +22,7 @@ const Section4 = () => {
         <>
             <div className='md:px-40 xl:px-80 py-6 xl:py-20'>
                 <h1 className='text-4xl xl:text-5xl pl-8'>{homeKontaktText.title}</h1>
-                <div className='py-4 px-4 xl:text-xl font-roboto'>
+                <div className='py-4 px-4 xl:text-xl'>
                     {formattedKontaktText}
                 </div>
 

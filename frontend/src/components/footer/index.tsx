@@ -14,10 +14,10 @@ const Footer = () => {
   return (
     <>
       <Outlet />
-      <footer className='bg-backgroundGray pt-8'>
+      <footer className='pt-8'>
           <div>
             <div className="h-1 w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-500 via-backgroundGray to-backgroundGray"></div>
-            <div className='text-white text-lg grid grid-cols-[1fr_2fr_1fr] flex-row px-4 md:px-20 h-20'>
+            <div className='text-lg grid grid-cols-[1fr_2fr_1fr] flex-row px-4 md:px-20 h-20'>
 
                 <div className='flex items-center'>
                     <a href='mailto:marioraach01@gmail.com' aria-label="Senden Sie Mario Raach eine E-Mail">

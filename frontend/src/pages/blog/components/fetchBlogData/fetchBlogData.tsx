@@ -34,7 +34,7 @@ const FetchBlogData = () => {
         return <BlogHeadersSkeleton />;
     }
     if (isError) {
-        return <p className="w-screen h-screen bg-backgroundGray text-white pt-28 px-40 font-roboto">Error: {error?.message}</p>; // Fehlerbehandlung verbessert
+        return <p className="w-screen h-screen pt-28 px-40 font-roboto">Error: {error?.message}</p>; // Fehlerbehandlung verbessert
     }
 
     return (

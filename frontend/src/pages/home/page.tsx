@@ -16,14 +16,14 @@ const Home = () => {
     return (
         <>
             <Helmet>
-                <title>Mario Raach</title>
+                <title>Home</title>
                 <meta name="description" content="Just a guy having fun :D" />
                 <meta name="keywords" content="Mario Raach, Industriekaufmann, Webentwickler, Technologie, Entrepreneurship, Sport, Künstliche Intelligenz, Webentwicklung, Startups, Projektideen" />
             </Helmet>
             
             <Navbar />
             <Suspense fallback={<div className='h-screen w-screen'></div>}>
-                <main className='overflow-hidden grid grid-cols-1 gap-6 bg-backgroundGray font-kalam'>    
+                <main className='overflow-hidden grid grid-cols-1 gap-6 font-inter text-normal'>    
                     <Section1 />
                     <Section2 />
                     <Divider />

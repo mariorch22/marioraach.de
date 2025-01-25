@@ -45,7 +45,7 @@ const Contact = () => {
                     </span>
                 </div>
 
-                <div ref={scrollToRef} className='min-h-screen min-w-full bg-backgroundGray px-6 md:px-0 pt-20 flex justify-center font-roboto'>
+                <div ref={scrollToRef} className='min-h-screen min-w-full px-6 md:px-0 pt-20 flex justify-center font-roboto'>
                     <ContactFormSection />
                 </div>
         </>

@@ -1,7 +1,7 @@
 export const ANIMATION_CONSTANTS = {
     SCROLL_THRESHOLD: 50,
     TRANSITION_DURATION: 0.6,
-    TRANSITION_DELAY: 0.3
+    TRANSITION_DELAY: 0
   };
 
   // constants/animations.ts

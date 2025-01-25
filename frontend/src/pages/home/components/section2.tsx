@@ -21,7 +21,7 @@ export function Section2() {
             <div className='md:px-40 xl:px-80 xl:pt-40 pb-6 xl:pb-10' >
                 <h1 className='text-4xl xl:text-5xl pl-8'>About</h1>
                 <div className='px-4 py-4'>
-                    <div className='text-lg xl:text-xl text-white font-roboto'>
+                    <div className='xl:text-xl text-white'>
                         {formattedAboutText}
                     </div>
                 </div>

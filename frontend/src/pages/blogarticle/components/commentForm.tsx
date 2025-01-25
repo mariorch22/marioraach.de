@@ -74,7 +74,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ handleState }) => {
                             <FormItem>
                                 <FormLabel className="text-xl pl-0 md:pl-4">Name</FormLabel>
                                     <FormControl>
-                                        <Input className="bg-backgroundGray" placeholder="My name is..." {...field} />
+                                        <Input placeholder="My name is..." {...field} />
                                     </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -87,7 +87,7 @@ const CommentForm: React.FC<CommentFormProps> = ({ handleState }) => {
                             <FormItem>
                                 <FormLabel className="text-xl pl-4">Comment</FormLabel>
                                     <FormControl>
-                                        <Input className="bg-backgroundGray" placeholder="I want so say that..." {...field} />
+                                        <Input placeholder="I want so say that..." {...field} />
                                     </FormControl>
                                 <FormMessage />
                             </FormItem>

@@ -2,7 +2,6 @@ import React from 'react';
 import SlideUpWhenVisible from '@/animations/slideUpWhenVisible';
 import { useTranslation } from 'react-i18next';
 
-const LanguageSelector = React.lazy(() => import('./language-selector'));
 interface HomeLandingpageText {
     landingpageText: string;
 }
@@ -19,7 +18,7 @@ const Section1 = () => {
                 <span className='rounded-full h-80 md:h-auto min-w-80 md:w-[25rem] xl:w-full flex justify-center px-6 overflow-hidden'>
 
                     <img 
-                        className='pt-8 xl:px-4 drop-shadow-customDropShadow w-auto md:h-[30rem] xl:h-auto xl:w-full xl:max-w-[33rem] md:pt-20 xl:pt-0 opacity-80'
+                        className='pt-8 xl:px-4 drop-shadow-customDropShadow w-auto md:h-[30rem] xl:h-auto xl:w-full xl:max-w-[28rem] md:pt-20 xl:pt-0 opacity-80'
                         src="/images/hoddie/hdddie.png"
                         srcSet='/images/hoddie/hh.png 767w, /images/hoddie/hoddie.png 1400w'
                         width={400}
@@ -47,13 +46,6 @@ const Section1 = () => {
                     </h1>
                 </SlideUpWhenVisible>
             </div>
-
-            <div className='w-auto overflow-hidden h-svh flex absolute right-0 items-end z-30'>
-                <React.Suspense fallback={<div></div>}>
-                    <LanguageSelector />
-                </React.Suspense>
-           </div>
-
         </div>
     )
 }

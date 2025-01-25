@@ -33,7 +33,7 @@ const Sidebar_Layout: React.FC<SidebarProps> = ({ toggle, setToggle }) => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: link.delay }}
             >
-                <Link to={link.link} onClick={handleSidebarToggle} className="w-full pl-10 my-1.5 text-white text-6xl font-roboto font-medium">
+                <Link to={link.link} onClick={handleSidebarToggle} className="w-full pl-10 my-1.5 text-6xl font-roboto font-medium">
                     {link.titel}
                 </Link>
             </motion.div>

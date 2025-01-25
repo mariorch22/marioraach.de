@@ -30,7 +30,7 @@ function App() {
     <>
       <ThemeProvider defaultTheme="dark" storageKey="ui-theme">    
         <QueryClientProvider client={queryClient}>
-          <Suspense fallback={<div className='w-screen h-[200vh] flex justify-center items-center text-4xl text-white bg-pageAnimationGray overflow-hidden'></div>}>
+          <Suspense fallback={<div className='w-screen h-[200vh] flex justify-center items-center text-4xl bg-pageAnimationGray overflow-hidden'></div>}>
             <ScrollToTop />
             <AnimatePresence mode="wait">
               <Routes location={location} key={location.pathname}>

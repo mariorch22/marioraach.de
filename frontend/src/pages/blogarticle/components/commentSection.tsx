@@ -37,7 +37,7 @@ const CommentSection: React.FC<CommentSectionProps> = ({ commentState }) => {
         return <p>Loading...</p>;
     }
     if(isError){
-        return <p className="w-screen h-screen bg-backgroundGray text-white pt-28 px-40 font-roboto">Error: {error.message}</p>
+        return <p className="w-screen h-screen text-white pt-28 px-40 font-roboto">Error: {error.message}</p>
     }
 
     const filteredData = data.filter((item: any) => item.blogId === blogId);

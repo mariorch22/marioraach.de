@@ -1,16 +1,16 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useQuery } from '@tanstack/react-query'
-import { MY_URL_STRAPI } from "../../config";
-import Navbar from "../../components/navbar";
+import { MY_URL_STRAPI } from "@/config";
+import Navbar from "@/components/navbar";
 import moment from "moment";
-import useFormatText from "../../hooks/useFormatText";
+import useFormatText from "@/hooks/useFormatText";
 import BlogErrorPage from "./components/blogErrorPage";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import React, { useState } from "react";
-import Divider  from "../../components/general/divider";
+import Divider  from "@/components/general/divider";
 import CommentForm from "./components/commentForm";
 import CommentSection from "./components/commentSection";
-import { CopyBlock, solarizedDark, a11yDark, googlecode  } from 'react-code-blocks';
+import { CopyBlock, a11yDark  } from 'react-code-blocks';
 import copy from 'copy-to-clipboard';
 
 const fetchDataDE = async (blogId: string) => {
