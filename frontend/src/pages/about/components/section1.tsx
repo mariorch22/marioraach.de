@@ -13,7 +13,7 @@ const About_Section1 = () => {
     return (
         <>
             <section className='min-w-screen min-h-svh grid xl:grid-cols-2 ' >
-                <div className='sm:min-h-screen 2xl:px-20 2xl:pl-40 rounded-br-3xl flex flex-col justify-start sm:justify-center items-center'>
+                <div className='2xl:px-20 2xl:pl-40 rounded-br-3xl flex flex-col justify-start sm:justify-center items-center'>
                     <TextGenerateEffect words={arbeitserfahrungDaten.pageTitle} className='text-gray-500 text-6xl sm:text-[6rem] lg:text-[8rem] font-roboto opacity-100 font-[4rem]' />
                 </div>
                 <div className='order-first md:order-none sm:hidden flex justify-center items-center xl:items-center xl:flex opacity-60'>

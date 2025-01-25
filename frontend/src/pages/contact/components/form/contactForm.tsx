@@ -1,11 +1,9 @@
 // import dependencies
-import React from "react"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 import { useTranslation } from 'react-i18next';
 import { IoMdSend } from "react-icons/io";
-import { ThreeDots } from "react-loader-spinner"
 import { motion, useMotionValue } from "framer-motion"
 import { CircularProgress } from "../animatedCheckIcon"
 
@@ -25,6 +23,12 @@ interface FormField {
   isTextarea: boolean;
   inputType?: string;
 }
+
+const Spinner = () => (
+  <div className="flex items-center justify-center">
+    <div className="h-8 w-8 animate-spin rounded-full border-4 border-primary border-t-transparent"></div>
+  </div>
+);
 
 const ContactForm = () => {
   const {t} = useTranslation();
@@ -95,7 +99,7 @@ const ContactForm = () => {
             }
             {isPending && 
               <Button className={`rounded-full h-20 w-20 text-backgroundGray right-0 bg-gray-900`} type="submit" disabled={true}>
-                <ThreeDots width={40} height={40} color="white" /> 
+                <Spinner /> 
               </Button>
             }
             {isIdle && 
@@ -111,4 +115,4 @@ const ContactForm = () => {
   )
 }
 
-export default React.memo(ContactForm)
+export default ContactForm
