@@ -1,5 +1,4 @@
 import { Suspense, lazy } from 'react';
-import Navbar from '@/components/navbar';
 
 const Section1 = lazy(() => import('./components/section1'));
 const Section2 = lazy(() => import('./components/section2'));
@@ -20,7 +19,6 @@ const Home = () => {
         content="Mario Raach, Industriekaufmann, Webentwickler, Technologie, Entrepreneurship, Sport, Künstliche Intelligenz, Webentwicklung, Startups, Projektideen"
       />
 
-      <Navbar />
       <Suspense fallback={<div className="h-screen w-screen"></div>}>
         <main className="overflow-hidden grid grid-cols-1 gap-6 font-inter text-normal">
           <Section1 />

@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { MY_URL_STRAPI } from '@/config';
-import Navbar from '@/components/navbar';
 import moment from 'moment';
 import useFormatText from '@/hooks/useFormatText';
 import BlogErrorPage from './components/blogErrorPage';
@@ -46,7 +45,6 @@ const Blogarticle = () => {
 
   return (
     <>
-      <Navbar />
       <div className="w-full pt-20 lg:pt-32 px-4 xl:px-40 font-inter">
         <section className="relative">
           <h1 className="text-3xl md:text-6xl font-bold w-full text-center pt-16 xl:pt-12 pb-4 font-inter">

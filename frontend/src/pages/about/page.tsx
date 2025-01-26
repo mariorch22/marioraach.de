@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import Navbar from '@/components/navbar';
 import { useTranslation } from 'react-i18next';
 
 const About_Section1 = React.lazy(() => import('./components/section1'));
@@ -21,7 +20,6 @@ const About = () => {
       />
 
       <Suspense fallback={<div className="min-h-screen min-w-screen"></div>}>
-        <Navbar />
         <div className="flex flex-col gap-8 overflow-hidden">
           <About_Section1 />
           <div className="divider"></div>

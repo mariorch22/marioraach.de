@@ -1,8 +1,7 @@
-import React, { useRef, useCallback } from 'react';
+import { useRef, useCallback } from 'react';
 import ContactFormSection from './components/contactFormSection';
 import { smoothScrollTo } from '@/animations/smoothScrollTo';
 import AnimatedSvgButton from './components/animatedSvgButton';
-import Navbar from '@/components/navbar';
 import { useTranslation } from 'react-i18next';
 import SlideUpWhenVisible from '@/animations/slideUpWhenVisible';
 
@@ -35,8 +34,6 @@ const Contact = () => {
         name="keywords"
         content="Kontakt Mario Raach, Projektanfrage, Webentwicklung Anfrage, Technologieberatung, Geschäftsanfrage, Mario Raach Kontaktinformation"
       />
-
-      <Navbar />
 
       <div className="text-gray-700 md:px-0 text-6xl md:text-7xl xl:text-9xl pb-20 flex items-center h-screen min-h-[50rem] font-roboto">
         <div className="px-2 w-full text-center min-h-[30rem] py-60">

@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import Navbar from '@/components/navbar';
 import FetchBlogData from '@/pages/blog/components/fetchBlogData/fetchBlogData';
 import PopUp from '@/animations/popUp';
 
@@ -24,8 +23,6 @@ const Blog: FC = () => {
       <title>Blog</title>
       <meta name="description" content={META_DESCRIPTION} />
       <meta name="keywords" content={META_KEYWORDS} />
-
-      <Navbar />
 
       <main className="min-h-svh w-screen overflow-hidden px-4 pt-36 font-roboto md:px-0">
         <PopUp>

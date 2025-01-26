@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '@/components/navbar';
 import { IMPRINT_CONTENT } from '@/pages/imprint/constants/content';
 
 interface SectionProps {
@@ -42,7 +41,6 @@ const STYLES = {
 const Imprint: React.FC = () => {
   return (
     <>
-      <Navbar />
       <main className={STYLES.container}>
         <div className={STYLES.content}>
           <div className={STYLES.text}>

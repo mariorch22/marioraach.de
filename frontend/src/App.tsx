@@ -1,7 +1,6 @@
 import { Suspense, lazy } from 'react';
 import '@/App.css';
 import { Route, Routes, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
 import ScrollToTop from '@/animations/scrollToTop';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider } from '@/ui_components/shadn/theme-provider';
