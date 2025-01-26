@@ -2,9 +2,9 @@ import { FC, useState } from 'react';
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
-import { ANIMATION_CONSTANTS, NAVBAR_ANIMATIONS } from './constants';
+import { ANIMATION_CONSTANTS, NAVBAR_ANIMATIONS } from '@/constants/constants';
 import useScrollPosition from '@/hooks/useScrollPosition';
-import AnimatedLogo from '@/components/navbar/components/animatedLogo';
+import Logo from '@/components/navbar/components/logo';
 import LanguageSelector from './components/language-selector';
 import Sidebar from './sidebar';
 import PopUp from "@/animations/popUp";
@@ -76,8 +76,8 @@ const Navbar: FC = () => {
       {...navAnimation}
     >
       <PopUp>
-        <span className="z-50 mix-blend-difference">
-          <AnimatedLogo />
+        <span className="z-50 mix-blend-difference flex justify-center items-center">
+          <Logo />
         </span>
       </PopUp>
 

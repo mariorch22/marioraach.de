@@ -10,7 +10,7 @@ import Divider  from "@/components/general/divider";
 import CommentForm from "./components/commentForm";
 import CommentSection from "./components/commentSection";
 import { CopyBlock, a11yDark  } from 'react-code-blocks';
-import useCopyToClipboard from "@/animations/useCopyToClipboard";
+import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 
 const fetchDataDE = async (blogId: string) => {
     const response = await fetch(`${MY_URL_STRAPI}/api/blogs/${blogId}?populate=deep`);
@@ -43,11 +43,10 @@ const Blogarticle = () => {
     
     return(
         <>
-
             <Navbar />
             <div className="w-full pt-20 lg:pt-32 px-4 xl:px-40 font-inter">
                 <section className="relative">
-                    <h1 className="text-3xl md:text-4xl font-bold w-full text-center pt-16 xl:pt-12 pb-4 font-inter">
+                    <h1 className="text-3xl md:text-6xl font-bold w-full text-center pt-16 xl:pt-12 pb-4 font-inter">
                         {data.data.attributes.title}
                     </h1>
                     <div className="flex justify-center pl-8 pb-8">
