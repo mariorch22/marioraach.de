@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 
 const STYLES = {
   container: 'flex items-center h-screen p-16 bg-gray-50',
@@ -19,10 +18,9 @@ interface NotFoundProps {
 const NotFound: React.FC<NotFoundProps> = ({ className }) => {
   return (
     <>
-      <Helmet>
-        <title>404 - Page Not Found</title>
-        <meta name="description" content="The page you're looking for doesn't exist." />
-      </Helmet>
+      <title>404 - Page Not Found</title>
+      <meta name="description" content="The page you're looking for doesn't exist." />
+
       <section className={STYLES.container}>
         <div className={STYLES.content}>
           <div className={STYLES.textWrapper}>
