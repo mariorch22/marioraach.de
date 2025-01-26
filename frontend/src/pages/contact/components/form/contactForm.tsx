@@ -1,20 +1,20 @@
 // import dependencies
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import * as z from "zod"
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import * as z from 'zod';
 import { useTranslation } from 'react-i18next';
-import { IoMdSend } from "react-icons/io";
-import { motion, useMotionValue } from "framer-motion"
-import { CircularProgress } from "../animatedCheckIcon"
+import { IoMdSend } from 'react-icons/io';
+import { motion, useMotionValue } from 'framer-motion';
+import { CircularProgress } from '../animatedCheckIcon';
 
 // import components
-import { FormSchemaContactForm } from "./formSchemaContactForm"
-import CustomFormField from "@/components/shared/customFormField"
+import { FormSchemaContactForm } from './formSchemaContactForm';
+import CustomFormField from '@/components/shared/customFormField';
 
 // import ShadnCN-Components
-import { Button } from "@/ui_components/shadn/components/ui/button"
-import { Form } from "@/ui_components/shadn/components/ui/form"
-import useSendContactForm from "@/hooks/useSendContactForm"
+import { Button } from '@/ui_components/shadn/components/ui/button';
+import { Form } from '@/ui_components/shadn/components/ui/form';
+import useSendContactForm from '@/hooks/useSendContactForm';
 
 interface FormField {
   name: string;
@@ -31,21 +31,21 @@ const Spinner = () => (
 );
 
 const ContactForm = () => {
-  const {t} = useTranslation();
-  const contactFormDaten: FormField[] = t("contactForm", { returnObjects: true }) as FormField[];
-  const {mutate, isSuccess, isPending, isIdle} = useSendContactForm()
+  const { t } = useTranslation();
+  const contactFormDaten: FormField[] = t('contactForm', { returnObjects: true }) as FormField[];
+  const { mutate, isSuccess, isPending, isIdle } = useSendContactForm();
 
   const form = useForm<z.infer<typeof FormSchemaContactForm>>({
     resolver: zodResolver(FormSchemaContactForm),
     defaultValues: {
-      username: "",
-      email: "",
-      company: "",
-      requirements: "",
-      message: "",
+      username: '',
+      email: '',
+      company: '',
+      requirements: '',
+      message: '',
     },
-  })
- 
+  });
+
   async function onSubmit(values: z.infer<typeof FormSchemaContactForm>) {
     const formData = new FormData();
     for (const [key, value] of Object.entries(values)) {
@@ -56,16 +56,18 @@ const ContactForm = () => {
       // Starte die Mutation zum Senden des Kontaktformulars
       mutate(formData as any);
     } catch (error) {
-      console.error("Fehler beim Senden des Formulars:", error);
+      console.error('Fehler beim Senden des Formulars:', error);
       // Hier könntest du eine Fehlermeldung anzeigen oder weitere Fehlerbehandlung durchführen
     }
   }
-  
 
-  let progress = useMotionValue(90)
+  let progress = useMotionValue(90);
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2 md:space-y-8 pb-4 w-full md:w-1/2">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-2 md:space-y-8 pb-4 w-full md:w-1/2"
+      >
         {contactFormDaten.map((field, id) => (
           <CustomFormField
             key={id}
@@ -79,14 +81,18 @@ const ContactForm = () => {
         ))}
         <div className="flex justify-end">
           <motion.span whileTap={{ scale: 0.95 }}>
-            {isSuccess && 
+            {isSuccess && (
               <motion.div
-                initial={{ backgroundColor: "#111827" }}
-                animate={{ backgroundColor: "#22C55E" }}
+                initial={{ backgroundColor: '#111827' }}
+                animate={{ backgroundColor: '#22C55E' }}
                 transition={{ duration: 0.2 }}
                 className="rounded-full"
               >
-                <Button className={`rounded-full h-20 w-auto max-w-20 px-1 text-backgroundGray right-0 bg-customGreenButton`} type="submit" disabled={true}>
+                <Button
+                  className={`rounded-full h-20 w-auto max-w-20 px-1 text-backgroundGray right-0 bg-customGreenButton`}
+                  type="submit"
+                  disabled={true}
+                >
                   <motion.div
                     initial={{ x: 0 }}
                     animate={{ x: 100 }}
@@ -96,23 +102,30 @@ const ContactForm = () => {
                   <CircularProgress progress={progress} />
                 </Button>
               </motion.div>
-            }
-            {isPending && 
-              <Button className={`rounded-full h-20 w-20 text-backgroundGray right-0 bg-gray-900`} type="submit" disabled={true}>
-                <Spinner /> 
+            )}
+            {isPending && (
+              <Button
+                className={`rounded-full h-20 w-20 text-backgroundGray right-0 bg-gray-900`}
+                type="submit"
+                disabled={true}
+              >
+                <Spinner />
               </Button>
-            }
-            {isIdle && 
-              <Button className={`rounded-full h-20 w-20 right-0 bg-transparent`} type="submit" disabled={false}>
+            )}
+            {isIdle && (
+              <Button
+                className={`rounded-full h-20 w-20 right-0 bg-transparent`}
+                type="submit"
+                disabled={false}
+              >
                 <IoMdSend size={35} className="ml-1" color="white" />
               </Button>
-            }
+            )}
           </motion.span>
         </div>
-        
       </form>
     </Form>
-  )
-}
+  );
+};
 
-export default ContactForm
+export default ContactForm;

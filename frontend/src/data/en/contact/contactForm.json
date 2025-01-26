@@ -1,22 +1,21 @@
 [
-    {
-      "name": "username",
-      "label": "Your name:",
-      "placeholder": "John Doe*",
-      "isTextarea": false
-    },
-    {
-      "name": "email",
-      "label": "Your email address:",
-      "placeholder": "john@doe.com*",
-      "isTextarea": false
-    },
-    {
-      "name": "message",
-      "label": "Your message:",
-      "placeholder": "Hello, ...*",
-      "isTextarea": true,
-      "inputType": "text"
-    }
-  ]
-  
+  {
+    "name": "username",
+    "label": "Your name:",
+    "placeholder": "John Doe*",
+    "isTextarea": false
+  },
+  {
+    "name": "email",
+    "label": "Your email address:",
+    "placeholder": "john@doe.com*",
+    "isTextarea": false
+  },
+  {
+    "name": "message",
+    "label": "Your message:",
+    "placeholder": "Hello, ...*",
+    "isTextarea": true,
+    "inputType": "text"
+  }
+]

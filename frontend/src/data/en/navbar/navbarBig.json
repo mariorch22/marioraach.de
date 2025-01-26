@@ -1,7 +1,6 @@
 [
-    {"link": "/", "titel": "Home"},
-    {"link": "/blog", "titel": "Blog"},
-    {"link": "/about", "titel": "About Me"},
-    {"link": "/contact", "titel": "Contact"}
-  ]
-  
+  { "link": "/", "titel": "Home" },
+  { "link": "/blog", "titel": "Blog" },
+  { "link": "/about", "titel": "About Me" },
+  { "link": "/contact", "titel": "Contact" }
+]

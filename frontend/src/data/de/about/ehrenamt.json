@@ -1,23 +1,23 @@
 {
-    "pageTitle": "Ehrenamt",
-    "data": [
-        {
-            "id": "1",
-            "title": "Jugendtrainer beim TV Melchingen",
-            "duration": "2021-heute",
-            "responsibilities": [
-                "Leitung von zwei wöchentlichen Trainingseinheiten und Betreuung von Spielen",
-                "2022 - 2024"
-            ]
-        },
-        {
-            "id": "2",
-            "title": "Leiter der Jungpfadfindergruppe bei der DPSG Salmendingen",
-            "duration": "2017-2018",
-            "responsibilities": [
-                "Leitung wöchentlicher Treffen und Outdoor-Aktivitäten für Jugendlichen",
-                "2017  - 2018"
-            ]
-        }
-    ]
+  "pageTitle": "Ehrenamt",
+  "data": [
+    {
+      "id": "1",
+      "title": "Jugendtrainer beim TV Melchingen",
+      "duration": "2021-heute",
+      "responsibilities": [
+        "Leitung von zwei wöchentlichen Trainingseinheiten und Betreuung von Spielen",
+        "2022 - 2024"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Leiter der Jungpfadfindergruppe bei der DPSG Salmendingen",
+      "duration": "2017-2018",
+      "responsibilities": [
+        "Leitung wöchentlicher Treffen und Outdoor-Aktivitäten für Jugendlichen",
+        "2017  - 2018"
+      ]
+    }
+  ]
 }

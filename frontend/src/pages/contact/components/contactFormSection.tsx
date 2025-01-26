@@ -2,12 +2,11 @@ import React from 'react';
 import ContactForm from './form/contactForm';
 
 const ContactFormSection = () => {
+  return (
+    <>
+      <ContactForm />
+    </>
+  );
+};
 
-    return (
-        <>
-            <ContactForm />
-        </>
-    )
-}
-
-export default React.memo(ContactFormSection)
+export default React.memo(ContactFormSection);

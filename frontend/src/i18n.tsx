@@ -1,6 +1,6 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector"
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import bildungDatenDE from '@/data/de/about/bildung.json';
 import bildungDatenEN from '@/data/en/about/bildung.json';
 import arbeitserfahrungDatenDE from '@/data/de/about/arbeitserfahrung.json';
@@ -21,66 +21,64 @@ import homeKontaktTextDE from '@/data/de/home/kontakt.json';
 import homeKontaktTextEN from '@/data/en/home/kontakt.json';
 import HomeLandingpageTextDE from '@/data/de/home/landingpage.json';
 import HomeLandingpageTextEN from '@/data/en/home/landingpage.json';
-import BlogTextDE from '@/data/de/blog/blog.json'
-import BlogTextEN from '@/data/en/blog/blog.json'
-import AboutHeadlineDE from '@/data/de/about/header.json'
-import AboutHeadlineEN from '@/data/en/about/header.json'
-import ContactHeadlineDE from '@/data/de/contact/header.json'
-import ContactHeadlineEN from '@/data/en/contact/header.json'
-
+import BlogTextDE from '@/data/de/blog/blog.json';
+import BlogTextEN from '@/data/en/blog/blog.json';
+import AboutHeadlineDE from '@/data/de/about/header.json';
+import AboutHeadlineEN from '@/data/en/about/header.json';
+import ContactHeadlineDE from '@/data/de/contact/header.json';
+import ContactHeadlineEN from '@/data/en/contact/header.json';
 
 const resources = {
   de: {
     translation: {
-      "bildungData": bildungDatenDE,
-      "aboutHeadline": AboutHeadlineDE,
-      "contactHeadline": ContactHeadlineDE,
-      "arbeitserfahrungData": arbeitserfahrungDatenDE,
-      "navbarData": navbarDataDE,
-      "navbarDataSidebar": navbarDataSidebarDE,
-      "ehrenamtData": ehrenamtDataDE,
-      "contactForm": contactFormDE,
-      "homeAboutText": homeAboutTextDE,
-      "homeBlogText": homeBlogTextDE,
-      "homeKontaktText": homeKontaktTextDE,
-      "homeLandingpageText": HomeLandingpageTextDE,
-      "blogText": BlogTextDE
-    }
+      bildungData: bildungDatenDE,
+      aboutHeadline: AboutHeadlineDE,
+      contactHeadline: ContactHeadlineDE,
+      arbeitserfahrungData: arbeitserfahrungDatenDE,
+      navbarData: navbarDataDE,
+      navbarDataSidebar: navbarDataSidebarDE,
+      ehrenamtData: ehrenamtDataDE,
+      contactForm: contactFormDE,
+      homeAboutText: homeAboutTextDE,
+      homeBlogText: homeBlogTextDE,
+      homeKontaktText: homeKontaktTextDE,
+      homeLandingpageText: HomeLandingpageTextDE,
+      blogText: BlogTextDE,
+    },
   },
   en: {
     translation: {
-      "bildungData": bildungDatenEN,
-      "aboutHeadline": AboutHeadlineEN,
-      "contactHeadline": ContactHeadlineEN,
-      "arbeitserfahrungData": arbeitserfahrungDatenEN,
-      "navbarData": navbarDataEN,
-      "navbarDataSidebar": navbarDataSidebarEN,
-      "ehrenamtData": ehrenamtDataEN,
-      "contactForm": contactFormEN,
-      "homeAboutText": homeAboutTextEN,
-      "homeBlogText": homeBlogTextEN,
-      "homeKontaktText": homeKontaktTextEN,
-      "homeLandingpageText": HomeLandingpageTextEN,
-      "blogText": BlogTextEN,
-    }
-  }
+      bildungData: bildungDatenEN,
+      aboutHeadline: AboutHeadlineEN,
+      contactHeadline: ContactHeadlineEN,
+      arbeitserfahrungData: arbeitserfahrungDatenEN,
+      navbarData: navbarDataEN,
+      navbarDataSidebar: navbarDataSidebarEN,
+      ehrenamtData: ehrenamtDataEN,
+      contactForm: contactFormEN,
+      homeAboutText: homeAboutTextEN,
+      homeBlogText: homeBlogTextEN,
+      homeKontaktText: homeKontaktTextEN,
+      homeLandingpageText: HomeLandingpageTextEN,
+      blogText: BlogTextEN,
+    },
+  },
 };
-
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     resources,
-    fallbackLng: "en",
+    fallbackLng: 'en',
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
       caches: ['localStorage', 'cookie'],
     },
     returnObjects: true,
     interpolation: {
-      escapeValue: false
-    }
+      escapeValue: false,
+    },
   });
 
-  export default i18n;
+export default i18n;

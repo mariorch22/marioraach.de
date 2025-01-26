@@ -1,26 +1,24 @@
 {
-    "pageTitle": "Work Experience",
-    "data": [
-        {
-            "titel": "Dual study at Oxid eSales AG",
-            "kinder": [
-              "Module development with the Oxid eShop framework in PHP."
-            ]
-        }, 
-        {
-            "titel": "Internship at Oxid eSales AG",
-            "kinder": [
-              "Transitional internship before starting the dual study program.",
-              "Module development with the Oxid eShop framework in PHP."
-            ]
-        },          
-        {
-            "titel": "Apprenticeship as an Industrial Clerk at TRIGEMA W. Grupp KG",
-            "kinder": [
-                "Practical training at TRIGEMA, with a focus on business knowledge.",
-                "Solid understanding of business operations.",
-                "Proficiency in Microsoft Dynamics AX, Adobe Creative Cloud, and Microsoft Office suite."
-            ]
-        }
-    ]
+  "pageTitle": "Work Experience",
+  "data": [
+    {
+      "titel": "Dual study at Oxid eSales AG",
+      "kinder": ["Module development with the Oxid eShop framework in PHP."]
+    },
+    {
+      "titel": "Internship at Oxid eSales AG",
+      "kinder": [
+        "Transitional internship before starting the dual study program.",
+        "Module development with the Oxid eShop framework in PHP."
+      ]
+    },
+    {
+      "titel": "Apprenticeship as an Industrial Clerk at TRIGEMA W. Grupp KG",
+      "kinder": [
+        "Practical training at TRIGEMA, with a focus on business knowledge.",
+        "Solid understanding of business operations.",
+        "Proficiency in Microsoft Dynamics AX, Adobe Creative Cloud, and Microsoft Office suite."
+      ]
+    }
+  ]
 }

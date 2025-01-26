@@ -1,23 +1,23 @@
 {
-    "pageTitle": "Volunteer Work",
-    "data": [
-        {
-            "id": "1",
-            "title": "Youth Trainer at TV Melchingen",
-            "duration": "2021-present",
-            "responsibilities": [
-                "Conducting two weekly training sessions and overseeing games",
-                "2022 - 2024"
-            ]
-        },
-        {
-            "id": "2",
-            "title": "Leader of a Young Scouts Group at DPSG Salmendingen",
-            "duration": "2017-2018",
-            "responsibilities": [
-                "Leading weekly meetings and outdoor activities for adolescents",
-                "2017 - 2018"
-            ]
-        }
-    ]
+  "pageTitle": "Volunteer Work",
+  "data": [
+    {
+      "id": "1",
+      "title": "Youth Trainer at TV Melchingen",
+      "duration": "2021-present",
+      "responsibilities": [
+        "Conducting two weekly training sessions and overseeing games",
+        "2022 - 2024"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Leader of a Young Scouts Group at DPSG Salmendingen",
+      "duration": "2017-2018",
+      "responsibilities": [
+        "Leading weekly meetings and outdoor activities for adolescents",
+        "2017 - 2018"
+      ]
+    }
+  ]
 }

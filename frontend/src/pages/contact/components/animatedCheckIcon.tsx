@@ -1,22 +1,12 @@
+import { motion, useTransform } from 'framer-motion';
 
-import { motion, useTransform } from "framer-motion"
-
-export function CircularProgress({ progress }:any) {
-  const circleLength = useTransform(progress, [0, 100], [0, 1])
-  const checkmarkPathLength = useTransform(progress, [0, 95, 100], [0, 0, 1])
-  const circleColor = useTransform(
-    progress,
-    [0, 95, 100],
-    ["#FFFFFF", "#e8fccf", "#e8fccf"]
-  )
+export function CircularProgress({ progress }: any) {
+  const circleLength = useTransform(progress, [0, 100], [0, 1]);
+  const checkmarkPathLength = useTransform(progress, [0, 95, 100], [0, 0, 1]);
+  const circleColor = useTransform(progress, [0, 95, 100], ['#FFFFFF', '#e8fccf', '#e8fccf']);
 
   return (
-    <motion.svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="258"
-      height="258"
-      viewBox="0 0 258 258"
-    >
+    <motion.svg xmlns="http://www.w3.org/2000/svg" width="258" height="258" viewBox="0 0 258 258">
       {/* Check mark  */}
       <motion.path
         transform="translate(60 85)"
@@ -33,9 +23,9 @@ export function CircularProgress({ progress }:any) {
         strokeWidth="8"
         stroke={circleColor}
         style={{
-          pathLength: circleLength
+          pathLength: circleLength,
         }}
       />
     </motion.svg>
-  )
+  );
 }

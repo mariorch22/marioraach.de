@@ -115,9 +115,7 @@ module.exports = {
     },
   },
   plugins: [
-    require("tailwindcss-animate")
-  ],
-  plugins: [
+    require("tailwindcss-animate"),
     function({ addUtilities, theme }) {
       const newUtilities = {
         '.delay-2000': {

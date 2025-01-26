@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from "@/components/navbar";
+import Navbar from '@/components/navbar';
 import { IMPRINT_CONTENT } from '@/pages/imprint/constants/content';
 
 interface SectionProps {
@@ -17,7 +17,8 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ title, children }) => (
   <p>
     <h4 className="text-lg font-semibold py-2">{title}</h4>
     {children}
-    <br /><br />
+    <br />
+    <br />
   </p>
 );
 
@@ -29,13 +30,13 @@ const Section: React.FC<SectionProps> = ({ title, content, className }) => (
 );
 
 const STYLES = {
-  container: "flex items-center lg:p-16",
-  content: "container flex flex-col items-center pt-20",
-  text: "",
-  title: "text-3xl py-12",
-  subtitle: "pb-4 text-sm",
-  sections: "flex flex-col gap-4 pt-12",
-  sectionTitle: "text-lg font-semibold"
+  container: 'flex items-center lg:p-16',
+  content: 'container flex flex-col items-center pt-20',
+  text: '',
+  title: 'text-3xl py-12',
+  subtitle: 'pb-4 text-sm',
+  sections: 'flex flex-col gap-4 pt-12',
+  sectionTitle: 'text-lg font-semibold',
 } as const;
 
 const Imprint: React.FC = () => {
@@ -46,41 +47,37 @@ const Imprint: React.FC = () => {
         <div className={STYLES.content}>
           <div className={STYLES.text}>
             <h1 className={STYLES.title}>{IMPRINT_CONTENT.title}</h1>
-            <p className={STYLES.subtitle}>
-              {IMPRINT_CONTENT.legalReference}
-            </p>
+            <p className={STYLES.subtitle}>{IMPRINT_CONTENT.legalReference}</p>
 
             <ContentBlock title={IMPRINT_CONTENT.operator.title}>
               {IMPRINT_CONTENT.operator.name}
             </ContentBlock>
 
             <ContentBlock title={IMPRINT_CONTENT.address.title}>
-              {IMPRINT_CONTENT.address.street}<br />
+              {IMPRINT_CONTENT.address.street}
+              <br />
               {IMPRINT_CONTENT.address.city}
             </ContentBlock>
 
             <ContentBlock title={IMPRINT_CONTENT.contact.title}>
-              {IMPRINT_CONTENT.contact.phone}<br />
+              {IMPRINT_CONTENT.contact.phone}
+              <br />
               {IMPRINT_CONTENT.contact.email}
             </ContentBlock>
 
             <ContentBlock title={IMPRINT_CONTENT.responsible.title}>
-              {IMPRINT_CONTENT.responsible.name}<br />
-              {IMPRINT_CONTENT.responsible.street}<br />
+              {IMPRINT_CONTENT.responsible.name}
+              <br />
+              {IMPRINT_CONTENT.responsible.street}
+              <br />
               {IMPRINT_CONTENT.responsible.city}
             </ContentBlock>
 
             <section className={STYLES.sections}>
-              <h2 className={STYLES.sectionTitle}>
-                {IMPRINT_CONTENT.disclaimer.title}
-              </h2>
-              
+              <h2 className={STYLES.sectionTitle}>{IMPRINT_CONTENT.disclaimer.title}</h2>
+
               {IMPRINT_CONTENT.disclaimer.sections.map((section, index) => (
-                <Section
-                  key={index}
-                  title={section.title}
-                  content={section.content}
-                />
+                <Section key={index} title={section.title} content={section.content} />
               ))}
             </section>
           </div>

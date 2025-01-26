@@ -9,7 +9,7 @@ function ScrollToTop() {
     window.onload = () => {
       window.scrollTo({
         top: 0,
-        behavior: 'instant'
+        behavior: 'instant',
       });
     };
 
@@ -22,7 +22,7 @@ function ScrollToTop() {
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'instant'
+      behavior: 'instant',
     });
   }, [pathname]);
 

@@ -1,32 +1,28 @@
 {
-    "pageTitle": "Arbeitserfahrung",
-    "data": [
-        {
-            "titel": "Duales Studium bei Oxid eSales AG",
-            "kinder": [
-                "Modulentwicklung mit dem Oxid eShop-Framework in PHP"
-            ]
-        },
-        {
-            "titel": "Praktikum bei Oxid eSales AG",
-            "kinder": [
-                "Überbrückungspraktikum bis zum dualen Studium.",
-                "Modulentwicklung mit dem Oxid eShop-Framework in PHP"
-            ]
-        },
-        {
-            "titel": "Ausbildung zum Industriekaufmann bei TRIGEMA W. Grupp KG",
-            "kinder": [
-                "Praxisnahe Ausbildung bei TRIGEMA, Schwerpunkt auf kaufmännischen Kenntnissen.",
-                "Fundierte Kenntnisse im kaufmännischen Bereich.",
-                "Sicherer Umgang mit Microsoft Dynamics AX, Adobe Creative Cloud und den Microsoft Office Programmen."
-            ]
-        },
-        {
-            "titel": "Praktikum bei Epsilon International SA",
-            "kinder": [
-                "3-wöchiges Praktikum im Rahmen des Erasmus+ Programms in Athen."
-            ]
-        }
-    ]
+  "pageTitle": "Arbeitserfahrung",
+  "data": [
+    {
+      "titel": "Duales Studium bei Oxid eSales AG",
+      "kinder": ["Modulentwicklung mit dem Oxid eShop-Framework in PHP"]
+    },
+    {
+      "titel": "Praktikum bei Oxid eSales AG",
+      "kinder": [
+        "Überbrückungspraktikum bis zum dualen Studium.",
+        "Modulentwicklung mit dem Oxid eShop-Framework in PHP"
+      ]
+    },
+    {
+      "titel": "Ausbildung zum Industriekaufmann bei TRIGEMA W. Grupp KG",
+      "kinder": [
+        "Praxisnahe Ausbildung bei TRIGEMA, Schwerpunkt auf kaufmännischen Kenntnissen.",
+        "Fundierte Kenntnisse im kaufmännischen Bereich.",
+        "Sicherer Umgang mit Microsoft Dynamics AX, Adobe Creative Cloud und den Microsoft Office Programmen."
+      ]
+    },
+    {
+      "titel": "Praktikum bei Epsilon International SA",
+      "kinder": ["3-wöchiges Praktikum im Rahmen des Erasmus+ Programms in Athen."]
+    }
+  ]
 }
