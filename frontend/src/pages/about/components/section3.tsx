@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 
 const Ehrenamt = lazy(() => import('./ehrenamt'));
 
@@ -14,4 +14,4 @@ const About_Section4 = () => {
   );
 };
 
-export default React.memo(About_Section4);
+export default About_Section4;

@@ -45,4 +45,4 @@ const BlogCover: React.FC<BlogCoverProps> = ({
   );
 };
 
-export default React.memo(BlogCover);
+export default BlogCover;

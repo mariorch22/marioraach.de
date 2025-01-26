@@ -9,4 +9,4 @@ const ContactFormSection = () => {
   );
 };
 
-export default React.memo(ContactFormSection);
+export default ContactFormSection;

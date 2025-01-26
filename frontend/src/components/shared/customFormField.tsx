@@ -58,4 +58,4 @@ const CustomFormField: React.FC<CustomFormFieldProps> = ({
   />
 );
 
-export default React.memo(CustomFormField);
+export default CustomFormField;

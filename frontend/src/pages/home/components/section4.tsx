@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import SlideInFromSide from '@/animations/slideInFromSide';
 import Button from '@/components/shared/animatedButton';
@@ -35,4 +34,4 @@ const Section4 = () => {
   );
 };
 
-export default React.memo(Section4);
+export default Section4;

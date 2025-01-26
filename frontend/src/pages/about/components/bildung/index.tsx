@@ -72,4 +72,4 @@ const Bildung: React.FC = () => {
   );
 };
 
-export default React.memo(Bildung);
+export default Bildung;

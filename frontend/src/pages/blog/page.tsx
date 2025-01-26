@@ -1,7 +1,5 @@
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet';
-import SlideUpWhenVisible from '@/animations/slideUpWhenVisible';
 import Navbar from '@/components/navbar';
 import FetchBlogData from '@/pages/blog/components/fetchBlogData/fetchBlogData';
 import PopUp from '@/animations/popUp';
@@ -23,11 +21,9 @@ const Blog: FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Blog</title>
-        <meta name="description" content={META_DESCRIPTION} />
-        <meta name="keywords" content={META_KEYWORDS} />
-      </Helmet>
+      <title>Blog</title>
+      <meta name="description" content={META_DESCRIPTION} />
+      <meta name="keywords" content={META_KEYWORDS} />
 
       <Navbar />
 

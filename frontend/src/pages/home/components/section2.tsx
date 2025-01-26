@@ -35,4 +35,4 @@ export function Section2() {
   );
 }
 
-export default React.memo(Section2);
+export default Section2;

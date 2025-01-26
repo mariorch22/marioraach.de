@@ -3,7 +3,6 @@ import ContactFormSection from './components/contactFormSection';
 import { smoothScrollTo } from '@/animations/smoothScrollTo';
 import AnimatedSvgButton from './components/animatedSvgButton';
 import Navbar from '@/components/navbar';
-import { Helmet } from 'react-helmet';
 import { useTranslation } from 'react-i18next';
 import SlideUpWhenVisible from '@/animations/slideUpWhenVisible';
 
@@ -27,26 +26,24 @@ const Contact = () => {
 
   return (
     <>
-      <Helmet>
         <title>{contactHeadlineData.pageTitle}</title>
         <meta
-          name="description"
-          content="Möchten Sie ein Projekt besprechen, Fragen stellen oder einfach in Kontakt treten? Füllen Sie das Kontaktformular aus und Mario Raach wird sich so bald wie möglich bei Ihnen melden."
+            name="description"
+            content="Möchten Sie ein Projekt besprechen, Fragen stellen oder einfach in Kontakt treten? Füllen Sie das Kontaktformular aus und Mario Raach wird sich so bald wie möglich bei Ihnen melden."
         />
         <meta
-          name="keywords"
-          content="Kontakt Mario Raach, Projektanfrage, Webentwicklung Anfrage, Technologieberatung, Geschäftsanfrage, Mario Raach Kontaktinformation"
+            name="keywords"
+            content="Kontakt Mario Raach, Projektanfrage, Webentwicklung Anfrage, Technologieberatung, Geschäftsanfrage, Mario Raach Kontaktinformation"
         />
-      </Helmet>
 
       <Navbar />
 
       <div className="text-gray-700 md:px-0 text-6xl md:text-7xl xl:text-9xl pb-20 flex items-center h-screen min-h-[50rem] font-roboto">
-        <p className="px-2 w-full text-center min-h-[30rem] py-60">
+        <div className="px-2 w-full text-center min-h-[30rem] py-60">
           <SlideUpWhenVisible>
             <p className="mx-4 md:mx-0 md:text-[12rem] font-extrabold">Kontakt</p>
           </SlideUpWhenVisible>
-        </p>
+        </div>
 
         <span className="absolute w-full h-screen top-0 flex justify-center items-end pb-16 md:pb-4">
           <button onClick={scrollToNextViewport} className="cursor-pointer">
@@ -65,4 +62,4 @@ const Contact = () => {
   );
 };
 
-export default React.memo(Contact);
+export default Contact;

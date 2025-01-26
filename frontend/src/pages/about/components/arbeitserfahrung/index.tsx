@@ -72,4 +72,4 @@ const Arbeitserfahrung: React.FC = () => {
   );
 };
 
-export default React.memo(Arbeitserfahrung);
+export default Arbeitserfahrung;

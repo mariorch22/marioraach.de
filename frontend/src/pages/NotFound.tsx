@@ -41,4 +41,4 @@ const NotFound: React.FC<NotFoundProps> = ({ className }) => {
   );
 };
 
-export default React.memo(NotFound);
+export default NotFound;

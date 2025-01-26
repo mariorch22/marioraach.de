@@ -16,4 +16,4 @@ const Work = () => {
   );
 };
 
-export default React.memo(Work);
+export default Work;

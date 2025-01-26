@@ -7,10 +7,10 @@ const styles = {
     'h-1 w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-500 via-backgroundGray to-backgroundGray',
   container: 'text-lg grid grid-cols-[1fr_2fr_1fr] flex-row px-4 md:px-20 h-20',
   emailContainer: 'flex items-center',
-  link: 'hidden md:block font-roboto opacity-35 hover:opacity-100',
-  icon: 'md:hidden opacity-35',
+  link: 'hidden md:block font-roboto opacity-80 hover:opacity-100',
+  icon: 'md:hidden opacity-80',
   copyright:
-    'text-gray-30 text-center text-xs md:text-sm opacity-35 text-md flex flex-col justify-center',
+    'text-gray-30 text-center text-xs md:text-sm opacity-80 text-md flex flex-col justify-center',
   legalLinks: 'flex gap-2 w-full justify-center',
 } as const;
 

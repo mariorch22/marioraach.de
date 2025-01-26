@@ -87,4 +87,4 @@ const Imprint: React.FC = () => {
   );
 };
 
-export default React.memo(Imprint);
+export default Imprint;

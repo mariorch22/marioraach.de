@@ -49,4 +49,4 @@ const Sidebar_Layout: React.FC<SidebarProps> = ({ toggle, setToggle }) => {
   );
 };
 
-export default React.memo(Sidebar_Layout);
+export default Sidebar_Layout;

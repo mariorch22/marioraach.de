@@ -1,6 +1,5 @@
 import { Suspense, lazy } from 'react';
 import Navbar from '@/components/navbar';
-import { Helmet } from 'react-helmet';
 
 const Section1 = lazy(() => import('./components/section1'));
 const Section2 = lazy(() => import('./components/section2'));
@@ -14,14 +13,12 @@ const Divider = () => (
 const Home = () => {
   return (
     <>
-      <Helmet>
-        <title>Home</title>
-        <meta name="description" content="Just a guy having fun :D" />
-        <meta
-          name="keywords"
-          content="Mario Raach, Industriekaufmann, Webentwickler, Technologie, Entrepreneurship, Sport, Künstliche Intelligenz, Webentwicklung, Startups, Projektideen"
-        />
-      </Helmet>
+      <title>Home</title>
+      <meta name="description" content="Just a guy having fun :D" />
+      <meta
+        name="keywords"
+        content="Mario Raach, Industriekaufmann, Webentwickler, Technologie, Entrepreneurship, Sport, Künstliche Intelligenz, Webentwicklung, Startups, Projektideen"
+      />
 
       <Navbar />
       <Suspense fallback={<div className="h-screen w-screen"></div>}>

@@ -35,4 +35,4 @@ const Section3 = () => {
   );
 };
 
-export default React.memo(Section3);
+export default Section3;

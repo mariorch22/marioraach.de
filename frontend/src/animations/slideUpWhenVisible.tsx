@@ -37,4 +37,4 @@ function SlideUpWhenVisible({
   );
 }
 
-export default React.memo(SlideUpWhenVisible);
+export default SlideUpWhenVisible;
