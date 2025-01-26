@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet';
 import SlideUpWhenVisible from '@/animations/slideUpWhenVisible';
 import Navbar from '@/components/navbar';
 import FetchBlogData from '@/pages/blog/components/fetchBlogData/fetchBlogData';
+import PopUp from '@/animations/popUp';
 
 interface BlogText {
   title: string;
@@ -29,11 +30,11 @@ const Blog: FC = () => {
       <Navbar />
       
       <main className="min-h-svh w-screen overflow-hidden px-4 pt-36 font-roboto md:px-0">
-        <SlideUpWhenVisible y={20}>
+        <PopUp>
           <h1 className="pb-12 text-center font-kalam text-7xl md:text-6xl xl:text-8xl">
             {blogText.title}
           </h1>
-        </SlideUpWhenVisible>
+        </PopUp>
         
         <FetchBlogData />
       </main>

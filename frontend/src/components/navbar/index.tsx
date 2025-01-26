@@ -35,19 +35,15 @@ const NavLink: FC<{ item: NavbarItem; isHovered: boolean; onHover: (title: strin
 }) => (
   <span className="flex flex-col items-center justify-center pt-4">
     <span className="flex items-center">
-      <PopUp>
-        <span className="font-thin opacity-30">|</span>
-      </PopUp>
-      <PopUp>
-        <Link
-          to={item.link}
-          onMouseEnter={() => onHover(item.titel)}
-          onMouseLeave={() => onHover(null)}
-          className="flex h-10 min-w-24 items-center justify-center px-4 font-normal"
-        >
-          {item.titel}
-        </Link>
-      </PopUp>
+      <span className="font-thin opacity-30">|</span>
+      <Link
+        to={item.link}
+        onMouseEnter={() => onHover(item.titel)}
+        onMouseLeave={() => onHover(null)}
+        className="flex h-10 min-w-24 items-center justify-center px-4 font-normal"
+      >
+        {item.titel}
+      </Link>
     </span>
     <UnderlineSVG isVisible={isHovered} />
   </span>
@@ -75,27 +71,19 @@ const Navbar: FC = () => {
       className="fixed z-40 flex h-20 w-full items-center justify-between px-4 py-2 drop-shadow-customDropShadow2 md:px-8"
       {...navAnimation}
     >
-      <PopUp>
-        <span className="z-50 mix-blend-difference flex justify-center items-center">
-          <Logo />
-        </span>
-      </PopUp>
+      <span className="z-50 mix-blend-difference flex justify-center items-center">
+        <Logo />
+      </span>
 
       {/* Mobile Navigation */}
       <span className="flex items-center lg:hidden">
-        <PopUp>
-          <LanguageSelector className="z-50 text-2xl" />
-        </PopUp>
-        <PopUp>
-          <Sidebar />
-        </PopUp>
+        <LanguageSelector className="z-50 text-2xl" />
+        <Sidebar />
       </span>
 
       {/* Desktop Navigation */}
       <div className="hidden flex-row items-center font-inter text-3xl text-white mix-blend-normal lg:flex">
-        <PopUp>
-          <LanguageSelector className="pr-4 opacity-70" />
-        </PopUp>
+        <LanguageSelector className="pr-4 opacity-70" />
         {navbarItems.map((item, index) => (
           <NavLink
             key={index}

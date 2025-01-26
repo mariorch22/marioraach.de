@@ -23,7 +23,7 @@ const Section1 = () => {
                         srcSet='/images/hoddie/hh.png 767w, /images/hoddie/hoddie.png 1400w'
                         width={400}
                         height={800}
-                        alt='Bild von mir stehend'
+                        alt=''
                     />
 
                 </span>
