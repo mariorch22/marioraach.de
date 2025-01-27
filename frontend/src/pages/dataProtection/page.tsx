@@ -1,4 +1,3 @@
-
 const Imprint = () => {
   return (
     <>
@@ -364,7 +363,7 @@ const Imprint = () => {
             .
           </p>
           <p>
-            Quelle:{' '}
+            Die Quelle:{' '}
             <a href="https://www.e-recht24.de" target="_blank" rel="noopener noreferrer">
               https://www.e-recht24.de
             </a>
