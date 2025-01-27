@@ -3,8 +3,8 @@ const Imprint = () => {
     <>
       <main className="flex items-center lg:p-16">
         <div className="pt-20">
-          <h1 className="text-2xl">Datenschutz&shy;erkl&auml;rung :O</h1>
-          <h2 className="text-xl font-semibold pt-6">1. Datenschutz auf einen Blick.</h2>
+          <h1 className="text-2xl">Datenschutz&shy;erkl&auml;rung</h1>
+          <h2 className="text-xl font-semibold pt-6">1. Datenschutz auf einen Blick</h2>
           <h3 className="text-lg font-semibold py-2">Allgemeine Hinweise</h3>
           <p>
             Die folgenden Hinweise geben einen einfachen &Uuml;berblick dar&uuml;ber, was mit Ihren
