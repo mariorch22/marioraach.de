@@ -1,10 +1,12 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { CiMail } from 'react-icons/ci';
 import { FOOTER_LINKS, CONTACT_EMAIL } from '@/constants/footer';
 import { FooterLink } from './components/footerLink';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { i18n } = useTranslation();
+  
   return (
     <>
       <footer className="pt-8">
@@ -23,8 +25,8 @@ const Footer = () => {
             <div className="text-gray-30 text-center text-xs md:text-sm opacity-80 text-md flex flex-col justify-center">
               <p>&copy; {new Date().getFullYear()} - All rights reserved</p>
               <div className="flex gap-2 w-full justify-center">
-                <Link to={'/imprint'}>Impressum</Link>
-                <Link to={'/dataprotection'}>Datenschutz</Link>
+                <Link to={'/imprint'}>{i18n.language === 'de' ? 'Impressum' : "Imprint"}</Link>
+                <Link to={'/dataprotection'}>{i18n.language === 'de' ? 'Datenschutz' : "Data Protection"}</Link>
               </div>
             </div>
 
