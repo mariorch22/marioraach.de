@@ -1,6 +1,0 @@
-[
-  { "link": "/", "titel": "Home", "delay": 0.5 },
-  { "link": "/blog", "titel": "Blog", "delay": 0.6 },
-  { "link": "/about", "titel": "Über mich", "delay": 0.7 },
-  { "link": "/contact", "titel": "Kontakt", "delay": 0.8 }
-]

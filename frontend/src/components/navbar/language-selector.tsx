@@ -4,7 +4,7 @@ import { cn } from '@/ui_components/utils';
 
 // LanguageSelector.tsx
 interface LanguageSelectorProps {
-  className?: string; // Optional prop für zusätzliche Styles
+  className?: string;
 }
 
 const LanguageSelector = ({ className }: LanguageSelectorProps) => {

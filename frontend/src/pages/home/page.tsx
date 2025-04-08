@@ -1,15 +1,9 @@
-import { Suspense, lazy } from 'react';
-
-const Section1 = lazy(() => import('./components/section1'));
-const Section2 = lazy(() => import('./components/section2'));
-const Section3 = lazy(() => import('./components/section3'));
-const Section4 = lazy(() => import('./components/section4'));
-
-const Divider = () => (
-  <div className="h-1 w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-500 via-backgroundGray to-backgroundGray"></div>
-);
+import Divider from '@/components/general/divider';
+import BlogSection from './components/blogSection';
+import InfoSection from './components/infoSection';
 
 const Home = () => {
+
   return (
     <>
       <title>Home</title>
@@ -19,16 +13,11 @@ const Home = () => {
         content="Mario Raach, Industriekaufmann, Webentwickler, Technologie, Entrepreneurship, Sport, Künstliche Intelligenz, Webentwicklung, Startups, Projektideen"
       />
 
-      <Suspense fallback={<div className="h-screen w-screen"></div>}>
-        <main className="overflow-hidden grid grid-cols-1 gap-6 font-inter text-normal">
-          <Section1 />
-          <Section2 />
-          <Divider />
-          <Section3 />
-          <Divider />
-          <Section4 />
-        </main>
-      </Suspense>
+      <main className="overflow-hidden flex flex-col justify-center items-center gap-12 font-inter text-normal mt-40 px-4">
+        <InfoSection />
+        <Divider />
+        <BlogSection />
+      </main>
     </>
   );
 };
