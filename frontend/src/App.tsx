@@ -6,11 +6,11 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ThemeProvider } from '@/ui_components/shadn/theme-provider';
 import RootLayout from './layouts/RootLayout';
 import Home from '@/pages/home/page';
-import Blog from '@/pages/blog/page';
 import NotFound from '@/pages/NotFound';
+import Blog from '@/pages/blog/page';
+import BlogOverview from '@/pages/blog_overview/page';
 
 const Admin = lazy(() => import('@/pages/admin'));
-const Blogarticle = lazy(() => import('@/pages/blogarticle/page'));
 const Imprint = lazy(() => import('@/pages/imprint/page'));
 const DataProtection = lazy(() => import('@/pages/dataProtection/page'));
 
@@ -32,8 +32,8 @@ function App() {
             <Routes location={location} key={location.pathname}>
               <Route element={<RootLayout />}>
                 <Route path="/" element={<Home />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:blogId" element={<Blogarticle />} />
+                <Route path="/blog" element={<BlogOverview />} />
+                <Route path="/blog/:slug" element={<Blog />} />
                 <Route path="/imprint" element={<Imprint />} />
                 <Route path="/dataprotection" element={<DataProtection />} />
                 <Route path="/admin" element={<Admin />} />

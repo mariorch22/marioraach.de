@@ -1,7 +1,6 @@
-import React from 'react';
-import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { MY_URL_STRAPI } from '@/config';
+import { useBlogList } from '@/hooks/useBlogList';
 
 interface Article {
   attributes: {
@@ -13,31 +12,24 @@ interface Article {
   id: number;
 }
 
-interface StrapiData {
-  data: {
-    [positionKey: string]: Article;
-  };
-}
-
-const fetchDataDE = async (): Promise<StrapiData> => {
-  const response = await fetch(`${MY_URL_STRAPI}/api/blogs?populate=*`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch data');
-  }
-  return response.json() as Promise<StrapiData>;
-};
-
 
 const BlogSection = () => {
-  const { isLoading, isError, data, error } = useQuery<StrapiData, Error>({
-    queryKey: ['dataww'],
-    queryFn: fetchDataDE,
-  });
-  if (isLoading) {
-    return "Lade...";
+  const { blogs, loading, error } = useBlogList();
+
+  if (loading) {
+    return <div className="loading pt-32 px-4 text-center text-lg">Loading blog list...</div>;
   }
-  if (isError) {
-    return <p className="w-screen h-screen pt-28 px-40 font-roboto">Error: {error?.message}</p>; // Fehlerbehandlung verbessert
+
+  if (error) {
+    return <div className="error pt-32 px-4 text-center text-lg text-red-600">
+      Error loading blog list. Please try again later.
+    </div>;
+  }
+
+  if (!blogs || blogs.length === 0) {
+    return <div className="no-blogs pt-32 px-4 text-center text-lg">
+      No blog posts found.
+    </div>;
   }
 
   return (
@@ -46,38 +38,35 @@ const BlogSection = () => {
         Latest
       </h1>
 
-      {data &&
-        data.data &&
-        Object.entries<Article>(data.data) // Hier wird ein Type Assertion verwendet, um TypeScript mitzuteilen, dass die Werte Article-Objekte sind
-          .sort(([, articleA], [, articleB]) => {
-            if (!articleA.attributes) {
-              return 0;
-            }
-            const timestampA = new Date(articleA.attributes.publishingDate).getTime();
-            const timestampB = new Date(articleB.attributes.publishingDate).getTime();
-            return timestampB - timestampA;
-          })
-          .map(([positionKey, article]) => (
-            <div key={positionKey} className="my-3">
-              {article && article.attributes && (
-              <>
-                <Link to={`/blog/${article.id}`} className="text-base md:text-lg font-roboto hover:text-blue-300">
-                  <span className="text-gray-400">
-                    {new Date(article.attributes.publishingDate).toLocaleDateString('de-DE', {
+      {blogs
+        .sort((a, b) => {
+          if (!a.publishingDate || !b.publishingDate) return 0;
+          return new Date(b.publishingDate).getTime() - new Date(a.publishingDate).getTime();
+        })
+        .map((blog) => (
+          <div key={blog.slug} className="my-3">
+            <Link 
+              to={`/blog/${blog.slug}`} 
+              className="flex flex-row text-base md:text-lg font-roboto hover:text-blue-300"
+            >
+              <span className="text-gray-400">
+                {blog.publishingDate && (
+                  <>
+                    {new Date(blog.publishingDate).toLocaleDateString('de-DE', {
                       day: '2-digit',
                       month: '2-digit',
-                      year: 'numeric',
+                      year: 'numeric'
                     })}
-                  </span>
-                  {' '}
-                  ▫
-                  {' '}
-                  {article.attributes.title}
-                </Link>
-              </>
-              )}
-            </div>
-          ))
+                  </>
+                )}
+              </span>
+              <p className='mx-2'>
+                ▫
+              </p>
+              {blog.title}
+            </Link>
+          </div>
+        ))
       }
 
     </div>

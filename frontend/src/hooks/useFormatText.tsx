@@ -1,3 +1,5 @@
+import React from 'react';
+
 const useFormatText = (text: string) => {
   // First handle tabs - replace with 4 non-breaking spaces
   const textWithTabs = text.replace(/\t/g, '&nbsp;&nbsp;&nbsp;&nbsp;');

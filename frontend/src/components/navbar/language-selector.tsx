@@ -2,7 +2,6 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/ui_components/utils';
 
-// LanguageSelector.tsx
 interface LanguageSelectorProps {
   className?: string;
 }
