@@ -2,7 +2,7 @@
 import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import { Blog } from "@/types/blog";
-import { CONTENTFUL_SPACE_ID } from "@/config";
+import { CONTENTFUL_SPACE_ID } from "@/constants/config";
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 
 interface BlogContentProps {

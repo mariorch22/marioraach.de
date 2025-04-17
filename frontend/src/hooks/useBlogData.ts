@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { Blog, FetchResponse } from "../types/blog";
-import { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } from "@/config";
+import { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } from "@/constants/config";
 
 
 const fetchBlogData = async (slug: string | undefined): Promise<Blog[]> => {

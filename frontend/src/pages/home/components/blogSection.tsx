@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { MY_URL_STRAPI } from '@/config';
 import { useBlogList } from '@/hooks/useBlogList';
 
 interface Article {

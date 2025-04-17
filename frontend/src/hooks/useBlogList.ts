@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } from "@/config";
+import { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } from "@/constants/config";
 
 interface BlogPreview {
   slug: string;
