@@ -10,7 +10,6 @@ import NotFound from '@/pages/NotFound';
 import Blog from '@/pages/blog/page';
 import BlogOverview from '@/pages/blog_overview/page';
 
-const Admin = lazy(() => import('@/pages/admin'));
 const Imprint = lazy(() => import('@/pages/imprint/page'));
 const DataProtection = lazy(() => import('@/pages/dataProtection/page'));
 
@@ -36,7 +35,6 @@ function App() {
                 <Route path="/blog/:slug" element={<Blog />} />
                 <Route path="/imprint" element={<Imprint />} />
                 <Route path="/dataprotection" element={<DataProtection />} />
-                <Route path="/admin" element={<Admin />} />
               </Route>
               <Route path="*" element={<NotFound />} />
             </Routes>
