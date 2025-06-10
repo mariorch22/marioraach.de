@@ -1,22 +1,58 @@
 <!doctype html>
 <html lang="de">
   <head>
-
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/images/icon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Preconnect to external domains for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://images.ctfassets.net" crossorigin>
+    
+    <!-- Favicon with multiple formats -->
+    <link rel="icon" type="image/svg+xml" href="/images/icon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/icon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/icon-16x16.png" />
+    <link rel="manifest" href="/manifest.json" />
 
-    <title>Mario Raach</title>
+    <title>Mario Raach - Data Science & KI Student | Machine Learning Blog</title>
+    <meta name="description" content="Data Science & KI Student aus Deutschland. Blog über Machine Learning, Künstliche Intelligenz, Python Programming und mehr." />
+    <meta name="keywords" content="Mario Raach, Data Science, Machine Learning, KI, Künstliche Intelligenz, Python, Neural Networks, Blog, Student" />
+    <meta name="author" content="Mario Raach" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.marioraach.de/" />
-    <meta property="og:title" content="Mario Raach" />
+    <meta property="og:title" content="Mario Raach - Data Science & KI Student" />
+    <meta property="og:description" content="Entdecke meinen Blog über Machine Learning, Künstliche Intelligenz und Data Science. Tutorials, Projekte und Insights aus der Welt der KI von einem Data Science Studenten." />
+    <meta property="og:image" content="https://www.marioraach.de/images/og-image.jpg" />
+    <meta property="og:image:alt" content="Mario Raach - Data Science & KI Blog" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Mario Raach" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mario Raach - Data Science & KI Student" />
+    <meta name="twitter:description" content="Machine Learning, KI und Data Science Blog mit Tutorials und Projekten" />
+    <meta name="twitter:image" content="https://www.marioraach.de/images/og-image.jpg" />
+    
+    <!-- Additional Performance & SEO -->
+    <meta name="theme-color" content="#000000" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://www.marioraach.de/" />
     
   </head>
   
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx" defer></script>
+    <noscript>
+      <div style="text-align: center; padding: 2rem;">
+        <h1>JavaScript erforderlich</h1>
+        <p>Diese Website benötigt JavaScript, um ordnungsgemäß zu funktionieren.</p>
+      </div>
+    </noscript>
   </body>
 </html>

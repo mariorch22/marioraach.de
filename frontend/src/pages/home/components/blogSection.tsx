@@ -1,16 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useBlogList } from '@/hooks/useBlogList';
-
-interface Article {
-  attributes: {
-    title: string;
-    publishingDate: string; // Änderung von Date auf string
-    Kategorie: string;
-    blogtext: string;
-  };
-  id: number;
-}
-
+import FadeInWhenVisible from '@/animations/fadeInWhenVisible';
 
 const BlogSection = () => {
   const { blogs, loading, error } = useBlogList();
@@ -33,9 +23,11 @@ const BlogSection = () => {
 
   return (
     <div className="items-center justify-center w-full max-w-[60rem]">
-      <h1 className='text-center text-xl'>
-        Latest
-      </h1>
+      <FadeInWhenVisible>
+        <h1 className='text-center text-xl'>
+          Latest
+        </h1>
+      </FadeInWhenVisible>
 
       {blogs
         .sort((a, b) => {
@@ -43,28 +35,30 @@ const BlogSection = () => {
           return new Date(b.publishingDate).getTime() - new Date(a.publishingDate).getTime();
         })
         .map((blog) => (
-          <div key={blog.slug} className="my-3">
-            <Link 
-              to={`/blog/${blog.slug}`} 
-              className="flex flex-row text-base md:text-lg font-roboto hover:text-blue-300"
-            >
-              <span className="text-gray-400">
-                {blog.publishingDate && (
-                  <>
-                    {new Date(blog.publishingDate).toLocaleDateString('de-DE', {
-                      day: '2-digit',
-                      month: '2-digit',
-                      year: 'numeric'
-                    })}
-                  </>
-                )}
-              </span>
-              <p className='mx-2'>
-                ▫
-              </p>
-              {blog.title}
-            </Link>
-          </div>
+          <FadeInWhenVisible key={blog.slug}>
+            <div className="my-3">
+              <Link 
+                to={`/blog/${blog.slug}`} 
+                className="flex flex-row text-base md:text-lg font-roboto hover:text-blue-300"
+              >
+                <span className="text-gray-400">
+                  {blog.publishingDate && (
+                    <>
+                      {new Date(blog.publishingDate).toLocaleDateString('de-DE', {
+                        day: '2-digit',
+                        month: '2-digit',
+                        year: 'numeric'
+                      })}
+                    </>
+                  )}
+                </span>
+                <p className='mx-2'>
+                  ▫
+                </p>
+                {blog.title}
+              </Link>
+            </div>
+          </FadeInWhenVisible>
         ))
       }
 

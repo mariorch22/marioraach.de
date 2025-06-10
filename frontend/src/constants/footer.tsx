@@ -10,7 +10,7 @@ export interface FooterLink {
 
 export const FOOTER_LINKS: FooterLink[] = [
   {
-    href: 'https://github.com/mario1870',
+    href: 'https://github.com/mariorch22',
     label: 'GITHUB',
     ariaLabel: 'GitHub von Mario Raach',
     icon: FaGithub,

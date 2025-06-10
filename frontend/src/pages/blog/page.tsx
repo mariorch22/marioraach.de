@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useBlogData } from "@/hooks/useBlogData";
 import { BlogHeader } from "./components/BlogHeader";
 import { BlogContent } from "./components/BlogContent";
+import FadeInWhenVisible from "@/animations/fadeInWhenVisible";
 
 function Blog() {
   const { slug } = useParams();
@@ -30,14 +31,16 @@ function Blog() {
   return (
     <div className="app pt-32 px-4 flex justify-center items-center flex-col">
       <main className="blog-container w-full max-w-[80rem]">
-        <article className="blog-post">
-          <BlogHeader 
-            title={blog.title}
-            summary={blog.summary}
-            publishingDate={blog.publishingDate}
-          />
-          <BlogContent blog={blog} />
-        </article>
+        <FadeInWhenVisible>
+          <article className="blog-post">
+            <BlogHeader 
+              title={blog.title}
+              summary={blog.summary}
+              publishingDate={blog.publishingDate}
+            />
+            <BlogContent blog={blog} />
+          </article>
+        </FadeInWhenVisible>
       </main>
     </div>
   );

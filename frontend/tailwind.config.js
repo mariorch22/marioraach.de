@@ -83,6 +83,16 @@ module.exports = {
             transform: "translate(calc(-50% - 0.5rem))",
           },
         },
+        "fade-in-expand": {
+          "0%": { 
+            opacity: "0", 
+            transform: "scaleX(0)" 
+          },
+          "100%": { 
+            opacity: "1", 
+            transform: "scaleX(1)" 
+          },
+        },
       },
       fontFamily: {
         glitch : ['"Rubik Glitch Pop"', ...defaultTheme.fontFamily.sans],
@@ -95,6 +105,7 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         scroll: "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+        "fade-in-expand": "fade-in-expand 0.8s ease-out forwards",
       },
       dropShadow: {
         'customDropShadow': '0 35px 35px rgba(255, 255, 255, 0.3)',

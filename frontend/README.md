@@ -17,7 +17,14 @@ cd frontend
 2. Install dependencies:
 npm install
 
-3. Start development server:
+3. Create environment file:
+Create a `.env.local` file in the frontend directory with the following format:
+```
+VITE_CONTENTFUL_SPACE_ID=your_space_id_here
+VITE_CONTENTFUL_ACCESS_TOKEN=your_access_token_here
+```
+
+4. Start development server:
 npm run dev
 
 ## 🌟 Features

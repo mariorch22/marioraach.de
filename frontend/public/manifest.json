@@ -1,0 +1,26 @@
+{
+  "name": "Mario Raach - Data Science & KI Blog",
+  "short_name": "Mario Raach",
+  "description": "Data Science & KI Student Blog über Machine Learning und Künstliche Intelligenz",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "categories": ["education", "technology", "science"],
+  "lang": "de",
+  "icons": [
+    {
+      "src": "/images/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/icon-512x512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+} 
