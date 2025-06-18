@@ -1,13 +1,15 @@
 import { useParams } from "react-router-dom";
 import { useBlogData } from "@/hooks/useBlogData";
+import { useTranslation } from 'react-i18next';
 import { BlogHeader } from "./components/BlogHeader";
 import { BlogContent } from "./components/BlogContent";
 import FadeInWhenVisible from "@/animations/fadeInWhenVisible";
 
 function Blog() {
   const { slug } = useParams();
+  const { i18n } = useTranslation();
 
-  const { blogs, loading, error } = useBlogData(slug);
+  const { blogs, loading, error } = useBlogData(slug, i18n.language);
 
   if (loading) {
     return <div className="loading pt-32 px-4 text-center text-lg">Loading blog post...</div>;

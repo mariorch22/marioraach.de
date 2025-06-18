@@ -3,14 +3,14 @@ import { Blog, FetchResponse } from "../types/blog";
 import { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } from "@/constants/config";
 
 
-const fetchBlogData = async (slug: string | undefined): Promise<Blog[]> => {
+const fetchBlogData = async (slug: string | undefined, language: string): Promise<Blog[]> => {
   if (!slug) {
     return [];
   }
   
   const query = `
   {
-    blogCollection(where: { slug: "${slug}" }, limit: 1) {
+    blogCollection(where: { slug: "${slug}" }, limit: 1, locale: "${language}") {
       items {
         slug
         title
@@ -63,10 +63,10 @@ const fetchBlogData = async (slug: string | undefined): Promise<Blog[]> => {
   return [];
 };
 
-export function useBlogData(slug: string | undefined) {
+export function useBlogData(slug: string | undefined, language: string) {
   const { data: blogs = [], isLoading, error } = useQuery({
-    queryKey: ['blog', slug],
-    queryFn: () => fetchBlogData(slug),
+    queryKey: ['blog', slug, language],
+    queryFn: () => fetchBlogData(slug, language),
     enabled: !!slug, // wait for slug
     staleTime: 5 * 60 * 1000,
     retry: 1,

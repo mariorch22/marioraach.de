@@ -17,10 +17,10 @@ interface BlogListResponse {
   errors?: any;
 }
 
-const fetchBlogList = async (): Promise<BlogPreview[]> => {
+const fetchBlogList = async (language: string): Promise<BlogPreview[]> => {
   const query = `
   {
-    blogCollection(order: publishingDate_DESC) {
+    blogCollection(order: publishingDate_DESC, locale: "${language}") {
       items {
         slug
         title
@@ -56,10 +56,10 @@ const fetchBlogList = async (): Promise<BlogPreview[]> => {
   return [];
 };
 
-export function useBlogList() {
+export function useBlogList(language: string) {
   const { data: blogs = [], isLoading, error } = useQuery({
-    queryKey: ['blogList'],
-    queryFn: fetchBlogList,
+    queryKey: ['blogList', language],
+    queryFn: () => fetchBlogList(language),
     staleTime: 5 * 60 * 1000,
     retry: 1,
   });

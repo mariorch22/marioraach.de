@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useBlogList } from '@/hooks/useBlogList';
 import FadeInWhenVisible from '@/animations/fadeInWhenVisible';
+import { useTranslation } from 'react-i18next';
 
 const BlogSection = () => {
-  const { blogs, loading, error } = useBlogList();
+  const { i18n } = useTranslation();
+  const { blogs, loading, error } = useBlogList(i18n.language);
 
   if (loading) {
     return <div className="loading pt-32 px-4 text-center text-lg">Loading blog list...</div>;
