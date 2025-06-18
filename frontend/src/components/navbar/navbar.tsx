@@ -23,7 +23,7 @@ const Navbar: FC = () => {
   return (
     <nav className="bg-black fixed z-40 flex h-20 w-full items-center justify-between px-4 py-2 drop-shadow-customDropShadow2 md:px-8">
       <Logo />
-      <LanguageSelector className="pr-4 opacity-70" />
+      <LanguageSelector className="pr-4 opacity-70 text-2xl" />
     </nav>
   );
 };
