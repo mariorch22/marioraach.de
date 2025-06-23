@@ -23,6 +23,7 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
+    lng: 'de',
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
       caches: ['localStorage', 'cookie'],
