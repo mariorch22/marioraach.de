@@ -90,7 +90,7 @@ export function BlogContent({ blog }: BlogContentProps) {
           return (
             <a 
               href={uri} 
-              className="blog-link text-blue-600 hover:underline" 
+              className="blog-link underline underline-offset-4 decoration-1" 
               target="_blank" 
               rel="noopener noreferrer"
             >
