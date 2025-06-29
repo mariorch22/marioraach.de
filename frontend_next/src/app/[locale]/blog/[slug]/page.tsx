@@ -3,6 +3,7 @@ import { Divider } from "@/components/divider";
 import { query } from "./components/graphql_query";
 import { BlogContent } from "./components/BlogContent";
 import { BlogHeader } from "./components/BlogHeader";
+import Head from "next/head";
 
 // Helper-Funktion für bessere Fehlerbehandlung
 function getEnvVariable(name: string): string {
@@ -57,12 +58,10 @@ export default async function Home({
 
     return (
       <>
-        <title>Home</title>
-        <meta name="description" content="Just a guy having fun :D" />
-        <meta
-          name="keywords"
-          content="Mario Raach, Industriekaufmann, Webentwickler, Technologie, Entrepreneurship, Sport, Künstliche Intelligenz, Webentwicklung, Startups, Projektideen"
-        />
+        <Head>
+          <title>{postsData.title}</title>
+          <meta name="description" content={postsData.summary} />
+        </Head>
 
         <main className="overflow-hidden flex flex-col justify-center items-center gap-12 font-inter text-normal mt-40 px-4">
           <BlogHeader

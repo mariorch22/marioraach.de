@@ -3,6 +3,7 @@ import {useCallback, useState} from 'react';
 import {useLocale} from 'next-intl';
 import {useRouter, usePathname} from '@/i18n/navigation';
 import {cn} from '@/lib/utils';
+import React from 'react';
 
 const SUPPORTED_LOCALES = ['de', 'en'] as const;
 type Locale = (typeof SUPPORTED_LOCALES)[number];
@@ -36,9 +37,8 @@ export default function LanguageSelector({className}: LanguageSelectorProps) {
   return (
     <div className={cn('flex items-center gap-1', className)}>
       {SUPPORTED_LOCALES.map((lng, index) => (
-        <>
+        <React.Fragment key={lng}>
           <button
-            key={lng}
             onClick={() => switchLocale(lng)}
             type="button"
             disabled={isChanging}
@@ -87,7 +87,7 @@ export default function LanguageSelector({className}: LanguageSelectorProps) {
               /
             </span>
           )}
-        </>
+        </React.Fragment>
       ))}
     </div>
   );
