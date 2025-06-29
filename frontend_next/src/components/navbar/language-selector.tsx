@@ -1,5 +1,4 @@
 'use client';
-
 import {useCallback} from 'react';
 import {useLocale} from 'next-intl';
 import {useRouter, usePathname} from '@/i18n/navigation';
@@ -27,15 +26,32 @@ export default function LanguageSelector({className}: LanguageSelectorProps) {
   return (
     <div className={cn('flex gap-2', className)}>
       {SUPPORTED_LOCALES.map(lng => (
-        <span
+        <button
           key={lng}
           onClick={() => switchLocale(lng)}
+          type="button"
           className={cn(
-            'cursor-pointer font-inter transition-opacity hover:opacity-70',
+            'cursor-pointer font-inter transition-all duration-150',
+            'hover:opacity-70',
+            // Mobile tap highlight fix
+            'tap-highlight-transparent',
+            'select-none',
+            'active:scale-95 active:opacity-60',
+            // Focus states
+            'focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2',
+            // Font weight basierend auf aktiver Sprache
             locale === lng ? 'font-bold' : 'font-thin',
-          )}>
+          )}
+          style={{
+            WebkitTapHighlightColor: 'transparent',
+            WebkitUserSelect: 'none',
+            userSelect: 'none',
+            // Verhindert iOS zoom
+            touchAction: 'manipulation'
+          }}
+        >
           {lng.toUpperCase()}
-        </span>
+        </button>
       ))}
     </div>
   );
