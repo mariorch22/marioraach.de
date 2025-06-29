@@ -1,10 +1,28 @@
 "use client"
-import { BLOCKS, INLINES, MARKS } from '@contentful/rich-text-types';
+import { BLOCKS, INLINES, MARKS, Document } from '@contentful/rich-text-types';
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+
+interface Asset {
+  sys: {
+    id: string;
+  };
+  url?: string;
+}
+
+interface BlogContent {
+  content: {
+    json: Document;
+    links?: {
+      assets?: {
+        block?: Asset[];
+      };
+    };
+  };
+}
 
 // Sehr subtile Animation Variants
 const fadeInUp = {
@@ -25,7 +43,7 @@ const fadeIn = {
   }
 };
 
-export function BlogContent({ blog }: any) {
+export function BlogContent({ blog }: { blog: BlogContent }) {
   const copyToClipboard = useCopyToClipboard();
   const [copiedId, setCopiedId] = useState<string | null>(null);
   
@@ -39,7 +57,7 @@ export function BlogContent({ blog }: any) {
   const getAssetUrl = (assetId: string): string => {
     if (blog.content.links?.assets?.block) {
       const asset = blog.content.links.assets.block.find(
-        (asset: any) => asset.sys.id === assetId
+        (asset: Asset) => asset.sys.id === assetId
       );
       if (asset && asset.url) {
         return asset.url;
@@ -113,6 +131,7 @@ export function BlogContent({ blog }: any) {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => {
         // Prüfe, ob der Paragraph nur Code-Markierungen enthält
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const hasOnlyCodeMarks = node.content?.every((item: any) => 
           item.marks?.includes('code') && item.marks.length === 1
         );

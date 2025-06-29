@@ -1,5 +1,3 @@
-
-import { getTranslations } from 'next-intl/server';
 import {setRequestLocale} from 'next-intl/server';
 import { Divider } from '@/components/divider';
 import InfoSection from './(home)/components/infoSection';
@@ -8,9 +6,6 @@ import BlogSection from './(home)/components/blogSection';
 export default async function Home({params}: {params: Promise<{locale: string}>}) {
   const {locale} = await params;
   setRequestLocale(locale);
-  
-  // Für Server Components: getTranslations statt useTranslations
-  const t = await getTranslations('About');
   
   return (
     <>

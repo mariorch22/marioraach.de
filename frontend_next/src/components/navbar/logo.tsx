@@ -1,6 +1,7 @@
 "use client"
 import { Link, usePathname } from '@/i18n/navigation';
 import { useLocale } from 'next-intl';
+import Image from 'next/image';
 
 
 export const Logo = () => {
@@ -14,7 +15,7 @@ export const Logo = () => {
     
     return (
       <Link href={'/'} locale={currentLocale}>
-        <img
+        <Image
           src="/images/logo_r.png"
           alt="Logo"
           className="invert z-40 mix-blend-difference"

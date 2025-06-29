@@ -1,5 +1,3 @@
-import { getTranslations } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
 import { setRequestLocale } from "next-intl/server";
 import { Divider } from "@/components/divider";
 import { query } from "./components/graphql_query";
@@ -25,8 +23,6 @@ export default async function Home({
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  const t = await getTranslations("About");
-
   try {
     // Environment Variables mit Fehlerbehandlung
     const spaceId = getEnvVariable("CONTENTFUL_SPACE_ID");
@@ -41,7 +37,6 @@ export default async function Home({
           Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({ query: query(slug, locale) }),
-        cache: "no-store",
       }
     );
 

@@ -1,8 +1,13 @@
 import { Link } from "@/i18n/navigation";
-import { getTranslations } from "next-intl/server";
 import { setRequestLocale } from "next-intl/server";
 import { query } from "./graphql_query";
 import { cn } from "@/lib/utils";
+
+interface BlogPost {
+  slug: string;
+  title: string;
+  publishingDate?: string;
+}
 
 // Helper-Funktion für bessere Fehlerbehandlung
 function getEnvVariable(name: string): string {
@@ -25,8 +30,6 @@ export default async function BlogSection({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const t = await getTranslations("About");
-
   try {
     // Environment Variables mit Fehlerbehandlung
     const spaceId = getEnvVariable("CONTENTFUL_SPACE_ID");
@@ -41,7 +44,6 @@ export default async function BlogSection({
           Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({ query: query(locale) }),
-        cache: "no-store",
       }
     );
 
@@ -67,7 +69,7 @@ export default async function BlogSection({
         {/* Zeige Posts an, wenn vorhanden */}
         {postsData.length > 0 && (
           <>
-            {postsData.map((post: any) => (
+            {postsData.map((post: BlogPost) => (
               <div key={post.slug} className="my-3">
                 <Link
                   href={`/blog/${post.slug}`}
