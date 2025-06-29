@@ -10,11 +10,18 @@ import Footer from "@/components/footer/footer";
 import { cn } from "@/lib/utils";
 import "../globals.css";
 import { getTranslations } from "next-intl/server";
+import { Inter } from "next/font/google";
 
 type Props = {
   children: ReactNode;
   params: Promise<{ locale: string }>;
 };
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+})
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -94,7 +101,7 @@ export default async function LocaleLayout({ children, params }: Props) {
 
   return (
     <html className="min-h-full" lang={locale}>
-      <body className={cn("flex flex-col")}>
+      <body className={cn("flex flex-col font-inter", inter.className)}>
         <NextIntlClientProvider>
           <ScrollRestoration />
           <Navbar />

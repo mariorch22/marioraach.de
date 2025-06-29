@@ -37,9 +37,13 @@ const fadeInUp = {
 };
 
 const fadeIn = {
-  hidden: { opacity: 0 },
+  hidden: { 
+    opacity: 0,
+    scale: 0.95
+  },
   visible: { 
-    opacity: 1
+    opacity: 1,
+    scale: 1
   }
 };
 
@@ -201,6 +205,11 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-20px" }}
+            transition={{ 
+              duration: 0.6, 
+              ease: "easeOut",
+              delay: 0.1 
+            }}
           >
             {children}
           </motion.div>
@@ -213,6 +222,11 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-20px" }}
+          transition={{ 
+            duration: 0.7, 
+            ease: "easeOut",
+            delay: 0.2 
+          }}
         >
           {children}
         </motion.h1>
@@ -224,6 +238,11 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-20px" }}
+          transition={{ 
+            duration: 0.6, 
+            ease: "easeOut",
+            delay: 0.15 
+          }}
         >
           {children}
         </motion.h2>
@@ -235,6 +254,11 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-20px" }}
+          transition={{ 
+            duration: 0.5, 
+            ease: "easeOut",
+            delay: 0.1 
+          }}
         >
           {children}
         </motion.h3>
@@ -246,6 +270,11 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-20px" }}
+          transition={{ 
+            duration: 0.5, 
+            ease: "easeOut",
+            delay: 0.1 
+          }}
         >
           {children}
         </motion.ul>
@@ -257,6 +286,11 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-20px" }}
+          transition={{ 
+            duration: 0.5, 
+            ease: "easeOut",
+            delay: 0.1 
+          }}
         >
           {children}
         </motion.ol>
@@ -269,6 +303,11 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-20px" }}
+          transition={{ 
+            duration: 0.6, 
+            ease: "easeOut",
+            delay: 0.2 
+          }}
         >
           {children}
         </motion.blockquote>
@@ -298,10 +337,14 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
           return (
             <motion.figure 
               className="blog-image-container my-8 text-center"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
+              transition={{ 
+                duration: 0.8, 
+                ease: "easeOut",
+                delay: 0.3 
+              }}
             >
               <Image 
                 src={imageUrl}
