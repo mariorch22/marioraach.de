@@ -73,9 +73,9 @@ export default async function BlogSection({
               <div key={post.slug} className="my-3">
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="flex flex-row text-base md:text-lg font-roboto hover:text-blue-300"
+                  className="flex flex-col md:flex-row text-base md:text-lg font-roboto hover:text-blue-300"
                 >
-                  <span className="text-gray-400">
+                  <span className="text-gray-400 text-sm md:text-base order-1 md:order-none">
                     {post.publishingDate && (
                       <>
                         {new Date(post.publishingDate).toLocaleDateString(
@@ -89,8 +89,8 @@ export default async function BlogSection({
                       </>
                     )}
                   </span>
-                  <p className="mx-2">▫</p>
-                  {post.title}
+                  <p className="hidden md:block mx-2">▫</p>
+                  <span className="order-2 md:order-none">{post.title}</span>
                 </Link>
               </div>
             ))}
