@@ -127,7 +127,6 @@ export function LanguageSelectorMinimal({className}: LanguageSelectorProps) {
     if (isToggling) return;
     
     const newLocale = locale === 'de' ? 'en' : 'de';
-    const newLabel = newLocale === 'de' ? 'Deutsch' : 'English';
     
     try {
       setIsToggling(true);

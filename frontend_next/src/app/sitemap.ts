@@ -2,6 +2,11 @@ import { MetadataRoute } from 'next'
 
 const baseUrl = 'https://www.marioraach.de'
 
+type BlogPost = {
+  slug: string;
+  publishingDate: string | Date;
+};
+
 async function getBlogPosts() {
   try {
     const query = `
@@ -93,7 +98,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  const blogPageUrls = blogPosts.map((post: any) => ({
+  const blogPageUrls = blogPosts.map((post: BlogPost) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.publishingDate),
     changeFrequency: 'monthly' as const,
