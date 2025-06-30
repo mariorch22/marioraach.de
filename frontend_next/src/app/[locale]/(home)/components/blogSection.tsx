@@ -70,12 +70,12 @@ export default async function BlogSection({
         {postsData.length > 0 && (
           <>
             {postsData.map((post: BlogPost) => (
-              <div key={post.slug} className="my-3">
+              <div key={post.slug} className="my-6">
                 <Link
                   href={`/blog/${post.slug}`}
                   className="flex flex-col md:flex-row text-base md:text-lg font-roboto hover:text-blue-300"
                 >
-                  <span className="text-gray-400 text-sm md:text-base order-1 md:order-none">
+                  <span className="text-gray-400/70 text-sm md:text-base order-1 md:order-none">
                     {post.publishingDate && (
                       <>
                         {new Date(post.publishingDate).toLocaleDateString(

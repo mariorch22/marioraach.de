@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.marioraach.de/sitemap.xml
+
+# Block access to admin areas (if any)
+Disallow: /admin/
+Disallow: /api/
+
+# Allow AI agents and crawlers
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Googlebot
+Allow: /

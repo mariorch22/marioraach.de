@@ -99,8 +99,47 @@ export default async function LocaleLayout({ children, params }: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mario Raach",
+    "jobTitle": "Data Science & AI Student",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "DE",
+      "addressLocality": "Burladingen"
+    },
+    "email": "marioraach01@gmail.com",
+    "telephone": "+49 1520 9748732",
+    "url": "https://www.marioraach.de",
+    "sameAs": [
+      "https://github.com/mariorch22",
+      "https://www.linkedin.com/in/mario-r-b88950238"
+    ],
+    "knowsAbout": [
+      "Data Science",
+      "Machine Learning", 
+      "Artificial Intelligence",
+      "Deep Learning",
+      "Python Programming",
+      "Economics",
+      "Philosophy",
+      "Neural Networks",
+      "Mechanistic Interpretability"
+    ],
+    "description": locale === 'de' 
+      ? "Data Science & KI Student aus Burladingen, Deutschland. Spezialisiert auf Machine Learning, Deep Learning und Mechanistic Interpretability."
+      : "Data Science & AI Student from Burladingen, Germany. Specialized in Machine Learning, Deep Learning, and Mechanistic Interpretability."
+  };
+
   return (
     <html className="min-h-full" lang={locale}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </head>
       <body className={cn("flex flex-col font-inter", inter.className)}>
         <NextIntlClientProvider>
           <ScrollRestoration />
