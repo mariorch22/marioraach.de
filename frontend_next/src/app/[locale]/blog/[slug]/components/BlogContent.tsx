@@ -255,7 +255,7 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
   };
 
   return (
-    <div className="blog-content max-w-[60rem] mx-auto">
+    <div className="blog-content w-full max-w-[60rem] mx-auto">
       {documentToReactComponents(blog.content.json, renderOptions)}
     </div>
   );
