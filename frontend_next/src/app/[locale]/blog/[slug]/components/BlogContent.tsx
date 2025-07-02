@@ -3,7 +3,6 @@ import { BLOCKS, INLINES, MARKS, Document } from '@contentful/rich-text-types';
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import useCopyToClipboard from "@/hooks/useCopyToClipboard";
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
 interface Asset {
@@ -23,29 +22,6 @@ interface BlogContent {
     };
   };
 }
-
-// Sehr subtile Animation Variants
-const fadeInUp = {
-  hidden: { 
-    opacity: 0, 
-    y: 10
-  },
-  visible: { 
-    opacity: 1, 
-    y: 0
-  }
-};
-
-const fadeIn = {
-  hidden: { 
-    opacity: 0,
-    scale: 0.95
-  },
-  visible: { 
-    opacity: 1,
-    scale: 1
-  }
-};
 
 export function BlogContent({ blog }: { blog: BlogContent }) {
   const copyToClipboard = useCopyToClipboard();
@@ -83,51 +59,40 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
             <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
               <code className="block whitespace-pre font-mono text-sm">{text}</code>
             </pre>
-            <motion.button 
+            <button 
               onClick={() => handleCopy(String(text), codeId)}
               className="cursor-pointer absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-150"
               title="Copy to clipboard"
-              whileTap={{ scale: 0.95 }}
             >
-              <AnimatePresence mode="wait">
-                {copiedId === codeId ? (
-                  <motion.svg 
-                    key="check"
-                    xmlns="http://www.w3.org/2000/svg" 
-                    width="16" 
-                    height="16" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.15 }}
-                  >
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </motion.svg>
-                ) : (
-                  <motion.svg 
-                    key="copy"
-                    xmlns="http://www.w3.org/2000/svg" 
-                    width="16" 
-                    height="16" 
-                    viewBox="0 0 24 24" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    strokeWidth="2"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.15 }}
-                  >
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                  </motion.svg>
-                )}
-              </AnimatePresence>
-            </motion.button>
+              {copiedId === codeId ? (
+                <svg 
+                  key="check"
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2"
+                >
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              ) : (
+                <svg 
+                  key="copy"
+                  xmlns="http://www.w3.org/2000/svg" 
+                  width="16" 
+                  height="16" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  strokeWidth="2"
+                >
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              )}
+            </button>
           </div>
         );
       }
@@ -147,170 +112,96 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
               <pre className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
                 <code className="block whitespace-pre font-mono text-sm">{children}</code>
               </pre>
-              <motion.button 
+              <button 
                 onClick={() => handleCopy(String(children), codeId)}
                 className="absolute top-2 right-2 bg-gray-700 hover:bg-gray-600 text-white p-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-150"
                 title="Copy to clipboard"
-                whileTap={{ scale: 0.95 }}
               >
-                <AnimatePresence mode="wait">
-                  {copiedId === codeId ? (
-                    <motion.svg 
-                      key="check"
-                      xmlns="http://www.w3.org/2000/svg" 
-                      width="16" 
-                      height="16" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.15 }}
-                    >
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </motion.svg>
-                  ) : (
-                    <motion.svg 
-                      key="copy"
-                      xmlns="http://www.w3.org/2000/svg" 
-                      width="16" 
-                      height="16" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.15 }}
-                    >
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                    </motion.svg>
-                  )}
-                </AnimatePresence>
-              </motion.button>
+                {copiedId === codeId ? (
+                  <svg 
+                    key="check"
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2"
+                  >
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                ) : (
+                  <svg 
+                    key="copy"
+                    xmlns="http://www.w3.org/2000/svg" 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="2"
+                  >
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                )}
+              </button>
             </div>
           );
         }
         
         // Normale Paragraphen
         return (
-          <motion.div 
+          <div 
             className="blog-paragraph mb-4" 
             style={{ whiteSpace: 'pre-wrap', lineHeight: '1.7' }}
-            variants={fadeInUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ 
-              duration: 0.6, 
-              ease: "easeOut",
-              delay: 0.1 
-            }}
           >
             {children}
-          </motion.div>
+          </div>
         );
       },
       [BLOCKS.HEADING_1]: (node, children) => (
-        <motion.h1 
+        <h1 
           className="blog-heading-1 text-3xl font-bold my-5 mt-12"
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-20px" }}
-          transition={{ 
-            duration: 0.7, 
-            ease: "easeOut",
-            delay: 0.2 
-          }}
         >
           {children}
-        </motion.h1>
+        </h1>
       ),
       [BLOCKS.HEADING_2]: (node, children) => (
-        <motion.h2 
+        <h2 
           className="blog-heading-2 text-2xl font-bold mt-8 mb-4"
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-20px" }}
-          transition={{ 
-            duration: 0.6, 
-            ease: "easeOut",
-            delay: 0.15 
-          }}
         >
           {children}
-        </motion.h2>
+        </h2>
       ),
       [BLOCKS.HEADING_3]: (node, children) => (
-        <motion.h3 
+        <h3 
           className="blog-heading-3 text-xl font-bold mt-6 mb-3"
-          variants={fadeInUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-20px" }}
-          transition={{ 
-            duration: 0.5, 
-            ease: "easeOut",
-            delay: 0.1 
-          }}
         >
           {children}
-        </motion.h3>
+        </h3>
       ),
       [BLOCKS.UL_LIST]: (node, children) => (
-        <motion.ul 
+        <ul 
           className="blog-list list-disc ml-6 mb-4"
-          variants={fadeIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-20px" }}
-          transition={{ 
-            duration: 0.5, 
-            ease: "easeOut",
-            delay: 0.1 
-          }}
         >
           {children}
-        </motion.ul>
+        </ul>
       ),
       [BLOCKS.OL_LIST]: (node, children) => (
-        <motion.ol 
+        <ol 
           className="blog-list list-decimal ml-6 mb-4"
-          variants={fadeIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-20px" }}
-          transition={{ 
-            duration: 0.5, 
-            ease: "easeOut",
-            delay: 0.1 
-          }}
         >
           {children}
-        </motion.ol>
+        </ol>
       ),
       [BLOCKS.LIST_ITEM]: (node, children) => <li className="mb-1">{children}</li>,
       [BLOCKS.QUOTE]: (node, children) => (
-        <motion.blockquote 
+        <blockquote 
           className="blog-quote border-l-4 border-gray-300 pl-4 italic my-5 text-gray-700"
-          variants={fadeIn}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-20px" }}
-          transition={{ 
-            duration: 0.6, 
-            ease: "easeOut",
-            delay: 0.2 
-          }}
         >
           {children}
-        </motion.blockquote>
+        </blockquote>
       ),
       [BLOCKS.HR]: () => <hr className="blog-divider my-8 border-t border-gray-200" />,
       [INLINES.HYPERLINK]: (node, children) => {
@@ -335,16 +226,8 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
           const imageUrl = getAssetUrl(assetId);
           
           return (
-            <motion.figure 
+            <figure 
               className="blog-image-container my-8 text-center"
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ 
-                duration: 0.8, 
-                ease: "easeOut",
-                delay: 0.3 
-              }}
             >
               <Image 
                 src={imageUrl}
@@ -358,7 +241,7 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
                 width={1000}
                 height={1000}
               />
-            </motion.figure>
+            </figure>
           );
         }
         return null;

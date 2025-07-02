@@ -20,7 +20,7 @@ type Props = {
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  display: 'swap',
 })
 
 export function generateStaticParams() {
@@ -133,14 +133,14 @@ export default async function LocaleLayout({ children, params }: Props) {
   };
 
   return (
-    <html className="min-h-full" lang={locale}>
+    <html className={cn('min-h-full', inter.variable)} lang={locale}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
-      <body className={cn("flex flex-col font-inter", inter.className)}>
+      <body className="flex flex-col font-sans antialiased bg-background text-foreground">
         <NextIntlClientProvider>
           <ScrollRestoration />
           <Navbar />
