@@ -1,5 +1,5 @@
 "use client";
-import { BLOCKS, INLINES, MARKS, Document } from "@contentful/rich-text-types";
+import { BLOCKS, INLINES, MARKS, Document, Mark } from "@contentful/rich-text-types";
 import {
   documentToReactComponents,
   Options,
@@ -105,9 +105,8 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => {
         // Prüfe, ob der Paragraph nur Code-Markierungen enthält
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const hasOnlyCodeMarks = node.content?.every(
-          (item: any) => item.marks?.includes("code") && item.marks.length === 1
+          (item) => 'marks' in item && item.marks?.includes('code' as unknown as Mark) && item.marks.length === 1
         );
 
         if (hasOnlyCodeMarks) {
