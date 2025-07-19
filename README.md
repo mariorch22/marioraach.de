@@ -55,7 +55,6 @@ src/
 1. Clone the repository:
 ```bash
 git clone https://github.com/mariorch22/marioraach.de.git
-cd frontend_next
 ```
 
 2. Install dependencies:
