@@ -63,7 +63,12 @@ export default async function BlogSection({
     }
 
     return (
-      <div className={cn("items-center justify-center w-full max-w-[60rem]", className)}>
+      <div
+        className={cn(
+          "items-center justify-center w-full max-w-[60rem]",
+          className
+        )}
+      >
         <h1 className="text-center text-xl my-6">Latest Posts</h1>
 
         {/* Zeige Posts an, wenn vorhanden */}

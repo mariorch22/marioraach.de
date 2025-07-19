@@ -1,6 +1,6 @@
-import { MetadataRoute } from 'next'
+import { MetadataRoute } from "next";
 
-const baseUrl = 'https://www.marioraach.de'
+const baseUrl = "https://www.marioraach.de";
 
 type BlogPost = {
   slug: string;
@@ -18,40 +18,40 @@ async function getBlogPosts() {
           }
         }
       }
-    `
-    
+    `;
+
     const response = await fetch(
       `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
       {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
         },
         body: JSON.stringify({ query }),
       }
-    )
-    
+    );
+
     if (!response.ok) {
-      throw new Error('Failed to fetch blog posts')
+      throw new Error("Failed to fetch blog posts");
     }
-    
-    const { data } = await response.json()
-    return data.blogCollection.items
+
+    const { data } = await response.json();
+    return data.blogCollection.items;
   } catch (error) {
-    console.error('Error fetching blog posts for sitemap:', error)
-    return []
+    console.error("Error fetching blog posts for sitemap:", error);
+    return [];
   }
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const blogPosts = await getBlogPosts()
-  
+  const blogPosts = await getBlogPosts();
+
   const staticPages = [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
+      changeFrequency: "monthly" as const,
       priority: 1,
       alternates: {
         languages: {
@@ -63,7 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      changeFrequency: "weekly" as const,
       priority: 0.8,
       alternates: {
         languages: {
@@ -75,7 +75,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${baseUrl}/imprint`,
       lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
+      changeFrequency: "yearly" as const,
       priority: 0.3,
       alternates: {
         languages: {
@@ -87,7 +87,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${baseUrl}/dataprotection`,
       lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
+      changeFrequency: "yearly" as const,
       priority: 0.3,
       alternates: {
         languages: {
@@ -96,12 +96,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         },
       },
     },
-  ]
+  ];
 
   const blogPageUrls = blogPosts.map((post: BlogPost) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(post.publishingDate),
-    changeFrequency: 'monthly' as const,
+    changeFrequency: "monthly" as const,
     priority: 0.7,
     alternates: {
       languages: {
@@ -109,7 +109,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         en: `${baseUrl}/en/blog/${post.slug}`,
       },
     },
-  }))
+  }));
 
-  return [...staticPages, ...blogPageUrls]
+  return [...staticPages, ...blogPageUrls];
 }

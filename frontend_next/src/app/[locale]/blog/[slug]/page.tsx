@@ -1,5 +1,5 @@
 import { setRequestLocale } from "next-intl/server";
-import { Divider } from "@/components/divider";
+import { Divider } from "@/components/common/Divider";
 import { query } from "./components/graphql_query";
 import { BlogContent } from "./components/BlogContent";
 import { BlogHeader } from "./components/BlogHeader";
