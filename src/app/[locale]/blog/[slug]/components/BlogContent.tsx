@@ -176,17 +176,17 @@ export function BlogContent({ blog }: { blog: BlogContent }) {
         );
       },
       [BLOCKS.HEADING_1]: (node, children) => (
-        <h1 className="blog-heading-1 text-2xl md:text-3xl font-bold my-5 mt-12">
+        <h1 className="blog-heading-1 text-3xl font-bold my-5 mt-12">
           {children}
         </h1>
       ),
       [BLOCKS.HEADING_2]: (node, children) => (
-        <h2 className="blog-heading-2 text-xl md:text-2xl font-bold mt-8 mb-4">
+        <h2 className="blog-heading-2 text-2xl font-bold mt-8 mb-4">
           {children}
         </h2>
       ),
       [BLOCKS.HEADING_3]: (node, children) => (
-        <h3 className="blog-heading-3 text-lg md:text-xl font-bold mt-6 mb-3">
+        <h3 className="blog-heading-3 text-xl font-bold mt-6 mb-3">
           {children}
         </h3>
       ),
