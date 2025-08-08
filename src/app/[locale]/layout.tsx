@@ -9,7 +9,7 @@ import { ScrollRestoration } from "@/components/common/ScrollRestoration";
 import { Footer } from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
 import { getTranslations } from "next-intl/server";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "@/app/globals.css";
 
 type Props = {
@@ -17,10 +17,40 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
-const inter = Inter({
-  subsets: ["latin"],
+const inter = localFont({
+  src: [
+    {
+      path: "../../../public/fonts/Inter/Inter-VariableFont_opsz,wght.ttf",
+      weight: "100 900",
+      style: "normal",
+    },
+    {
+      path: "../../../public/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf",
+      weight: "100 900",
+      style: "italic",
+    },
+  ],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
+});
+
+const raleway = localFont({
+  src: [
+    {
+      path: "../../../public/fonts/Raleway/Raleway-VariableFont_wght.ttf",
+      weight: "100 900",
+      style: "normal",
+    },
+    {
+      path: "../../../public/fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf",
+      weight: "100 900",
+      style: "italic",
+    },
+  ],
+  variable: "--font-raleway",
+  display: "swap",
+  preload: true,
 });
 
 export function generateStaticParams() {
@@ -134,7 +164,7 @@ export default async function LocaleLayout({ children, params }: Props) {
   };
 
   return (
-    <html className={cn("min-h-full", inter.variable)} lang={locale}>
+    <html className={cn("min-h-full", inter.variable, raleway.variable)} lang={locale}>
       <head>
         <script
           type="application/ld+json"

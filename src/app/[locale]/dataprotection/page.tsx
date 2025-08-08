@@ -352,17 +352,25 @@ const Imprint = () => {
 
               <div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">
-                  Google Fonts
+                  Lokale Schriftarten (Inter, Raleway)
                 </h3>
                 <div className="space-y-3">
                   <p className="text-sm sm:text-base text-white leading-relaxed">
-                    Diese Seite nutzt zur einheitlichen Darstellung von
-                    Schriftarten so genannte Google Fonts, die von Google
-                    bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr
-                    Browser die benötigten Fonts in ihren Browsercache, um Texte
-                    und Schriftarten korrekt anzuzeigen.
+                    Zur einheitlichen Darstellung von Schriftarten nutzt diese Website lokal eingebundene
+                    Schriftarten (u. a. „Inter“ und „Raleway“). Die Schriftdateien werden vom eigenen
+                    Server ausgeliefert und nicht von externen Anbietern geladen.
                   </p>
-                  {/* Rest des Google Fonts Abschnitts... */}
+                  <p className="text-sm sm:text-base text-white leading-relaxed">
+                    In diesem Zusammenhang wird keine Verbindung zu Google-Servern oder anderen
+                    Drittanbietern aufgebaut. Es findet insbesondere keine Übermittlung personenbezogener Daten
+                    an Google im Rahmen der Schriftladevorgänge statt.
+                  </p>
+                  <p className="text-sm sm:text-base text-white leading-relaxed">
+                    Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse) an einer
+                    konsistenten und performanten Darstellung der Website. Ihr Browser kann die
+                    Schriftdateien zwischenspeichern (Caching), um Ladezeiten zu reduzieren. Sie können
+                    den Cache Ihres Browsers jederzeit leeren, um lokal gespeicherte Daten zu entfernen.
+                  </p>
                 </div>
               </div>
             </section>
