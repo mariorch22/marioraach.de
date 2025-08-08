@@ -92,37 +92,20 @@ export default async function LocaleLayout({ children, params }: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  const personJsonLd = {
+  const siteJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Person",
+    "@type": "WebSite",
     name: "Mario Raach",
-    jobTitle: "Data Science & AI Student",
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "DE",
-      addressLocality: "Burladingen",
-    },
-    email: "marioraach01@gmail.com",
     url: "https://www.marioraach.de",
+    inLanguage: locale === "de" ? "de-DE" : "en-US",
     sameAs: [
       "https://github.com/mariorch22",
       "https://www.linkedin.com/in/mario-r-b88950238",
     ],
-    knowsAbout: [
-      "Data Science",
-      "Machine Learning",
-      "Artificial Intelligence",
-      "Deep Learning",
-      "Python Programming",
-      "Economics",
-      "Philosophy",
-      "Neural Networks",
-      "Mechanistic Interpretability",
-    ],
     description:
       locale === "de"
-        ? "Data Science & KI Student aus Burladingen, Deutschland. Spezialisiert auf Machine Learning, Deep Learning und Mechanistic Interpretability."
-        : "Data Science & AI Student from Burladingen, Germany. Specialized in Machine Learning, Deep Learning, and Mechanistic Interpretability.",
+        ? "Blog & Projekte rund um Data Science, ML und KI."
+        : "Blog & projects around data science, ML and AI.",
   };
 
   return (
@@ -151,7 +134,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
       </head>
       <body
