@@ -166,6 +166,7 @@ export default async function BlogPost({
             title={postsData.title}
             summary={postsData.summary}
             publishingDate={postsData.publishingDate}
+            locale={locale}
           />
           <Divider />
           <BlogContent blog={postsData} />

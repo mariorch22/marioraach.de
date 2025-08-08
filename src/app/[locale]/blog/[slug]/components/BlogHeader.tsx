@@ -2,12 +2,14 @@ interface BlogHeaderProps {
   title: string;
   summary?: string;
   publishingDate?: string;
+  locale?: string;
 }
 
 export function BlogHeader({
   title,
   summary,
   publishingDate,
+  locale = 'en',
 }: BlogHeaderProps) {
   return (
     <header className="flex flex-col items-center">
@@ -16,7 +18,10 @@ export function BlogHeader({
       </h2>
       {publishingDate && (
         <p className="blog-date py-4 opacity-70 my-4">
-          {new Date(publishingDate).toLocaleDateString()}
+          {new Date(publishingDate).toLocaleDateString(
+            locale === 'de' ? 'de-DE' : 'en-US',
+            { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' }
+          )}
         </p>
       )}
       {summary && (

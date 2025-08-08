@@ -29,7 +29,7 @@ export default async function EssaySection({
           <div className="divide-y divide-white/5">
             {postsData.map((post: BlogPost) => {
               const dateStr = post.publishingDate
-                ? new Date(post.publishingDate).toLocaleDateString("de-DE", {
+                ? new Date(post.publishingDate).toLocaleDateString(locale === 'de' ? 'de-DE' : 'en-US', {
                     day: "2-digit",
                     month: "2-digit",
                     year: "numeric",

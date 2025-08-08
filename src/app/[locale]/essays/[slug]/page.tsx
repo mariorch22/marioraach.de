@@ -78,7 +78,7 @@ export default async function EssayPage({
 
   return (
     <main className="overflow-hidden flex flex-col justify-center items-center gap-12 mt-40 px-4">
-      <BlogHeader title={post.title} summary={post.summary} publishingDate={post.publishingDate} />
+      <BlogHeader title={post.title} summary={post.summary} publishingDate={post.publishingDate} locale={locale} />
       <Divider />
       <BlogContent blog={post} />
     </main>
