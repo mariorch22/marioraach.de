@@ -12,6 +12,17 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Redirect legacy posts/* to new structure
+      {
+        source: '/posts/:slug*',
+        has: [],
+        permanent: true,
+        destination: '/blog/:slug*',
+      },
+    ];
+  },
 };
  
 const withNextIntl = createNextIntlPlugin();

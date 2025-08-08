@@ -75,24 +75,22 @@ const Imprint: React.FC = () => {
               <h4 className="text-sm font-semibold text-white mb-1">
                 {IMPRINT_CONTENT.contact.title}
               </h4>
-              <p className="text-base sm:text-lg text-white">
-                <a
-                  href={`tel:${IMPRINT_CONTENT.contact.phone.replace(
-                    /\s/g,
-                    ""
-                  )}`}
-                  className="text-blue-600 hover:text-blue-800 transition-colors"
-                >
-                  {IMPRINT_CONTENT.contact.phone}
-                </a>
-                <br />
-                <a
-                  href={`mailto:${IMPRINT_CONTENT.contact.email}`}
-                  className="text-blue-600 hover:text-blue-800 transition-colors break-all"
-                >
-                  {IMPRINT_CONTENT.contact.email}
-                </a>
-              </p>
+              {(() => {
+                const emailText = IMPRINT_CONTENT.contact.email;
+                const emailAddress = emailText.includes(":")
+                  ? emailText.split(":").pop()!.trim()
+                  : emailText;
+                return (
+                  <p className="text-base sm:text-lg text-white">
+                    <a
+                      href={`mailto:${emailAddress}`}
+                      className="text-blue-600 hover:text-blue-800 transition-colors break-all"
+                    >
+                      {emailAddress}
+                    </a>
+                  </p>
+                );
+              })()}
             </div>
 
             {/* Responsible Person */}

@@ -1,11 +1,10 @@
-import Head from "next/head";
+export const metadata = {
+  title: "Datenschutz",
+};
 
 const Imprint = () => {
   return (
-    <>
-      <Head>
-        <title>Datenschutz</title>
-      </Head>
+      <>
       <main className="min-h-screen text-white mt-20">
         {/* Container mit optimierten Paddings für Mobile */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
@@ -255,14 +254,6 @@ const Imprint = () => {
                       72393 Burladingen
                     </p>
                     <p className="text-sm sm:text-base text-white mt-2">
-                      Telefon:{" "}
-                      <a
-                        href="tel:015209748732"
-                        className="text-blue-600 hover:text-blue-800"
-                      >
-                        015209748732
-                      </a>
-                      <br />
                       E-Mail:{" "}
                       <a
                         href="mailto:marioraach01@gmail.com"

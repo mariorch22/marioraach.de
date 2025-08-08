@@ -12,7 +12,6 @@ export const IMPRINT_CONTENT = {
   },
   contact: {
     title: "Kontakt:",
-    phone: "Telefon: +49 1520 9748732",
     email: "E-Mail: marioraach01@gmail.com",
   },
   responsible: {

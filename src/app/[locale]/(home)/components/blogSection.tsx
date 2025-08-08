@@ -1,24 +1,11 @@
 import { Link } from "@/i18n/navigation";
 import { setRequestLocale } from "next-intl/server";
-import { query } from "./graphql_query";
+import { fetchPosts, type BlogPost } from "@/lib/contentful";
 import { cn } from "@/lib/utils";
 
-interface BlogPost {
-  slug: string;
-  title: string;
-  publishingDate?: string;
-}
+// using shared BlogPost type from lib
 
-// Helper-Funktion für bessere Fehlerbehandlung
-function getEnvVariable(name: string): string {
-  const value = process.env[name];
-  if (!value) {
-    throw new Error(
-      `Environment variable ${name} is not defined. Please check your .env file.`
-    );
-  }
-  return value;
-}
+// removed unused getEnvVariable helper
 
 export default async function BlogSection({
   params,
@@ -31,75 +18,51 @@ export default async function BlogSection({
   setRequestLocale(locale);
 
   try {
-    // Environment Variables mit Fehlerbehandlung
-    const spaceId = getEnvVariable("CONTENTFUL_SPACE_ID");
-    const accessToken = getEnvVariable("CONTENTFUL_ACCESS_TOKEN");
-
-    const response = await fetch(
-      `https://graphql.contentful.com/content/v1/spaces/${spaceId}/`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify({ query: query(locale) }),
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error(
-        `Contentful API error: ${response.status} ${response.statusText}`
-      );
-    }
-
-    const posts = await response.json();
-    const postsData = posts.data.blogCollection.items;
-
-    // Prüfe auf GraphQL Errors
-    if (posts.errors) {
-      console.error("GraphQL errors:", posts.errors);
-      throw new Error("GraphQL query failed");
-    }
+    const allPosts = await fetchPosts(locale);
+    const postsData = allPosts
+      .filter((p) => (p.category ?? "blog") === "blog")
+      .slice(0, 5);
 
     return (
-      <div
-        className={cn(
-          "items-center justify-center w-full max-w-[60rem]",
-          className
-        )}
-      >
-        <h1 className="text-center text-xl my-6">Latest Posts</h1>
+      <div className={cn("w-full", className)}>
+        {/* Intentionally no title/description above the list on homepage toggle */}
 
-        {/* Zeige Posts an, wenn vorhanden */}
         {postsData.length > 0 && (
-          <>
-            {postsData.map((post: BlogPost) => (
-              <div key={post.slug} className="my-6">
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="flex flex-col md:flex-row text-base md:text-lg font-roboto hover:text-blue-300"
-                >
-                  <span className="text-gray-400/70 text-sm md:text-base order-1 md:order-none">
-                    {post.publishingDate && (
-                      <>
-                        {new Date(post.publishingDate).toLocaleDateString(
-                          "de-DE",
-                          {
-                            day: "2-digit",
-                            month: "2-digit",
-                            year: "numeric",
-                          }
-                        )}
-                      </>
-                    )}
-                  </span>
-                  <p className="hidden md:block mx-2">▫</p>
-                  <span className="order-2 md:order-none">{post.title}</span>
-                </Link>
-              </div>
-            ))}
-          </>
+          <div className="divide-y divide-white/5">
+            {postsData.map((post: BlogPost) => {
+              const dateStr = post.publishingDate
+                ? new Date(post.publishingDate).toLocaleDateString("de-DE", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    timeZone: "UTC",
+                  })
+                : "";
+              const excerptSrc = (post.summary ?? '').replace(/\s+/g, ' ').trim();
+              const softTruncate = (text: string, maxLen = 200) => {
+                if (text.length <= maxLen) return text;
+                const cut = text.slice(0, maxLen);
+                const lastSpace = cut.lastIndexOf(' ');
+                return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut) + ' …';
+              };
+              const excerpt = excerptSrc ? softTruncate(excerptSrc) : '';
+              return (
+                <article key={post.slug} className="py-3">
+                  <h3 className="text-base md:text-lg font-semibold">
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  </h3>
+                  {excerpt && (
+                    <p className="mt-1 text-sm text-white/60">{excerpt}</p>
+                  )}
+                  <div className="mt-0.5 text-[11px] text-white/40 flex items-center gap-1">
+                    <span className="tabular-nums">{dateStr}</span>
+                    <span>·</span>
+                    <span>Blog</span>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         )}
       </div>
     );

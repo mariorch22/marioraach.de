@@ -9,49 +9,12 @@ import { ScrollRestoration } from "@/components/common/ScrollRestoration";
 import { Footer } from "@/components/layout/Footer";
 import { cn } from "@/lib/utils";
 import { getTranslations } from "next-intl/server";
-import localFont from "next/font/local";
 import "@/app/globals.css";
 
 type Props = {
   children: ReactNode;
   params: Promise<{ locale: string }>;
 };
-
-const inter = localFont({
-  src: [
-    {
-      path: "../../../public/fonts/Inter/Inter-VariableFont_opsz,wght.ttf",
-      weight: "100 900",
-      style: "normal",
-    },
-    {
-      path: "../../../public/fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf",
-      weight: "100 900",
-      style: "italic",
-    },
-  ],
-  variable: "--font-inter",
-  display: "swap",
-  preload: true,
-});
-
-const raleway = localFont({
-  src: [
-    {
-      path: "../../../public/fonts/Raleway/Raleway-VariableFont_wght.ttf",
-      weight: "100 900",
-      style: "normal",
-    },
-    {
-      path: "../../../public/fonts/Raleway/Raleway-Italic-VariableFont_wght.ttf",
-      weight: "100 900",
-      style: "italic",
-    },
-  ],
-  variable: "--font-raleway",
-  display: "swap",
-  preload: true,
-});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -140,7 +103,6 @@ export default async function LocaleLayout({ children, params }: Props) {
       addressLocality: "Burladingen",
     },
     email: "marioraach01@gmail.com",
-    telephone: "+49 1520 9748732",
     url: "https://www.marioraach.de",
     sameAs: [
       "https://github.com/mariorch22",
@@ -164,14 +126,38 @@ export default async function LocaleLayout({ children, params }: Props) {
   };
 
   return (
-    <html className={cn("min-h-full", inter.variable, raleway.variable)} lang={locale}>
+    <html className={cn("min-h-full")} lang={locale}>
       <head>
+        <link
+          rel="preload"
+          href="/fonts/Inter/static/Inter_24pt-Regular.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Inter/static/Inter_24pt-SemiBold.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Inter/static/Inter_24pt-Bold.ttf"
+          as="font"
+          type="font/ttf"
+          crossOrigin="anonymous"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
         />
       </head>
-      <body className="flex flex-col font-sans antialiased bg-background text-foreground">
+      <body
+        className="flex flex-col font-sans antialiased bg-background text-foreground"
+        suppressHydrationWarning
+      >
         <NextIntlClientProvider>
           <ScrollRestoration />
           <Navbar />

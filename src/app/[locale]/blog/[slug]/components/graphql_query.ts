@@ -6,6 +6,7 @@ export const query = (slug: string, language: string) => `
       title
       summary
       publishingDate
+      category
       content {
         json
         links {

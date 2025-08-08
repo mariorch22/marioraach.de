@@ -7,5 +7,18 @@
     "title": "Mario Raach – Data Science & AI Student | Machine Learning Blog",
     "description": "Mario Raach, data-science & AI student, blogs about machine learning, economics, philosophy, and chess.",
     "keywords": "data science, artificial intelligence, machine learning, deep learning, mechanistic interpretability, economics, philosophy, chess, neural networks, python, numpy, leetcode, swabiangpt, dialect translation, AI scaling, student blog, Germany blog"
+  },
+  "Home": {
+    "heroTitle": "Blog & Essays on Machine Learning.",
+    "heroSubline": "A blog, not a pitch deck.",
+    "tabs": {
+      "blog": "Blog (Tech)",
+      "essays": "Essays (Thoughts)"
+    },
+    "bullets": {
+      "repro": "Reproducible experiments",
+      "clarity": "clear explanations",
+      "theses": "argued theses"
+    }
   }
 }

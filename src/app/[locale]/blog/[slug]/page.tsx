@@ -150,7 +150,7 @@ export default async function BlogPost({
       "dateModified": postsData.publishingDate,
       "url": `https://www.marioraach.de/${locale}/blog/${slug}`,
       "image": "https://www.marioraach.de/images/og-image.jpg",
-      "articleSection": "Technology",
+      "articleSection": postsData.category === 'essays' ? 'Essay' : 'Technology',
       "keywords": ["Data Science", "Machine Learning", "AI", "Technology"],
       "inLanguage": locale === 'de' ? 'de-DE' : 'en-US'
     };

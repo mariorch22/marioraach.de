@@ -15,6 +15,7 @@ async function getBlogPosts() {
           items {
             slug
             publishingDate
+            category
           }
         }
       }
@@ -98,15 +99,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ];
 
-  const blogPageUrls = blogPosts.map((post: BlogPost) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+  const blogPageUrls = blogPosts.map((post: BlogPost & { category?: string }) => ({
+    url: `${baseUrl}/${(post.category ?? 'blog') === 'essays' ? 'essays' : 'blog'}/${post.slug}`,
     lastModified: new Date(post.publishingDate),
     changeFrequency: "monthly" as const,
     priority: 0.7,
     alternates: {
       languages: {
-        de: `${baseUrl}/de/blog/${post.slug}`,
-        en: `${baseUrl}/en/blog/${post.slug}`,
+        de: `${baseUrl}/de/${(post.category ?? 'blog') === 'essays' ? 'essays' : 'blog'}/${post.slug}`,
+        en: `${baseUrl}/en/${(post.category ?? 'blog') === 'essays' ? 'essays' : 'blog'}/${post.slug}`,
       },
     },
   }));

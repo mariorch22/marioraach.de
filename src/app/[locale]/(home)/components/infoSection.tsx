@@ -18,28 +18,23 @@ export default async function InfoSection({
 
   return (
     <section
-      className={cn("w-full max-w-4xl mx-auto px-6", className)}
+      className={cn("w-full max-w-[60rem] mx-auto px-4 sm:px-6", className)}
       aria-labelledby="about-heading"
     >
-      <div className="space-y-6">
-        <header>
+      <div className="space-y-5 sm:space-y-6">
+        <header className="space-y-3">
           <h1
             id="about-heading"
-            className="text-2xl sm:text-3xl xl:text-4xl font-bold font-inter text-center sm:text-left
-                        bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent
-                        leading-tight tracking-tight hover:from-gray-100 hover:to-white
-                        transition-all duration-300 cursor-default"
+            className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-white/95 text-left"
           >
-            {t("title")}
+            Blog & Essays zu Machine Learning.
           </h1>
+          <p className="mt-3 text-neutral-300">Ein Blog, kein Pitchdeck.</p>
         </header>
 
-        <div className="prose prose-lg prose-invert max-w-none">
+        <div className="max-w-[70ch]">
           <div
-            className="whitespace-pre-line text-gray-100 leading-relaxed text-base sm:text-lg font-roboto 
-                          space-y-4 [&>span>p]:leading-8 [&>span>p]:text-gray-200
-                          [&>span>p]:transition-colors [&>span>p]:duration-200
-                          hover:[&>span>p]:text-gray-100"
+            className="whitespace-pre-line text-white/80 sm:text-white/85 leading-7 sm:leading-8 text-base sm:text-lg space-y-4"
           >
             {t("text")}
           </div>

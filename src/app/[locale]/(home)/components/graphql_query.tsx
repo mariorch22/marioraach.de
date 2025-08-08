@@ -6,6 +6,7 @@ export const query = (language: string) => `
       title
       summary
       publishingDate
+      category
     }
   }
 }
