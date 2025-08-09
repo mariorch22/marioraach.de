@@ -37,7 +37,6 @@ jobs:
     name: Build
     needs: quality
     runs-on: ubuntu-latest
-    if: ${{ secrets.CONTENTFUL_SPACE_ID && secrets.CONTENTFUL_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -54,6 +53,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-
       - name: Next.js build (no telemetry)
+        if: ${{ secrets.CONTENTFUL_SPACE_ID != '' && secrets.CONTENTFUL_ACCESS_TOKEN != '' }}
         env:
           NEXT_TELEMETRY_DISABLED: 1
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
@@ -61,6 +61,7 @@ jobs:
         run: npm run build
 
       - name: Upload build artifact
+        if: ${{ secrets.CONTENTFUL_SPACE_ID != '' && secrets.CONTENTFUL_ACCESS_TOKEN != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: next-build
