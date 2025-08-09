@@ -21,4 +21,3 @@ jobs:
         with:
           languages: javascript
       - uses: github/codeql-action/analyze@v3
-

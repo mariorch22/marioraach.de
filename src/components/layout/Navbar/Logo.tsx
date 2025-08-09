@@ -16,7 +16,11 @@ const Logo = () => {
       : locale;
 
   return (
-    <Link href={'/'} locale={currentLocale} aria-label={currentLocale === 'de' ? 'Zur Startseite' : 'Back to home'}>
+    <Link
+      href={'/'}
+      locale={currentLocale}
+      aria-label={currentLocale === 'de' ? 'Zur Startseite' : 'Back to home'}
+    >
       <Image
         src="/images/logo_r.png"
         alt={currentLocale === 'de' ? 'Startseite' : 'Home'}

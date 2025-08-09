@@ -29,5 +29,3 @@ export function BlogHeader({ title, summary, publishingDate, locale = 'en' }: Bl
     </header>
   );
 }
-
-

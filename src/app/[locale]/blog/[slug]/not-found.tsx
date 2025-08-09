@@ -1,6 +1,7 @@
-"use client";
+'use client';
 
 import { useParams } from 'next/navigation';
+
 import { Link } from '@/i18n/navigation';
 
 export default function NotFound() {
@@ -12,14 +13,9 @@ export default function NotFound() {
       <h1 className="text-xl font-semibold">
         {isDe ? 'Beitrag nicht gefunden' : 'Post not found'}
       </h1>
-      <Link
-        href="/"
-        className="rounded bg-white/10 px-3 py-2 hover:bg-white/15 transition-colors"
-      >
+      <Link href="/" className="rounded bg-white/10 px-3 py-2 hover:bg-white/15 transition-colors">
         {isDe ? 'Zur Startseite' : 'Back to home'}
       </Link>
     </main>
   );
 }
-
-

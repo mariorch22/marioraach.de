@@ -24,5 +24,3 @@ export const blogBySlug = (slug: string, language: string) => `
   }
 }
 `;
-
-

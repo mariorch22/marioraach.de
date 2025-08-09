@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+
 import { contentfulEnv } from '@/lib/env';
 
 const baseUrl = 'https://www.marioraach.de';

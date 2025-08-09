@@ -1,11 +1,10 @@
 import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 
-import { Divider } from '@/components/common/Divider';
-
 import { BlogContent } from '@/app/[locale]/blog/[slug]/components/BlogContent';
 import { BlogHeader } from '@/app/[locale]/blog/[slug]/components/BlogHeader';
 import { query as blogQuery } from '@/app/[locale]/blog/[slug]/components/graphql_query'; // reuse blog query but we only need the slug here via essays route
+import { Divider } from '@/components/common/Divider';
 import { contentfulEnv } from '@/lib/env';
 
 async function getPost(slug: string, locale: string) {

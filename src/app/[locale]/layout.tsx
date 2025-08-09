@@ -1,8 +1,8 @@
+import localFont from 'next/font/local';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { ReactNode } from 'react';
-import localFont from 'next/font/local';
 
 const inter = localFont({
   src: [
@@ -158,7 +158,10 @@ export default async function LocaleLayout({ children, params }: Props) {
         className="flex flex-col font-sans antialiased bg-background text-foreground"
         suppressHydrationWarning
       >
-        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-white/10 focus:text-white focus:px-3 focus:py-2 focus:rounded">
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-white/10 focus:text-white focus:px-3 focus:py-2 focus:rounded"
+        >
           {locale === 'de' ? 'Zum Inhalt springen' : 'Skip to main content'}
         </a>
         <NextIntlClientProvider>

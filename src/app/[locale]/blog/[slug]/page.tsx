@@ -2,12 +2,11 @@ import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 
 import { Divider } from '@/components/common/Divider';
+import { contentfulEnv } from '@/lib/env';
 
 import { BlogContent } from './components/BlogContent';
 import { BlogHeader } from './components/BlogHeader';
 import { query } from './components/graphql_query';
-
-import { contentfulEnv } from '@/lib/env';
 
 async function getBlogPost(slug: string, locale: string) {
   const { spaceId, accessToken } = contentfulEnv;

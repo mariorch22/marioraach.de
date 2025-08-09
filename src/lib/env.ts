@@ -14,10 +14,7 @@ function requireEnv(name: string): NonEmptyString {
 export const ENV = {
   CONTENTFUL_SPACE_ID: requireEnv('CONTENTFUL_SPACE_ID'),
   CONTENTFUL_ACCESS_TOKEN: requireEnv('CONTENTFUL_ACCESS_TOKEN'),
-  NODE_ENV: (process.env.NODE_ENV ?? 'development') as
-    | 'development'
-    | 'production'
-    | 'test',
+  NODE_ENV: (process.env.NODE_ENV ?? 'development') as 'development' | 'production' | 'test',
   CI: process.env.CI === 'true',
 } as const;
 
@@ -27,5 +24,3 @@ export const contentfulEnv = {
 } as const;
 
 export type ContentfulEnv = typeof contentfulEnv;
-
-

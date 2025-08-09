@@ -39,8 +39,8 @@ export async function GET() {
   const items = posts.map((p) => ({
     title: p.title,
     link: `https://www.marioraach.de/essays/${p.slug}`,
-    pubDate: p.publishingDate,
-    description: p.summary,
+    ...(p.publishingDate ? { pubDate: p.publishingDate } : {}),
+    ...(p.summary ? { description: p.summary } : {}),
   }));
   const xml = toRss(items);
   return new NextResponse(xml, {

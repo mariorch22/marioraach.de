@@ -30,7 +30,9 @@ export function BlogContent({ blog }: { blog: PostBody }) {
 
   const getAssetUrl = (assetId: string): string | null => {
     if (blog.content.links?.assets?.block) {
-      const asset = blog.content.links.assets.block.find((asset: Asset) => asset.sys.id === assetId);
+      const asset = blog.content.links.assets.block.find(
+        (asset: Asset) => asset.sys.id === assetId,
+      );
       if (asset?.url) return asset.url;
     }
     // No fallback on client with env access; skip rendering if URL not provided by Contentful
@@ -63,7 +65,10 @@ export function BlogContent({ blog }: { blog: PostBody }) {
     renderNode: {
       [BLOCKS.PARAGRAPH]: (node, children) => {
         const hasOnlyCodeMarks = node.content?.every(
-          (item) => 'marks' in item && item.marks?.includes('code' as unknown as Mark) && item.marks.length === 1,
+          (item) =>
+            'marks' in item &&
+            item.marks?.includes('code' as unknown as Mark) &&
+            item.marks.length === 1,
         );
         if (hasOnlyCodeMarks) {
           const codeId = `code-block-${Math.random().toString(36).substring(2, 11)}`;
@@ -110,7 +115,12 @@ export function BlogContent({ blog }: { blog: PostBody }) {
         if ('data' in node && 'uri' in node.data) {
           const { uri } = node.data;
           return (
-            <a href={uri} className="underline underline-offset-4" target="_blank" rel="noopener noreferrer">
+            <a
+              href={uri}
+              className="underline underline-offset-4"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {children}
             </a>
           );
@@ -123,19 +133,28 @@ export function BlogContent({ blog }: { blog: PostBody }) {
           const imageUrl = getAssetUrl(assetId);
           return imageUrl ? (
             <figure className="my-8 text-center">
-              <Image src={imageUrl} alt="Post image" width={1000} height={1000} className="max-w-full rounded-lg shadow-md mx-auto" />
+              <Image
+                src={imageUrl}
+                alt="Post image"
+                width={1000}
+                height={1000}
+                className="max-w-full rounded-lg shadow-md mx-auto"
+              />
             </figure>
           ) : null;
         }
         return null;
       },
     },
-    renderText: (text) => text.split('\n').reduce((children, textSegment, index) => {
-      return [...children, index > 0 && <br key={index} />, textSegment];
-    }, [] as React.ReactNode[]),
+    renderText: (text) =>
+      text.split('\n').reduce((children, textSegment, index) => {
+        return [...children, index > 0 && <br key={index} />, textSegment];
+      }, [] as React.ReactNode[]),
   };
 
-  return <div className="w-full max-w-[60rem] mx-auto">{documentToReactComponents(blog.content.json, renderOptions)}</div>;
+  return (
+    <div className="w-full max-w-[60rem] mx-auto">
+      {documentToReactComponents(blog.content.json, renderOptions)}
+    </div>
+  );
 }
-
-

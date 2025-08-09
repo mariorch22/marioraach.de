@@ -1,8 +1,9 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import type { Metadata } from 'next';
 
 import { Link } from '@/i18n/navigation';
 import { fetchPosts } from '@/lib/contentful';
+
+import type { Metadata } from 'next';
 
 export const dynamic = 'force-static';
 
@@ -73,7 +74,8 @@ export async function generateMetadata({
   return {
     title: `${t('title')} | Mario Raach`,
     alternates: {
-      canonical: locale === 'de' ? `https://www.marioraach.de/blog` : `https://www.marioraach.de/en/blog`,
+      canonical:
+        locale === 'de' ? `https://www.marioraach.de/blog` : `https://www.marioraach.de/en/blog`,
       languages: {
         de: `https://www.marioraach.de/blog`,
         en: `https://www.marioraach.de/en/blog`,

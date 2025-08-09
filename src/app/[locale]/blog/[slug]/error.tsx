@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect } from 'react';
 import { useParams } from 'next/navigation';
+import { useEffect } from 'react';
+
 import { Link } from '@/i18n/navigation';
 
 export default function Error({
@@ -14,7 +15,6 @@ export default function Error({
   const { locale } = useParams<{ locale: string }>();
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
     console.error(error);
   }, [error]);
 
@@ -44,5 +44,3 @@ export default function Error({
     </main>
   );
 }
-
-

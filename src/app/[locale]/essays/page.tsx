@@ -1,8 +1,9 @@
-import { setRequestLocale, getTranslations } from 'next-intl/server';
-import type { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
 
 import { Link } from '@/i18n/navigation';
 import { fetchPosts } from '@/lib/contentful';
+
+import type { Metadata } from 'next';
 
 export const dynamic = 'force-static';
 
