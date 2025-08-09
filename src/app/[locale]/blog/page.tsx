@@ -1,4 +1,5 @@
-import { setRequestLocale } from 'next-intl/server';
+import { setRequestLocale, getTranslations } from 'next-intl/server';
+import type { Metadata } from 'next';
 
 import { Link } from '@/i18n/navigation';
 import { fetchPosts } from '@/lib/contentful';
@@ -8,15 +9,16 @@ export const dynamic = 'force-static';
 export default async function BlogIndex({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const t = await getTranslations({ locale, namespace: 'BlogIndex' });
   const posts = (await fetchPosts(locale, 100)).filter((p) => (p.category ?? 'blog') === 'blog');
 
   return (
     <main className="mx-auto max-w-3xl px-4 pt-28 pb-16">
       <header>
         <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
-          Blog (Tech)
+          {t('title')}
         </h1>
-        <p className="mt-2 text-neutral-400">Hands-on ML: Setup, Ergebnis, nächste Schritte.</p>
+        <p className="mt-2 text-neutral-400">{t('subtitle')}</p>
       </header>
 
       <section className="mt-8 divide-y divide-white/5">
@@ -51,7 +53,7 @@ export default async function BlogIndex({ params }: { params: Promise<{ locale: 
               <div className="mt-0.5 text-[11px] text-white/40 flex items-center gap-1">
                 <span className="tabular-nums">{dateStr}</span>
                 <span>·</span>
-                <span>Blog</span>
+                <span>{t('labels.blog')}</span>
               </div>
             </article>
           );
@@ -59,4 +61,24 @@ export default async function BlogIndex({ params }: { params: Promise<{ locale: 
       </section>
     </main>
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'BlogIndex' });
+  return {
+    title: `${t('title')} | Mario Raach`,
+    alternates: {
+      canonical: locale === 'de' ? `https://www.marioraach.de/blog` : `https://www.marioraach.de/en/blog`,
+      languages: {
+        de: `https://www.marioraach.de/blog`,
+        en: `https://www.marioraach.de/en/blog`,
+        // 'x-default' could be added if locale detection is introduced
+      },
+    },
+  };
 }

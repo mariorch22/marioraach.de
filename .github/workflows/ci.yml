@@ -37,6 +37,7 @@ jobs:
     name: Build
     needs: quality
     runs-on: ubuntu-latest
+    if: ${{ secrets.CONTENTFUL_SPACE_ID && secrets.CONTENTFUL_ACCESS_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -58,6 +59,17 @@ jobs:
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID }}
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
         run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-build
+          path: |
+            .next
+            next.config.ts
+            package.json
+            package-lock.json
+          retention-days: 7
 
   actionlint:
     name: Lint workflows

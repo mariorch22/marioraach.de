@@ -7,18 +7,10 @@ import { BlogContent } from './components/BlogContent';
 import { BlogHeader } from './components/BlogHeader';
 import { query } from './components/graphql_query';
 
-// Helper-Funktion für bessere Fehlerbehandlung
-function getEnvVariable(name: string): string {
-  const value = process.env[name];
-  if (!value) {
-    throw new Error(`Environment variable ${name} is not defined. Please check your .env file.`);
-  }
-  return value;
-}
+import { contentfulEnv } from '@/lib/env';
 
 async function getBlogPost(slug: string, locale: string) {
-  const spaceId = getEnvVariable('CONTENTFUL_SPACE_ID');
-  const accessToken = getEnvVariable('CONTENTFUL_ACCESS_TOKEN');
+  const { spaceId, accessToken } = contentfulEnv;
 
   const response = await fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/`, {
     method: 'POST',

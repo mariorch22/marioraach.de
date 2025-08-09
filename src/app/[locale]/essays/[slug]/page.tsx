@@ -3,19 +3,13 @@ import { setRequestLocale } from 'next-intl/server';
 
 import { Divider } from '@/components/common/Divider';
 
-import { BlogContent } from '../../blog/[slug]/components/BlogContent';
-import { BlogHeader } from '../../blog/[slug]/components/BlogHeader';
-import { query as blogQuery } from '../../blog/[slug]/components/graphql_query'; // reuse blog query but we only need the slug here via essays route
-
-function getEnvVariable(name: string): string {
-  const value = process.env[name];
-  if (!value) throw new Error(`Environment variable ${name} is not defined.`);
-  return value;
-}
+import { BlogContent } from '@/app/[locale]/blog/[slug]/components/BlogContent';
+import { BlogHeader } from '@/app/[locale]/blog/[slug]/components/BlogHeader';
+import { query as blogQuery } from '@/app/[locale]/blog/[slug]/components/graphql_query'; // reuse blog query but we only need the slug here via essays route
+import { contentfulEnv } from '@/lib/env';
 
 async function getPost(slug: string, locale: string) {
-  const spaceId = getEnvVariable('CONTENTFUL_SPACE_ID');
-  const accessToken = getEnvVariable('CONTENTFUL_ACCESS_TOKEN');
+  const { spaceId, accessToken } = contentfulEnv;
   const response = await fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/`, {
     method: 'POST',
     headers: {

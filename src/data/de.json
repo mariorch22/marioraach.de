@@ -21,6 +21,16 @@
       "theses": "begründete Thesen"
     }
   },
+  "Shared": {
+    "summary": "Zusammenfassung"
+  },
+  "BlogIndex": {
+    "title": "Blog (Tech)",
+    "subtitle": "Hands-on ML: Setup, Ergebnis, nächste Schritte.",
+    "labels": {
+      "blog": "Blog"
+    }
+  },
   "Imprint": {
     "title": "Impressum",
     "legalReference": "Angaben gemäß § 5 TMG",

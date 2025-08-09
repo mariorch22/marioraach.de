@@ -21,6 +21,16 @@
       "theses": "argued theses"
     }
   },
+  "Shared": {
+    "summary": "Summary"
+  },
+  "BlogIndex": {
+    "title": "Blog (Tech)",
+    "subtitle": "Hands-on ML: setup, results, next steps.",
+    "labels": {
+      "blog": "Blog"
+    }
+  },
   "Imprint": {
     "title": "Imprint",
     "legalReference": "Information pursuant to § 5 TMG",

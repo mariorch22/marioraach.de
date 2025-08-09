@@ -16,10 +16,10 @@ const Logo = () => {
       : locale;
 
   return (
-    <Link href={'/'} locale={currentLocale}>
+    <Link href={'/'} locale={currentLocale} aria-label={currentLocale === 'de' ? 'Zur Startseite' : 'Back to home'}>
       <Image
         src="/images/logo_r.png"
-        alt="Logo"
+        alt={currentLocale === 'de' ? 'Startseite' : 'Home'}
         className="invert z-40 mix-blend-difference"
         width={40}
         height={40}

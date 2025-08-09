@@ -3,6 +3,8 @@ import { getRequestConfig } from 'next-intl/server';
 
 import { routing } from './routing';
 
+type Messages = typeof import('@/data/de.json');
+
 export default getRequestConfig(async ({ requestLocale }) => {
   // Typically corresponds to the `[locale]` segment
   const requested = await requestLocale;
@@ -10,6 +12,6 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   return {
     locale,
-    messages: (await import(`@/data/${locale}.json`)).default,
+    messages: (await import(`@/data/${locale}.json`)).default as Messages,
   };
 });

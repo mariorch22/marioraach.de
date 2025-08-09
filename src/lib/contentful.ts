@@ -6,17 +6,10 @@ export interface BlogPost {
   category?: 'blog' | 'essays';
 }
 
-function getEnvVariable(name: string): string {
-  const value = process.env[name];
-  if (!value) {
-    throw new Error(`Environment variable ${name} is not defined.`);
-  }
-  return value;
-}
+import { contentfulEnv } from './env';
 
 export async function fetchPosts(locale: string, limit: number = 20): Promise<BlogPost[]> {
-  const spaceId = getEnvVariable('CONTENTFUL_SPACE_ID');
-  const accessToken = getEnvVariable('CONTENTFUL_ACCESS_TOKEN');
+  const { spaceId, accessToken } = contentfulEnv;
 
   // Use a simple, literal query (Contentful accepts inline locale string)
   const query = `

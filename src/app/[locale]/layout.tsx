@@ -2,6 +2,30 @@ import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { ReactNode } from 'react';
+import localFont from 'next/font/local';
+
+const inter = localFont({
+  src: [
+    {
+      path: '../../../public/fonts/Inter/static/Inter_24pt-Regular.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../../public/fonts/Inter/static/Inter_24pt-SemiBold.ttf',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../../../public/fonts/Inter/static/Inter_24pt-Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-inter',
+  display: 'swap',
+  preload: true,
+});
 
 import { ScrollRestoration } from '@/components/common/ScrollRestoration';
 import { Footer } from '@/components/layout/Footer';
@@ -123,29 +147,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   };
 
   return (
-    <html className={cn('min-h-full')} lang={locale}>
+    <html className={cn('min-h-full', inter.variable)} lang={locale}>
       <head>
-        <link
-          rel="preload"
-          href="/fonts/Inter/static/Inter_24pt-Regular.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Inter/static/Inter_24pt-SemiBold.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/fonts/Inter/static/Inter_24pt-Bold.ttf"
-          as="font"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
@@ -155,10 +158,13 @@ export default async function LocaleLayout({ children, params }: Props) {
         className="flex flex-col font-sans antialiased bg-background text-foreground"
         suppressHydrationWarning
       >
+        <a href="#main" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:bg-white/10 focus:text-white focus:px-3 focus:py-2 focus:rounded">
+          {locale === 'de' ? 'Zum Inhalt springen' : 'Skip to main content'}
+        </a>
         <NextIntlClientProvider>
           <ScrollRestoration />
           <Navbar />
-          {children}
+          <div id="main">{children}</div>
           <Footer />
         </NextIntlClientProvider>
       </body>

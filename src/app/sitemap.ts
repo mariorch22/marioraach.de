@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { contentfulEnv } from '@/lib/env';
 
 const baseUrl = 'https://www.marioraach.de';
 
@@ -22,12 +23,12 @@ async function getBlogPosts() {
     `;
 
     const response = await fetch(
-      `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
+      `https://graphql.contentful.com/content/v1/spaces/${contentfulEnv.spaceId}`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+          Authorization: `Bearer ${contentfulEnv.accessToken}`,
         },
         body: JSON.stringify({ query }),
       },
