@@ -78,7 +78,7 @@ export async function generateMetadata(props: Omit<Props, 'children'>) {
     },
     openGraph: {
       title: t('title'),
-      description: t('description'),
+      description: t('ogDescription') ?? t('description'),
       url: 'https://www.marioraach.de',
       siteName: 'Mario Raach',
       type: 'website',

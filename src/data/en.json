@@ -1,16 +1,17 @@
 {
   "About": {
-    "title": "Hi, I'm Mario, a Data Science & AI student from Germany",
-    "text": "I'm interested in Machine Learning, AI, economics, philosophy and chess 😃\nI recently started writing blog posts which I'm excited to share with you!"
+    "title": "Compute & Culture",
+    "text": "I build, test, and argue about machine learning and its fallout."
   },
   "LocaleLayout": {
-    "title": "Mario Raach – Data Science & AI Student | Machine Learning Blog",
-    "description": "Mario Raach, data-science & AI student, blogs about machine learning, economics, philosophy, and chess.",
+    "title": "Compute & Culture",
+    "description": "Machine learning, markets, meaning. Projects, essays, sharp takes—no pitch decks.",
+    "ogDescription": "ML, society, ideas that bite. Projects and essays from the real world.",
     "keywords": "data science, artificial intelligence, machine learning, deep learning, mechanistic interpretability, economics, philosophy, chess, neural networks, python, numpy, leetcode, swabiangpt, dialect translation, AI scaling, student blog, Germany blog"
   },
   "Home": {
-    "heroTitle": "Blog & Essays on Machine Learning.",
-    "heroSubline": "A blog, not a pitch deck.",
+    "heroTitle": "Compute & Culture",
+    "heroSubline": "ML, society & ideas",
     "tabs": {
       "blog": "Blog (Tech)",
       "essays": "Essays (Thoughts)"
@@ -30,6 +31,9 @@
     "labels": {
       "blog": "Blog"
     }
+  },
+  "Footer": {
+    "claim": "Opinions have priors."
   },
   "Imprint": {
     "title": "Imprint",
