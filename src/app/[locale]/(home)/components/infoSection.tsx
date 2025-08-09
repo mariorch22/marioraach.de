@@ -1,7 +1,7 @@
-import React from "react";
-import { getTranslations } from "next-intl/server";
-import { setRequestLocale } from "next-intl/server";
-import { cn } from "@/lib/utils";
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import React from 'react';
+
+import { cn } from '@/lib/utils';
 
 export default async function InfoSection({
   params,
@@ -14,11 +14,11 @@ export default async function InfoSection({
   setRequestLocale(locale);
 
   // Für Server Components: getTranslations statt useTranslations
-  const t = await getTranslations("About");
+  const t = await getTranslations('About');
 
   return (
     <section
-      className={cn("w-full max-w-[60rem] mx-auto px-4 sm:px-6", className)}
+      className={cn('w-full max-w-[60rem] mx-auto px-4 sm:px-6', className)}
       aria-labelledby="about-heading"
     >
       <div className="space-y-5 sm:space-y-6">
@@ -33,10 +33,8 @@ export default async function InfoSection({
         </header>
 
         <div className="max-w-[70ch]">
-          <div
-            className="whitespace-pre-line text-white/80 sm:text-white/85 leading-7 sm:leading-8 text-base sm:text-lg space-y-4"
-          >
-            {t("text")}
+          <div className="whitespace-pre-line text-white/80 sm:text-white/85 leading-7 sm:leading-8 text-base sm:text-lg space-y-4">
+            {t('text')}
           </div>
         </div>
       </div>

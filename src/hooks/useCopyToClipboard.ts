@@ -1,9 +1,9 @@
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
 const useCopyToClipboard = () => {
   const copyToClipboard = useCallback(async (text: string) => {
     if (!navigator?.clipboard) {
-      console.warn("Clipboard API nicht verfügbar");
+      console.warn('Clipboard API nicht verfügbar');
       return false;
     }
 
@@ -11,7 +11,7 @@ const useCopyToClipboard = () => {
       await navigator.clipboard.writeText(text);
       return true;
     } catch (err) {
-      console.error("Fehler beim Kopieren:", err);
+      console.error('Fehler beim Kopieren:', err);
       return false;
     }
   }, []);

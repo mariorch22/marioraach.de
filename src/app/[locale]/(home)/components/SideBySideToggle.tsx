@@ -1,6 +1,7 @@
-"use client";
-import { Children, ReactNode, useMemo, useState } from "react";
-import { cn } from "@/lib/utils";
+'use client';
+import { Children, ReactNode, useMemo, useState } from 'react';
+
+import { cn } from '@/lib/utils';
 
 type Props = {
   children: ReactNode;
@@ -11,11 +12,11 @@ type Props = {
 
 export default function SideBySideToggle({
   children,
-  leftLabel = "Blog",
-  rightLabel = "Essays",
+  leftLabel = 'Blog',
+  rightLabel = 'Essays',
   className,
 }: Props) {
-  const [selected, setSelected] = useState<"left" | "right">("left");
+  const [selected, setSelected] = useState<'left' | 'right'>('left');
 
   const [left, right] = useMemo(() => {
     const arr = Children.toArray(children);
@@ -23,17 +24,19 @@ export default function SideBySideToggle({
   }, [children]);
 
   return (
-    <div className={cn("w-full", className)}>
+    <div className={cn('w-full', className)}>
       {/* Underline tabs */}
       <nav className="mt-6 border-b border-neutral-800">
         <ul className="flex gap-6 text-sm">
           <li>
             <button
               type="button"
-              onClick={() => setSelected("left")}
+              onClick={() => setSelected('left')}
               className={cn(
-                "inline-block border-b-2 pb-3",
-                selected === "left" ? "border-white" : "border-transparent hover:border-neutral-600"
+                'inline-block border-b-2 pb-3',
+                selected === 'left'
+                  ? 'border-white'
+                  : 'border-transparent hover:border-neutral-600',
               )}
             >
               {leftLabel}
@@ -42,10 +45,12 @@ export default function SideBySideToggle({
           <li>
             <button
               type="button"
-              onClick={() => setSelected("right")}
+              onClick={() => setSelected('right')}
               className={cn(
-                "inline-block border-b-2 pb-3",
-                selected === "right" ? "border-white" : "border-transparent hover:border-neutral-600"
+                'inline-block border-b-2 pb-3',
+                selected === 'right'
+                  ? 'border-white'
+                  : 'border-transparent hover:border-neutral-600',
               )}
             >
               {rightLabel}
@@ -56,11 +61,19 @@ export default function SideBySideToggle({
 
       {/* Content: only show selected on all screen sizes */}
       <div className="grid grid-cols-1 gap-10 mt-6">
-        <div aria-hidden={selected !== "left"} className={cn(selected === "left" ? "block" : "hidden")}>{left}</div>
-        <div aria-hidden={selected !== "right"} className={cn(selected === "right" ? "block" : "hidden")}>{right}</div>
+        <div
+          aria-hidden={selected !== 'left'}
+          className={cn(selected === 'left' ? 'block' : 'hidden')}
+        >
+          {left}
+        </div>
+        <div
+          aria-hidden={selected !== 'right'}
+          className={cn(selected === 'right' ? 'block' : 'hidden')}
+        >
+          {right}
+        </div>
       </div>
     </div>
   );
 }
-
-

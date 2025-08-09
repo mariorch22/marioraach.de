@@ -1,7 +1,7 @@
 import { FC } from 'react';
+
 import LanguageSelector from './LanguageSelector';
 import Logo from './Logo';
-
 
 const Navbar: FC = () => {
   return (

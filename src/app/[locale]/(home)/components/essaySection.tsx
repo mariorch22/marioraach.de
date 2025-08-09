@@ -1,7 +1,8 @@
-import { Link } from "@/i18n/navigation";
-import { setRequestLocale } from "next-intl/server";
-import { fetchPosts, type BlogPost } from "@/lib/contentful";
-import { cn } from "@/lib/utils";
+import { setRequestLocale } from 'next-intl/server';
+
+import { Link } from '@/i18n/navigation';
+import { fetchPosts, type BlogPost } from '@/lib/contentful';
+import { cn } from '@/lib/utils';
 
 // using shared BlogPost type from lib
 
@@ -19,23 +20,26 @@ export default async function EssaySection({
 
   try {
     const allPosts = await fetchPosts(locale);
-    const postsData = allPosts.filter((p) => (p.category ?? "blog") === "essays");
+    const postsData = allPosts.filter((p) => (p.category ?? 'blog') === 'essays');
 
     return (
-      <div className={cn("w-full", className)}>
+      <div className={cn('w-full', className)}>
         {/* Intentionally no title/description above the list on homepage toggle */}
 
         {postsData.length > 0 && (
           <div className="divide-y divide-white/5">
             {postsData.map((post: BlogPost) => {
               const dateStr = post.publishingDate
-                ? new Date(post.publishingDate).toLocaleDateString(locale === 'de' ? 'de-DE' : 'en-US', {
-                    day: "2-digit",
-                    month: "2-digit",
-                    year: "numeric",
-                    timeZone: "UTC",
-                  })
-                : "";
+                ? new Date(post.publishingDate).toLocaleDateString(
+                    locale === 'de' ? 'de-DE' : 'en-US',
+                    {
+                      day: '2-digit',
+                      month: '2-digit',
+                      year: 'numeric',
+                      timeZone: 'UTC',
+                    },
+                  )
+                : '';
               const excerptSrc = (post.summary ?? '').replace(/\s+/g, ' ').trim();
               const softTruncate = (text: string, maxLen = 200) => {
                 if (text.length <= maxLen) return text;
@@ -49,9 +53,7 @@ export default async function EssaySection({
                   <h3 className="text-base md:text-lg font-semibold">
                     <Link href={`/essays/${post.slug}`}>{post.title}</Link>
                   </h3>
-                  {excerpt && (
-                    <p className="mt-1 text-sm text-white/60">{excerpt}</p>
-                  )}
+                  {excerpt && <p className="mt-1 text-sm text-white/60">{excerpt}</p>}
                   <div className="mt-0.5 text-[11px] text-white/40 flex items-center gap-1">
                     <span className="tabular-nums">{dateStr}</span>
                     <span>·</span>
@@ -65,14 +67,12 @@ export default async function EssaySection({
       </div>
     );
   } catch (error) {
-    console.error("Error in EssaySection:", error);
+    console.error('Error in EssaySection:', error);
     return (
       <div className="items-center justify-center w-full max-w-[60rem]">
-        <h1 className="text-center text-xl text-red-600">
-          Error loading blog posts
-        </h1>
+        <h1 className="text-center text-xl text-red-600">Error loading blog posts</h1>
         <p className="text-center mt-2 text-gray-600">
-          {error instanceof Error ? error.message : "Unknown error"}
+          {error instanceof Error ? error.message : 'Unknown error'}
         </p>
       </div>
     );

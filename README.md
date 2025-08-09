@@ -47,17 +47,19 @@ src/
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 18+
 - npm, yarn, pnpm, or bun
 
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/mariorch22/marioraach.de.git
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -69,13 +71,15 @@ bun install
 ```
 
 3. Set up environment variables:
-Create a `.env.local` file in the root directory:
+   Create a `.env.local` file in the root directory:
+
 ```env
 CONTENTFUL_SPACE_ID=your_contentful_space_id
 CONTENTFUL_ACCESS_TOKEN=your_contentful_access_token
 ```
 
 4. Run the development server:
+
 ```bash
 npm run dev
 # or

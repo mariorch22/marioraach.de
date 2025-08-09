@@ -20,5 +20,140 @@
       "clarity": "clear explanations",
       "theses": "argued theses"
     }
+  },
+  "Imprint": {
+    "title": "Imprint",
+    "legalReference": "Information pursuant to § 5 TMG",
+    "operator": {
+      "title": "Website operator:",
+      "name": "Mario Raach"
+    },
+    "address": {
+      "title": "Address:",
+      "street": "Flachsäcker 14",
+      "city": "72393 Burladingen"
+    },
+    "contact": {
+      "title": "Contact:",
+      "emailLabel": "Email:",
+      "email": "marioraach01@gmail.com"
+    },
+    "responsible": {
+      "title": "Responsible for content pursuant to § 55 (2) RStV:",
+      "name": "Mario Raach",
+      "street": "Flachsäcker 14",
+      "city": "72393 Burladingen"
+    },
+    "disclaimer": {
+      "title": "Disclaimer:",
+      "sections": [
+        {
+          "title": "1. Liability for content",
+          "content": "As a service provider, I am responsible for my own content on these pages in accordance with general laws pursuant to § 7 (1) TMG. However, according to §§ 8 to 10 TMG, I am not obliged to monitor transmitted or stored third-party information or to investigate circumstances indicating illegal activity. Obligations to remove or block the use of information according to general laws remain unaffected. Liability in this respect is only possible from the time of knowledge of a specific infringement. If I become aware of any corresponding legal infringements, I will remove this content immediately."
+        },
+        {
+          "title": "2. Liability for links",
+          "content": "My offer contains links to external third-party websites, the contents of which I have no influence over. Therefore, I cannot assume any liability for this external content. The respective provider or operator of the pages is always responsible for the content of the linked pages."
+        },
+        {
+          "title": "3. Copyright",
+          "content": "The content and works created by the site operator on these pages are subject to German copyright law. Contributions by third parties are indicated as such. The duplication, processing, distribution and any kind of exploitation outside the limits of copyright law require the written consent of the respective author or creator."
+        }
+      ]
+    }
+  },
+  "DataProtection": {
+    "title": "Data Protection",
+    "h1": "Privacy Policy",
+    "overview": {
+      "title": "1. Data protection at a glance",
+      "generalNotes": {
+        "title": "General information",
+        "paragraphs": [
+          "The following notes provide a simple overview of what happens to your personal data when you visit this website. Personal data is any data with which you can be personally identified. Detailed information on data protection can be found in our privacy policy listed below this text."
+        ]
+      },
+      "dataCollection": {
+        "title": "Data collection on this website",
+        "responsible": {
+          "title": "Who is responsible for data collection on this website?",
+          "text": "Data processing on this website is carried out by the website operator. You can find the operator’s contact details in the section 'Information on the responsible entity' in this privacy policy."
+        },
+        "how": {
+          "title": "How do we collect your data?",
+          "p1": "On the one hand, your data is collected when you provide it to us. This may, for example, be data that you enter in a contact form.",
+          "p2": "Other data is collected automatically or after your consent when you visit the website by our IT systems. These are primarily technical data (e.g., internet browser, operating system or time of the page view). This data is collected automatically as soon as you enter this website."
+        },
+        "purpose": {
+          "title": "What do we use your data for?",
+          "text": "Part of the data is collected to ensure error-free provision of the website. Other data can be used to analyze your user behavior. If contracts can be concluded or initiated via the website, the transmitted data will also be processed for contract offers, orders or other inquiries."
+        },
+        "rights": {
+          "title": "What rights do you have regarding your data?",
+          "p1": "You have the right at any time to receive free information about the origin, recipient and purpose of your stored personal data. You also have a right to request the rectification or deletion of this data. If you have given consent to data processing, you can revoke this consent at any time for the future. You also have the right to request the restriction of the processing of your personal data under certain circumstances. Furthermore, you have the right to lodge a complaint with the competent supervisory authority.",
+          "p2": "You can contact us at any time for this and other questions on the subject of data protection."
+        }
+      }
+    },
+    "hosting": {
+      "title": "2. Hosting",
+      "intro": "We host the content of our website with the following provider:",
+      "provider": {
+        "name": "Amazon Web Services (AWS)",
+        "p1": "The provider is Amazon Web Services EMEA SARL, 38 Avenue John F. Kennedy, 1855 Luxembourg (hereinafter AWS).",
+        "p2": "When you visit our website, your personal data is processed on the servers of AWS. Personal data may also be transferred to the parent company of AWS in the USA. The data transfer to the USA is based on the EU standard contractual clauses. Details can be found here:",
+        "p3": "For more information, please refer to AWS's privacy policy:",
+        "p4": "The use of AWS is based on Art. 6 (1) lit. f GDPR. We have a legitimate interest in the most reliable presentation of our website possible. If consent has been requested, the processing is carried out exclusively on the basis of Art. 6 (1) lit. a GDPR and § 25 (1) TDDDG, insofar as the consent includes the storage of cookies or access to information in the user's terminal device (e.g., device fingerprinting) within the meaning of the TDDDG. Consent can be revoked at any time.",
+        "p5": "The company is certified under the 'EU-US Data Privacy Framework' (DPF). The DPF is an agreement between the European Union and the USA intended to ensure compliance with European data protection standards for data processing in the USA. Every company certified under the DPF undertakes to comply with these data protection standards. You can obtain further information from the provider at the following link:"
+      }
+    },
+    "general": {
+      "title": "3. General notes and mandatory information",
+      "privacy": {
+        "title": "Data protection",
+        "paragraphs": [
+          "The operators of these pages take the protection of your personal data very seriously. We treat your personal data confidentially and in accordance with the statutory data protection regulations and this privacy policy.",
+          "When you use this website, various personal data is collected. Personal data is data with which you can be personally identified. This privacy policy explains what data we collect and what we use it for. It also explains how and for what purpose this happens.",
+          "We would like to point out that data transmission on the internet (e.g., when communicating by email) can have security gaps. Complete protection of data against access by third parties is not possible."
+        ]
+      },
+      "controller": {
+        "title": "Information on the responsible entity",
+        "intro": "The responsible entity for data processing on this website is:",
+        "addressLines": ["Flachsäcker 14", "72393 Burladingen"],
+        "emailLabel": "Email:",
+        "email": "marioraach01@gmail.com",
+        "note": "The responsible entity is the natural or legal person who, alone or jointly with others, decides on the purposes and means of processing personal data (e.g., names, email addresses, etc.)."
+      },
+      "objection": {
+        "title": "Right to object to data collection in special cases as well as to direct advertising (Art. 21 GDPR)",
+        "emphasis": "IF THE DATA PROCESSING IS BASED ON ART. 6 (1) LIT. E OR F GDPR, YOU HAVE THE RIGHT TO OBJECT AT ANY TIME, ON GROUNDS RELATING TO YOUR PARTICULAR SITUATION, TO THE PROCESSING OF YOUR PERSONAL DATA; THIS ALSO APPLIES TO PROFILING BASED ON THESE PROVISIONS."
+      },
+      "restriction": {
+        "title": "Right to restriction of processing",
+        "intro": "You have the right to request the restriction of the processing of your personal data. You can contact us at any time for this purpose. The right to restrict processing exists in the following cases:",
+        "bullets": [
+          "If you dispute the accuracy of your personal data stored by us, we usually need time to verify this. For the duration of the verification, you have the right to request the restriction of the processing of your personal data.",
+          "If the processing of your personal data was/is unlawful, you can request the restriction of data processing instead of deletion.",
+          "If we no longer need your personal data, but you need it to exercise, defend or assert legal claims, you have the right to request the restriction of the processing of your personal data instead of deletion.",
+          "If you have lodged an objection under Art. 21 (1) GDPR, a balance must be struck between your interests and ours. As long as it has not yet been determined whose interests prevail, you have the right to request the restriction of the processing of your personal data."
+        ]
+      }
+    },
+    "plugins": {
+      "title": "4. Plugins and tools",
+      "localFonts": {
+        "title": "Local fonts (Inter, Raleway)",
+        "paragraphs": [
+          "For a consistent display of fonts, this website uses locally embedded fonts (including 'Inter' and 'Raleway'). The font files are delivered from our own server and are not loaded from external providers.",
+          "In this context, no connection is made to Google servers or other third-party providers. In particular, no personal data is transmitted to Google as part of the font loading processes.",
+          "The legal basis is Art. 6 (1) lit. f GDPR (legitimate interest) in a consistent and high-performance presentation of the website. Your browser may cache the font files to reduce loading times. You can clear your browser’s cache at any time to remove locally stored data."
+        ]
+      }
+    },
+    "source": {
+      "label": "Source:",
+      "urlText": "https://www.e-recht24.de"
+    }
   }
 }

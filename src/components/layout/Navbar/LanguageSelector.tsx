@@ -1,8 +1,9 @@
 'use client';
-import {useCallback, useState, useRef, useEffect} from 'react';
-import {useLocale} from 'next-intl';
-import {useRouter, usePathname} from '@/i18n/navigation';
-import {cn} from '@/lib/utils';
+import { useLocale } from 'next-intl';
+import { useCallback, useState, useRef, useEffect } from 'react';
+
+import { useRouter, usePathname } from '@/i18n/navigation';
+import { cn } from '@/lib/utils';
 
 const SUPPORTED_LOCALES = ['de', 'en'] as const;
 type Locale = (typeof SUPPORTED_LOCALES)[number];
@@ -11,7 +12,7 @@ interface LanguageSelectorProps {
   className?: string;
 }
 
-export default function LanguageSelector({className}: LanguageSelectorProps) {
+export default function LanguageSelector({ className }: LanguageSelectorProps) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -21,10 +22,10 @@ export default function LanguageSelector({className}: LanguageSelectorProps) {
   const switchLocale = useCallback(
     (lng: Locale) => {
       if (lng === locale || isChanging) return;
-      
+
       try {
         setIsChanging(true);
-        router.replace(pathname, {locale: lng});
+        router.replace(pathname, { locale: lng });
       } catch (error) {
         console.error('Error switching locale:', error);
       } finally {
@@ -34,15 +35,18 @@ export default function LanguageSelector({className}: LanguageSelectorProps) {
     [router, pathname, locale, isChanging],
   );
 
-  const handleKeyDown = useCallback((event: React.KeyboardEvent, lng: Locale) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      switchLocale(lng);
-    }
-  }, [switchLocale]);
+  const handleKeyDown = useCallback(
+    (event: React.KeyboardEvent, lng: Locale) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        switchLocale(lng);
+      }
+    },
+    [switchLocale],
+  );
 
   return (
-    <div 
+    <div
       ref={selectorRef}
       className={cn('inline-flex items-center pr-0', className)}
       role="group"
@@ -54,7 +58,7 @@ export default function LanguageSelector({className}: LanguageSelectorProps) {
           {SUPPORTED_LOCALES.map((lng) => {
             const isActive = locale === lng;
             const label = lng === 'de' ? 'Deutsch' : 'English';
-            
+
             return (
               <label key={lng} className="relative cursor-pointer">
                 <input
@@ -75,23 +79,21 @@ export default function LanguageSelector({className}: LanguageSelectorProps) {
                     'text-lg font-medium',
                     'rounded-md transition-all duration-200',
                     'border-2 border-transparent',
-                    
+
                     // Touch optimization
                     'select-none cursor-pointer',
-                    
+
                     // States
-                    isActive
-                      ? 'underline decoration-2 decoration-gray-300/70 shadow-sm'
-                      : '',
-                    
+                    isActive ? 'underline decoration-2 decoration-gray-300/70 shadow-sm' : '',
+
                     // Focus states (will show on input focus)
                     'focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2',
-                    
+
                     // Disabled state
                     isChanging && 'opacity-50 cursor-not-allowed',
-                    
+
                     // Active/pressed state
-                    'active:scale-95 active:transition-transform active:duration-75'
+                    'active:scale-95 active:transition-transform active:duration-75',
                   )}
                   style={{
                     WebkitTapHighlightColor: 'transparent',
@@ -117,7 +119,7 @@ export default function LanguageSelector({className}: LanguageSelectorProps) {
   );
 }
 
-export function LanguageSelectorMinimal({className}: LanguageSelectorProps) {
+export function LanguageSelectorMinimal({ className }: LanguageSelectorProps) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -125,12 +127,12 @@ export function LanguageSelectorMinimal({className}: LanguageSelectorProps) {
 
   const toggleLocale = useCallback(() => {
     if (isToggling) return;
-    
+
     const newLocale = locale === 'de' ? 'en' : 'de';
-    
+
     try {
       setIsToggling(true);
-      router.replace(pathname, {locale: newLocale});
+      router.replace(pathname, { locale: newLocale });
     } catch (error) {
       console.error('Error toggling locale:', error);
     } finally {
@@ -150,30 +152,30 @@ export function LanguageSelectorMinimal({className}: LanguageSelectorProps) {
         // Base layout
         'inline-flex items-center justify-center',
         'min-w-[56px] min-h-[44px] px-4 py-2',
-        
+
         // Typography
         'text-sm font-medium leading-none',
-        
+
         // Colors and theming
         'bg-gray-100 hover:bg-gray-200 active:bg-gray-300',
         'dark:bg-gray-800 dark:hover:bg-gray-700 dark:active:bg-gray-600',
         'text-gray-700 dark:text-gray-200',
-        
+
         // Interactions
         'rounded-lg transition-all duration-150',
         'border border-transparent',
-        
+
         // Focus states
         'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
         'focus:border-blue-300',
-        
+
         // Disabled state
         'disabled:opacity-60 disabled:cursor-not-allowed disabled:transform-none',
-        
+
         // Active state feedback
         'active:scale-95 active:transition-transform active:duration-75',
-        
-        className
+
+        className,
       )}
       style={{
         WebkitTapHighlightColor: 'transparent',
@@ -190,7 +192,7 @@ export function LanguageSelectorMinimal({className}: LanguageSelectorProps) {
   );
 }
 
-export function LanguageSelectorDropdown({className}: LanguageSelectorProps) {
+export function LanguageSelectorDropdown({ className }: LanguageSelectorProps) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -198,19 +200,22 @@ export function LanguageSelectorDropdown({className}: LanguageSelectorProps) {
   const [isChanging, setIsChanging] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const switchLocale = useCallback((lng: Locale) => {
-    if (lng === locale || isChanging) return;
-    
-    try {
-      setIsChanging(true);
-      setIsOpen(false);
-      router.replace(pathname, {locale: lng});
-    } catch (error) {
-      console.error('Error switching locale:', error);
-    } finally {
-      setIsChanging(false);
-    }
-  }, [router, pathname, locale, isChanging]);
+  const switchLocale = useCallback(
+    (lng: Locale) => {
+      if (lng === locale || isChanging) return;
+
+      try {
+        setIsChanging(true);
+        setIsOpen(false);
+        router.replace(pathname, { locale: lng });
+      } catch (error) {
+        console.error('Error switching locale:', error);
+      } finally {
+        setIsChanging(false);
+      }
+    },
+    [router, pathname, locale, isChanging],
+  );
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -236,25 +241,25 @@ export function LanguageSelectorDropdown({className}: LanguageSelectorProps) {
           // Base layout
           'inline-flex items-center justify-between',
           'min-w-[80px] min-h-[44px] px-3 py-2',
-          
+
           // Typography
           'text-sm font-medium',
-          
+
           // Styling
           'bg-white dark:bg-gray-800',
           'border border-gray-300 dark:border-gray-600',
           'rounded-lg shadow-sm',
-          
+
           // Hover states
           'hover:bg-gray-50 dark:hover:bg-gray-700',
           'hover:border-gray-400 dark:hover:border-gray-500',
-          
+
           // Focus states
           'focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2',
-          
+
           // Disabled state
           'disabled:opacity-60 disabled:cursor-not-allowed',
-          
+
           // Open state
           isOpen && 'ring-2 ring-blue-500 ring-offset-2',
         )}
@@ -268,10 +273,7 @@ export function LanguageSelectorDropdown({className}: LanguageSelectorProps) {
       >
         <span>{locale.toUpperCase()}</span>
         <svg
-          className={cn(
-            'ml-2 h-4 w-4 transition-transform duration-150',
-            isOpen && 'rotate-180'
-          )}
+          className={cn('ml-2 h-4 w-4 transition-transform duration-150', isOpen && 'rotate-180')}
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -288,7 +290,7 @@ export function LanguageSelectorDropdown({className}: LanguageSelectorProps) {
             'bg-white dark:bg-gray-800',
             'border border-gray-300 dark:border-gray-600',
             'rounded-lg shadow-lg',
-            'py-1 z-50'
+            'py-1 z-50',
           )}
           role="listbox"
           aria-label="Language options"
@@ -296,7 +298,7 @@ export function LanguageSelectorDropdown({className}: LanguageSelectorProps) {
           {SUPPORTED_LOCALES.map((lng) => {
             const isSelected = locale === lng;
             const label = lng === 'de' ? 'Deutsch' : 'English';
-            
+
             return (
               <li key={lng} role="option" aria-selected={isSelected}>
                 <button
@@ -307,15 +309,15 @@ export function LanguageSelectorDropdown({className}: LanguageSelectorProps) {
                     'w-full px-3 py-2 text-left',
                     'min-h-[44px] flex items-center',
                     'text-sm',
-                    
+
                     // Selected state
                     isSelected
                       ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 font-medium'
                       : 'text-gray-700 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-700',
-                    
+
                     // Focus and disabled states
                     'focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-600',
-                    'disabled:opacity-60 disabled:cursor-not-allowed'
+                    'disabled:opacity-60 disabled:cursor-not-allowed',
                   )}
                   style={{
                     WebkitTapHighlightColor: 'transparent',

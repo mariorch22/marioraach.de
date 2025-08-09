@@ -1,48 +1,43 @@
-import { setRequestLocale } from "next-intl/server";
-import { Divider } from "@/components/common/Divider";
-import { query } from "./components/graphql_query";
-import { BlogContent } from "./components/BlogContent";
-import { BlogHeader } from "./components/BlogHeader";
-import { Metadata } from "next";
+import { Metadata } from 'next';
+import { setRequestLocale } from 'next-intl/server';
+
+import { Divider } from '@/components/common/Divider';
+
+import { BlogContent } from './components/BlogContent';
+import { BlogHeader } from './components/BlogHeader';
+import { query } from './components/graphql_query';
 
 // Helper-Funktion für bessere Fehlerbehandlung
 function getEnvVariable(name: string): string {
   const value = process.env[name];
   if (!value) {
-    throw new Error(
-      `Environment variable ${name} is not defined. Please check your .env file.`
-    );
+    throw new Error(`Environment variable ${name} is not defined. Please check your .env file.`);
   }
   return value;
 }
 
 async function getBlogPost(slug: string, locale: string) {
-  const spaceId = getEnvVariable("CONTENTFUL_SPACE_ID");
-  const accessToken = getEnvVariable("CONTENTFUL_ACCESS_TOKEN");
+  const spaceId = getEnvVariable('CONTENTFUL_SPACE_ID');
+  const accessToken = getEnvVariable('CONTENTFUL_ACCESS_TOKEN');
 
-  const response = await fetch(
-    `https://graphql.contentful.com/content/v1/spaces/${spaceId}/`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify({ query: query(slug, locale) }),
-    }
-  );
+  const response = await fetch(`https://graphql.contentful.com/content/v1/spaces/${spaceId}/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${accessToken}`,
+    },
+    body: JSON.stringify({ query: query(slug, locale) }),
+  });
 
   if (!response.ok) {
-    throw new Error(
-      `Contentful API error: ${response.status} ${response.statusText}`
-    );
+    throw new Error(`Contentful API error: ${response.status} ${response.statusText}`);
   }
 
   const posts = await response.json();
-  
+
   if (posts.errors) {
-    console.error("GraphQL errors:", posts.errors);
-    throw new Error("GraphQL query failed");
+    console.error('GraphQL errors:', posts.errors);
+    throw new Error('GraphQL query failed');
   }
 
   return posts.data.blogCollection.items[0];
@@ -54,10 +49,10 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  
+
   try {
     const blogPost = await getBlogPost(slug, locale);
-    
+
     if (!blogPost) {
       return {
         title: 'Blog Post Not Found',
@@ -66,7 +61,7 @@ export async function generateMetadata({
     }
 
     const publishedDate = new Date(blogPost.publishingDate).toISOString();
-    
+
     return {
       title: `${blogPost.title} | Mario Raach`,
       description: blogPost.summary,
@@ -132,27 +127,27 @@ export default async function BlogPost({
     }
 
     const articleJsonLd = {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": postsData.title,
-      "description": postsData.summary,
-      "author": {
-        "@type": "Person",
-        "name": "Mario Raach",
-        "url": "https://www.marioraach.de"
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: postsData.title,
+      description: postsData.summary,
+      author: {
+        '@type': 'Person',
+        name: 'Mario Raach',
+        url: 'https://www.marioraach.de',
       },
-      "publisher": {
-        "@type": "Person",
-        "name": "Mario Raach",
-        "url": "https://www.marioraach.de"
+      publisher: {
+        '@type': 'Person',
+        name: 'Mario Raach',
+        url: 'https://www.marioraach.de',
       },
-      "datePublished": postsData.publishingDate,
-      "dateModified": postsData.publishingDate,
-      "url": `https://www.marioraach.de/${locale}/blog/${slug}`,
-      "image": "https://www.marioraach.de/images/og-image.jpg",
-      "articleSection": postsData.category === 'essays' ? 'Essay' : 'Technology',
-      "keywords": ["Data Science", "Machine Learning", "AI", "Technology"],
-      "inLanguage": locale === 'de' ? 'de-DE' : 'en-US'
+      datePublished: postsData.publishingDate,
+      dateModified: postsData.publishingDate,
+      url: `https://www.marioraach.de/${locale}/blog/${slug}`,
+      image: 'https://www.marioraach.de/images/og-image.jpg',
+      articleSection: postsData.category === 'essays' ? 'Essay' : 'Technology',
+      keywords: ['Data Science', 'Machine Learning', 'AI', 'Technology'],
+      inLanguage: locale === 'de' ? 'de-DE' : 'en-US',
     };
 
     return (
@@ -174,7 +169,7 @@ export default async function BlogPost({
       </>
     );
   } catch (error) {
-    console.error("Error loading blog post:", error);
+    console.error('Error loading blog post:', error);
     return (
       <main className="overflow-hidden flex flex-col justify-center items-center gap-12 font-inter text-normal mt-40 px-4">
         <Divider />

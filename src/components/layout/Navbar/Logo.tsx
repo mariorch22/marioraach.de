@@ -1,21 +1,22 @@
-"use client";
-import { Link, usePathname } from "@/i18n/navigation";
-import { useLocale } from "next-intl";
-import Image from "next/image";
+'use client';
+import Image from 'next/image';
+import { useLocale } from 'next-intl';
+
+import { Link, usePathname } from '@/i18n/navigation';
 
 const Logo = () => {
   const locale = useLocale();
   const pathname = usePathname();
 
   // Extract the current locale from the pathname or use the locale from useLocale
-  const currentLocale = pathname.startsWith("/de")
-    ? "de"
-    : pathname.startsWith("/en")
-    ? "en"
-    : locale;
+  const currentLocale = pathname.startsWith('/de')
+    ? 'de'
+    : pathname.startsWith('/en')
+      ? 'en'
+      : locale;
 
   return (
-    <Link href={"/"} locale={currentLocale}>
+    <Link href={'/'} locale={currentLocale}>
       <Image
         src="/images/logo_r.png"
         alt="Logo"
