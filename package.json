@@ -10,8 +10,7 @@
     "lint:fix": "next lint --fix",
     "format": "prettier --check .",
     "format:write": "prettier --write .",
-    "typecheck": "tsc --noEmit",
-    "prepare": "husky"
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^16.0.2",
@@ -34,13 +33,14 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-unused-imports": "^4.1.4",
-    "husky": "^9.1.7",
+    
     "lint-staged": "^16.1.5",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.9.2"
   },
+  
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,css,md,json}": [
       "prettier --write"
