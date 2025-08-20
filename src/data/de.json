@@ -11,7 +11,7 @@
   },
   "Home": {
     "heroTitle": "Compute & Kultur",
-    "heroSubline": "ML, Gesellschaft & Ideen",
+    "heroSubline": "Ich studiere Data Science & KI und schreibe hier über das, was ich lerne.\nDieser Blog soll kein Lehrbuch sein, vielmehr eine Sammlung von Experimenten und Gedanken.\nManchmal Code, manchmal Gesellschaft, manchmal beides gleichzeitig.",
     "tabs": {
       "blog": "Blog (Tech)",
       "essays": "Essays (Gedanken)"

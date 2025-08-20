@@ -23,7 +23,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight">
             {t('heroTitle')}
           </h1>
-          <p className="mt-3 text-neutral-300">{t('heroSubline')}</p>
+          <p className="mt-3 text-neutral-300 whitespace-pre-line">{t('heroSubline')}</p>
 
           <SideBySideToggle leftLabel={t('tabs.blog')} rightLabel={t('tabs.essays')}>
             <BlogSection params={Promise.resolve({ locale })} />
