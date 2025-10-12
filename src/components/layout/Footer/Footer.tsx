@@ -1,11 +1,24 @@
 'use client';
 import { useLocale } from 'next-intl';
+import type { ReactElement } from 'react';
 
 import { Divider } from '@/components/common/Divider';
 import { Link } from '@/i18n/navigation';
+import { routing } from '@/i18n/routing';
 
-const Footer = () => {
+type AppLocale = (typeof routing)['locales'][number];
+
+const FOOTER_LABELS: Record<AppLocale, { imprint: string; dataProtection: string }> = {
+  de: { imprint: 'Impressum', dataProtection: 'Datenschutz' },
+  en: { imprint: 'Imprint', dataProtection: 'Data Protection' },
+} as const;
+
+function Footer(): ReactElement {
   const locale = useLocale();
+  const defaultLocale = routing.defaultLocale as AppLocale;
+  const activeLocale: AppLocale = (routing.locales as readonly string[]).includes(locale)
+    ? (locale as AppLocale)
+    : defaultLocale;
 
   return (
     <footer className="mt-16 md:mt-24">
@@ -25,7 +38,7 @@ const Footer = () => {
                   href="/imprint"
                   className="text-neutral-400 hover:text-neutral-200 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
                 >
-                  {locale === 'de' ? 'Impressum' : 'Imprint'}
+                  {FOOTER_LABELS[activeLocale].imprint}
                 </Link>
               </li>
               <li>
@@ -33,7 +46,7 @@ const Footer = () => {
                   href="/dataprotection"
                   className="text-neutral-400 hover:text-neutral-200 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
                 >
-                  {locale === 'de' ? 'Datenschutz' : 'Data Protection'}
+                  {FOOTER_LABELS[activeLocale].dataProtection}
                 </Link>
               </li>
             </ul>
@@ -129,6 +142,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+}
 
 export default Footer;
