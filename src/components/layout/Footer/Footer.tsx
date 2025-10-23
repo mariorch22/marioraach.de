@@ -13,6 +13,8 @@ const FOOTER_LABELS: Record<AppLocale, { imprint: string; dataProtection: string
   en: { imprint: 'Imprint', dataProtection: 'Data Protection' },
 } as const;
 
+const currentYear = new Date().getUTCFullYear();
+
 function Footer(): ReactElement {
   const locale = useLocale();
   const defaultLocale = routing.defaultLocale as AppLocale;
@@ -27,7 +29,7 @@ function Footer(): ReactElement {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Copyright */}
           <p className="text-sm text-neutral-400">
-            &copy; {new Date().getUTCFullYear()} Mario Raach
+            &copy; {currentYear} Mario Raach
           </p>
 
           {/* Footer Nav */}

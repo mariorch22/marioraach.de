@@ -26,6 +26,7 @@ const nextConfig: NextConfig = {
       { source: '/all.xml', destination: '/api/all.xml', permanent: true },
     ];
   },
+  cacheComponents: true,
 };
 
 const withNextIntl = createNextIntlPlugin();
