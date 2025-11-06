@@ -1,13 +1,15 @@
 import { MetadataRoute } from 'next';
-
 import { contentfulEnv } from '@/lib/env';
 
+
 const baseUrl = 'https://www.marioraach.de';
+
 
 type BlogPost = {
   slug: string;
   publishingDate: string | Date;
 };
+
 
 async function getBlogPosts() {
   try {
@@ -46,6 +48,7 @@ async function getBlogPosts() {
     return [];
   }
 }
+
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogPosts = await getBlogPosts();

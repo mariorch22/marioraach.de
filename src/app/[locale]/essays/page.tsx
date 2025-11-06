@@ -1,11 +1,11 @@
 import { setRequestLocale } from 'next-intl/server';
-
 import { Link } from '@/i18n/navigation';
-import { fetchPosts } from '@/lib/contentful';
-
+import { fetchPosts } from '@/lib/contentful/contentful';
 import type { Metadata } from 'next';
 
+
 export const dynamic = 'force-static';
+
 
 export default async function EssaysIndex({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -62,6 +62,7 @@ export default async function EssaysIndex({ params }: { params: Promise<{ locale
     </main>
   );
 }
+
 
 export async function generateMetadata({
   params,

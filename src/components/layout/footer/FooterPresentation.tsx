@@ -1,56 +1,49 @@
 'use client';
-import { useLocale } from 'next-intl';
-import type { ReactElement } from 'react';
-
-import { Divider } from '@/components/common/Divider';
+import DividerPresentation from '@/components/ui/divider/DividerPresentation';
 import { Link } from '@/i18n/navigation';
-import { routing } from '@/i18n/routing';
+import { Suspense } from 'react';
 
-type AppLocale = (typeof routing)['locales'][number];
 
-const FOOTER_LABELS: Record<AppLocale, { imprint: string; dataProtection: string }> = {
-  de: { imprint: 'Impressum', dataProtection: 'Datenschutz' },
-  en: { imprint: 'Imprint', dataProtection: 'Data Protection' },
-} as const;
+interface FooterPresentationProps {
+  copyrightHolder: string;
+  currentYear: number;
+  imprintLabel: string;
+  dataProtectionLabel: string;
+}
 
-const currentYear = new Date().getUTCFullYear();
 
-function Footer(): ReactElement {
-  const locale = useLocale();
-  const defaultLocale = routing.defaultLocale as AppLocale;
-  const activeLocale: AppLocale = (routing.locales as readonly string[]).includes(locale)
-    ? (locale as AppLocale)
-    : defaultLocale;
-
+function FooterPresentation({ copyrightHolder, currentYear, imprintLabel, dataProtectionLabel }: FooterPresentationProps) {
   return (
     <footer className="mt-16 md:mt-24">
-      <Divider />
+      <DividerPresentation />
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Copyright */}
           <p className="text-sm text-neutral-400">
-            &copy; {currentYear} Mario Raach
+            &copy; {currentYear} {copyrightHolder}
           </p>
 
           {/* Footer Nav */}
           <nav aria-label="Footer">
             <ul className="flex items-center gap-6 text-sm">
-              <li>
-                <Link
-                  href="/imprint"
-                  className="text-neutral-400 hover:text-neutral-200 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
-                >
-                  {FOOTER_LABELS[activeLocale].imprint}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/dataprotection"
-                  className="text-neutral-400 hover:text-neutral-200 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
-                >
-                  {FOOTER_LABELS[activeLocale].dataProtection}
-                </Link>
-              </li>
+              <Suspense fallback={<div>Loading...</div>}>
+                <li>
+                  <Link
+                    href="/imprint"
+                    className="text-neutral-400 hover:text-neutral-200 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
+                  >
+                    {imprintLabel}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/dataprotection"
+                    className="text-neutral-400 hover:text-neutral-200 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
+                  >
+                    {dataProtectionLabel}
+                  </Link>
+                </li>
+              </Suspense>
             </ul>
           </nav>
 
@@ -146,4 +139,4 @@ function Footer(): ReactElement {
   );
 }
 
-export default Footer;
+export default FooterPresentation;

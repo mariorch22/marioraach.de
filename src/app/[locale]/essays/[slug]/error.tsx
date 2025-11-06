@@ -1,9 +1,8 @@
 'use client';
-
 import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
-
 import { Link } from '@/i18n/navigation';
+
 
 export default function Error({
   error,

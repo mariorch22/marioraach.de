@@ -1,12 +1,8 @@
 import { setRequestLocale } from 'next-intl/server';
-
 import { Link } from '@/i18n/navigation';
-import { fetchPosts, type BlogPost } from '@/lib/contentful';
+import { fetchPosts, type BlogPost } from '@/lib/contentful/contentful';
 import { cn } from '@/lib/utils';
 
-// using shared BlogPost type from lib
-
-// removed unused getEnvVariable helper
 
 export default async function BlogSection({
   params,

@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
-
-import { BlogContent } from '@/app/[locale]/blog/[slug]/components/BlogContent';
-import { BlogHeader } from '@/app/[locale]/blog/[slug]/components/BlogHeader';
+import BlogContentContainer from '@/features/blog/BlogContentContainer';
+import BlogHeaderContainer from '@/features/blog/BlogHeaderContainer';
 import { query as blogQuery } from '@/app/[locale]/blog/[slug]/components/graphql_query'; // reuse blog query but we only need the slug here via essays route
-import { Divider } from '@/components/common/Divider';
+import DividerPresentation from '@/components/ui/divider/DividerPresentation';
 import { contentfulEnv } from '@/lib/env';
+
 
 async function getPost(slug: string, locale: string) {
   const { spaceId, accessToken } = contentfulEnv;
@@ -21,6 +21,7 @@ async function getPost(slug: string, locale: string) {
   const json = await response.json();
   return json.data.blogCollection.items[0];
 }
+
 
 export async function generateMetadata({
   params,
@@ -49,6 +50,7 @@ export async function generateMetadata({
   };
 }
 
+
 export default async function EssayPage({
   params,
 }: {
@@ -60,7 +62,7 @@ export default async function EssayPage({
   if (!post) {
     return (
       <main className="overflow-hidden flex flex-col justify-center items-center gap-12 mt-40 px-4">
-        <Divider />
+        <DividerPresentation />
         <p className="text-red-500">Essay not found</p>
       </main>
     );
@@ -68,14 +70,14 @@ export default async function EssayPage({
 
   return (
     <main className="overflow-hidden flex flex-col justify-center items-center gap-12 mt-40 px-4">
-      <BlogHeader
+      <BlogHeaderContainer
         title={post.title}
         summary={post.summary}
         publishingDate={post.publishingDate}
         locale={locale}
       />
-      <Divider />
-      <BlogContent blog={post} />
+      <DividerPresentation />
+      <BlogContentContainer blog={post} />
     </main>
   );
 }

@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-
 import BlogSection from './components/blogSection';
 import EssaySection from './components/essaySection';
 import SideBySideToggle from './components/SideBySideToggle';
+
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;

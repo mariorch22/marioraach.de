@@ -3,6 +3,13 @@ import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { ReactNode } from 'react';
+import ScrollManagerContainer from '@/features/layout/scroll-manager/ScrollManagerContainer';
+import FooterContainer from '@/features/layout/footer/FooterContainer';
+import NavbarContainer from '@/features/layout/navbar/NavbarContainer';
+import { routing } from '@/i18n/routing';
+import { cn } from '@/lib/utils';
+import '@/app/globals.css';
+
 
 const inter = localFont({
   src: [
@@ -26,14 +33,6 @@ const inter = localFont({
   display: 'swap',
   preload: true,
 });
-
-import { ScrollRestoration } from '@/components/common/ScrollRestoration';
-import { Footer } from '@/components/layout/Footer';
-import { Navbar } from '@/components/layout/Navbar';
-import { routing } from '@/i18n/routing';
-import { cn } from '@/lib/utils';
-
-import '@/app/globals.css';
 
 type Props = {
   children: ReactNode;
@@ -165,10 +164,10 @@ export default async function LocaleLayout({ children, params }: Props) {
           {locale === 'de' ? 'Zum Inhalt springen' : 'Skip to main content'}
         </a>
         <NextIntlClientProvider>
-          <ScrollRestoration />
-          <Navbar />
+          <ScrollManagerContainer />
+          <NavbarContainer />
           <div id="main">{children}</div>
-          <Footer />
+          <FooterContainer />
         </NextIntlClientProvider>
       </body>
     </html>

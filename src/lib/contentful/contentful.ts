@@ -6,7 +6,7 @@ export interface BlogPost {
   category?: 'blog' | 'essays';
 }
 
-import { contentfulEnv } from './env';
+import { contentfulEnv } from '@/lib/env';
 
 export async function fetchPosts(locale: string, limit: number = 20): Promise<BlogPost[]> {
   const { spaceId, accessToken } = contentfulEnv;

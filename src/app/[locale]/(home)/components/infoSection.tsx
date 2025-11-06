@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import React from 'react';
-
 import { cn } from '@/lib/utils';
+
 
 export default async function InfoSection({
   params,
@@ -13,7 +13,6 @@ export default async function InfoSection({
   const { locale } = await params;
   setRequestLocale(locale);
 
-  // Für Server Components: getTranslations statt useTranslations
   const t = await getTranslations('About');
 
   return (

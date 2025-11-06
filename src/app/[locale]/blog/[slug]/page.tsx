@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 
-import { Divider } from '@/components/common/Divider';
+import DividerPresentation from '@/components/ui/divider/DividerPresentation';
 import { contentfulEnv } from '@/lib/env';
 
-import { BlogContent } from './components/BlogContent';
-import { BlogHeader } from './components/BlogHeader';
+import BlogContentContainer from '@/features/blog/BlogContentContainer';
+import BlogHeaderContainer from '@/features/blog/BlogHeaderContainer';
 import { query } from './components/graphql_query';
 
 async function getBlogPost(slug: string, locale: string) {
@@ -111,7 +111,7 @@ export default async function BlogPost({
     if (!postsData) {
       return (
         <main className="overflow-hidden flex flex-col justify-center items-center gap-12 font-inter text-normal mt-40 px-4">
-          <Divider />
+          <DividerPresentation />
           <p className="text-red-500">Blog post not found</p>
         </main>
       );
@@ -148,14 +148,14 @@ export default async function BlogPost({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
         />
         <main className="overflow-hidden flex flex-col justify-center items-center gap-12 font-inter text-normal mt-40 px-4">
-          <BlogHeader
+          <BlogHeaderContainer
             title={postsData.title}
             summary={postsData.summary}
             publishingDate={postsData.publishingDate}
             locale={locale}
           />
-          <Divider />
-          <BlogContent blog={postsData} />
+          <DividerPresentation />
+          <BlogContentContainer blog={postsData} />
         </main>
       </>
     );
@@ -163,7 +163,7 @@ export default async function BlogPost({
     console.error('Error loading blog post:', error);
     return (
       <main className="overflow-hidden flex flex-col justify-center items-center gap-12 font-inter text-normal mt-40 px-4">
-        <Divider />
+        <DividerPresentation />
         <p className="text-red-500">Error loading blog post</p>
       </main>
     );
