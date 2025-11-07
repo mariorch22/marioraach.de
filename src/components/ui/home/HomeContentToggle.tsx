@@ -10,7 +10,7 @@ type Props = {
   className?: string;
 };
 
-export default function SideBySideToggle({
+export default function HomeContentToggle({
   children,
   leftLabel = 'Blog',
   rightLabel = 'Essays',

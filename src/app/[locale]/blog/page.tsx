@@ -1,17 +1,36 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { fetchPosts } from '@/lib/contentful/contentful';
+import { getAllPosts } from '@/lib/contentful/api/allPosts';
 import type { Metadata } from 'next';
+import { BlogPost } from '@/types/blog';
 
 
-export const dynamic = 'force-static';
-
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'BlogIndex' });
+  return {
+    title: `${t('title')} | Mario Raach`,
+    alternates: {
+      canonical:
+        locale === 'de' ? `https://www.marioraach.de/blog` : `https://www.marioraach.de/en/blog`,
+      languages: {
+        de: `https://www.marioraach.de/blog`,
+        en: `https://www.marioraach.de/en/blog`,
+        // 'x-default' could be added if locale detection is introduced
+      },
+    },
+  };
+}
 
 export default async function BlogIndex({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'BlogIndex' });
-  const posts = (await fetchPosts(locale, 100)).filter((p) => (p.category ?? 'blog') === 'blog');
+  const posts = (await getAllPosts(locale)).filter((p: BlogPost) => (p.category ?? 'blog') === 'blog');
 
   return (
     <main className="mx-auto max-w-3xl px-4 pt-28 pb-16">
@@ -62,26 +81,4 @@ export default async function BlogIndex({ params }: { params: Promise<{ locale: 
       </section>
     </main>
   );
-}
-
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'BlogIndex' });
-  return {
-    title: `${t('title')} | Mario Raach`,
-    alternates: {
-      canonical:
-        locale === 'de' ? `https://www.marioraach.de/blog` : `https://www.marioraach.de/en/blog`,
-      languages: {
-        de: `https://www.marioraach.de/blog`,
-        en: `https://www.marioraach.de/en/blog`,
-        // 'x-default' could be added if locale detection is introduced
-      },
-    },
-  };
 }

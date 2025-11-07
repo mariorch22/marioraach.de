@@ -1,4 +1,4 @@
-export const query = (language: string) => `
+export const allPostsQuery = (language: string) => `
 {
   blogCollection(order: publishingDate_DESC, locale: "${language}") {
     items {

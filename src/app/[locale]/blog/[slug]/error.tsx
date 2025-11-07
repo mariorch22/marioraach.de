@@ -1,7 +1,7 @@
 'use client';
 import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
-import { ErrorPresentation } from '@/components/ui/errors/ErrorPresentation';
+import ErrorPresentation from '@/components/ui/errors/ErrorPresentation';
 import { getErrorTexts } from '@/i18n/errorTexts';
 
 interface BlogErrorPageProps {

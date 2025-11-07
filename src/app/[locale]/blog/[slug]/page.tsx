@@ -1,6 +1,5 @@
 import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
-
 import DividerPresentation from '@/components/ui/divider/DividerPresentation';
 import { contentfulEnv } from '@/lib/env';
 import BlogContentContainer from '@/features/blog/BlogContentContainer';

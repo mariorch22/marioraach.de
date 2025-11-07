@@ -7,6 +7,27 @@ import type { Metadata } from 'next';
 export const dynamic = 'force-static';
 
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const isDe = locale === 'de';
+  const title = isDe ? 'Essays (Gedanken)' : 'Essays (Thoughts)';
+  return {
+    title: `${title} | Mario Raach`,
+    alternates: {
+      canonical: isDe ? `https://www.marioraach.de/essays` : `https://www.marioraach.de/en/essays`,
+      languages: {
+        de: `https://www.marioraach.de/essays`,
+        en: `https://www.marioraach.de/en/essays`,
+      },
+    },
+  };
+}
+
+
 export default async function EssaysIndex({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -61,25 +82,4 @@ export default async function EssaysIndex({ params }: { params: Promise<{ locale
       </section>
     </main>
   );
-}
-
-
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ locale: string }>;
-}): Promise<Metadata> {
-  const { locale } = await params;
-  const isDe = locale === 'de';
-  const title = isDe ? 'Essays (Gedanken)' : 'Essays (Thoughts)';
-  return {
-    title: `${title} | Mario Raach`,
-    alternates: {
-      canonical: isDe ? `https://www.marioraach.de/essays` : `https://www.marioraach.de/en/essays`,
-      languages: {
-        de: `https://www.marioraach.de/essays`,
-        en: `https://www.marioraach.de/en/essays`,
-      },
-    },
-  };
 }

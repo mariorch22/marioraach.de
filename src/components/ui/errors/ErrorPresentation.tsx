@@ -7,7 +7,7 @@ interface ErrorPresentationProps {
   onRetry: () => void;
 }
 
-export const ErrorPresentation = ({ title, retryText, backHomeText, onRetry }: ErrorPresentationProps) => (
+const ErrorPresentation = ({ title, retryText, backHomeText, onRetry }: ErrorPresentationProps) => (
   <main className="overflow-hidden flex flex-col items-center gap-4 mt-40 px-4 text-white">
     <h1 className="text-xl font-semibold">{title}</h1>
     <div className="flex gap-3">
@@ -27,3 +27,5 @@ export const ErrorPresentation = ({ title, retryText, backHomeText, onRetry }: E
     </div>
   </main>
 );
+
+export default ErrorPresentation;
