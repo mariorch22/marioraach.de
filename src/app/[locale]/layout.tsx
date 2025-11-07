@@ -2,7 +2,7 @@ import localFont from 'next/font/local';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
 import ScrollManagerContainer from '@/features/layout/scroll-manager/ScrollManagerContainer';
 import FooterContainer from '@/features/layout/footer/FooterContainer';
 import NavbarContainer from '@/features/layout/navbar/NavbarContainer';
@@ -164,10 +164,19 @@ export default async function LocaleLayout({ children, params }: Props) {
           {locale === 'de' ? 'Zum Inhalt springen' : 'Skip to main content'}
         </a>
         <NextIntlClientProvider>
-          <ScrollManagerContainer />
-          <NavbarContainer />
+
+          <Suspense fallback={<div>Loading...</div>}>
+            <ScrollManagerContainer />
+          </Suspense>
+
+          <Suspense fallback={<div>Loading...</div>}>
+            <NavbarContainer />
+          </Suspense>
+
           <div id="main">{children}</div>
-          <FooterContainer />
+          <Suspense fallback={<div>Loading...</div>}>
+            <FooterContainer />
+          </Suspense>
         </NextIntlClientProvider>
       </body>
     </html>

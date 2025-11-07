@@ -1,4 +1,4 @@
-export const blogBySlug = (slug: string, language: string) => `
+export const essayQuery = (slug: string, language: string) => `
 {
   blogCollection(where: { slug: "${slug}" }, limit: 1, locale: "${language}") {
     items {

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import BlogContentContainer from '@/features/blog/BlogContentContainer';
 import BlogHeaderContainer from '@/features/blog/BlogHeaderContainer';
-import { query as blogQuery } from '@/app/[locale]/blog/[slug]/components/graphql_query'; // reuse blog query but we only need the slug here via essays route
+import { essayQuery } from '@/lib/contentful/queries/essays';
 import DividerPresentation from '@/components/ui/divider/DividerPresentation';
 import { contentfulEnv } from '@/lib/env';
 
@@ -15,7 +15,7 @@ async function getPost(slug: string, locale: string) {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${accessToken}`,
     },
-    body: JSON.stringify({ query: blogQuery(slug, locale) }),
+    body: JSON.stringify({ query: essayQuery(slug, locale) }),
   });
   if (!response.ok) throw new Error('Contentful API error');
   const json = await response.json();

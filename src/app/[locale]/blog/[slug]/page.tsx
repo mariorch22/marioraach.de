@@ -3,10 +3,9 @@ import { setRequestLocale } from 'next-intl/server';
 
 import DividerPresentation from '@/components/ui/divider/DividerPresentation';
 import { contentfulEnv } from '@/lib/env';
-
 import BlogContentContainer from '@/features/blog/BlogContentContainer';
 import BlogHeaderContainer from '@/features/blog/BlogHeaderContainer';
-import { query } from './components/graphql_query';
+import { blogQuery } from '@/lib/contentful/queries/blog';
 
 async function getBlogPost(slug: string, locale: string) {
   const { spaceId, accessToken } = contentfulEnv;
@@ -17,7 +16,7 @@ async function getBlogPost(slug: string, locale: string) {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${accessToken}`,
     },
-    body: JSON.stringify({ query: query(slug, locale) }),
+    body: JSON.stringify({ query: blogQuery(slug, locale) }),
   });
 
   if (!response.ok) {
@@ -97,7 +96,7 @@ export async function generateMetadata({
   }
 }
 
-export default async function BlogPost({
+export default async function BlogPage({
   params,
 }: {
   params: Promise<{ locale: string; slug: string }>;
@@ -105,67 +104,57 @@ export default async function BlogPost({
   const { locale, slug } = await params;
   setRequestLocale(locale);
 
-  try {
-    const postsData = await getBlogPost(slug, locale);
+  const postsData = await getBlogPost(slug, locale);
 
-    if (!postsData) {
-      return (
-        <main className="overflow-hidden flex flex-col justify-center items-center gap-12 font-inter text-normal mt-40 px-4">
-          <DividerPresentation />
-          <p className="text-red-500">Blog post not found</p>
-        </main>
-      );
-    }
-
-    const articleJsonLd = {
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      headline: postsData.title,
-      description: postsData.summary,
-      author: {
-        '@type': 'Person',
-        name: 'Mario Raach',
-        url: 'https://www.marioraach.de',
-      },
-      publisher: {
-        '@type': 'Person',
-        name: 'Mario Raach',
-        url: 'https://www.marioraach.de',
-      },
-      datePublished: postsData.publishingDate,
-      dateModified: postsData.publishingDate,
-      url: `https://www.marioraach.de/${locale}/blog/${slug}`,
-      image: 'https://www.marioraach.de/images/og-image.jpg',
-      articleSection: postsData.category === 'essays' ? 'Essay' : 'Technology',
-      keywords: ['Data Science', 'Machine Learning', 'AI', 'Technology'],
-      inLanguage: locale === 'de' ? 'de-DE' : 'en-US',
-    };
-
-    return (
-      <>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-        />
-        <main className="overflow-hidden flex flex-col justify-center items-center gap-12 font-inter text-normal mt-40 px-4">
-          <BlogHeaderContainer
-            title={postsData.title}
-            summary={postsData.summary}
-            publishingDate={postsData.publishingDate}
-            locale={locale}
-          />
-          <DividerPresentation />
-          <BlogContentContainer blog={postsData} />
-        </main>
-      </>
-    );
-  } catch (error) {
-    console.error('Error loading blog post:', error);
+  if (!postsData) {
     return (
       <main className="overflow-hidden flex flex-col justify-center items-center gap-12 font-inter text-normal mt-40 px-4">
         <DividerPresentation />
-        <p className="text-red-500">Error loading blog post</p>
+        <p className="text-red-500">Blog post not found</p>
       </main>
     );
   }
+
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: postsData.title,
+    description: postsData.summary,
+    author: {
+      '@type': 'Person',
+      name: 'Mario Raach',
+      url: 'https://www.marioraach.de',
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Mario Raach',
+      url: 'https://www.marioraach.de',
+    },
+    datePublished: postsData.publishingDate,
+    dateModified: postsData.publishingDate,
+    url: `https://www.marioraach.de/${locale}/blog/${slug}`,
+    image: 'https://www.marioraach.de/images/og-image.jpg',
+    articleSection: postsData.category === 'essays' ? 'Essay' : 'Technology',
+    keywords: ['Data Science', 'Machine Learning', 'AI', 'Technology'],
+    inLanguage: locale === 'de' ? 'de-DE' : 'en-US',
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <main className="overflow-hidden flex flex-col justify-center items-center gap-12 font-inter text-normal mt-40 px-4">
+        <BlogHeaderContainer
+          title={postsData.title}
+          summary={postsData.summary}
+          publishingDate={postsData.publishingDate}
+          locale={locale}
+        />
+        <DividerPresentation />
+        <BlogContentContainer blog={postsData} />
+      </main>
+    </>
+  );
 }
