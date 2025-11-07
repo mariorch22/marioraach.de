@@ -1,21 +1,29 @@
+import { Metadata } from 'next';
 
-export const SITE_CONFIG = {
-    name: 'Mario Raach',
-    url: 'https://www.marioraach.de',
-    author: {
-      name: 'Mario Raach',
-      url: 'https://www.marioraach.de',
-    },
-    ogImage: {
-      url: '/images/og-image.jpg',
-      width: 1200,
-      height: 630,
-      alt: 'Mario Raach - Data Science & KI Blog',
-    },
-  } as const;
-  
-  export const getFeeds = (locale: string) => [
-    { url: '/api/blog.xml', title: locale === 'de' ? 'Blog (DE)' : 'Blog (EN)' },
-    { url: '/api/essays.xml', title: locale === 'de' ? 'Essays (DE)' : 'Essays (EN)' },
-    { url: '/api/all.xml', title: locale === 'de' ? 'Alle Beiträge' : 'All posts' },
-  ];
+export const BASE_URL = 'https://www.marioraach.de';
+export const AUTHOR = { name: 'Mario Raach', url: BASE_URL };
+export const OG_IMAGE_URL = '/images/og-image.jpg';
+
+// Statische Metadaten, die du wiederverwenden kannst
+export const staticMetadata: Partial<Metadata> = {
+  metadataBase: new URL(BASE_URL),
+  authors: [AUTHOR],
+  icons: {
+    icon: [
+      { url: '/images/icon.ico' },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: [OG_IMAGE_URL],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
+};

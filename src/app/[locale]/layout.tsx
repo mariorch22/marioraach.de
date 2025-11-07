@@ -1,4 +1,3 @@
-import localFont from 'next/font/local';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
@@ -8,31 +7,9 @@ import FooterContainer from '@/features/layout/footer/FooterContainer';
 import NavbarContainer from '@/features/layout/navbar/NavbarContainer';
 import { routing } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
+import { inter } from '@/lib/fonts';
 import '@/app/globals.css';
 
-
-const inter = localFont({
-  src: [
-    {
-      path: '../../../public/fonts/Inter/static/Inter_24pt-Regular.ttf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../../../public/fonts/Inter/static/Inter_24pt-SemiBold.ttf',
-      weight: '600',
-      style: 'normal',
-    },
-    {
-      path: '../../../public/fonts/Inter/static/Inter_24pt-Bold.ttf',
-      weight: '700',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-inter',
-  display: 'swap',
-  preload: true,
-});
 
 type Props = {
   children: ReactNode;
@@ -132,27 +109,8 @@ export default async function LocaleLayout({ children, params }: Props) {
   // Enable static rendering
   setRequestLocale(locale);
 
-  const siteJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: 'Mario Raach',
-    url: 'https://www.marioraach.de',
-    inLanguage: locale === 'de' ? 'de-DE' : 'en-US',
-    sameAs: ['https://github.com/mariorch22', 'https://www.linkedin.com/in/mario-r-b88950238'],
-    description:
-      locale === 'de'
-        ? 'Blog & Projekte rund um Data Science, ML und KI.'
-        : 'Blog & projects around data science, ML and AI.',
-  };
-
   return (
     <html className={cn('min-h-full', inter.variable)} lang={locale}>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
-        />
-      </head>
       <body
         className="flex flex-col font-sans antialiased bg-background text-foreground"
         suppressHydrationWarning
