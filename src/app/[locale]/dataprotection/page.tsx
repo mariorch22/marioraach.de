@@ -21,7 +21,7 @@ export default async function DataProtectionPage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: 'DataProtection' });
+  const translations = await getTranslations({ locale, namespace: 'DataProtection' });
 
-  return <DataProtectionContainer t={t} locale={locale} />;
+  return <DataProtectionContainer translations={translations} locale={locale} />;
 }

@@ -18,7 +18,7 @@ function LanguageSelectorPresentation({ data }: LanguageSelectorPresentationProp
         <li key={item.locale}>
           <Link
             href={item.href}
-            locale={item.locale as any}
+            locale={item.locale}
             className={
               item.isActive ? 'font-bold text-white' : 'text-neutral-400 hover:text-neutral-200'
             }

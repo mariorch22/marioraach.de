@@ -1,12 +1,12 @@
 import DataProtectionPresentation from '@/components/ui/data-protection/DataProtectionPresentation';
 
 interface DataProtectionContainerProps {
-  t: any;
+  translations: Awaited<ReturnType<typeof import('next-intl/server').getTranslations>>;
   locale: string;
 }
 
-const DataProtectionContainer = ({ t, locale }: DataProtectionContainerProps) => {
-  return <DataProtectionPresentation t={t} locale={locale} />;
+const DataProtectionContainer = ({ translations, locale }: DataProtectionContainerProps) => {
+  return <DataProtectionPresentation translations={translations} locale={locale} />;
 };
 
 export default DataProtectionContainer;

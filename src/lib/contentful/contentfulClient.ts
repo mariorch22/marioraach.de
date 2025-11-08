@@ -1,8 +1,9 @@
 import { contentfulEnv } from '@/lib/env'; // Behält den Import bei, um die Umgebungsvariablen zu nutzen
+import { GraphQLError } from 'graphql';
 
 export async function fetchContentful<T>(
   query: string,
-  variables: Record<string, any> = {}
+  variables: Record<string, string> = {}
 ): Promise<T> {
   const { spaceId, accessToken } = contentfulEnv;
   const apiUrl = `https://graphql.contentful.com/content/v1/spaces/${spaceId}/`;
@@ -23,7 +24,7 @@ export async function fetchContentful<T>(
     throw new Error(`Contentful API error: ${response.status} ${response.statusText}`);
   }
 
-  const json: { data?: T; errors?: any } = await response.json();
+  const json: { data?: T; errors?: GraphQLError[] } = await response.json();
 
   if (json.errors) {
     console.error('GraphQL query failed', json.errors);
