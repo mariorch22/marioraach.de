@@ -1,7 +1,7 @@
 import HomeHero from '@/components/ui/home/HomeHero';
 import HomeContentToggle from '@/components/ui/home/HomeContentToggle';
 import PostList from '@/components/ui/home/PostList';
-import { getAllPosts } from '@/lib/contentful/api/allPosts';
+import { getAllPosts } from '@/lib/contentful/api/postApi';
 import { BlogPost } from '@/types/blog';
 
 interface HomeContentProps {
@@ -23,7 +23,6 @@ const HomeContent = async ({ data, locale }: HomeContentProps) => {
 
   return (
     <main className="mx-auto max-w-3xl px-4 pt-20 pb-8 mt-20">
-        
       <HomeHero title={data.heroTitle} subline={data.heroSubline} />
 
       <HomeContentToggle leftLabel={data.tabs.blog} rightLabel={data.tabs.essays}>

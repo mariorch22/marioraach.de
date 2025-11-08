@@ -28,17 +28,17 @@ const ImprintPresentation = ({ data }: ImprintPresentationProps) => {
 
           <div className="rounded-lg p-4 sm:p-6 mb-8 space-y-4">
             <ContactCard title={data.operator.title} content={data.operator.name} />
-            <ContactCard 
-              title={data.address.title} 
+            <ContactCard
+              title={data.address.title}
               content={
                 <>
                   {data.address.street}
                   <br />
                   {data.address.city}
                 </>
-              } 
+              }
             />
-            <ContactCard 
+            <ContactCard
               title={data.contact.title}
               content={
                 <a
@@ -49,7 +49,7 @@ const ImprintPresentation = ({ data }: ImprintPresentationProps) => {
                 </a>
               }
             />
-            <ContactCard 
+            <ContactCard
               title={data.responsible.title}
               content={
                 <>

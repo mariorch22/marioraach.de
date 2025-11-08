@@ -11,7 +11,7 @@ interface BlogErrorPageProps {
 
 export default function BlogErrorPage({ error, reset }: BlogErrorPageProps) {
   const { locale } = useParams<{ locale: string }>();
-  
+
   useEffect(() => {
     console.error('Blog error:', error);
   }, [error]);

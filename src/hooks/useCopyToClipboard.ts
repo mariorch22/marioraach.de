@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 
-
 const useCopyToClipboard = () => {
   const copyToClipboard = useCallback(async (text: string) => {
     if (!navigator?.clipboard) {

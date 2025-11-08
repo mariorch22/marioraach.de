@@ -3,7 +3,6 @@ import DividerPresentation from '@/components/ui/divider/DividerPresentation';
 import { Link } from '@/i18n/navigation';
 import { Suspense } from 'react';
 
-
 interface FooterPresentationProps {
   copyrightHolder: string;
   currentYear: number;
@@ -11,8 +10,12 @@ interface FooterPresentationProps {
   dataProtectionLabel: string;
 }
 
-
-function FooterPresentation({ copyrightHolder, currentYear, imprintLabel, dataProtectionLabel }: FooterPresentationProps) {
+function FooterPresentation({
+  copyrightHolder,
+  currentYear,
+  imprintLabel,
+  dataProtectionLabel,
+}: FooterPresentationProps) {
   return (
     <footer className="mt-16 md:mt-24">
       <DividerPresentation />

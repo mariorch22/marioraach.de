@@ -7,18 +7,25 @@ export interface BlogHeaderProps {
   locale?: string;
 }
 
-const BlogHeaderContainer = ({ title, summary, publishingDate, locale = 'en' }: BlogHeaderProps) => {
-  
+const BlogHeaderContainer = ({
+  title,
+  summary,
+  publishingDate,
+  locale = 'en',
+}: BlogHeaderProps) => {
   const summaryLabel = locale === 'de' ? 'Zusammenfassung' : 'Summary';
 
   let formattedDate: string | undefined;
   if (publishingDate) {
-    formattedDate = new Date(publishingDate).toLocaleDateString(locale === 'de' ? 'de-DE' : 'en-US', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric',
-      timeZone: 'UTC',
-    });
+    formattedDate = new Date(publishingDate).toLocaleDateString(
+      locale === 'de' ? 'de-DE' : 'en-US',
+      {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        timeZone: 'UTC',
+      }
+    );
   }
 
   return (

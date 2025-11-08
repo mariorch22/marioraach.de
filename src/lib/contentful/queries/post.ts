@@ -1,4 +1,18 @@
-export const essayQuery = (slug: string, language: string) => `
+export const allPostsQuery = (language: string) => `
+{
+  blogCollection(order: publishingDate_DESC, locale: "${language}") {
+    items {
+      slug
+      title
+      summary
+      publishingDate
+      category
+    }
+  }
+}
+`;
+
+export const singlePostQuery = (slug: string, language: string) => `
 {
   blogCollection(where: { slug: "${slug}" }, limit: 1, locale: "${language}") {
     items {

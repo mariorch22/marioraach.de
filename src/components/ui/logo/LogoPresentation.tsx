@@ -1,13 +1,11 @@
 import Image from 'next/image';
 import { Link } from '@/i18n/navigation';
 
-
 interface LogoPresentationProps {
   targetLocale: string;
   ariaLabel: string;
   altText: string;
 }
-
 
 /**
  * @component LogoPresentation
@@ -15,11 +13,7 @@ interface LogoPresentationProps {
  */
 const LogoPresentation = ({ targetLocale, ariaLabel, altText }: LogoPresentationProps) => {
   return (
-    <Link
-      href={'/'}
-      locale={targetLocale}
-      aria-label={ariaLabel}
-    >
+    <Link href={'/'} locale={targetLocale} aria-label={ariaLabel}>
       <Image
         src="/images/logo_r.png"
         alt={altText}

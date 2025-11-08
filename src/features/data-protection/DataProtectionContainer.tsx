@@ -1,6 +1,5 @@
 import DataProtectionPresentation from '@/components/ui/data-protection/DataProtectionPresentation';
 
-
 interface DataProtectionContainerProps {
   t: any;
   locale: string;

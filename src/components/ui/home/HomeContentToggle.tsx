@@ -2,7 +2,6 @@
 import { Children, ReactNode, useMemo, useState } from 'react';
 import { cn } from '@/lib/utils';
 
-
 type Props = {
   children: ReactNode;
   leftLabel?: string;
@@ -34,9 +33,7 @@ export default function HomeContentToggle({
               onClick={() => setSelected('left')}
               className={cn(
                 'inline-block border-b-2 pb-3',
-                selected === 'left'
-                  ? 'border-white'
-                  : 'border-transparent hover:border-neutral-600',
+                selected === 'left' ? 'border-white' : 'border-transparent hover:border-neutral-600'
               )}
             >
               {leftLabel}
@@ -50,7 +47,7 @@ export default function HomeContentToggle({
                 'inline-block border-b-2 pb-3',
                 selected === 'right'
                   ? 'border-white'
-                  : 'border-transparent hover:border-neutral-600',
+                  : 'border-transparent hover:border-neutral-600'
               )}
             >
               {rightLabel}

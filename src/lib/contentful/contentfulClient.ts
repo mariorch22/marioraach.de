@@ -1,9 +1,8 @@
 import { contentfulEnv } from '@/lib/env'; // Behält den Import bei, um die Umgebungsvariablen zu nutzen
 
-
 export async function fetchContentful<T>(
   query: string,
-  variables: Record<string, any> = {},
+  variables: Record<string, any> = {}
 ): Promise<T> {
   const { spaceId, accessToken } = contentfulEnv;
   const apiUrl = `https://graphql.contentful.com/content/v1/spaces/${spaceId}/`;
@@ -15,7 +14,7 @@ export async function fetchContentful<T>(
       Authorization: `Bearer ${accessToken}`,
     },
     body: JSON.stringify({ query, variables }),
-    next: { revalidate: 600 }, 
+    next: { revalidate: 600 },
   });
 
   if (!response.ok) {
@@ -31,5 +30,5 @@ export async function fetchContentful<T>(
     throw new Error(`GraphQL query failed: ${JSON.stringify(json.errors)}`);
   }
 
-  return json.data as T; 
+  return json.data as T;
 }

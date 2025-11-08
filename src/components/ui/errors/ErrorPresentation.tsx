@@ -18,10 +18,7 @@ const ErrorPresentation = ({ title, retryText, backHomeText, onRetry }: ErrorPre
       >
         {retryText}
       </button>
-      <Link
-        href="/"
-        className="rounded bg-white/10 px-3 py-2 hover:bg-white/15 transition-colors"
-      >
+      <Link href="/" className="rounded bg-white/10 px-3 py-2 hover:bg-white/15 transition-colors">
         {backHomeText}
       </Link>
     </div>

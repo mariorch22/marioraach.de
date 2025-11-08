@@ -1,13 +1,12 @@
 import { cn } from '@/lib/utils';
 
-
 interface DividerProps {
   className?: string;
 }
 
 /**
  * Responsible for rendering a divider component
- * 
+ *
  * @param className - Optional className
  * @returns Divider component
  */
@@ -18,7 +17,7 @@ const Divider = ({ className }: DividerProps) => {
       aria-label="Divider"
       className={cn(
         'mt-6 h-1 w-full bg-gradient-to-r from-transparent via-gray-200 to-transparent opacity-0 max-w-[60rem] mx-auto animate-fade-in-expand',
-        className,
+        className
       )}
       style={{
         height: '1px',

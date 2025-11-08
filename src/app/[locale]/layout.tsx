@@ -10,7 +10,6 @@ import { cn } from '@/lib/utils';
 import { inter } from '@/lib/fonts';
 import '@/app/globals.css';
 
-
 type Props = {
   children: ReactNode;
   params: Promise<{ locale: string }>;
@@ -122,7 +121,6 @@ export default async function LocaleLayout({ children, params }: Props) {
           {locale === 'de' ? 'Zum Inhalt springen' : 'Skip to main content'}
         </a>
         <NextIntlClientProvider>
-
           <Suspense fallback={<div>Loading...</div>}>
             <ScrollManagerContainer />
           </Suspense>

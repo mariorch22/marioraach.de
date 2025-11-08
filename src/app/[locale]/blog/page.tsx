@@ -1,9 +1,8 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { getAllPosts } from '@/lib/contentful/api/allPosts';
+import { getAllPosts } from '@/lib/contentful/api/postApi';
 import type { Metadata } from 'next';
 import { BlogPost } from '@/types/blog';
-
 
 export async function generateMetadata({
   params,
@@ -30,7 +29,9 @@ export default async function BlogIndex({ params }: { params: Promise<{ locale: 
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'BlogIndex' });
-  const posts = (await getAllPosts(locale)).filter((p: BlogPost) => (p.category ?? 'blog') === 'blog');
+  const posts = (await getAllPosts(locale)).filter(
+    (p: BlogPost) => (p.category ?? 'blog') === 'blog'
+  );
 
   return (
     <main className="mx-auto max-w-3xl px-4 pt-28 pb-16">
@@ -51,7 +52,7 @@ export default async function BlogIndex({ params }: { params: Promise<{ locale: 
                   month: '2-digit',
                   year: 'numeric',
                   timeZone: 'UTC',
-                },
+                }
               )
             : '';
           const excerptSrc = (post.summary ?? '').replace(/\s+/g, ' ').trim();

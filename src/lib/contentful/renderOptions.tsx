@@ -1,4 +1,3 @@
-
 import { Options } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS, INLINES, Mark } from '@contentful/rich-text-types';
 import { createAssetGetter } from '@/lib/contentful/assetHelpers';
@@ -17,9 +16,7 @@ export const createRenderOptions = (
     [MARKS.UNDERLINE]: (text) => <u>{text}</u>,
     [MARKS.CODE]: (text) => {
       const codeId = `code-${Math.random().toString(36).substring(2, 11)}`;
-      return (
-        <CodeBlock text={text} handleCopy={handleCopy} copiedId={copiedId} codeId={codeId} />
-      );
+      return <CodeBlock text={text} handleCopy={handleCopy} copiedId={copiedId} codeId={codeId} />;
     },
   },
   renderNode: {
@@ -28,7 +25,7 @@ export const createRenderOptions = (
         (item) =>
           'marks' in item &&
           item.marks?.includes('code' as unknown as Mark) &&
-          item.marks.length === 1,
+          item.marks.length === 1
       );
       if (hasOnlyCodeMarks) {
         const codeId = `code-block-${Math.random().toString(36).substring(2, 11)}`;

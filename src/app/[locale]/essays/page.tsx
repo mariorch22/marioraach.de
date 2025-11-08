@@ -1,11 +1,8 @@
 import { setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { fetchPosts } from '@/lib/contentful/contentful';
+import { getAllPosts } from '@/lib/contentful/api/postApi';
 import type { Metadata } from 'next';
-
-
-export const dynamic = 'force-static';
-
+import { BlogPost } from '@/types/blog';
 
 export async function generateMetadata({
   params,
@@ -27,11 +24,12 @@ export async function generateMetadata({
   };
 }
 
-
 export default async function EssaysIndex({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const posts = (await fetchPosts(locale, 100)).filter((p) => (p.category ?? 'blog') === 'essays');
+  const posts = (await getAllPosts(locale)).filter(
+    (p: BlogPost) => (p.category ?? 'essay') === 'essay'
+  );
 
   return (
     <main className="mx-auto max-w-3xl px-4 pt-28 pb-16">
@@ -43,7 +41,7 @@ export default async function EssaysIndex({ params }: { params: Promise<{ locale
       </header>
 
       <section className="mt-8 divide-y divide-white/5">
-        {posts.map((post) => {
+        {posts.map((post: BlogPost) => {
           const dateStr = post.publishingDate
             ? new Date(post.publishingDate).toLocaleDateString(
                 locale === 'de' ? 'de-DE' : 'en-US',
@@ -52,7 +50,7 @@ export default async function EssaysIndex({ params }: { params: Promise<{ locale
                   month: '2-digit',
                   year: 'numeric',
                   timeZone: 'UTC',
-                },
+                }
               )
             : '';
           const excerptSrc = (post.summary ?? '').replace(/\s+/g, ' ').trim();

@@ -12,7 +12,7 @@ export default function EssayErrorPage({
   reset: () => void;
 }) {
   const { locale } = useParams<{ locale: string }>();
-  
+
   useEffect(() => {
     console.error('Essay error:', error);
   }, [error]);

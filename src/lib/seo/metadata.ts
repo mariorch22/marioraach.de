@@ -9,9 +9,7 @@ export const staticMetadata: Partial<Metadata> = {
   metadataBase: new URL(BASE_URL),
   authors: [AUTHOR],
   icons: {
-    icon: [
-      { url: '/images/icon.ico' },
-    ],
+    icon: [{ url: '/images/icon.ico' }],
   },
   twitter: {
     card: 'summary_large_image',

@@ -18,9 +18,7 @@ export const PostListItem = ({ post, locale, basePath, label }: PostListItemProp
       <h3 className="text-base md:text-lg font-semibold">
         <Link href={`${basePath}/${post.slug}`}>{post.title}</Link>
       </h3>
-      {excerpt && (
-        <p className="mt-1 text-sm text-white/60">{excerpt}</p>
-      )}
+      {excerpt && <p className="mt-1 text-sm text-white/60">{excerpt}</p>}
       <div className="mt-0.5 text-[11px] text-white/40 flex items-center gap-1">
         <span className="tabular-nums">{dateStr}</span>
         <span>·</span>

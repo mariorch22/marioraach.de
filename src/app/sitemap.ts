@@ -1,126 +1,29 @@
+// app/sitemap.ts
 import { MetadataRoute } from 'next';
-import { contentfulEnv } from '@/lib/env';
-
-
-const baseUrl = 'https://www.marioraach.de';
-
-
-type BlogPost = {
-  slug: string;
-  publishingDate: string | Date;
-};
-
-
-async function getBlogPosts() {
-  try {
-    const query = `
-      {
-        blogCollection(order: publishingDate_DESC) {
-          items {
-            slug
-            publishingDate
-            category
-          }
-        }
-      }
-    `;
-
-    const response = await fetch(
-      `https://graphql.contentful.com/content/v1/spaces/${contentfulEnv.spaceId}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${contentfulEnv.accessToken}`,
-        },
-        body: JSON.stringify({ query }),
-      },
-    );
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch blog posts');
-    }
-
-    const { data } = await response.json();
-    return data.blogCollection.items;
-  } catch (error) {
-    console.error('Error fetching blog posts for sitemap:', error);
-    return [];
-  }
-}
-
+import { getAllPosts } from '@/lib/contentful/api/postApi';
+import { createStaticPageEntry, createPostEntry } from '@/lib/seo/sitemap';
+import { BlogPost } from '@/types/blog';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const blogPosts = await getBlogPosts();
+  const [postsDe, postsEn] = await Promise.all([getAllPosts('de'), getAllPosts('en')]);
 
-  const staticPages = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 1,
-      alternates: {
-        languages: {
-          // Default locale (de) should be unprefixed with localePrefix: 'as-needed'
-          de: `${baseUrl}`,
-          en: `${baseUrl}/en`,
-        },
-      },
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-      alternates: {
-        languages: {
-          de: `${baseUrl}/blog`,
-          en: `${baseUrl}/en/blog`,
-        },
-      },
-    },
-    {
-      url: `${baseUrl}/imprint`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.3,
-      alternates: {
-        languages: {
-          de: `${baseUrl}/imprint`,
-          en: `${baseUrl}/en/imprint`,
-        },
-      },
-    },
-    {
-      url: `${baseUrl}/dataprotection`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly' as const,
-      priority: 0.3,
-      alternates: {
-        languages: {
-          de: `${baseUrl}/dataprotection`,
-          en: `${baseUrl}/en/dataprotection`,
-        },
-      },
-    },
+  const staticUrls: MetadataRoute.Sitemap = [
+    createStaticPageEntry('', 'monthly', 1),
+    createStaticPageEntry('blog', 'weekly', 0.8),
+    createStaticPageEntry('essays', 'weekly', 0.8),
+    createStaticPageEntry('imprint', 'yearly', 0.3),
+    createStaticPageEntry('dataprotection', 'yearly', 0.3),
   ];
 
-  const blogPageUrls = blogPosts.map((post: BlogPost & { category?: string }) => {
-    const segment = (post.category ?? 'blog') === 'essays' ? 'essays' : 'blog';
-    return {
-      url: `${baseUrl}/${segment}/${post.slug}`,
-      lastModified: new Date(post.publishingDate),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-      alternates: {
-        languages: {
-          // Default locale (de) is unprefixed
-          de: `${baseUrl}/${segment}/${post.slug}`,
-          en: `${baseUrl}/en/${segment}/${post.slug}`,
-        },
-      },
-    };
-  });
+  const allPosts = deduplicatePosts(postsDe, postsEn);
+  const postUrls: MetadataRoute.Sitemap = allPosts.map(createPostEntry);
 
-  return [...staticPages, ...blogPageUrls];
+  return [...staticUrls, ...postUrls];
+}
+
+function deduplicatePosts(postsDe: BlogPost[], postsEn: BlogPost[]): BlogPost[] {
+  const uniqueSlugs = new Set([...postsDe.map((p) => p.slug), ...postsEn.map((p) => p.slug)]);
+  return Array.from(uniqueSlugs).map(
+    (slug) => postsDe.find((p) => p.slug === slug) || postsEn.find((p) => p.slug === slug)!
+  );
 }

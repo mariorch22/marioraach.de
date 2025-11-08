@@ -1,12 +1,12 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 interface HyperlinkProps {
-    uri: string;
-    text: ReactNode;
+  uri: string;
+  text: ReactNode;
 }
 
 const Hyperlink = ({ uri, text }: HyperlinkProps) => {
-    return (
+  return (
     <a
       href={uri}
       className="underline underline-offset-4"
@@ -16,6 +16,6 @@ const Hyperlink = ({ uri, text }: HyperlinkProps) => {
       {text}
     </a>
   );
-}
+};
 
-export default Hyperlink
+export default Hyperlink;

@@ -1,20 +1,18 @@
 interface Asset {
-    sys: { id: string };
-    url?: string;
+  sys: { id: string };
+  url?: string;
 }
 
 interface ContentLinks {
-    assets?: { block?: Asset[] };
+  assets?: { block?: Asset[] };
 }
 
 export const createAssetGetter = (links?: ContentLinks) => {
-    return (assetId: string): string | null => {
-        if (!links?.assets?.block) return null;
+  return (assetId: string): string | null => {
+    if (!links?.assets?.block) return null;
 
-        const asset = links.assets.block.find(
-            (asset) => asset.sys.id === assetId
-        );
+    const asset = links.assets.block.find((asset) => asset.sys.id === assetId);
 
-        return asset?.url ?? null;
-    };
+    return asset?.url ?? null;
+  };
 };

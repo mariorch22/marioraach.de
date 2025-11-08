@@ -1,10 +1,7 @@
 import NavbarPresentation from '@/components/layout/navbar/NavbarPresentation';
 
-
 const Navbar = () => {
-  return (
-    <NavbarPresentation />
-  );
+  return <NavbarPresentation />;
 };
 
 export default Navbar;

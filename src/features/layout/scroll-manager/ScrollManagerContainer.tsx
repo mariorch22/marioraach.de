@@ -6,8 +6,8 @@ import useScrollRestoration from '@/hooks/useScrollRestoration';
  * Must be a Client Component.
  */
 const ScrollManager = (): null => {
-    useScrollRestoration(); 
-    return null;
-}
+  useScrollRestoration();
+  return null;
+};
 
 export default ScrollManager;
