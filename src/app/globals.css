@@ -24,8 +24,20 @@
 }
 
 :root {
+  /* Gray Alpha Scale */
+  --ds-gray-alpha-100: rgba(0, 0, 0, 0.05);
+  --ds-gray-alpha-200: rgba(0, 0, 0, 0.1);
+  --ds-gray-alpha-300: rgba(0, 0, 0, 0.15);
+  --ds-gray-alpha-400: rgba(0, 0, 0, 0.25);
+  --ds-gray-alpha-500: rgba(0, 0, 0, 0.4);
+  --ds-gray-alpha-600: rgba(0, 0, 0, 0.55);
+  --ds-gray-alpha-700: rgba(0, 0, 0, 0.7);
+  --ds-gray-alpha-800: rgba(0, 0, 0, 0.8);
+  --ds-gray-alpha-900: rgba(0, 0, 0, 0.9);
+  --ds-gray-alpha-1000: rgba(0, 0, 0, 1);
+
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: var(--ds-gray-alpha-1000);
   --font-inter: var(--font-inter);
   -webkit-tap-highlight-color: transparent;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -34,19 +46,40 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-gray-alpha-100: var(--ds-gray-alpha-100);
+  --color-gray-alpha-200: var(--ds-gray-alpha-200);
+  --color-gray-alpha-300: var(--ds-gray-alpha-300);
+  --color-gray-alpha-400: var(--ds-gray-alpha-400);
+  --color-gray-alpha-500: var(--ds-gray-alpha-500);
+  --color-gray-alpha-600: var(--ds-gray-alpha-600);
+  --color-gray-alpha-700: var(--ds-gray-alpha-700);
+  --color-gray-alpha-800: var(--ds-gray-alpha-800);
+  --color-gray-alpha-900: var(--ds-gray-alpha-900);
+  --color-gray-alpha-1000: var(--ds-gray-alpha-1000);
   --font-sans:
     'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-heading:
     'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   --font-mono: var(--font-geist-mono);
   --drop-shadow-custom2: drop-shadow(0 3px 3px rgba(255, 255, 255, 0.1));
-  --backgroundGray: 'rgb(17, 17, 17)';
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    /* Inverted Gray Alpha Scale for Dark Mode */
+    --ds-gray-alpha-100: rgba(255, 255, 255, 0.05);
+    --ds-gray-alpha-200: rgba(255, 255, 255, 0.1);
+    --ds-gray-alpha-300: rgba(255, 255, 255, 0.15);
+    --ds-gray-alpha-400: rgba(255, 255, 255, 0.25);
+    --ds-gray-alpha-500: rgba(255, 255, 255, 0.4);
+    --ds-gray-alpha-600: rgba(255, 255, 255, 0.55);
+    --ds-gray-alpha-700: rgba(255, 255, 255, 0.7);
+    --ds-gray-alpha-800: rgba(255, 255, 255, 0.8);
+    --ds-gray-alpha-900: rgba(255, 255, 255, 0.9);
+    --ds-gray-alpha-1000: rgba(255, 255, 255, 1);
+
     --background: rgb(17, 17, 17);
-    --foreground: #ededed;
+    --foreground: var(--ds-gray-alpha-1000);
   }
 }
 
@@ -83,14 +116,14 @@ h6 {
 /* Text Selection Styles */
 * {
   ::selection {
-    background-color: #737373; /* neutral-500 */
+    background-color: var(--ds-gray-alpha-500);
     color: white;
   }
 }
 
 body {
   ::selection {
-    background-color: #737373; /* neutral-500 */
+    background-color: var(--ds-gray-alpha-500);
     color: white;
   }
 }
@@ -130,8 +163,65 @@ body {
   .drop-shadow-custom2 {
     filter: var(--drop-shadow-custom2);
   }
-  .backgroundGray {
-    background-color: var(--backgroundGray);
+  .bg-gray-alpha-100 {
+    background-color: var(--ds-gray-alpha-100);
+  }
+  .bg-gray-alpha-200 {
+    background-color: var(--ds-gray-alpha-200);
+  }
+  .bg-gray-alpha-300 {
+    background-color: var(--ds-gray-alpha-300);
+  }
+  .bg-gray-alpha-600 {
+    background-color: var(--ds-gray-alpha-600);
+  }
+  .bg-gray-alpha-700 {
+    background-color: var(--ds-gray-alpha-700);
+  }
+  .bg-gray-alpha-800 {
+    background-color: var(--ds-gray-alpha-800);
+  }
+  .bg-gray-alpha-900 {
+    background-color: var(--ds-gray-alpha-900);
+  }
+  .bg-gray-alpha-1000 {
+    background-color: var(--ds-gray-alpha-1000);
+  }
+  .text-gray-alpha-200 {
+    color: var(--ds-gray-alpha-200);
+  }
+  .text-gray-alpha-300 {
+    color: var(--ds-gray-alpha-300);
+  }
+  .text-gray-alpha-400 {
+    color: var(--ds-gray-alpha-400);
+  }
+  .text-gray-alpha-500 {
+    color: var(--ds-gray-alpha-500);
+  }
+  .text-gray-alpha-600 {
+    color: var(--ds-gray-alpha-600);
+  }
+  .text-gray-alpha-700 {
+    color: var(--ds-gray-alpha-700);
+  }
+  .text-gray-alpha-800 {
+    color: var(--ds-gray-alpha-800);
+  }
+  .border-gray-alpha-200 {
+    border-color: var(--ds-gray-alpha-200);
+  }
+  .border-gray-alpha-300 {
+    border-color: var(--ds-gray-alpha-300);
+  }
+  .border-gray-alpha-400 {
+    border-color: var(--ds-gray-alpha-400);
+  }
+  .border-gray-alpha-600 {
+    border-color: var(--ds-gray-alpha-600);
+  }
+  .border-gray-alpha-800 {
+    border-color: var(--ds-gray-alpha-800);
   }
   .animate-fade-in-expand {
     animation: fadeInExpand 1s ease-out forwards;

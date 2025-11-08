@@ -39,7 +39,7 @@ export default async function BlogIndex({ params }: { params: Promise<{ locale: 
         <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
           {t('title')}
         </h1>
-        <p className="mt-2 text-neutral-400">{t('subtitle')}</p>
+        <p className="mt-2 text-gray-alpha-400">{t('subtitle')}</p>
       </header>
 
       <section className="mt-8 divide-y divide-white/5">

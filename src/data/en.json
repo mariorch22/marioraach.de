@@ -13,8 +13,8 @@
     "heroTitle": "~/notes",
     "heroSubline": "Data Science study notes. Code, thoughts, experiments.",
     "tabs": {
-      "blog": "Blog (Tech)",
-      "essays": "Essays (Thoughts)"
+      "blog": "Blog",
+      "essays": "Essays"
     },
     "bullets": {
       "repro": "Reproducible experiments",

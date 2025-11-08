@@ -37,7 +37,7 @@ export default async function EssaysIndex({ params }: { params: Promise<{ locale
         <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
           Essays (Gedanken)
         </h1>
-        <p className="mt-2 text-neutral-400">Gedanken mit Belegen. Meinung, nicht Marketing.</p>
+        <p className="mt-2 text-gray-alpha-400">Gedanken mit Belegen. Meinung, nicht Marketing.</p>
       </header>
 
       <section className="mt-8 divide-y divide-white/5">

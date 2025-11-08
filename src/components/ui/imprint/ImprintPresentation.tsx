@@ -72,7 +72,7 @@ const ImprintPresentation = ({ data }: ImprintPresentationProps) => {
                   key={index}
                   title={section.title}
                   content={section.content}
-                  className="border-l-4 border-gray-200 pl-4 hover:border-gray-400 transition-colors"
+                  className="border-l-4 border-gray-alpha-200 pl-4 hover:border-gray-alpha-400 transition-colors"
                 />
               ))}
             </div>

@@ -6,7 +6,7 @@ interface ErrorMessageProps {
 const ErrorMessage = ({ title, message }: ErrorMessageProps) => (
   <div className="items-center justify-center w-full max-w-[60rem]">
     <h1 className="text-center text-xl text-red-600">{title}</h1>
-    {message && <p className="text-center mt-2 text-gray-600">{message}</p>}
+    {message && <p className="text-center mt-2 text-gray-alpha-600">{message}</p>}
   </div>
 );
 

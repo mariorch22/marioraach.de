@@ -16,7 +16,8 @@ export const createRenderOptions = (
     [MARKS.ITALIC]: (text) => <em>{text}</em>,
     [MARKS.UNDERLINE]: (text) => <u>{text}</u>,
     [MARKS.CODE]: (text) => {
-      const codeId = `code-${Math.random().toString(36).substring(2, 11)}`;
+      const textStr = String(text);
+      const codeId = `code-${textStr.slice(0, 20).replace(/\s/g, '-')}`;
       return <CodeBlock text={text} handleCopy={handleCopy} copiedId={copiedId} codeId={codeId} />;
     },
   },
@@ -29,7 +30,8 @@ export const createRenderOptions = (
           item.marks.length === 1
       );
       if (hasOnlyCodeMarks) {
-        const codeId = `code-block-${Math.random().toString(36).substring(2, 11)}`;
+        const textStr = String(children);
+        const codeId = `code-block-${textStr.slice(0, 20).replace(/\s/g, '-')}`;
         return (
           <Paragraph text={children} handleCopy={handleCopy} copiedId={copiedId} codeId={codeId} />
         );
@@ -53,11 +55,11 @@ export const createRenderOptions = (
     [BLOCKS.OL_LIST]: (node, children) => <ol className="list-decimal ml-6 mb-4">{children}</ol>,
     [BLOCKS.LIST_ITEM]: (node, children) => <li className="mb-1">{children}</li>,
     [BLOCKS.QUOTE]: (node, children) => (
-      <blockquote className="border-l-4 border-gray-300 pl-4 italic my-5 text-gray-700">
+      <blockquote className="border-l-4 border-gray-alpha-300 pl-4 italic my-5 text-gray-alpha-700">
         {children}
       </blockquote>
     ),
-    [BLOCKS.HR]: () => <hr className="my-8 border-t border-gray-200" />,
+    [BLOCKS.HR]: () => <hr className="my-8 border-t border-gray-alpha-200" />,
     [INLINES.HYPERLINK]: (node, children) => {
       if ('data' in node && 'uri' in node.data) {
         const { uri } = node.data;

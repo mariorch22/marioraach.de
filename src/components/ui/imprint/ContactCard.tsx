@@ -7,7 +7,7 @@ interface ContactCardProps {
 }
 
 const ContactCard: React.FC<ContactCardProps> = ({ title, content, isLast = false }) => (
-  <div className={`${!isLast ? 'border-b border-gray-200 pb-4' : ''}`}>
+  <div className={`${!isLast ? 'border-b border-gray-alpha-200 pb-4' : ''}`}>
     <h4 className="text-sm font-semibold text-white mb-1">{title}</h4>
     <p className="text-base sm:text-lg text-white">{content}</p>
   </div>

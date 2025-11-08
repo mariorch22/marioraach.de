@@ -22,7 +22,7 @@ function FooterPresentation({
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Copyright */}
-          <p className="text-sm text-neutral-400">
+          <p className="text-sm text-gray-alpha-400">
             &copy; {currentYear} {copyrightHolder}
           </p>
 
@@ -33,7 +33,7 @@ function FooterPresentation({
                 <li>
                   <Link
                     href="/imprint"
-                    className="text-neutral-400 hover:text-neutral-200 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
+                    className="text-gray-alpha-400 hover:text-gray-alpha-200 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
                   >
                     {imprintLabel}
                   </Link>
@@ -41,7 +41,7 @@ function FooterPresentation({
                 <li>
                   <Link
                     href="/dataprotection"
-                    className="text-neutral-400 hover:text-neutral-200 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
+                    className="text-gray-alpha-400 hover:text-gray-alpha-200 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
                   >
                     {dataProtectionLabel}
                   </Link>
@@ -56,7 +56,7 @@ function FooterPresentation({
               <a
                 href="mailto:marioraach01@gmail.com"
                 aria-label="Email Mario Raach"
-                className="inline-flex items-center text-neutral-400 hover:text-neutral-200 opacity-80 hover:opacity-100 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
+                className="inline-flex items-center text-gray-alpha-400 hover:text-gray-alpha-200 opacity-80 hover:opacity-100 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
               >
                 <span className="sr-only">Email</span>
                 <svg
@@ -80,7 +80,7 @@ function FooterPresentation({
               <a
                 href="/all.xml"
                 aria-label="RSS Feed"
-                className="inline-flex items-center text-neutral-400 hover:text-neutral-200 opacity-80 hover:opacity-100 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
+                className="inline-flex items-center text-gray-alpha-400 hover:text-gray-alpha-200 opacity-80 hover:opacity-100 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
               >
                 <span className="sr-only">RSS</span>
                 <svg
@@ -101,7 +101,7 @@ function FooterPresentation({
               <a
                 href="https://github.com/mariorch22"
                 aria-label="GitHub"
-                className="inline-flex items-center text-neutral-400 hover:text-neutral-200 opacity-80 hover:opacity-100 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
+                className="inline-flex items-center text-gray-alpha-400 hover:text-gray-alpha-200 opacity-80 hover:opacity-100 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
                 target="_blank"
                 rel="noopener noreferrer me"
               >
@@ -120,7 +120,7 @@ function FooterPresentation({
               <a
                 href="https://www.linkedin.com/in/mario-r-b88950238"
                 aria-label="LinkedIn"
-                className="inline-flex items-center text-neutral-400 hover:text-neutral-200 opacity-80 hover:opacity-100 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
+                className="inline-flex items-center text-gray-alpha-400 hover:text-gray-alpha-200 opacity-80 hover:opacity-100 transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-white/20 rounded-sm"
                 target="_blank"
                 rel="noopener noreferrer me"
               >

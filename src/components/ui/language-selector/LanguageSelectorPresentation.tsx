@@ -21,7 +21,9 @@ function LanguageSelectorPresentation({ data }: LanguageSelectorPresentationProp
             href={item.href}
             locale={item.locale as 'de' | 'en'}
             className={
-              item.isActive ? 'font-bold text-white' : 'text-neutral-400 hover:text-neutral-200'
+              item.isActive
+                ? 'font-bold text-white'
+                : 'text-gray-alpha-400 hover:text-gray-alpha-200'
             }
             prefetch={false}
           >

@@ -249,8 +249,8 @@ const DataProtectionPresentation = ({ translations, locale }: DataProtectionPres
           </section>
 
           {/* Source */}
-          <div className="mt-12 pt-6 border-t border-gray-200">
-            <p className="text-sm text-gray-600">
+          <div className="mt-12 pt-6 border-t border-gray-alpha-200">
+            <p className="text-sm text-gray-alpha-600">
               {translations('source.label')}{' '}
               <a
                 href="https://www.e-recht24.de"

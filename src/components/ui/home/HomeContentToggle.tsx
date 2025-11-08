@@ -25,7 +25,7 @@ export default function HomeContentToggle({
   return (
     <div className={cn('w-full', className)}>
       {/* Underline tabs */}
-      <nav className="mt-6 border-b border-neutral-800">
+      <nav className="mt-6 border-b border-gray-alpha-800">
         <ul className="flex gap-6 text-sm">
           <li>
             <button
@@ -33,7 +33,9 @@ export default function HomeContentToggle({
               onClick={() => setSelected('left')}
               className={cn(
                 'inline-block border-b-2 pb-3',
-                selected === 'left' ? 'border-white' : 'border-transparent hover:border-neutral-600'
+                selected === 'left'
+                  ? 'border-white'
+                  : 'border-transparent hover:border-gray-alpha-600'
               )}
             >
               {leftLabel}
@@ -47,7 +49,7 @@ export default function HomeContentToggle({
                 'inline-block border-b-2 pb-3',
                 selected === 'right'
                   ? 'border-white'
-                  : 'border-transparent hover:border-neutral-600'
+                  : 'border-transparent hover:border-gray-alpha-600'
               )}
             >
               {rightLabel}
