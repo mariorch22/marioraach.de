@@ -10,7 +10,9 @@
     "lint:fix": "eslint --fix",
     "format": "prettier --check .",
     "format:write": "prettier --write .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "check-all": "npm run typecheck && npm run lint && npm run format",
+    "prepare": "husky"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^16.0.2",
@@ -35,18 +37,20 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-unused-imports": "^4.1.4",
-    "lint-staged": "^16.1.5",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.6",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.9.2"
   },
   "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,css,md,json}": [
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
       "prettier --write"
     ],
-    "**/*.{js,jsx,ts,tsx}": [
-      "next lint --fix --max-warnings=0"
+    "*.{json,css,md}": [
+      "prettier --write"
     ]
   }
 }
