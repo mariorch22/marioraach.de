@@ -1,3 +1,4 @@
+'use client';
 import { Link } from '@/i18n/navigation';
 
 interface LanguageOption {
@@ -18,10 +19,11 @@ function LanguageSelectorPresentation({ data }: LanguageSelectorPresentationProp
         <li key={item.locale}>
           <Link
             href={item.href}
-            locale={item.locale}
+            locale={item.locale as 'de' | 'en'}
             className={
               item.isActive ? 'font-bold text-white' : 'text-neutral-400 hover:text-neutral-200'
             }
+            prefetch={false}
           >
             {item.label}
           </Link>

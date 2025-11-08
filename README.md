@@ -1,49 +1,82 @@
 # Mario Raach - Personal Website
 
-A modern, multilingual personal website built with Next.js 15, featuring a blog powered by Contentful CMS and internationalization support.
+A modern, multilingual personal website built with Next.js 16, featuring a blog powered by Contentful CMS and a clean component architecture.
 
-## 🌟 Features
+## Features
 
 - **Multilingual Support**: German (DE) and English (EN) with automatic locale detection
-- **Blog System**: Contentful CMS integration with GraphQL API
-- **Modern UI**: Built with Tailwind CSS and Framer Motion animations
-- **SEO Optimized**: Complete meta tags, Open Graph, Twitter Cards, and structured data
-- **Performance**: Next.js 15 with Turbopack for fast development
+- **Blog & Essays**: Contentful CMS integration with GraphQL API
+- **Clean Architecture**: Container/Presentation pattern with 20+ specialized UI components
+- **SEO Optimized**: Complete meta tags, Open Graph, Twitter Cards, sitemaps, and RSS feeds
+- **Performance**: Next.js 16 with Turbopack for fast development
 - **TypeScript**: Full type safety throughout the application
 - **Responsive Design**: Mobile-first approach with modern design patterns
+- **Testing**: Comprehensive test coverage for all components with Vitest
 
-## 🚀 Tech Stack
+## Tech Stack
 
-- **Framework**: Next.js 15 (App Router)
+- **Framework**: Next.js 16 (App Router)
+- **Runtime**: React 19
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS v4
-- **Animations**: Framer Motion
 - **CMS**: Contentful (GraphQL API)
 - **Internationalization**: next-intl
-- **Icons**: React Icons
-- **Font**: Inter (Google Fonts)
+- **Font**: Inter (self-hosted)
+- **Testing**: Vitest + React Testing Library + jsdom
 
-## 📁 Project Structure
+## Architecture
+
+The project follows a clean architecture with separation of concerns:
+
+### Component Structure
 
 ```
 src/
-├── app/
-│   └── [locale]/           # Internationalized routes
-│       ├── (home)/         # Home page components
-│       ├── blog/           # Blog pages
-│       ├── dataprotection/ # Legal pages
-│       └── imprint/        # Legal pages
+├── app/[locale]/           # Page components (Next.js App Router)
+│   ├── (home)/            # Home page
+│   ├── blog/[slug]/       # Blog detail & list pages
+│   ├── essays/[slug]/     # Essay detail & list pages
+│   ├── dataprotection/    # Data protection page
+│   └── imprint/           # Imprint page
+│
+├── features/              # Feature containers (business logic)
+│   ├── blog/             # Blog containers
+│   ├── home/             # Home containers
+│   ├── imprint/          # Imprint containers
+│   ├── i18n/             # Language selector container
+│   └── layout/           # Layout containers (footer, navbar, logo)
+│
 ├── components/
-│   ├── common/            # Reusable components
-│   └── layout/            # Layout components
-├── data/                  # Translation files
-├── hooks/                 # Custom React hooks
-├── i18n/                  # Internationalization config
-├── lib/                   # Utility functions
-└── types/                 # TypeScript type definitions
+│   ├── ui/               # Presentation components (pure UI)
+│   │   ├── blog/        # Blog UI components
+│   │   ├── home/        # Home UI components
+│   │   ├── imprint/     # Imprint UI components
+│   │   ├── errors/      # Error & NotFound components
+│   │   ├── logo/        # Logo presentation
+│   │   └── language-selector/ # Language selector UI
+│   └── layout/          # Layout presentation components
+│       ├── footer/      # Footer presentation
+│       └── navbar/      # Navbar presentation
+│
+├── lib/                  # Utilities & helpers
+│   ├── contentful/      # Contentful API & queries
+│   ├── seo/             # SEO utilities
+│   └── utils/           # General utilities
+│
+├── hooks/               # Custom React hooks
+├── i18n/                # Internationalization config
+├── data/                # Translation files (de.json, en.json)
+└── types/               # TypeScript type definitions
 ```
 
-## 🛠️ Getting Started
+### Design Patterns
+
+- **Container/Presentation Pattern**: Features contain business logic, UI components are pure presentation
+- **Colocation**: Components are organized by feature/domain
+- **Type Safety**: Strict TypeScript with comprehensive type definitions
+- **Test Coverage**: Every component has accompanying tests
+
+## Getting Started
 
 ### Prerequisites
 
@@ -92,14 +125,14 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) to view the website.
 
-## 🌐 Internationalization
+## Internationalization
 
 The website supports German (DE) and English (EN) with the following features:
 
 - Automatic locale detection
 - URL-based locale switching (`/de/`, `/en/`)
-- SEO-friendly URLs with locale prefixes
-- Structured data in multiple languages
+- SEO-friendly URLs with locale prefixes and canonical tags
+- Alternate language links for improved SEO
 
 ### Adding New Languages
 
@@ -107,33 +140,53 @@ The website supports German (DE) and English (EN) with the following features:
 2. Create translation files in `src/data/`
 3. Update the routing configuration
 
-## 📝 Blog System
+## Content Management
 
-The blog is powered by Contentful CMS with the following features:
+The website features two content types powered by Contentful CMS:
 
-- GraphQL API integration
-- Rich text rendering with Contentful's Rich Text Renderer
-- SEO-optimized blog posts with structured data
-- Automatic metadata generation
-- Responsive blog layout
+### Blog & Essays
+
+- **GraphQL API integration** for efficient data fetching
+- **Rich text rendering** with custom components (CodeBlock, EmbeddedAsset, Hyperlink, Paragraph)
+- **SEO-optimized** posts with Open Graph and Twitter Card metadata
+- **Automatic metadata generation** for social sharing and search engines
+- **Error handling** with custom error and not-found pages
+- **RSS feeds** at `/api/blog.xml`, `/api/essays.xml`, `/api/all.xml`
 
 ### Contentful Setup
 
 1. Create a Contentful space
-2. Set up content models for blog posts
-3. Configure environment variables
-4. Update GraphQL queries as needed
+2. Set up content models for blog posts and essays
+3. Configure environment variables (see `.env.local` section)
+4. Update GraphQL queries in `src/lib/contentful/queries/`
 
-## 🎨 Styling
+## UI Components
 
-The project uses Tailwind CSS v4 with:
+The project includes 20+ specialized UI components organized by feature:
 
-- Custom color schemes
+### Layout Components
+
+- **Navbar**: Responsive navigation with language selector
+- **Footer**: Contact information and links
+- **Logo**: Animated logo component
+
+### Page-Specific UI Components
+
+- **Home**: HomeHero, HomeContentToggle, PostList, PostListItem
+- **Blog/Essays**: BlogHeaderPresentation, BlogContentPresentation, rich text components (CodeBlock, EmbeddedAsset, Hyperlink, Paragraph)
+- **Imprint**: ImprintPresentation, ContactCard, Section
+- **Data Protection**: DataProtectionPresentation
+- **Errors**: ErrorPresentation, NotFoundPresentation, ErrorMessage
+- **Common**: DividerPresentation, LogoPresentation, LanguageSelectorPresentation
+
+### Styling
+
+- Tailwind CSS v4 with custom configuration
 - Responsive design utilities
-- Animation classes
-- Modern CSS features
+- Consistent color schemes and typography
+- Mobile-first approach
 
-## 📱 Responsive Design
+## Responsive Design
 
 The website is fully responsive with:
 
@@ -142,37 +195,44 @@ The website is fully responsive with:
 - Touch-friendly interactions
 - Optimized images and assets
 
-## 🔧 Available Scripts
+## Available Scripts
 
 - `npm run dev` - Start development server with Turbopack
 - `npm run build` - Build for production
 - `npm run start` - Start production server
 - `npm run lint` - Run ESLint
+- `npm run lint:fix` - Run ESLint with auto-fix
+- `npm run test` - Run test suite (Vitest)
+- `npm run format` - Check code formatting
+- `npm run format:write` - Format code with Prettier
+- `npm run typecheck` - Run TypeScript type checking
+- `npm run check-all` - Run typecheck, lint, and format checks
 
-## 🚀 Deployment
+## Deployment
 
 The website is optimized for deployment on Vercel:
 
 1. Connect your repository to Vercel
-2. Set environment variables in Vercel dashboard
+2. Set environment variables in Vercel dashboard:
+   - `CONTENTFUL_SPACE_ID`
+   - `CONTENTFUL_ACCESS_TOKEN`
 3. Deploy automatically on push to main branch
 
-## 📊 Performance
+## Performance & Quality
 
-- Next.js 15 with Turbopack for fast development
-- Optimized images and assets
-- Code splitting and lazy loading
-- SEO optimization with structured data
-- Fast loading times with modern web standards
+- **Next.js 16** with Turbopack for fast development builds
+- **React 19** for improved performance and features
+- **Optimized assets** with Next.js Image optimization
+- **Code splitting** and lazy loading
+- **SEO optimization** with meta tags, sitemaps, and RSS feeds
+- **Test coverage** for all components with Vitest
+- **TypeScript** with strict type checking for type safety
+- **Pre-commit hooks** with Husky and lint-staged for code quality
 
-## 🤝 Contributing
+## Contributing
 
 This is a personal website project. For questions or suggestions, please reach out directly.
 
-## 📄 License
+## License
 
-This project is private and proprietary.
-
----
-
-Built with ❤️ using Next.js and modern web technologies.
+MIT License - Feel free to use this code for your own projects.
