@@ -155,10 +155,43 @@ The website features two content types powered by Contentful CMS:
 
 ### Contentful Setup
 
-1. Create a Contentful space
-2. Set up content models for blog posts and essays
-3. Configure environment variables (see `.env.local` section)
-4. Update GraphQL queries in `src/lib/contentful/queries/`
+#### 1. Create a Contentful Space
+
+Create a new space in your Contentful account.
+
+#### 2. Create Content Model
+
+Create a content type called **"Blog Post"** with the following fields:
+
+| Field Name      | Field ID         | Type        | Settings                          |
+| --------------- | ---------------- | ----------- | --------------------------------- |
+| Slug            | `slug`           | Short text  | **Entry title**, Required, Unique |
+| Title           | `title`          | Short text  | Required, Localized               |
+| Summary         | `summary`        | Short text  | Localized                         |
+| Publishing Date | `publishingDate` | Date & time | Include time                      |
+| Content         | `content`        | Rich text   | Localized                         |
+| Category        | `category`       | Short text  | Radio buttons: `blog`, `essay`    |
+
+**Category Field Configuration:**
+
+- Appearance: Radio
+- Options:
+  - Value: `blog`, Label: `blog`
+  - Value: `essay`, Label: `essay`
+- Default: `blog`
+
+#### 3. Configure Environment Variables
+
+Add to `.env.local`:
+
+```env
+CONTENTFUL_SPACE_ID=your_space_id
+CONTENTFUL_ACCESS_TOKEN=your_delivery_api_token
+```
+
+#### 4. Create Content
+
+Create entries with the category field set to either `blog` or `essay` to organize your content.
 
 ## UI Components
 
