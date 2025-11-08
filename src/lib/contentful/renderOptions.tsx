@@ -8,7 +8,8 @@ import EmbeddedAsset from '@/components/ui/blog/rich-text/EmbeddedAsset';
 
 export const createRenderOptions = (
   handleCopy: (text: string, id: string) => Promise<void>,
-  copiedId: string | null
+  copiedId: string | null,
+  links?: { assets?: { block?: { sys: { id: string }; url?: string }[] } }
 ): Options => ({
   renderMark: {
     [MARKS.BOLD]: (text) => <strong>{text}</strong>,
@@ -67,7 +68,7 @@ export const createRenderOptions = (
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
       if ('data' in node && 'target' in node.data) {
         const assetId = node.data.target.sys.id;
-        const imageUrl = createAssetGetter(node.content[0]?.data?.links)(assetId);
+        const imageUrl = createAssetGetter(links)(assetId);
         return imageUrl ? <EmbeddedAsset imageUrl={imageUrl} /> : null;
       }
       return null;
