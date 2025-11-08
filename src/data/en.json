@@ -10,8 +10,8 @@
     "keywords": "data science, artificial intelligence, machine learning, deep learning, mechanistic interpretability, economics, philosophy, chess, neural networks, python, numpy, leetcode, swabiangpt, dialect translation, AI scaling, student blog, Germany blog"
   },
   "Home": {
-    "heroTitle": "Compute & Culture",
-    "heroSubline": "I study Data Science & AI and write here about what I’m learning.\nThis blog is not meant as a textbook, but as a collection of experiments and reflections.\nSometimes code, sometimes society, sometimes both at once.",
+    "heroTitle": "~/notes",
+    "heroSubline": "Data Science study notes. Code, thoughts, experiments.",
     "tabs": {
       "blog": "Blog (Tech)",
       "essays": "Essays (Thoughts)"
