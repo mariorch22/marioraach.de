@@ -1,14 +1,14 @@
 'use client';
 import { useTranslations } from 'next-intl';
-import FooterPresentation from '@/components/layout/footer/FooterPresentation';
+import Footer from '@/components/layout/footer/Footer';
 
 const currentYear = new Date().getUTCFullYear();
 
-const Footer = () => {
+const FooterContainer = () => {
   const t = useTranslations('Footer');
 
   return (
-    <FooterPresentation
+    <Footer
       copyrightHolder="Mario Raach"
       currentYear={currentYear}
       imprintLabel={t('imprint')}
@@ -17,4 +17,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default FooterContainer;

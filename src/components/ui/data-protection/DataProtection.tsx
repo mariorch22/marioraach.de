@@ -1,9 +1,9 @@
-interface DataProtectionPresentationProps {
+interface DataProtectionProps {
   translations: Awaited<ReturnType<typeof import('next-intl/server').getTranslations>>;
   locale: string;
 }
 
-const DataProtectionPresentation = ({ translations, locale }: DataProtectionPresentationProps) => {
+const DataProtection = ({ translations, locale }: DataProtectionProps) => {
   return (
     <main className="min-h-screen text-white mt-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
@@ -268,4 +268,4 @@ const DataProtectionPresentation = ({ translations, locale }: DataProtectionPres
   );
 };
 
-export default DataProtectionPresentation;
+export default DataProtection;

@@ -1,6 +1,6 @@
 import { expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import DataProtectionPresentation from './DataProtectionPresentation';
+import DataProtection from './DataProtection';
 
 test('renders data protection page with translations', () => {
   const mockTranslations = ((key: string) => key) as Awaited<
@@ -13,7 +13,7 @@ test('renders data protection page with translations', () => {
     return [];
   };
 
-  render(<DataProtectionPresentation translations={mockTranslations} locale="de" />);
+  render(<DataProtection translations={mockTranslations} locale="de" />);
 
   expect(screen.getByText('h1')).toBeDefined();
   expect(screen.getByText('overview.title')).toBeDefined();

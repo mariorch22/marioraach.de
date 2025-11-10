@@ -1,4 +1,4 @@
-import BlogHeaderPresentation from '@/components/ui/blog/blog-header/BlogHeaderPresentation';
+import BlogHeader from '@/components/ui/blog/blog-header/BlogHeader';
 import { formatDate } from '@/lib/utils/textUtils';
 
 interface BlogHeaderProps {
@@ -21,7 +21,7 @@ const BlogHeaderContainer = ({
   const formattedDate = formatDate(publishingDate, locale);
 
   return (
-    <BlogHeaderPresentation
+    <BlogHeader
       title={title}
       summary={summary ?? ''}
       formattedDate={formattedDate}

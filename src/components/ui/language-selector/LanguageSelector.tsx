@@ -8,11 +8,11 @@ interface LanguageOption {
   href: string;
 }
 
-interface LanguageSelectorPresentationProps {
+interface LanguageSelectorProps {
   data: LanguageOption[];
 }
 
-function LanguageSelectorPresentation({ data }: LanguageSelectorPresentationProps) {
+function LanguageSelector({ data }: LanguageSelectorProps) {
   return (
     <ul className="flex gap-4 opacity-80 text-2xl">
       {data.map((item) => (
@@ -35,4 +35,4 @@ function LanguageSelectorPresentation({ data }: LanguageSelectorPresentationProp
   );
 }
 
-export default LanguageSelectorPresentation;
+export default LanguageSelector;

@@ -1,16 +1,11 @@
-interface BlogHeaderPresentationProps {
+interface BlogHeaderProps {
   title: string;
   summary?: string;
   formattedDate?: string;
   summaryLabel: string;
 }
 
-const BlogHeaderPresentation = ({
-  title,
-  summary,
-  formattedDate,
-  summaryLabel,
-}: BlogHeaderPresentationProps) => {
+const BlogHeader = ({ title, summary, formattedDate, summaryLabel }: BlogHeaderProps) => {
   return (
     <header className="flex flex-col items-center">
       <h2 className="text-3xl md:text-4xl max-w-[60rem] text-center">{title}</h2>
@@ -25,4 +20,4 @@ const BlogHeaderPresentation = ({
   );
 };
 
-export default BlogHeaderPresentation;
+export default BlogHeader;

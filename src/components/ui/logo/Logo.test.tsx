@@ -1,6 +1,6 @@
 import { expect, test, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import LogoPresentation from './LogoPresentation';
+import Logo from './Logo';
 
 vi.mock('next/image', () => ({
   // eslint-disable-next-line @next/next/no-img-element
@@ -14,7 +14,7 @@ vi.mock('@/i18n/navigation', () => ({
 }));
 
 test('renders logo with link and image', () => {
-  render(<LogoPresentation targetLocale="en" ariaLabel="Home" altText="Logo" />);
+  render(<Logo targetLocale="en" ariaLabel="Home" altText="Logo" />);
 
   const img = screen.getByAltText('Logo');
   expect(img).toBeDefined();

@@ -1,6 +1,6 @@
 import { expect, test, vi } from 'vitest';
 import { render } from '@testing-library/react';
-import BlogContentPresentation from './BlogContentPresentation';
+import BlogContent from './BlogContent';
 import { Document, BLOCKS } from '@contentful/rich-text-types';
 
 vi.mock('@contentful/rich-text-react-renderer', () => ({
@@ -14,7 +14,7 @@ test('renders blog content with document and options', () => {
     content: [],
   };
 
-  const { container } = render(<BlogContentPresentation json={mockDocument} renderOptions={{}} />);
+  const { container } = render(<BlogContent json={mockDocument} renderOptions={{}} />);
 
   expect(container.querySelector('.max-w-\\[60rem\\]')).toBeDefined();
 });

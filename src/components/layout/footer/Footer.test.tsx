@@ -1,6 +1,6 @@
 import { expect, test, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import FooterPresentation from './FooterPresentation';
+import Footer from './Footer';
 
 vi.mock('@/i18n/navigation', () => ({
   Link: ({ children, href }: { children: React.ReactNode; href: string }) => (
@@ -16,7 +16,7 @@ const defaultProps = {
 };
 
 test('renders copyright and navigation links', () => {
-  render(<FooterPresentation {...defaultProps} />);
+  render(<Footer {...defaultProps} />);
   expect(screen.getByText(/© 2025 Mario Raach/)).toBeDefined();
   expect(screen.getByText('Imprint')).toBeDefined();
   expect(screen.getByText('Data Protection')).toBeDefined();

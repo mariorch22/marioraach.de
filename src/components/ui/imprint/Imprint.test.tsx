@@ -1,6 +1,6 @@
 import { expect, test, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import ImprintPresentation from './ImprintPresentation';
+import Imprint from './Imprint';
 import { ImprintData } from '@/types/imprint';
 
 vi.mock('@/components/ui/imprint/Section', () => ({
@@ -32,7 +32,7 @@ test('renders imprint with data', () => {
     disclaimer: { title: 'Disclaimer', sections: [{ title: 'Section 1', content: 'Content 1' }] },
   };
 
-  render(<ImprintPresentation data={mockData} />);
+  render(<Imprint data={mockData} />);
 
   expect(screen.getByText('Imprint')).toBeDefined();
   expect(screen.getByText('Legal Reference')).toBeDefined();

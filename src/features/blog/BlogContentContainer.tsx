@@ -1,5 +1,5 @@
 'use client';
-import BlogContentPresentation from '@/components/ui/blog/blog-content/BlogContentPresentation';
+import BlogContent from '@/components/ui/blog/blog-content/BlogContent';
 import useContentCopyHandler from '@/hooks/useContentCopyHandler';
 import { createRenderOptions } from '@/lib/contentful/renderOptions';
 import { BlogPost } from '@/types/blog';
@@ -11,10 +11,7 @@ const BlogContentContainer = ({ post }: { post: BlogPost }) => {
   const renderOptions = createRenderOptions(handleCopy, copiedId, post.content?.links);
 
   return (
-    <BlogContentPresentation
-      json={post.content?.json ?? ({} as Document)}
-      renderOptions={renderOptions}
-    />
+    <BlogContent json={post.content?.json ?? ({} as Document)} renderOptions={renderOptions} />
   );
 };
 

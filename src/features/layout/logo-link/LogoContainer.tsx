@@ -1,7 +1,7 @@
 'use client';
 import { useLocale } from 'next-intl';
 import { usePathname } from '@/i18n/navigation';
-import LogoPresentation from '@/components/ui/logo/LogoPresentation';
+import Logo from '@/components/ui/logo/Logo';
 
 const LogoContainer = () => {
   const locale = useLocale();
@@ -17,7 +17,7 @@ const LogoContainer = () => {
   const ariaLabel = currentLocale === 'de' ? 'Zur Startseite' : 'Back to home';
   const altText = currentLocale === 'de' ? 'Startseite' : 'Home';
 
-  return <LogoPresentation targetLocale={currentLocale} ariaLabel={ariaLabel} altText={altText} />;
+  return <Logo targetLocale={currentLocale} ariaLabel={ariaLabel} altText={altText} />;
 };
 
 export default LogoContainer;

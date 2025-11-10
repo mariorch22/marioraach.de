@@ -1,12 +1,12 @@
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import { Document } from '@contentful/rich-text-types';
 
-interface ContentRendererPresentationProps {
+interface BlogContentProps {
   json: Document;
   renderOptions: Options;
 }
 
-const BlogContentPresentation = ({ json, renderOptions }: ContentRendererPresentationProps) => {
+const BlogContent = ({ json, renderOptions }: BlogContentProps) => {
   return (
     <div className="w-full max-w-[60rem] mx-auto">
       {documentToReactComponents(json, renderOptions)}
@@ -14,4 +14,4 @@ const BlogContentPresentation = ({ json, renderOptions }: ContentRendererPresent
   );
 };
 
-export default BlogContentPresentation;
+export default BlogContent;

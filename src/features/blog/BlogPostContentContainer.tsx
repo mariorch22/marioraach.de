@@ -1,6 +1,6 @@
 import BlogHeaderContainer from './BlogHeaderContainer';
 import BlogContentContainer from './BlogContentContainer';
-import DividerPresentation from '@/components/ui/divider/DividerPresentation';
+import Divider from '@/components/ui/divider/Divider';
 import { BlogPost } from '@/types/blog';
 
 interface BlogPostContentContainerProps {
@@ -17,7 +17,7 @@ const BlogPostContentContainer = ({ post, locale }: BlogPostContentContainerProp
         publishingDate={post.publishingDate ?? ''}
         locale={locale}
       />
-      <DividerPresentation />
+      <Divider />
       <BlogContentContainer post={post} />
     </main>
   );

@@ -1,10 +1,10 @@
 import { expect, test } from 'vitest';
 import { render, screen } from '@testing-library/react';
-import BlogHeaderPresentation from './BlogHeaderPresentation';
+import BlogHeader from './BlogHeader';
 
 test('renders title and optional content', () => {
   render(
-    <BlogHeaderPresentation
+    <BlogHeader
       title="Test Title"
       summary="Test Summary"
       formattedDate="January 1, 2025"

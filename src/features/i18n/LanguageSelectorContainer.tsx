@@ -2,11 +2,11 @@
 import { useLocale } from 'next-intl';
 import { usePathname } from '@/i18n/navigation';
 import { routing } from '@/i18n/routing';
-import LanguageSelectorPresentation from '@/components/ui/language-selector/LanguageSelectorPresentation';
+import LanguageSelector from '@/components/ui/language-selector/LanguageSelector';
 
 const availableLocales = routing.locales as readonly string[];
 
-const LanguageSelector = () => {
+const LanguageSelectorContainer = () => {
   const currentLocale = useLocale();
   const pathname = usePathname();
 
@@ -17,7 +17,7 @@ const LanguageSelector = () => {
     href: pathname,
   }));
 
-  return <LanguageSelectorPresentation data={languageData} />;
+  return <LanguageSelector data={languageData} />;
 };
 
-export default LanguageSelector;
+export default LanguageSelectorContainer;

@@ -1,24 +1,19 @@
 'use client';
-import DividerPresentation from '@/components/ui/divider/DividerPresentation';
+import Divider from '@/components/ui/divider/Divider';
 import { Link } from '@/i18n/navigation';
 import { Suspense } from 'react';
 
-interface FooterPresentationProps {
+interface FooterProps {
   copyrightHolder: string;
   currentYear: number;
   imprintLabel: string;
   dataProtectionLabel: string;
 }
 
-function FooterPresentation({
-  copyrightHolder,
-  currentYear,
-  imprintLabel,
-  dataProtectionLabel,
-}: FooterPresentationProps) {
+function Footer({ copyrightHolder, currentYear, imprintLabel, dataProtectionLabel }: FooterProps) {
   return (
     <footer className="mt-16 md:mt-24">
-      <DividerPresentation />
+      <Divider />
       <div className="max-w-6xl mx-auto px-4 md:px-6 py-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Copyright */}
@@ -142,4 +137,4 @@ function FooterPresentation({
   );
 }
 
-export default FooterPresentation;
+export default Footer;

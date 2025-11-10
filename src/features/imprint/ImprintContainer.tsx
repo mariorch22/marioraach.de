@@ -1,12 +1,12 @@
-import ImprintPresentation from '@/components/ui/imprint/ImprintPresentation';
+import Imprint from '@/components/ui/imprint/Imprint';
 import { ImprintData } from '@/types/imprint';
 
-interface ImprintContentProps {
+interface ImprintContainerProps {
   data: ImprintData;
 }
 
-const ImprintContent = ({ data }: ImprintContentProps) => {
-  return <ImprintPresentation data={data} />;
+const ImprintContainer = ({ data }: ImprintContainerProps) => {
+  return <Imprint data={data} />;
 };
 
-export default ImprintContent;
+export default ImprintContainer;

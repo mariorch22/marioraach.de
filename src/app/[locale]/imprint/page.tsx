@@ -1,7 +1,6 @@
-// app/[locale]/imprint/page.tsx
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Metadata } from 'next';
-import ImprintContent from '@/features/imprint/ImprintContainer';
+import ImprintContainer from '@/features/imprint/ImprintContainer';
 
 export async function generateMetadata({
   params,
@@ -48,5 +47,5 @@ export default async function ImprintPage({ params }: { params: Promise<{ locale
     },
   };
 
-  return <ImprintContent data={imprintData} />;
+  return <ImprintContainer data={imprintData} />;
 }

@@ -1,11 +1,11 @@
 'use client';
 import { useParams } from 'next/navigation';
 import { getNotFoundTexts } from '@/i18n/notFoundTexts';
-import { NotFoundPresentation } from '@/components/ui/errors/NotFoundPresentation';
+import NotFound from '@/components/ui/errors/NotFound';
 
 export default function NotFoundPage() {
   const { locale } = useParams<{ locale: string }>();
   const texts = getNotFoundTexts(locale, 'blog');
 
-  return <NotFoundPresentation title={texts.title} backToHomeText={texts.backToHome} />;
+  return <NotFound title={texts.title} backToHomeText={texts.backToHome} />;
 }
