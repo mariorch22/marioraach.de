@@ -3,8 +3,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect } from 'react';
 
 /**
- * Hook to restore the scroll position.
- * Scrolls the page to the top on every route change.
+ * Hook to restore the scroll position on every route change.
  */
 const useScrollRestoration = (): void => {
   const pathname = usePathname();

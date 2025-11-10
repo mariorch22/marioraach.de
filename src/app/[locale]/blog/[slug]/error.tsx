@@ -1,8 +1,7 @@
 'use client';
-import { useParams } from 'next/navigation';
 import { useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import ErrorPresentation from '@/components/ui/errors/ErrorPresentation';
-import { getErrorTexts } from '@/i18n/errorTexts';
 
 interface BlogErrorPageProps {
   error: Error & { digest?: string };
@@ -10,19 +9,17 @@ interface BlogErrorPageProps {
 }
 
 export default function BlogErrorPage({ error, reset }: BlogErrorPageProps) {
-  const { locale } = useParams<{ locale: string }>();
+  const t = useTranslations('ErrorMessages');
 
   useEffect(() => {
     console.error('Blog error:', error);
   }, [error]);
 
-  const texts = getErrorTexts(locale, 'blog');
-
   return (
     <ErrorPresentation
-      title={texts.title}
-      retryText={texts.retry}
-      backHomeText={texts.backHome}
+      title={t('blog.title')}
+      retryText={t('blog.retry')}
+      backHomeText={t('blog.backHome')}
       onRetry={reset}
     />
   );

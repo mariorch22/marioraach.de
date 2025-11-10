@@ -54,8 +54,7 @@ export async function generateMetadata({
         },
       },
     };
-  } catch (error) {
-    console.error('Error generating metadata:', error);
+  } catch {
     return {
       title: 'Mario Raach - Blog',
       description: 'Data Science & AI Blog',

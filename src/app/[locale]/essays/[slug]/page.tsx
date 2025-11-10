@@ -24,24 +24,33 @@ export async function generateMetadata({
   params: Promise<{ locale: string; slug: string }>;
 }): Promise<Metadata> {
   const { locale, slug } = await params;
-  const post = await getPost(slug, locale);
-  return {
-    title: `${post.title} | Essays | Mario Raach`,
-    description: post.summary,
-    openGraph: {
-      title: post.title,
+
+  try {
+    const post = await getPost(slug, locale);
+
+    return {
+      title: `${post.title} | Essays | Mario Raach`,
       description: post.summary,
-      url: `https://www.marioraach.de/${locale}/essays/${slug}`,
-      type: 'article',
-      publishedTime: post.publishingDate ?? '',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.summary,
-      images: ['/images/og-image.jpg'],
-    },
-  };
+      openGraph: {
+        title: post.title,
+        description: post.summary,
+        url: `https://www.marioraach.de/${locale}/essays/${slug}`,
+        type: 'article',
+        publishedTime: post.publishingDate ?? '',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: post.title,
+        description: post.summary,
+        images: ['/images/og-image.jpg'],
+      },
+    };
+  } catch {
+    return {
+      title: 'Mario Raach - Essays',
+      description: 'Essays & Thoughts',
+    };
+  }
 }
 
 export default async function EssayPage({

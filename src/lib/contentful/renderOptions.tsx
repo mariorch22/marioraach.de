@@ -6,6 +6,9 @@ import Paragraph from '@/components/ui/blog/rich-text/Paragraph';
 import Hyperlink from '@/components/ui/blog/rich-text/Hyperlink';
 import EmbeddedAsset from '@/components/ui/blog/rich-text/EmbeddedAsset';
 
+/**
+ * Creates render options for rich text content.
+ */
 export const createRenderOptions = (
   handleCopy: (text: string, id: string) => Promise<void>,
   copiedId: string | null,

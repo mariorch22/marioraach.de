@@ -1,5 +1,8 @@
 import { useCallback } from 'react';
 
+/**
+ * Hook to copy text to clipboard.
+ */
 const useCopyToClipboard = () => {
   const copyToClipboard = useCallback(async (text: string) => {
     if (!navigator?.clipboard) {

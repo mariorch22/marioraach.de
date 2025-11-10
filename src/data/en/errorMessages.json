@@ -1,0 +1,19 @@
+{
+  "ErrorMessages": {
+    "blog": {
+      "title": "Error loading blog post",
+      "retry": "Try again",
+      "backHome": "Back to home"
+    },
+    "essay": {
+      "title": "Error loading essay",
+      "retry": "Try again",
+      "backHome": "Back to home"
+    },
+    "general": {
+      "title": "An error occurred",
+      "retry": "Try again",
+      "backHome": "Back to home"
+    }
+  }
+}

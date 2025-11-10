@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { fetchContentful } from '../contentfulClient';
 import { singlePostQuery, allPostsQuery } from '@/lib/contentful/queries/post';
 import { BlogPost } from '@/types/blog';
@@ -18,7 +19,7 @@ export async function getPost(slug: string, locale: string): Promise<BlogPost> {
   const query = singlePostQuery(slug, locale);
   const data = await fetchContentful<BlogCollectionResponse>(query);
   if (!data.blogCollection.items[0]) {
-    throw new Error('Post not found');
+    notFound();
   }
   return data.blogCollection.items[0];
 }

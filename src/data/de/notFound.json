@@ -1,0 +1,16 @@
+{
+  "NotFound": {
+    "blog": {
+      "title": "Blog-Post nicht gefunden",
+      "backToHome": "Zur Startseite"
+    },
+    "essay": {
+      "title": "Essay nicht gefunden",
+      "backToHome": "Zur Startseite"
+    },
+    "page": {
+      "title": "Seite nicht gefunden",
+      "backToHome": "Zur Startseite"
+    }
+  }
+}

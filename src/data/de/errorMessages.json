@@ -1,0 +1,19 @@
+{
+  "ErrorMessages": {
+    "blog": {
+      "title": "Fehler beim Laden des Blogposts",
+      "retry": "Erneut versuchen",
+      "backHome": "Zur Startseite"
+    },
+    "essay": {
+      "title": "Fehler beim Laden des Essays",
+      "retry": "Erneut versuchen",
+      "backHome": "Zur Startseite"
+    },
+    "general": {
+      "title": "Ein Fehler ist aufgetreten",
+      "retry": "Erneut versuchen",
+      "backHome": "Zur Startseite"
+    }
+  }
+}
