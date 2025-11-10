@@ -1,0 +1,17 @@
+{
+  "_comment": "Routes: /blog, /essays",
+  "BlogOverview": {
+    "title": "Blog (Tech)",
+    "subtitle": "",
+    "labels": {
+      "blog": "Blog"
+    }
+  },
+  "EssaysOverview": {
+    "title": "Gedanken (Essays)",
+    "subtitle": "",
+    "labels": {
+      "essay": "Essay"
+    }
+  }
+}

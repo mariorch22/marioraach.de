@@ -3,6 +3,7 @@ import { Link } from '@/i18n/navigation';
 import { getAllPosts } from '@/lib/contentful/api/postApi';
 import type { Metadata } from 'next';
 import { BlogPost } from '@/types/blog';
+import { formatDate, softTruncate } from '@/lib/utils/textUtils';
 
 export async function generateMetadata({
   params,
@@ -10,7 +11,7 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'BlogIndex' });
+  const t = await getTranslations({ locale, namespace: 'BlogOverview' });
   return {
     title: `${t('title')} | Mario Raach`,
     alternates: {
@@ -25,10 +26,10 @@ export async function generateMetadata({
   };
 }
 
-export default async function BlogIndex({ params }: { params: Promise<{ locale: string }> }) {
+export default async function BlogOverview({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations({ locale, namespace: 'BlogIndex' });
+  const t = await getTranslations({ locale, namespace: 'BlogOverview' });
   const posts = (await getAllPosts(locale)).filter(
     (p: BlogPost) => (p.category ?? 'blog') === 'blog'
   );
@@ -44,25 +45,9 @@ export default async function BlogIndex({ params }: { params: Promise<{ locale: 
 
       <section className="mt-8 divide-y divide-white/5">
         {posts.map((post) => {
-          const dateStr = post.publishingDate
-            ? new Date(post.publishingDate).toLocaleDateString(
-                locale === 'de' ? 'de-DE' : 'en-US',
-                {
-                  day: '2-digit',
-                  month: '2-digit',
-                  year: 'numeric',
-                  timeZone: 'UTC',
-                }
-              )
-            : '';
+          const dateStr = post.publishingDate ? formatDate(post.publishingDate, locale) : '';
           const excerptSrc = (post.summary ?? '').replace(/\s+/g, ' ').trim();
-          const softTruncate = (text: string, maxLen = 200) => {
-            if (text.length <= maxLen) return text;
-            const cut = text.slice(0, maxLen);
-            const lastSpace = cut.lastIndexOf(' ');
-            return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut) + ' …';
-          };
-          const excerpt = excerptSrc ? softTruncate(excerptSrc) : '';
+          const excerpt = excerptSrc ? softTruncate(excerptSrc, 200) : '';
           return (
             <article key={post.slug} className="py-3">
               <h2 className="text-lg md:text-xl font-semibold tracking-tight">

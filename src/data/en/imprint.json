@@ -1,0 +1,44 @@
+{
+  "_comment": "Routes: /imprint",
+  "Imprint": {
+    "title": "Imprint",
+    "legalReference": "Information pursuant to § 5 TMG",
+    "operator": {
+      "title": "Website operator:",
+      "name": "Mario Raach"
+    },
+    "address": {
+      "title": "Address:",
+      "street": "Flachsäcker 14",
+      "city": "72393 Burladingen"
+    },
+    "contact": {
+      "title": "Contact:",
+      "emailLabel": "Email:",
+      "email": "marioraach01@gmail.com"
+    },
+    "responsible": {
+      "title": "Responsible for content pursuant to § 55 (2) RStV:",
+      "name": "Mario Raach",
+      "street": "Flachsäcker 14",
+      "city": "72393 Burladingen"
+    },
+    "disclaimer": {
+      "title": "Disclaimer:",
+      "sections": [
+        {
+          "title": "1. Liability for content",
+          "content": "As a service provider, I am responsible for my own content on these pages in accordance with general laws pursuant to § 7 (1) TMG. However, according to §§ 8 to 10 TMG, I am not obliged to monitor transmitted or stored third-party information or to investigate circumstances indicating illegal activity. Obligations to remove or block the use of information according to general laws remain unaffected. Liability in this respect is only possible from the time of knowledge of a specific infringement. If I become aware of any corresponding legal infringements, I will remove this content immediately."
+        },
+        {
+          "title": "2. Liability for links",
+          "content": "My offer contains links to external third-party websites, the contents of which I have no influence over. Therefore, I cannot assume any liability for this external content. The respective provider or operator of the pages is always responsible for the content of the linked pages."
+        },
+        {
+          "title": "3. Copyright",
+          "content": "The content and works created by the site operator on these pages are subject to German copyright law. Contributions by third parties are indicated as such. The duplication, processing, distribution and any kind of exploitation outside the limits of copyright law require the written consent of the respective author or creator."
+        }
+      ]
+    }
+  }
+}

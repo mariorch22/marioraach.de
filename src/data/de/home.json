@@ -1,0 +1,11 @@
+{
+  "_comment": "Routes: /",
+  "Home": {
+    "heroTitle": "~/notes",
+    "heroSubline": "Notizen aus dem Data Science Studium. Code, Gedanken, Experimente.",
+    "tabs": {
+      "blog": "Blog",
+      "essays": "Essays"
+    }
+  }
+}
