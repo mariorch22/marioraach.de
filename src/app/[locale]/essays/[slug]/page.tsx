@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { Suspense } from 'react';
 import { getAllPosts, getPost } from '@/lib/contentful/api/postApi';
-import BlogPostContent from '@/features/blog/BlogPostContent';
+import BlogPostContentContainer from '@/features/blog/BlogPostContentContainer';
 
 export async function generateStaticParams() {
   const locales = ['de', 'en'];
@@ -56,7 +56,7 @@ export default async function EssayPage({
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <BlogPostContent post={post} locale={locale} />
+      <BlogPostContentContainer post={post} locale={locale} />
     </Suspense>
   );
 }

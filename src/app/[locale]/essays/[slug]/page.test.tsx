@@ -1,6 +1,7 @@
 import { expect, test, vi } from 'vitest';
 import { render } from '@testing-library/react';
 import EssayPage from './page';
+import { BLOCKS } from '@contentful/rich-text-types';
 
 vi.mock('next-intl/server', () => ({
   setRequestLocale: vi.fn(),
@@ -14,12 +15,19 @@ vi.mock('@/lib/contentful/api/postApi', () => ({
       slug: 'test-post',
       summary: 'Test summary',
       publishingDate: '2025-01-01',
+      content: {
+        json: {
+          nodeType: BLOCKS.DOCUMENT,
+          data: {},
+          content: [],
+        },
+      },
     })
   ),
   getAllPosts: vi.fn(() => Promise.resolve([])),
 }));
 
-vi.mock('@/features/blog/BlogPostContent', () => ({
+vi.mock('@/features/blog/BlogPostContentContainer', () => ({
   default: () => <div>Essay Post Content</div>,
 }));
 

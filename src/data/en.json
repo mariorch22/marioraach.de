@@ -33,7 +33,9 @@
     }
   },
   "Footer": {
-    "claim": "Opinions have priors."
+    "claim": "Opinions have priors.",
+    "imprint": "Imprint",
+    "dataProtection": "Data Protection"
   },
   "Imprint": {
     "title": "Imprint",

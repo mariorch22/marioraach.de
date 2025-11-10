@@ -1,6 +1,7 @@
 import BlogHeaderPresentation from '@/components/ui/blog/blog-header/BlogHeaderPresentation';
+import { formatDate } from '@/lib/utils/textUtils';
 
-export interface BlogHeaderProps {
+interface BlogHeaderProps {
   title: string;
   summary?: string;
   publishingDate?: string;
@@ -15,24 +16,15 @@ const BlogHeaderContainer = ({
 }: BlogHeaderProps) => {
   const summaryLabel = locale === 'de' ? 'Zusammenfassung' : 'Summary';
 
-  let formattedDate: string | undefined;
-  if (publishingDate) {
-    formattedDate = new Date(publishingDate).toLocaleDateString(
-      locale === 'de' ? 'de-DE' : 'en-US',
-      {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric',
-        timeZone: 'UTC',
-      }
-    );
-  }
+  if (!publishingDate) return null;
+
+  const formattedDate = formatDate(publishingDate, locale);
 
   return (
     <BlogHeaderPresentation
       title={title}
       summary={summary ?? ''}
-      formattedDate={formattedDate ?? ''}
+      formattedDate={formattedDate}
       summaryLabel={summaryLabel}
     />
   );

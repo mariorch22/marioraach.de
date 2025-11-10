@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { setRequestLocale } from 'next-intl/server';
 import { getPost, getAllPosts } from '@/lib/contentful/api/postApi';
-import BlogPostContent from '@/features/blog/BlogPostContent';
+import BlogPostContentContainer from '@/features/blog/BlogPostContentContainer';
 import { Suspense } from 'react';
 
 export async function generateStaticParams() {
@@ -76,7 +76,7 @@ export default async function BlogPage({
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
-        <BlogPostContent post={post} locale={locale} />
+        <BlogPostContentContainer post={post} locale={locale} />
       </Suspense>
     </>
   );

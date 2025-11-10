@@ -1,5 +1,5 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-import HomeContent from '@/features/home/HomeContent';
+import HomeContentContainer from '@/features/home/HomeContentContainer';
 import { Metadata } from 'next';
 
 export async function generateMetadata(props: {
@@ -30,5 +30,5 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     },
   };
 
-  return <HomeContent data={data} locale={locale} />;
+  return <HomeContentContainer data={data} locale={locale} />;
 }

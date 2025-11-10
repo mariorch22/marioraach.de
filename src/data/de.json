@@ -33,7 +33,9 @@
     }
   },
   "Footer": {
-    "claim": "Meinungen haben Priors."
+    "claim": "Meinungen haben Priors.",
+    "imprint": "Impressum",
+    "dataProtection": "Datenschutz"
   },
   "Imprint": {
     "title": "Impressum",

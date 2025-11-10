@@ -4,7 +4,7 @@ import PostList from '@/components/ui/home/PostList';
 import { getAllPosts } from '@/lib/contentful/api/postApi';
 import { BlogPost } from '@/types/blog';
 
-interface HomeContentProps {
+interface HomeContentContainerProps {
   data: {
     heroTitle: string;
     heroSubline: string;
@@ -16,7 +16,7 @@ interface HomeContentProps {
   locale: string;
 }
 
-const HomeContent = async ({ data, locale }: HomeContentProps) => {
+const HomeContentContainer = async ({ data, locale }: HomeContentContainerProps) => {
   const posts = await getAllPosts(locale);
   const blogs = posts.filter((post: BlogPost) => post.category === 'blog');
   const essays = posts.filter((post: BlogPost) => post.category === 'essay');
@@ -33,4 +33,4 @@ const HomeContent = async ({ data, locale }: HomeContentProps) => {
   );
 };
 
-export default HomeContent;
+export default HomeContentContainer;

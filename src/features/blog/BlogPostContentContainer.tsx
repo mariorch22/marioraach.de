@@ -3,12 +3,12 @@ import BlogContentContainer from './BlogContentContainer';
 import DividerPresentation from '@/components/ui/divider/DividerPresentation';
 import { BlogPost } from '@/types/blog';
 
-interface BlogPostContentProps {
+interface BlogPostContentContainerProps {
   post: BlogPost;
   locale: string;
 }
 
-const BlogPostContent = ({ post, locale }: BlogPostContentProps) => {
+const BlogPostContentContainer = ({ post, locale }: BlogPostContentContainerProps) => {
   return (
     <main className="overflow-hidden flex flex-col justify-center items-center gap-12 font-inter text-normal mt-40 px-4">
       <BlogHeaderContainer
@@ -23,4 +23,4 @@ const BlogPostContent = ({ post, locale }: BlogPostContentProps) => {
   );
 };
 
-export default BlogPostContent;
+export default BlogPostContentContainer;
