@@ -1,7 +1,9 @@
-import BlogHeaderContainer from './BlogHeaderContainer';
-import BlogContentContainer from './BlogContentContainer';
-import Divider from '@/components/ui/divider/Divider';
 import { BlogPost } from '@/types/blog';
+import BlogPostLayout from '@/components/ui/blog/BlogPostLayout';
+import BlogHeader from '@/components/ui/blog/blog-header/BlogHeader';
+import Divider from '@/components/ui/divider/Divider';
+import { formatDate } from '@/lib/utils/textUtils';
+import BlogInteractiveContentContainer from './BlogPostInteractiveContentContainer';
 
 interface BlogPostContentContainerProps {
   post: BlogPost;
@@ -9,17 +11,20 @@ interface BlogPostContentContainerProps {
 }
 
 const BlogPostContentContainer = ({ post, locale }: BlogPostContentContainerProps) => {
+  const summaryLabel = locale === 'de' ? 'Zusammenfassung' : 'Summary';
+  const formattedDate = post.publishingDate ? formatDate(post.publishingDate, locale) : '';
+
   return (
-    <main className="overflow-hidden flex flex-col justify-center items-center gap-12 font-inter text-normal mt-40 px-4">
-      <BlogHeaderContainer
+    <BlogPostLayout>
+      <BlogHeader
         title={post.title}
         summary={post.summary ?? ''}
-        publishingDate={post.publishingDate ?? ''}
-        locale={locale}
+        formattedDate={formattedDate}
+        summaryLabel={summaryLabel}
       />
       <Divider />
-      <BlogContentContainer post={post} />
-    </main>
+      <BlogInteractiveContentContainer post={post} />
+    </BlogPostLayout>
   );
 };
 

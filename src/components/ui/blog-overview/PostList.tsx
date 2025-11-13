@@ -1,5 +1,5 @@
 import { BlogPost } from '@/types/blog';
-import { PostListItem } from './PostListItem';
+import PostListItem from './PostListItem';
 
 interface PostListProps {
   posts: BlogPost[];
@@ -7,7 +7,7 @@ interface PostListProps {
   showCategory?: boolean;
 }
 
-export function PostList({ posts, locale, showCategory = false }: PostListProps) {
+const PostList = ({ posts, locale, showCategory = false }: PostListProps) => {
   return (
     <section className="mt-8 divide-y divide-white/5">
       {posts.map((post) => (
@@ -15,4 +15,6 @@ export function PostList({ posts, locale, showCategory = false }: PostListProps)
       ))}
     </section>
   );
-}
+};
+
+export default PostList;

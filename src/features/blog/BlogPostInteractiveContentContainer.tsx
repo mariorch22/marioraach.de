@@ -1,11 +1,15 @@
 'use client';
-import BlogContent from '@/components/ui/blog/blog-content/BlogContent';
-import useContentCopyHandler from '@/hooks/useContentCopyHandler';
 import { createRenderOptions } from '@/lib/contentful/renderOptions';
-import { BlogPost } from '@/types/blog';
+import useContentCopyHandler from '@/hooks/useContentCopyHandler';
+import BlogContent from '@/components/ui/blog/blog-content/BlogContent';
 import { Document } from '@contentful/rich-text-types';
+import { BlogPost } from '@/types/blog';
 
-const BlogContentContainer = ({ post }: { post: BlogPost }) => {
+interface BlogInteractiveContentContainerProps {
+  post: BlogPost;
+}
+
+const BlogInteractiveContentContainer = ({ post }: BlogInteractiveContentContainerProps) => {
   const { copiedId, handleCopy } = useContentCopyHandler();
 
   const renderOptions = createRenderOptions(handleCopy, copiedId, post.content?.links);
@@ -15,4 +19,4 @@ const BlogContentContainer = ({ post }: { post: BlogPost }) => {
   );
 };
 
-export default BlogContentContainer;
+export default BlogInteractiveContentContainer;

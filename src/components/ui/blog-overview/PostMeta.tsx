@@ -4,7 +4,7 @@ interface PostMetaProps {
   readingTime?: string;
 }
 
-export function PostMeta({ date, category, readingTime }: PostMetaProps) {
+const PostMeta = ({ date, category, readingTime }: PostMetaProps) => {
   const items = [date, category, readingTime].filter(Boolean);
 
   return (
@@ -17,4 +17,6 @@ export function PostMeta({ date, category, readingTime }: PostMetaProps) {
       ))}
     </div>
   );
-}
+};
+
+export default PostMeta;

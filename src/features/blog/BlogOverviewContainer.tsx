@@ -1,32 +1,34 @@
 import { getAllPosts } from '@/lib/contentful/api/postApi';
-import { PostList } from '@/components/ui/blog/blog-overview/PostList';
 import { getTranslations } from 'next-intl/server';
+import BlogLayout from '@/components/ui/blog-overview/BlogLayout';
+import PostHeader from '@/components/ui/blog-overview/PostHeader';
+import PostList from '@/components/ui/blog-overview/PostList';
+import { BlogPost } from '@/types/blog';
 
 interface BlogOverviewContainerProps {
   locale: string;
+  category: 'blog' | 'essay';
 }
 
-const BlogOverviewContainer = async ({ locale }: BlogOverviewContainerProps) => {
+const BlogOverviewContainer = async ({ locale, category }: BlogOverviewContainerProps) => {
   const posts = await getAllPosts(locale);
-  const t = await getTranslations({ locale, namespace: 'EssaysOverview' });
+  const t = await getTranslations({
+    locale,
+    namespace: category === 'blog' ? 'BlogOverview' : 'EssaysOverview',
+  });
 
-  const essayPosts = posts
-    .filter((post) => post.category === 'essay')
+  const filteredPosts = posts
+    .filter((post: BlogPost) => post.category === category)
     .map((post) => ({
       ...post,
-      displayCategory: 'essay',
+      displayCategory: category,
     }));
 
   return (
-    <main className="mx-auto max-w-3xl px-4 pt-28 pb-16">
-      <header>
-        <h1 className="text-3xl md:text-4xl font-semibold tracking-tight leading-tight">
-          {t('title')}
-        </h1>
-        <p className="mt-2 text-gray-alpha-400">{t('subtitle')}</p>
-      </header>
-      <PostList posts={essayPosts} locale={locale} showCategory={true} />
-    </main>
+    <BlogLayout>
+      <PostHeader title={t('title')} subtitle={t('subtitle')} />
+      <PostList posts={filteredPosts} locale={locale} />
+    </BlogLayout>
   );
 };
 

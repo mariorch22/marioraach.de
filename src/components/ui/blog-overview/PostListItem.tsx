@@ -1,7 +1,7 @@
 import { Link } from '@/i18n/navigation';
 import { BlogPost } from '@/types/blog';
 import { formatDate, softTruncate } from '@/lib/utils/textUtils';
-import { PostMeta } from './postMeta';
+import PostMeta from './PostMeta';
 
 interface PostListItemProps {
   post: BlogPost & { displayCategory?: string };
@@ -9,7 +9,7 @@ interface PostListItemProps {
   showCategory?: boolean;
 }
 
-export function PostListItem({ post, locale, showCategory = false }: PostListItemProps) {
+const PostListItem = ({ post, locale, showCategory = false }: PostListItemProps) => {
   const dateStr = post.publishingDate ? formatDate(post.publishingDate, locale) : '';
 
   const excerptSrc = (post.summary ?? '').replace(/\s+/g, ' ').trim();
@@ -30,4 +30,6 @@ export function PostListItem({ post, locale, showCategory = false }: PostListIte
       <PostMeta date={dateStr} category={showCategory ? (post.displayCategory ?? '') : ''} />
     </article>
   );
-}
+};
+
+export default PostListItem;
