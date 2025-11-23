@@ -11,8 +11,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     createStaticPageEntry('', 'monthly', 1),
     createStaticPageEntry('blog', 'weekly', 0.8),
     createStaticPageEntry('essays', 'weekly', 0.8),
-    createStaticPageEntry('imprint', 'yearly', 0.3),
-    createStaticPageEntry('dataprotection', 'yearly', 0.3),
   ];
 
   const allPosts = deduplicatePosts(postsDe, postsEn);
