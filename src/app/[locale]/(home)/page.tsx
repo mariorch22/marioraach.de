@@ -11,8 +11,17 @@ export async function generateMetadata(props: {
   const t = await getTranslations({ locale, namespace: 'Home' });
 
   return {
-    title: t('heroTitle'),
-    description: t('heroSubline'),
+    title: t('seoTitle'),
+    description: t('seoDescription'),
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
+    },
   };
 }
 

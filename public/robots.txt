@@ -1,0 +1,8 @@
+# robots.txt für marioraach.de
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://marioraach.de/sitemap.xml
+

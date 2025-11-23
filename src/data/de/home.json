@@ -3,6 +3,8 @@
   "Home": {
     "heroTitle": "~/notes",
     "heroSubline": "Notizen aus dem Data Science Studium. Code, Gedanken, Experimente.",
+    "seoTitle": "Mario Raach - Data Science & Software Engineering",
+    "seoDescription": "Blog und Essays über Data Science, Machine Learning, Software Engineering und Web-Entwicklung von Mario Raach.",
     "tabs": {
       "blog": "Blog",
       "essays": "Essays"

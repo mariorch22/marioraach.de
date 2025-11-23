@@ -11,6 +11,10 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: 'DataProtection' });
   return {
     title: t('title'),
+    robots: {
+      index: false,
+      follow: true,
+    },
   };
 }
 

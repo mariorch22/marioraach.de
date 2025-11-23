@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
-import { setRequestLocale, getTranslations } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { ReactNode, Suspense } from 'react';
 import ScrollManagerContainer from '@/features/layout/scroll-manager/ScrollManagerContainer';
 import FooterContainer from '@/features/layout/footer/FooterContainer';
@@ -22,26 +22,18 @@ export function generateStaticParams() {
 export async function generateMetadata(props: Omit<Props, 'children'>) {
   const { locale } = await props.params;
 
-  const t = await getTranslations({ locale, namespace: 'LocaleLayout' });
-
   const feeds = [
     { url: '/api/blog.xml', title: locale === 'de' ? 'Blog (DE)' : 'Blog (EN)' },
-    {
-      url: '/api/essays.xml',
-      title: locale === 'de' ? 'Essays (DE)' : 'Essays (EN)',
-    },
-    {
-      url: '/api/all.xml',
-      title: locale === 'de' ? 'Alle Beiträge' : 'All posts',
-    },
+    { url: '/api/essays.xml', title: locale === 'de' ? 'Essays (DE)' : 'Essays (EN)' },
+    { url: '/api/all.xml', title: locale === 'de' ? 'Alle Beiträge' : 'All posts' },
   ];
 
   return {
     metadataBase: new URL('https://www.marioraach.de'),
-    title: t('title'),
-    description: t('description'),
-    keywords: t('keywords'),
     authors: [{ name: 'Mario Raach', url: 'https://www.marioraach.de' }],
+    verification: {
+      google: 'swcd7oOwBfyEXvrOzti0442HGJ5OO_Y9k9DVqtaNg9w',
+    },
     icons: {
       icon: [
         { url: '/images/icon.ico' },
@@ -50,36 +42,6 @@ export async function generateMetadata(props: Omit<Props, 'children'>) {
       ],
       shortcut: '/images/icon.ico',
       apple: '/images/icon-32x32.png',
-    },
-    openGraph: {
-      title: t('title'),
-      description: t('ogDescription') ?? t('description'),
-      url: 'https://www.marioraach.de',
-      siteName: 'Mario Raach',
-      type: 'website',
-      images: [
-        {
-          url: '/images/og-image.jpg',
-          width: 1200,
-          height: 630,
-          alt: 'Mario Raach - Data Science & KI Blog',
-        },
-      ],
-      locale: locale === 'de' ? 'de_DE' : 'en_US',
-      alternateLocale: locale === 'de' ? 'en_US' : 'de_DE',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: t('title'),
-      description: t('description'),
-      images: ['/images/og-image.jpg'],
-    },
-    robots: {
-      index: true,
-      follow: true,
-      maxImagePreview: 'large',
-      maxSnippet: -1,
-      maxVideoPreview: -1,
     },
     alternates: {
       types: {

@@ -9,8 +9,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Imprint' });
+
   return {
     title: t('title'),
+    robots: {
+      index: false,
+      follow: true,
+    },
   };
 }
 
