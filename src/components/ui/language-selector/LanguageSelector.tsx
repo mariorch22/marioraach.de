@@ -1,5 +1,6 @@
 'use client';
-import { Link } from '@/i18n/navigation';
+import { useTransition } from 'react';
+import { Link, useRouter } from '@/i18n/navigation';
 
 interface LanguageOption {
   locale: string;
@@ -13,6 +14,17 @@ interface LanguageSelectorProps {
 }
 
 function LanguageSelector({ data }: LanguageSelectorProps) {
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+
+  const handleClick = (e: React.MouseEvent, item: LanguageOption) => {
+    if (item.isActive) return;
+    e.preventDefault();
+    startTransition(() => {
+      router.replace(item.href, { locale: item.locale as 'de' | 'en' });
+    });
+  };
+
   return (
     <ul className="flex gap-4 opacity-80 text-2xl">
       {data.map((item) => (
@@ -20,12 +32,12 @@ function LanguageSelector({ data }: LanguageSelectorProps) {
           <Link
             href={item.href}
             locale={item.locale as 'de' | 'en'}
-            className={
+            onClick={(e) => handleClick(e, item)}
+            className={`transition-opacity ${isPending ? 'opacity-50 pointer-events-none' : ''} ${
               item.isActive
                 ? 'font-bold text-white'
                 : 'text-gray-alpha-400 hover:text-gray-alpha-200'
-            }
-            prefetch={false}
+            }`}
           >
             {item.label}
           </Link>
