@@ -148,6 +148,7 @@ The website features two content types powered by Contentful CMS:
 
 - **GraphQL API integration** for efficient data fetching
 - **Rich text rendering** with custom components (CodeBlock, EmbeddedAsset, Hyperlink, Paragraph)
+- **Smart code formatting** — ≤30 chars renders inline, longer as block with copy button
 - **LaTeX support** — Use `$...$` for inline math, `$$...$$` for display math (server-side KaTeX)
 - **SEO-optimized** posts with Open Graph and Twitter Card metadata
 - **Automatic metadata generation** for social sharing and search engines
