@@ -9,6 +9,7 @@ import { routing } from '@/i18n/routing';
 import { cn } from '@/lib/utils';
 import { inter } from '@/lib/fonts';
 import '@/app/globals.css';
+import 'katex/dist/katex.min.css';
 
 type Props = {
   children: ReactNode;

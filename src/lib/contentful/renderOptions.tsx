@@ -5,6 +5,7 @@ import CodeBlock from '@/components/ui/blog/rich-text/CodeBlock';
 import Paragraph from '@/components/ui/blog/rich-text/Paragraph';
 import Hyperlink from '@/components/ui/blog/rich-text/Hyperlink';
 import EmbeddedAsset from '@/components/ui/blog/rich-text/EmbeddedAsset';
+import { parseMath } from '@/lib/rich-text-math';
 
 /**
  * Creates render options for rich text content.
@@ -79,8 +80,20 @@ export const createRenderOptions = (
       return null;
     },
   },
-  renderText: (text) =>
-    text.split('\n').reduce((children, textSegment, index) => {
+  renderText: (text) => {
+    // Check if text contains Math syntax
+    if (text.includes('$')) {
+      // Parse Math and handle line breaks
+      const lines = text.split('\n');
+      return lines.reduce((children, line, index) => {
+        const parsed = parseMath(line);
+        return [...children, index > 0 && <br key={`br-${index}`} />, ...parsed];
+      }, [] as React.ReactNode[]);
+    }
+
+    // Standard: only handle line breaks
+    return text.split('\n').reduce((children, textSegment, index) => {
       return [...children, index > 0 && <br key={index} />, textSegment];
-    }, [] as React.ReactNode[]),
+    }, [] as React.ReactNode[]);
+  },
 });
