@@ -21,6 +21,13 @@ export const createRenderOptions = (
     [MARKS.UNDERLINE]: (text) => <u>{text}</u>,
     [MARKS.CODE]: (text) => {
       const textStr = String(text);
+      if (textStr.length <= 30) {
+        return (
+          <code className="bg-gray-alpha-100 text-gray-alpha-800 px-1.5 py-0.5 rounded font-mono text-sm">
+            {text}
+          </code>
+        );
+      }
       const codeId = `code-${textStr.slice(0, 20).replace(/\s/g, '-')}`;
       return <CodeBlock text={text} handleCopy={handleCopy} copiedId={copiedId} codeId={codeId} />;
     },
